@@ -17,15 +17,15 @@ class CreateServicesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->unsignedSmallInteger('rating')->nullable();
-            $table->unsignedInteger('pricing_month');
-            $table->unsignedInteger('pricing_year');
-            $table->text('description_long');
-            $table->text('description_short');
-            $table->unsignedSmallInteger('installation_difficulty');
+            $table->unsignedInteger('pricing_month')->nullable();
+            $table->unsignedInteger('pricing_year')->nullable();
+            $table->text('description_long')->nullable();
+            $table->text('description_short')->nullable();
+            $table->unsignedSmallInteger('installation_difficulty')->nullable();
             $table->timestamps();
 
-            $table->unsignedInteger('logo_id');
-            $table->unsignedInteger('banner_id');
+            $table->unsignedInteger('logo_id')->nullable();
+            $table->unsignedInteger('banner_id')->nullable();
         });
     }
 

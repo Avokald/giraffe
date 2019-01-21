@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('services', 'ServiceController@index');
+Route::get('services/{service}', 'ServiceController@show');
+
