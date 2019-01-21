@@ -12,4 +12,9 @@ class Service extends Model
     {
         return $this->hasMany(Tariff::class);
     }
+
+    public function features()
+    {
+        return $this->hasMany(Feature::class);
+    }
 }
