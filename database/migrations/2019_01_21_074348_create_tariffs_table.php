@@ -19,8 +19,9 @@ class CreateTariffsTable extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('price_month')->nullable();
             $table->unsignedInteger('price_year')->nullable();
-            $table->binary('permissions')->nullable();
+            $table->string('permissions')->nullable();
             $table->boolean('is_on')->nullable();
+            $table->boolean('is_recommended')->default(false);
             $table->timestamps();
 
             $table->unsignedInteger('service_id');

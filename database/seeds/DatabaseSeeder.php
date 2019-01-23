@@ -11,13 +11,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Service', 1)->state('test')->make();
-        factory('App\Service', 10)->create();
+        factory(\App\Service::class, 1)->state('test')->create();
+//        factory(\App\Service::class, 10)->create();
 
-        factory(\App\Tariff::class, 3)->state('test')->make();
-        factory(\App\Tariff::class, 30)->create();
+        factory(\App\Feature::class, 7)->state('test')->create();
+//        factory(\App\Feature::class, 100)->create();
 
-        factory(\App\Feature::class, 10)->state('test')->make();
-        factory(\App\Feature::class, 100)->create();
+        factory(\App\Tariff::class, 3)->state('test')->create();
+//        factory(\App\Tariff::class, 30)->create();
+
+        factory(\App\Review::class, 3)->state('test')->create();
+//        factory(\App\Review::class, 50)->create();
     }
 }
