@@ -21,6 +21,7 @@ class CreateServicesTable extends Migration
             $table->text('description_short')->nullable();
             $table->unsignedSmallInteger('installation_difficulty')->nullable();
             $table->timestamps();
+            $table->string('slug');
 
             $table->unsignedInteger('compilation_id')->nullable();
         });
