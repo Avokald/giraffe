@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Service;
+use App\Image;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class ImageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = \App\Service::all()->chunk(10);
-        dd($services);
-        return view('service.all', ['services' => $services]);
+        //
     }
 
     /**
@@ -43,22 +41,21 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Service $service
+     * @param  \App\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show(Image $image)
     {
-        $service->reviews = $service->reviews()->with('replies')->paginate(1);
-        return view('service.layout', ['service' => $service]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(Image $image)
     {
         //
     }
@@ -67,10 +64,10 @@ class ServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Service  $service
+     * @param  \App\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Image $image)
     {
         //
     }
@@ -78,10 +75,10 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Image $image)
     {
         //
     }

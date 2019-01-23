@@ -25,6 +25,30 @@ class Service extends Model
         return $this->morphMany(Review::class, 'reviewable');
     }
 
+
+    public function screenshots()
+    {
+        return $this->morphMany(Image::class, 'imageable')
+            ->where('type', '=', 'screenshot');
+    }
+
+    public function logo()
+    {
+        return $this->morphOne(Image::class, 'imageable')
+            ->where('type', '=', 'logo');
+    }
+
+    public function banner()
+    {
+        return $this->morphOne(Image::class, 'imageable')
+            ->where('type', '=', 'banner');
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
     public function sluggable(): array
     {
         return [
