@@ -23,9 +23,13 @@ class DatabaseSeeder extends Seeder
         factory(\App\Review::class, 3)->state('test')->create();
 //        factory(\App\Review::class, 50)->create();
 
-        factory(\App\Image::class, 10)->state('test-screenshots')->create();
-        factory(\App\Image::class,  1)->state('test-logo'       )->create();
-        factory(\App\Image::class,  1)->state('test-banner'     )->create();
+        factory(\App\Image::class, 1)->state('test-logo')->create();
+        factory(\App\Image::class, 1)->state('test-banner')->create();
+        factory(\App\Image::class, 10)->state('test-screenshot')->create();
+        factory(\App\Image::class, 3)->state('test-materialImage')->create();
 
+        factory(\App\Material::class, 1)->state('test-pdf')->create();
+        factory(\App\Material::class, 1)->state('test-document')->create();
+        factory(\App\Material::class, 1)->state('test-presentation')->create();
     }
 }

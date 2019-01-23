@@ -25,6 +25,13 @@ class Service extends Model
         return $this->morphMany(Review::class, 'reviewable');
     }
 
+    /**
+     * Images of the service
+     **/
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 
     public function screenshots()
     {
@@ -44,10 +51,40 @@ class Service extends Model
             ->where('type', '=', 'banner');
     }
 
-    public function images()
+    public function materialImages()
     {
-        return $this->morphMany(Image::class, 'imageable');
+        return $this->morphMany(Image::class, 'imageable')
+            ->where('type', '=', 'materialImage');
     }
+
+
+    /**
+     * Materials of the service
+     **/
+    public function materials()
+    {
+        return $this->morphMany(Material::class, 'materiable');
+    }
+
+    public function documents()
+    {
+        return $this->morphMany(Material::class, 'materiable')
+            ->where('type', '=', 'document');
+    }
+
+    public function pdfs()
+    {
+        return $this->morphMany(Material::class, 'materiable')
+            ->where('type', '=', 'pdf');
+    }
+
+    public function presentations()
+    {
+        return $this->morphMany(Material::class, 'materiable')
+            ->where('type', '=', 'presentation');
+    }
+
+
 
     public function sluggable(): array
     {

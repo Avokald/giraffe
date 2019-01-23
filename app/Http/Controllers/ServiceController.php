@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ServiceController extends Controller
 {
@@ -43,11 +44,20 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Service $service
+     * @param  int $service_id
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show($service_id)
     {
+        $service = Service::with([
+            'reviews', 'features',
+            'tariffs', 'screenshots',
+            'logo', 'banner',
+            'materialImages',
+            'pdfs', 'documents',
+            'presentations'])
+            ->findOrFail($service_id)
+            ->get()[0];
         $service->reviews = $service->reviews()->with('replies')->paginate(1);
         return view('service.layout', ['service' => $service]);
     }

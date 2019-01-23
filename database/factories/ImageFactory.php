@@ -13,7 +13,7 @@ $factory->define(App\Image::class, function (Faker $faker) {
     ];
 });
 
-$factory->state(App\Image::class, 'test-screenshots', function(Faker $faker) {
+$factory->state(App\Image::class, 'test-screenshot', function(Faker $faker) {
     return [
         'url' => 'http://mockimage.markello.info/80/80',
         'name' => 'test-screenshot.jpg',
@@ -41,6 +41,17 @@ $factory->state(App\Image::class, 'test-banner', function(Faker $faker) {
         'name' => 'test-banner.jpg',
         'type' => 'banner',
         'alt'  => 'test banner alt',
+        'imageable_type' => \App\Service::class,
+        'imageable_id' => 1,
+    ];
+});
+
+$factory->state(App\Image::class, 'test-materialImage', function(Faker $faker) {
+    return [
+        'url' => 'http://mockimage.markello.info/690/400',
+        'name' => 'test-materialImage.jpg',
+        'type' => 'materialImage',
+        'alt'  => 'test materialImage alt',
         'imageable_type' => \App\Service::class,
         'imageable_id' => 1,
     ];
