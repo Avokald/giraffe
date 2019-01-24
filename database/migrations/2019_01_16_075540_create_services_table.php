@@ -20,6 +20,7 @@ class CreateServicesTable extends Migration
             $table->text('description_long')->nullable();
             $table->text('description_short')->nullable();
             $table->text('materials_description')->nullable();
+            $table->json('features')->nullable();
             $table->unsignedSmallInteger('installation_difficulty')->nullable();
             $table->timestamps();
             $table->string('slug');

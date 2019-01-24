@@ -8,16 +8,22 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Service extends Model
 {
     use Sluggable;
-    protected $fillable = ['name', 'rating', 'description_long', 'description_short', 'installation_difficulty'];
+    protected $fillable = [
+        'name',
+        'rating',
+        'description_long',
+        'description_short',
+        'installation_difficulty',
+        'features'
+    ];
+
+    protected $casts = [
+        'features' => 'array',
+    ];
 
     public function tariffs()
     {
         return $this->hasMany(Tariff::class);
-    }
-
-    public function features()
-    {
-        return $this->hasMany(Feature::class);
     }
 
     public function reviews()
@@ -83,6 +89,7 @@ class Service extends Model
         return $this->morphMany(Material::class, 'materiable')
             ->where('type', '=', 'presentation');
     }
+
 
 
 

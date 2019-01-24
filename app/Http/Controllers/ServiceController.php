@@ -50,7 +50,7 @@ class ServiceController extends Controller
     public function show($service_id)
     {
         $service = Service::with([
-            'reviews', 'features',
+            'reviews',
             'tariffs', 'screenshots',
             'logo', 'banner',
             'materialImages',
