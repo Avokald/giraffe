@@ -18,6 +18,13 @@ Route::get('/', function () {
 Route::get('services', 'ServiceController@index');
 Route::get('services/{service}', 'ServiceController@show');
 
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+    'middleware' => 'admin',
+], function() {
+    Route::get('services', 'ServiceController@index');
+});
 
 Auth::routes();
 

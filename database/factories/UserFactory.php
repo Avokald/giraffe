@@ -22,3 +22,23 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->state(App\User::class, 'test', function(Faker $faker) {
+    return [
+        'name' => 'Test user',
+        'email' => 'test'.$faker->unique()->safeEmailDomain(),
+        'email_verified_at' => now(),
+        'password' => \Illuminate\Support\Facades\Hash::make('1234'),
+        'remember_token' => str_random(10),
+    ];
+});
+
+$factory->state(App\User::class, 'test-admin', function(Faker $faker) {
+    return [
+        'name' => 'Test user admin',
+        'email' => 'testadmin@example.com',
+        'email_verified_at' => now(),
+        'password' => \Illuminate\Support\Facades\Hash::make('211293'),
+        'remember_token' => str_random(10),
+    ];
+});
