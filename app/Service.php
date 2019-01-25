@@ -90,7 +90,11 @@ class Service extends Model
             ->where('type', '=', 'presentation');
     }
 
-
+    public function videos()
+    {
+        return $this->morphMany(Material::class, 'materiable')
+            ->where('type', '=', 'video');
+    }
 
 
     public function sluggable(): array

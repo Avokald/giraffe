@@ -23,9 +23,43 @@
                         </div>
 
                         <div class="dzdzx">
-                            @foreach ( $service->materials as $material )
-                                <a href="{{ $material->url }}">{{ $material->name }}</a><hr>
+
+                            @foreach ( $service->pdfs as $pdf )
+                                <a href="{{ $pdf->url }}">{{ $pdf->name }}</a><hr>
                             @endforeach
+
+                            @foreach ( $service->documents as $document )
+                                <a href="{{ $document->url }}">{{ $document->name }}</a><hr>
+                            @endforeach
+
+                            @foreach ( $service->presentations as $presentation )
+                                <a href="{{ $presentation->url }}">{{ $presentation->name }}</a><hr>
+                            @endforeach
+
+                            @foreach ( $service->videos as $video )
+
+                                <h3>{{ $video->name }}</h3>
+                                <?php
+                                preg_match(
+                                    '/^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/',
+                                    $video->url,
+                                    $url_groups );
+                                ?>
+                                @if ( $url_groups[5] )
+                                    <iframe width="560"
+                                            height="315"
+                                            src="https://www.youtube.com/embed/{{ $url_groups[5] }}"
+                                            frameborder="0"
+                                            allow="accelerometer;
+                                                   autoplay;
+                                                   encrypted-media;
+                                                   gyroscope;
+                                                   picture-in-picture"
+                                            allowfullscreen >
+                                    </iframe>
+                                @endif
+                            @endforeach
+
 
                             <div class="featured_event edit">
                                 <div class="event_img">

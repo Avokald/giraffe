@@ -37,3 +37,13 @@ $factory->state(App\Material::class, 'test-document', function(Faker $faker) {
         'materiable_id' => 1,
     ];
 });
+
+$factory->state(App\Material::class, 'test-video', function(Faker $faker) {
+    return [
+        'url' => 'https://www.youtube.com/watch?v=yagzOX7VpNs',
+        'name' => 'test-video',
+        'type' => 'video',
+        'materiable_type' => \App\Service::class,
+        'materiable_id' => 1,
+    ];
+});
