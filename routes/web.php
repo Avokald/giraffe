@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('services', 'ServiceController@index');
 Route::get('services/{service}', 'ServiceController@show');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
