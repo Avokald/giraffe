@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('services', 'ServiceController@index');
-Route::get('services/{service}', 'ServiceController@show');
+Route::get('services/{service}', 'ServiceController@show')->name('services.show');
 
 Route::group([
     'prefix' => 'admin',
@@ -24,8 +24,7 @@ Route::group([
     'middleware' => 'admin',
     'as' => 'admin.',
 ], function() {
-    Route::get('services', 'ServiceController@index');
-    Route::get('services/{service}', 'ServiceController@show')->name('service');
+    Route::resource('services', 'ServiceController');
 });
 
 Auth::routes();

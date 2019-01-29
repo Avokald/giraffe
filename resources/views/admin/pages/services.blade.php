@@ -33,7 +33,7 @@
                         <td>{{ $service->created_at }}</td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <a href="{{ route('admin.service', ['id' => $service->id]) }}" class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
+                                <a href="{{ route('admin.services.edit', ['id' => $service->id]) }}" class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
                                     <i class="fa fa-pencil"></i>
                                 </a>
                                 <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove">
