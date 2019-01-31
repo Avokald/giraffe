@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($services as $service)
+                @foreach ( $services as $key => $service )
                     <tr>
                         <td>{{ $service->id }}</td>
                         <td>{{ $service->name }}</td>
@@ -33,10 +33,17 @@
                         <td>{{ $service->created_at }}</td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <a href="{{ route('admin.services.edit', ['id' => $service->id]) }}" class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
+                                <a href="{{ route('admin.services.edit', ['id' => $service->id]) }}"
+                                   class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove">
+                                <form action="{{ route('admin.services.destroy', ['id' => $service->id]) }}"
+                                      method="post" class="hidden" id="form-element-delete-{{ $key }}">
+                                    @csrf
+                                    @method('delete')
+                                </form>
+                                <button class="btn btn-xs btn-default confirm-delete" type="button" data-toggle="tooltip"
+                                        title="Remove" form="form-element-delete-{{ $key }}">
                                     <i class="fa fa-times"></i>
                                 </button>
                             </div>
