@@ -16,5 +16,17 @@ Route::get('/', function () {
 });
 
 Route::get('services', 'ServiceController@index');
-Route::get('services/{service}', 'ServiceController@show');
+Route::get('services/{service}', 'ServiceController@show')->name('services.show');
 
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+    'middleware' => 'admin',
+    'as' => 'admin.',
+], function() {
+    Route::resource('services', 'ServiceController');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

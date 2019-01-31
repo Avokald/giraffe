@@ -16,13 +16,13 @@
             <ul>
                 <?php
                 // Permissions is an array
-                $permissions =  str_split($tariff->permissions);
+                $permissions =  array_reverse(str_split($tariff->permissions));
                 ?>
                 @for ( $i = sizeof($service->features) - 1, $j = 0; $j <= $i; $j++ )
                     <?php
                     $permissions[$j] = $permissions[$j] ?? '0';
                     ?>
-                    <li class="{{ $permissions[$i - $j] ? 'yes' : 'no' }}">{{ $service->features[$j] }}</li>
+                    <li class="{{ $permissions[$j] ? 'yes' : 'no' }}">{{ $service->features[$j] }}</li>
                 @endfor
             </ul>
             <a href="" class="btn {{ $tariff->is_on ? 'btn-dark' : 'btn-primary' }} btn-block">
