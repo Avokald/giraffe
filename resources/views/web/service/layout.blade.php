@@ -1,4 +1,4 @@
-@extends('../app')
+@extends('web.app')
 
 
 
@@ -8,17 +8,17 @@
             <div class="row">
                 <div class="col-lg-8 col-md-12">
                     @section('item-preview')
-                        @include('service.partials.item_preview')
+                        @include('web.service.partials.item_preview')
                     @show
 
                     <div class="item-info">
                         @section('item-navigation')
-                            @include('service.partials.item_navigation')
+                            @include('web.service.partials.item_navigation')
                         @show
 
                         <div class="tab-content">
                             @section('product-details')
-                                @include('service.partials.product_details')
+                                @include('web.service.partials.product_details')
                             @show
                         </div>
 
@@ -141,7 +141,7 @@
                             </div>
 
                             @section('tariffs')
-                                @include('service.partials.tariffs')
+                                @include('web.service.partials.tariffs')
                             @show
 
 
@@ -154,20 +154,20 @@
                                     <ul class="media-list thread-list">
                                         @foreach ( $service->reviews as $review )
                                             <li class="single-thread">
-                                                @include('service.partials.review')
+                                                @include('web.service.partials.review')
 
                                                 <!-- nested comment markup -->
                                                 @if ( $review->replies )
                                                     <ul class="children">
                                                         @foreach ( $review->replies as $reply )
-                                                            @include('service.partials.review_reply')
+                                                            @include('web.service.partials.review_reply')
                                                         @endforeach
                                                     </ul>
                                                 @endif
 
                                                 <!-- reply to the current parent review -->
                                                 @section('review-reply-form')
-                                                    @include('service.partials.review_reply_form')
+                                                    @include('web.service.partials.review_reply_form')
                                                 @show
                                             </li>
                                             <!-- end single comment thread /.comment-->
@@ -177,7 +177,7 @@
 
                                     <!-- Start Pagination -->
                                     <nav class="pagination-default comments-pagination">
-                                        {{ $service->reviews->links('service.partials.reviews_pagination') }}
+                                        {{ $service->reviews->links('web.service.partials.reviews_pagination') }}
                                     </nav>
                                     <!-- Ends: /pagination-default -->
 
@@ -207,14 +207,14 @@
                     </div>
                 </div>
 
-                @include('service.partials.sidebar')
+                @include('web.service.partials.sidebar')
             </div>
         </div>
     </section>
 
 
     @section('related')
-        @include('service.partials.related')
+        @include('web.service.partials.related')
     @show
 
 @endsection
@@ -226,5 +226,5 @@
 @section('name', $service->name)
 @section('description-short', $service->description_short)
 
-@include('partials.variables')
+@include('web.partials.variables')
 

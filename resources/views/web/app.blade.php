@@ -35,18 +35,18 @@
 <body class="home1 mutlti-vendor">
 
 @section('header')
-    @include('partials.header')
+    @include('web.partials.header')
 @show
 
 @section('bread')
-    @include('partials.bread')
+    @include('web.partials.bread')
 @show
 
 @yield('content')
 
 
 @section('footer')
-    @include('partials.footer')
+    @include('web.partials.footer')
 @show
 {{-- TODO Footer --}}
 

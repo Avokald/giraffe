@@ -11,10 +11,12 @@ class Service extends Model
     protected $fillable = [
         'name',
         'rating',
+        'force_rating',
         'description_long',
         'description_short',
+        'materials_description',
         'installation_difficulty',
-        'features'
+        'features',
     ];
 
     protected $casts = [

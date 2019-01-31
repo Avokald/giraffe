@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('services', 'ServiceController@index');
-Route::get('services/{service}', 'ServiceController@show')->name('services.show');
+Route::get('services', 'Web\ServiceController@index');
+Route::get('services/{service}', 'Web\ServiceController@show')->name('services.show');
 
 Route::group([
     'prefix' => 'admin',
@@ -29,4 +29,4 @@ Route::group([
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Web\HomeController@index')->name('home');
