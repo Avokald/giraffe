@@ -31,7 +31,6 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $service = Service::create($request->toArray());
-        dd($service);
         return redirect()->route('admin.services.edit', ['id' => $service->id ]);
     }
 

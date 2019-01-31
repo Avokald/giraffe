@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use \App\Http\Controllers\Controller;
 
 class ServiceController extends Controller
 {
@@ -17,7 +18,7 @@ class ServiceController extends Controller
     {
         $services = \App\Service::all()->chunk(10);
         dd($services);
-        return view('service.all', ['services' => $services]);
+        return view('web.service.all', ['services' => $services]);
     }
 
     /**
@@ -59,7 +60,7 @@ class ServiceController extends Controller
             ->findOrFail($service_id)
             ->get()[0];
         $service->reviews = $service->reviews()->with('replies')->paginate(1);
-        return view('service.layout', ['service' => $service]);
+        return view('web.service.layout', ['service' => $service]);
     }
 
     /**

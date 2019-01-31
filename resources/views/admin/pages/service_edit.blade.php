@@ -107,7 +107,7 @@
                 <div class="block-content">
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <textarea id="materials_description_editor" name="material_description">
+                            <textarea id="materials_description_editor" name="materials_description">
                                 {{ $service->materials_description }}
                             </textarea>
                         </div>
