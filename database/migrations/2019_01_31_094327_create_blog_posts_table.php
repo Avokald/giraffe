@@ -15,7 +15,15 @@ class CreateBlogPostsTable extends Migration
     {
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->text('content');
+            $table->unsignedBigInteger('view_count')->default(0);
             $table->timestamps();
+
+            $table->unsignedInteger('author_id');
+            $table->unsignedInteger('banner')->nullable();
+
+            $table->string('slug');
         });
     }
 

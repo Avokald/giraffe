@@ -14,7 +14,7 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        //
+        $blogposts = BlogPost::all();
     }
 
     /**
@@ -42,11 +42,22 @@ class BlogPostController extends Controller
      * Display the specified resource.
      *
      * @param  \App\BlogPost  $blogPost
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function show(BlogPost $blogPost)
     {
-        //
+        return [
+            $blogPost->id,
+            $blogPost->title,
+            $blogPost->content,
+            $blogPost->created_at,
+            $blogPost->slug,
+            $blogPost->view_count,
+            $blogPost->author_id,
+            $blogPost->banner
+        ];
+
+        // return view('web.blog.layout', ['blog' => $blogPost]);
     }
 
     /**

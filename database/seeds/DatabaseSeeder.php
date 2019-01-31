@@ -34,5 +34,8 @@ class DatabaseSeeder extends Seeder
 //        factory(\App\Admin::class, 1)->state('test-moderator')->create();
 
         factory(\App\User::class, 10)->state('test')->create();
+
+
+        factory(\App\BlogPost::class, 1)->state('test')->create();
     }
 }
