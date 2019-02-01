@@ -30,6 +30,7 @@ Route::group([
 ], function() {
     Route::resource('services', 'ServiceController');
     Route::resource('blog', 'BlogPostController');
+    Route::resource('tags', 'TagController');
 });
 
 Auth::routes();
