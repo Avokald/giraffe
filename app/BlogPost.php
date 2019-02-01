@@ -26,6 +26,10 @@ class BlogPost extends Model
         return $this->morphOne(Image::class, 'imageable');
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 
     public function sluggable(): array
     {

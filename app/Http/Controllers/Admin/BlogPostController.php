@@ -48,18 +48,23 @@ class BlogPostController extends Controller
 
     public function edit($blogpost_id)
     {
-        $blogpost = BlogPost::findOrFail($blogpost_id);
-        return view('admin.pages.blog.blogpost_edit', ['blogpost' => $blogpost]);
+        $blogpost = BlogPost::with('tags')->findOrFail($blogpost_id);
+        $all_tags = \App\Tag::all()->toArray();
+        return view('admin.pages.blog.blogpost_edit', ['blogpost' => $blogpost, 'all_tags' => $all_tags]);
     }
 
     public function update(Request $request, int $blogpost_id)
     {
         $blogpost = BlogPost::findOrFail($blogpost_id);
         $requestArray = $request->toArray();
-        if ($requestArray['banner_new']) {
-            $requestArray['banner'] = $requestArray['banner_new'];
-            // TODO Image upload handling
+        $blogpost->tags()->detach();
+        foreach ( $requestArray['tags'] as $tag ) {
+            $blogpost->tags()->attach($tag);
         }
+//        if ($requestArray['banner_new']) {
+//            $requestArray['banner'] = $requestArray['banner_new'];
+//            // TODO Image upload handling
+//        }
         $blogpost->update($requestArray);
         $blogpost->save();
         return redirect()->route('admin.blog.edit', ['blogpost' => $blogpost]);

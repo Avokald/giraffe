@@ -26,6 +26,26 @@
 
             <div class="block">
                 <div class="block-header">
+                    <h3>Tags</h3>
+                </div>
+                <div class="block-content">
+                    <select name="tags[]" multiple>
+                        <?php $blogpost_tags = $blogpost->tags->toArray();
+                        $filtered_tags = array_map(function($el) { return $el['id']; }, $blogpost_tags); ?>
+                        @foreach ( $all_tags as $tag )
+                            <option value="{{ $tag['id'] }}"
+                                    {{ in_array( $tag['id'], $filtered_tags)
+                                       ? ' selected' : '' }}>
+                                {{ $tag['name'] }}
+                            </option>
+                            {{ print_r($tag) }}
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="block-header">
                     <h3>Content Excerpt</h3>
                 </div>
                 <div class="block-content block-content-full">
