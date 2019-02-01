@@ -34,5 +34,20 @@ class DatabaseSeeder extends Seeder
 //        factory(\App\Admin::class, 1)->state('test-moderator')->create();
 
         factory(\App\User::class, 10)->state('test')->create();
+
+
+        factory(\App\BlogPost::class, 5)->state('test')->create();
+
+        factory(\App\Tag::class, 5)->state('test')->create();
+
+        foreach ( \App\Tag::all() as $tag ) {
+            $blogpost = \App\BlogPost::all()->random();
+            $tag->blogposts()->attach($blogpost->id);
+        }
+
+        foreach ( \App\Tag::all() as $tag ) {
+            $blogpost = \App\BlogPost::all()->random();
+            $tag->blogposts()->attach($blogpost->id);
+        }
     }
 }
