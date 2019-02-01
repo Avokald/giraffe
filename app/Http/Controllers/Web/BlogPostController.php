@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\BlogPost;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class BlogPostController extends Controller
 {
@@ -15,82 +16,22 @@ class BlogPostController extends Controller
     public function index()
     {
         $blogposts = BlogPost::all();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        dd($blogposts);
+        return view('web.blog.archive_layout', ['blogposts' => $blogposts]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\BlogPost  $blogPost
+     * @param  int  $blogPost_id
      * @return array
      */
-    public function show(BlogPost $blogPost)
+    public function show(int $blogPost_id)
     {
-        return [
-            $blogPost->id,
-            $blogPost->title,
-            $blogPost->content,
-            $blogPost->created_at,
-            $blogPost->slug,
-            $blogPost->view_count,
-            $blogPost->author_id,
-            $blogPost->banner
-        ];
-
-        // return view('web.blog.layout', ['blog' => $blogPost]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\BlogPost  $blogPost
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BlogPost $blogPost)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\BlogPost  $blogPost
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BlogPost $blogPost)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\BlogPost  $blogPost
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BlogPost $blogPost)
-    {
-        //
+        $blogpost = BlogPost::findOrFail($blogPost_id);
+        $blogpost->view_count++;
+        $blogpost->save();
+        dd($blogpost);
+        return view('web.blog.layout', ['blogpost' => $blogpost]);
     }
 }

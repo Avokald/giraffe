@@ -29,6 +29,7 @@ Route::group([
     'as' => 'admin.',
 ], function() {
     Route::resource('services', 'ServiceController');
+    Route::resource('blog', 'BlogPostController');
 });
 
 Auth::routes();

@@ -11,7 +11,6 @@ class BlogPost extends Model
     protected $guarded = [
         'id',
         'view_count',
-
     ];
 
     protected $fillable = [
@@ -21,6 +20,11 @@ class BlogPost extends Model
         'banner',
         'author_id',
     ];
+
+    public function banner()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 
 
     public function sluggable(): array
