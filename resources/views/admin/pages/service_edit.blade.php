@@ -76,9 +76,9 @@
                     <div class="form-group">
                         <div class="col-xs-12">
                             <!-- CKEditor Container -->
-                            <textarea name="description_short">
-                                {{ $service->description_short }}
-                            </textarea>
+                            <textarea name="description_short" style="min-width: 100%;" >{{
+                                $service->description_short
+                            }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -91,9 +91,9 @@
                 <div class="block-content">
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <textarea id="description_long_editor" name="description_long">
-                                {{ $service->description_long }}
-                            </textarea>
+                            <textarea id="description_long_editor" name="description_long">{{
+                                $service->description_long
+                            }}</textarea>
                         </div>
                     </div>
                 </div>
