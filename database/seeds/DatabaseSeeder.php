@@ -49,5 +49,14 @@ class DatabaseSeeder extends Seeder
             $blogpost = \App\BlogPost::all()->random();
             $tag->blogposts()->attach($blogpost->id);
         }
+
+        factory(\App\Page::class, 1)->state('test')->create();
+
+        factory(\App\PageElementType::class, 1)->state('test-text')->create();
+        factory(\App\PageElementType::class, 1)->state('test-phone')->create();
+
+        factory(\App\PageElement::class, 1)->state('test-text')->create();
+        factory(\App\PageElement::class, 1)->state('test-phone')->create();
+
     }
 }

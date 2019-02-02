@@ -21,7 +21,6 @@ Route::get('services/{service}', 'Web\ServiceController@show')->name('services.s
 Route::get('blog', 'Web\BlogPostController@index')->name('blogpost.index');
 Route::get('blog/{slug}', 'Web\BlogPostController@show')->name('blogpost.show');
 
-
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
@@ -31,8 +30,11 @@ Route::group([
     Route::resource('services', 'ServiceController');
     Route::resource('blog', 'BlogPostController');
     Route::resource('tags', 'TagController');
+    Route::resource('pages', 'PageController');
 });
 
 Auth::routes();
 
 Route::get('/home', 'Web\HomeController@index')->name('home');
+
+Route::get('{page}', 'Web\PageController@show')->name('page.show');
