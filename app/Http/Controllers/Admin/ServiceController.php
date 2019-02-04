@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\Service;
@@ -37,7 +38,20 @@ class ServiceController extends Controller
     public function create()
     {
         $service = new Service();
-        return view('admin.pages.service_edit', ['service' => $service]);
+        $categories = Category::all();
+        return view('admin.pages.service_edit', ['service' => $service, 'categories' => $categories]);
+    }
+
+    /**
+     * Returns view for editing Service
+     * @param $service_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit($service_id)
+    {
+        $service = Service::with('tariffs', 'category')->findOrFail($service_id);
+        $categories = Category::all();
+        return view('admin.pages.service_edit', ['service' => $service, 'categories' => $categories]);
     }
 
     /**
@@ -49,18 +63,7 @@ class ServiceController extends Controller
     {
         $service->fill(request()->toArray());
         $service->save();
-        return redirect()->route('services.show', ['service' => $service]);
-    }
-
-    /**
-     * Returns view for editing Service
-     * @param $service_id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function edit($service_id)
-    {
-        $service = Service::with('tariffs')->findOrFail($service_id);
-        return view('admin.pages.service_edit', ['service' => $service]);
+        return redirect()->route('admin.services.edit', ['service' => $service]);
     }
 
     /**

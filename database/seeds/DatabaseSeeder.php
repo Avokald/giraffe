@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        factory(\App\Category::class, 1)->state('test')->create();
+//        factory(\App\Category::class, 5)->create();
+
         factory(\App\Service::class, 1)->state('test')->create();
 //        factory(\App\Service::class, 10)->create();
 
@@ -49,5 +52,7 @@ class DatabaseSeeder extends Seeder
             $blogpost = \App\BlogPost::all()->random();
             $tag->blogposts()->attach($blogpost->id);
         }
+
+
     }
 }

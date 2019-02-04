@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::get('services', 'Web\ServiceController@index');
 Route::get('services/{service}', 'Web\ServiceController@show')->name('services.show');
 
+Route::get('categories', 'Web\CategoryController@index');
+Route::get('categories/{category}', 'Web\CategoryController@show');
+
 Route::get('blog', 'Web\BlogPostController@index')->name('blogpost.index');
 Route::get('blog/{slug}', 'Web\BlogPostController@show')->name('blogpost.show');
 
@@ -31,6 +34,7 @@ Route::group([
     Route::resource('services', 'ServiceController');
     Route::resource('blog', 'BlogPostController');
     Route::resource('tags', 'TagController');
+    Route::resource('categories', 'CategoryController');
 });
 
 Auth::routes();

@@ -35,6 +35,24 @@
 
             <div class="block">
                 <div class="block-header">
+                    <h3>Category</h3>
+                </div>
+                <div class="block-content">
+                    <select name="category_id">
+                        @foreach ( $categories as $category )
+                            <option value="{{ $category->id }}"
+                                    {{ ($category->id == $service->category->id)
+                                       ? ' selected' : '' }}>
+                                {{ $category['name'] }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="block">
+                <div class="block-header">
                     <h3>Features</h3>
                 </div>
                 <div class="block-content repeater">

@@ -27,6 +27,7 @@ class CreateServicesTable extends Migration
             $table->string('slug');
 
             $table->unsignedInteger('compilation_id')->nullable();
+            $table->unsignedInteger('category_id')->nullable();
         });
     }
 
