@@ -15,7 +15,13 @@ class CreateServiceCompilationsTable extends Migration
     {
         Schema::create('service_compilations', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->unsignedInteger('price_month')->nullable();
+            $table->unsignedInteger('price_year')->nullable();
             $table->timestamps();
+
+            $table->string('slug');
         });
     }
 

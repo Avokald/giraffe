@@ -14,8 +14,15 @@ class DatabaseSeeder extends Seeder
         factory(\App\Category::class, 1)->state('test')->create();
 //        factory(\App\Category::class, 5)->create();
 
+        factory(\App\ServiceCompilation::class, 1)->state('test')->create();
+//        factory(\App\ServiceCompilation::class, 10)->create();
+
         factory(\App\Service::class, 1)->state('test')->create();
 //        factory(\App\Service::class, 10)->create();
+
+        foreach ( \App\ServiceCompilation::all() as $compilation ) {
+            $compilation->services()->attach( \App\Service::all()->random()->id );
+        }
 
         factory(\App\Tariff::class, 3)->state('test')->create();
 //        factory(\App\Tariff::class, 30)->create();

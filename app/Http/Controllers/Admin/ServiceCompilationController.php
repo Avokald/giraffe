@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Service;
 use App\ServiceCompilation;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,9 @@ class ServiceCompilationController extends Controller
      */
     public function index()
     {
-        //
+        $compilations = ServiceCompilation::all();
+        dd($compilations);
+        return view(); // TODO front
     }
 
     /**
@@ -25,7 +28,12 @@ class ServiceCompilationController extends Controller
      */
     public function create()
     {
-        //
+        $compilation = new ServiceCompilation();
+        $all_services = Service::all();
+        return view('admin.pages.compilations.compilation_edit', [
+            'compilation' => $compilation,
+            'all_services' => $all_services,
+        ]);
     }
 
     /**
@@ -36,29 +44,26 @@ class ServiceCompilationController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\ServiceCompilation  $serviceCompilation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ServiceCompilation $serviceCompilation)
-    {
-        //
+        $compilation = ServiceCompilation::create($request->toArray());
+        return redirect()->route('admin.compilations.edit', [
+            'compilation' => $compilation->id,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ServiceCompilation  $serviceCompilation
+     * @param  int $serviceCompilationId
      * @return \Illuminate\Http\Response
      */
-    public function edit(ServiceCompilation $serviceCompilation)
+    public function edit(int $serviceCompilationId)
     {
-        //
+        $compilation = ServiceCompilation::with('services')->findOrFail($serviceCompilationId);
+        $all_services = Service::all();
+        return view('admin.pages.compilations.compilation_edit', [
+            'compilation'  => $compilation,
+            'all_services' => $all_services,
+        ]);
     }
 
     /**
@@ -68,19 +73,26 @@ class ServiceCompilationController extends Controller
      * @param  \App\ServiceCompilation  $serviceCompilation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServiceCompilation $serviceCompilation)
+    public function update(Request $request, int $serviceCompilationId)
     {
-        //
-    }
+        $requestArray = $request->toArray() ?? [];
+        dd($request);
+        $serviceCompilation = ServiceCompilation::findOrFail($serviceCompilationId);
+        $serviceCompilation->update($request->toArray());
+        $serviceCompilation->save();
+        return redirect()->route('admin.compilations.edit', ['serviceCompilationId' => $serviceCompilation->id]);
+     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ServiceCompilation  $serviceCompilation
+     * @param  int $serviceCompilationId
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServiceCompilation $serviceCompilation)
+    public function destroy(int $serviceCompilationId)
     {
-        //
+        $serviceCompilation = ServiceCompilation::findOrFail($serviceCompilationId);
+        $serviceCompilation->delete();
+        return redirect()->route('admin.compilations.index');
     }
 }
