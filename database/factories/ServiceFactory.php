@@ -14,6 +14,7 @@ $factory->define(App\Service::class, function (Faker $faker) {
         'materials_description'   => $faker->text(500),
         'features'                => $features,
         'installation_difficulty' => $faker->numberBetween(1, 10),
+        'category_id'             => \App\Category::all()->random()->id,
     ];
 });
 
@@ -29,5 +30,6 @@ $factory->state(App\Service::class, 'test', function(Faker $faker) {
         'materials_description'   => $faker->text(500),
         'features'                => $features,
         'installation_difficulty' => 5,
+        'category_id'             => 1,
     ];
 });

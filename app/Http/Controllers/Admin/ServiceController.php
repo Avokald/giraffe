@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
+use App\ServiceCompilation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\Service;
@@ -37,19 +39,13 @@ class ServiceController extends Controller
     public function create()
     {
         $service = new Service();
-        return view('admin.pages.service_edit', ['service' => $service]);
-    }
-
-    /**
-     * Updates given field of the Service
-     * @param Service $service
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function update(Service $service)
-    {
-        $service->fill(request()->toArray());
-        $service->save();
-        return redirect()->route('services.show', ['service' => $service]);
+        $all_categories = Category::all();
+        $all_compilations = ServiceCompilation::all();
+        return view('admin.pages.service_edit', [
+            'service' => $service,
+            'all_categories' => $all_categories,
+            'all_compilations' => $all_compilations,
+        ]);
     }
 
     /**
@@ -59,8 +55,27 @@ class ServiceController extends Controller
      */
     public function edit($service_id)
     {
-        $service = Service::with('tariffs')->findOrFail($service_id);
-        return view('admin.pages.service_edit', ['service' => $service]);
+        $service = Service::with('tariffs', 'category')->findOrFail($service_id);
+        $all_categories = Category::all();
+        $all_compilations = ServiceCompilation::all();
+        return view('admin.pages.service_edit', [
+            'service' => $service,
+            'all_categories' => $all_categories,
+            'all_compilations' => $all_compilations,
+        ]);
+    }
+
+    /**
+     * Updates given field of the Service
+     * @param Service $service
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, Service $service)
+    {
+        $service->compilations()->sync($request->compilations);
+        $service->fill($request->toArray());
+        $service->save();
+        return redirect()->route('admin.services.edit', ['service' => $service]);
     }
 
     /**

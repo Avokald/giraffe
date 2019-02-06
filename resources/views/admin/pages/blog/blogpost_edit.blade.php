@@ -38,7 +38,6 @@
                                        ? ' selected' : '' }}>
                                 {{ $tag['name'] }}
                             </option>
-                            {{ print_r($tag) }}
                         @endforeach
                     </select>
                 </div>

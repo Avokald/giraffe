@@ -17,11 +17,22 @@ class Service extends Model
         'materials_description',
         'installation_difficulty',
         'features',
+        'category_id',
     ];
 
     protected $casts = [
         'features' => 'array',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function compilations()
+    {
+        return $this->belongsToMany(ServiceCompilation::class);
+    }
 
     public function tariffs()
     {
