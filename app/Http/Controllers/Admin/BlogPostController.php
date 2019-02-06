@@ -57,10 +57,7 @@ class BlogPostController extends Controller
     {
         $blogpost = BlogPost::findOrFail($blogpost_id);
         $requestArray = $request->toArray();
-        $blogpost->tags()->detach();
-        foreach ( $requestArray['tags'] as $tag ) {
-            $blogpost->tags()->attach($tag);
-        }
+        $blogpost->tags()->sync($requestArray['tags']);
 //        if ($requestArray['banner_new']) {
 //            $requestArray['banner'] = $requestArray['banner_new'];
 //            // TODO Image upload handling
