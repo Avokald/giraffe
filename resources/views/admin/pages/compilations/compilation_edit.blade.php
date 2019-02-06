@@ -81,7 +81,7 @@
 @endpush
 
 
-    @push('scripts')
+@push('scripts')
     <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
     <script src="/public/admin/assets/js/plugins/select2/select2.full.min.js"></script>
 

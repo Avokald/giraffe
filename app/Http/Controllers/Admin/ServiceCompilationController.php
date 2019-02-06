@@ -75,9 +75,8 @@ class ServiceCompilationController extends Controller
      */
     public function update(Request $request, int $serviceCompilationId)
     {
-        $requestArray = $request->toArray() ?? [];
-        dd($request);
         $serviceCompilation = ServiceCompilation::findOrFail($serviceCompilationId);
+        $serviceCompilation->services()->sync($request->services);
         $serviceCompilation->update($request->toArray());
         $serviceCompilation->save();
         return redirect()->route('admin.compilations.edit', ['serviceCompilationId' => $serviceCompilation->id]);

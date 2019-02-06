@@ -29,6 +29,11 @@ class Service extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
+    public function compilations()
+    {
+        return $this->belongsToMany(ServiceCompilation::class);
+    }
+
     public function tariffs()
     {
         return $this->hasMany(Tariff::class);

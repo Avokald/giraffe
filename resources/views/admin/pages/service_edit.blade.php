@@ -38,17 +38,42 @@
                     <h3>Category</h3>
                 </div>
                 <div class="block-content">
-                    <select name="category_id">
-                        @foreach ( $categories as $category )
-                            <option value="{{ $category->id }}"
-                                    {{ ($category->id == $service->category->id)
-                                       ? ' selected' : '' }}>
+                    <select name="category_id" class="js-select2 form-control">
+                        <option value="">Без категории</option>
+                        @foreach ( $all_categories as $category )
+                            <option value="{{ $category['id'] }}"
+                                    @if ( $service->category )
+                                        {{ ($category['id'] == $service->category->id)
+                                           ? ' selected' : '' }}
+                                    @endif
+                            >
                                 {{ $category['name'] }}
                             </option>
                         @endforeach
                     </select>
                 </div>
             </div>
+
+            <div class="block">
+                <div class="block-header">
+                    <h3>Compilations</h3>
+                </div>
+                <div class="block-content">
+                    <select name="compilations[]" class="js-select2 form-control" multiple>
+                        <?php
+                        $service_compilations = $service->compilations->toArray();
+                        $filtered_service_compilations = array_map(function($el) { return $el['id']; }, $service_compilations); ?>
+                        @foreach ( $all_compilations as $compilation )
+                            <option value="{{ $compilation['id'] }}"
+                                    {{ in_array($compilation['id'], $filtered_service_compilations)
+                                       ? ' selected' : '' }}>
+                                {{ $compilation['name'] }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
 
 
             <div class="block">
@@ -146,9 +171,20 @@
     {!! sprintf($feature_item_format, "") !!}
 @endpush
 
+@push('styles')
+    <link rel="stylesheet" href="/public/admin/assets/js/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="/public/admin/assets/js/plugins/select2/select2-bootstrap.min.css">
+@endpush
+
 @push('scripts')
     <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
+    <script src="/public/admin/assets/js/plugins/select2/select2.full.min.js"></script>
+
     <script>
+        jQuery(function () {
+            App.initHelpers(['select2']);
+        });
+
         ClassicEditor
             .create(document.querySelector("#description_long_editor"))
             .catch( error => {

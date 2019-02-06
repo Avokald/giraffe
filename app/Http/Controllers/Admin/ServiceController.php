@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\ServiceCompilation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \App\Service;
@@ -38,8 +39,13 @@ class ServiceController extends Controller
     public function create()
     {
         $service = new Service();
-        $categories = Category::all();
-        return view('admin.pages.service_edit', ['service' => $service, 'categories' => $categories]);
+        $all_categories = Category::all();
+        $all_compilations = ServiceCompilation::all();
+        return view('admin.pages.service_edit', [
+            'service' => $service,
+            'all_categories' => $all_categories,
+            'all_compilations' => $all_compilations,
+        ]);
     }
 
     /**
@@ -50,8 +56,13 @@ class ServiceController extends Controller
     public function edit($service_id)
     {
         $service = Service::with('tariffs', 'category')->findOrFail($service_id);
-        $categories = Category::all();
-        return view('admin.pages.service_edit', ['service' => $service, 'categories' => $categories]);
+        $all_categories = Category::all();
+        $all_compilations = ServiceCompilation::all();
+        return view('admin.pages.service_edit', [
+            'service' => $service,
+            'all_categories' => $all_categories,
+            'all_compilations' => $all_compilations,
+        ]);
     }
 
     /**
@@ -59,9 +70,10 @@ class ServiceController extends Controller
      * @param Service $service
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Service $service)
+    public function update(Request $request, Service $service)
     {
-        $service->fill(request()->toArray());
+        $service->compilations()->sync($request->compilations);
+        $service->fill($request->toArray());
         $service->save();
         return redirect()->route('admin.services.edit', ['service' => $service]);
     }
