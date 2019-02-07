@@ -15,7 +15,7 @@ $factory->define(App\Image::class, function (Faker $faker) {
 
 $factory->state(App\Image::class, 'test-screenshot', function(Faker $faker) {
     return [
-        'url' => 'http://mockimage.markello.info/80/80',
+        'url' => '/public/images/thumb1.jpg',
         'name' => 'test-screenshot.jpg',
         'type' => 'screenshot',
         'alt'  => 'test screenshot alt',
@@ -26,7 +26,7 @@ $factory->state(App\Image::class, 'test-screenshot', function(Faker $faker) {
 
 $factory->state(App\Image::class, 'test-logo', function(Faker $faker) {
     return [
-        'url' => 'http://mockimage.markello.info/250/250',
+        'url' => 'https://via.placeholder.com/250x250',
         'name' => 'test-logo.jpg',
         'type' => 'logo',
         'alt'  => 'test logo alt',
@@ -37,7 +37,7 @@ $factory->state(App\Image::class, 'test-logo', function(Faker $faker) {
 
 $factory->state(App\Image::class, 'test-banner', function(Faker $faker) {
     return [
-        'url' => 'http://mockimage.markello.info/1920/446',
+        'url' => 'https://via.placeholder.com/1920x446',
         'name' => 'test-banner.jpg',
         'type' => 'banner',
         'alt'  => 'test banner alt',
@@ -48,7 +48,7 @@ $factory->state(App\Image::class, 'test-banner', function(Faker $faker) {
 
 $factory->state(App\Image::class, 'test-materialImage', function(Faker $faker) {
     return [
-        'url' => 'http://mockimage.markello.info/690/400',
+        'url' => 'https://via.placeholder.com/690x400',
         'name' => 'test-materialImage.jpg',
         'type' => 'materialImage',
         'alt'  => 'test materialImage alt',
