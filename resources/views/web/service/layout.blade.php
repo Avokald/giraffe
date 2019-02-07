@@ -1,8 +1,37 @@
 @extends('web.app')
 
 
-
 @section('content')
+    <!--================================
+        START BREADCRUMB AREA
+    =================================-->
+    <section class="breadcrumb-area borzx" style="background-image: url({{ $service->banner->url }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 breadcrumb-contents">
+                    @section('bread')
+                        @include('web.partials.bread')
+                    @show
+                    <div class="borzx__flex">
+                        <div class="borzx__image">
+                            <img src="{{ $service->logo->url }}" alt="{{ $service->logo->alt }}">
+                        </div>
+                        <div class="borzx__content">
+                            <div class="borzx__name">{{ $service->name }}</div>
+                            <div class="borzx__text">{{ $service->description_short }}</div>
+                            <a href="" class="borzx__btn btn btn-lg btn-primary">Подключить</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end /.col-md-12 -->
+            </div>
+            <!-- end /.row -->
+        </div>
+        <!-- end /.container -->
+    </section>
+    <!--================================
+        END BREADCRUMB AREA
+    =================================-->
     <section class="single-product-desc">
         <div class="container">
             <div class="row">
@@ -177,7 +206,7 @@
 
                                     <!-- Start Pagination -->
                                     <nav class="pagination-default comments-pagination">
-                                        {{ $service->reviews->links('web.service.partials.reviews_pagination') }}
+                                        {{ $service->reviews->links('web.partials.partials.reviews_pagination') }}
                                     </nav>
                                     <!-- Ends: /pagination-default -->
 
@@ -219,12 +248,5 @@
 
 @endsection
 
-@section('title', $service->name)
-@section('logo-link', $service->logo->url)
-@section('logo-alt', $service->logo->alt)
-@section('banner-link', $service->banner->url)
 @section('name', $service->name)
-@section('description-short', $service->description_short)
-
-@include('web.partials.variables')
 

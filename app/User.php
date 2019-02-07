@@ -19,6 +19,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
+    // TODO Status field, twitter, linkedin, facebook, googleplus, photo
 
     /**
      * The attributes that should be hidden for arrays.

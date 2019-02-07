@@ -10,6 +10,11 @@ class Admin extends Model
 
     public function metadata()
     {
-        return $this->belongsTo(\App\User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function blogposts()
+    {
+        return $this->hasMany(Blogpost::class);
     }
 }
