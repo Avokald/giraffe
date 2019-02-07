@@ -23,7 +23,7 @@ Route::get('categories', 'Web\CategoryController@index')->name('categories.index
 Route::get('categories/{category}', 'Web\CategoryController@show')->name('categories.show');
 
 Route::get('compilations', 'Web\ServiceCompilationController@index')->name('compilations.index');
-Route::get('compilations/{service_compilation}', 'Web\ServiceCompilationController@show')->name('compilations.show');
+Route::get('compilations/{compilation}', 'Web\ServiceCompilationController@show')->name('compilations.show');
 
 Route::get('blog', 'Web\BlogPostController@index')->name('blogpost.index');
 Route::get('blog/{blog_post}', 'Web\BlogPostController@show')->name('blogpost.show');
