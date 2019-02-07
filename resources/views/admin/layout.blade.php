@@ -7,11 +7,7 @@
     <!-- viewport meta -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title')</title>
-    <meta charset="utf-8">
 
-    <meta name="description" content="OneUI - Admin Dashboard Template &amp; UI Framework created by pixelcave and published on Themeforest">
-    <meta name="author" content="pixelcave">
-    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     @push('icons')
@@ -162,17 +158,20 @@
 <!-- Page Plugins -->
 <script src="/public/admin/assets/js/plugins/chartjs/Chart.min.js"></script>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<script src="/public/admin/assets/js/be.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
+@stack('scripts')
 <!-- Page JS Code -->
 <script>
     jQuery(function () {
         // Init page helpers (CountTo plugin)
         App.initHelpers('appear-countTo');
     });
-</script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<script src="/public/admin/assets/js/be.js"></script>
-@stack('scripts')
+    @stack('script')
+</script>
 
 </body>
 </html>
