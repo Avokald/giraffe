@@ -38,10 +38,6 @@
     @include('web.partials.header')
 @show
 
-@section('bread')
-    @include('web.partials.bread')
-@show
-
 @yield('content')
 
 

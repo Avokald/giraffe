@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\BlogPost;
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,9 +16,18 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $blogposts = BlogPost::all();
-        dd($blogposts);
-        return view('web.blog.archive_layout', ['blogposts' => $blogposts]);
+        // TODO Pagination
+        $blogposts = BlogPost::paginate(2);
+        $allTags = Tag::all();
+        $latestBlogposts = BlogPost::latest()->limit(3)->get();
+        $popularBlogposts = BlogPost::orderBy('view_count', 'desc')->take(3)->get();
+//        dd($blogposts);
+        return view('web.blog.layout_archive', [
+            'blogposts' => $blogposts,
+            'allTags' => $allTags,
+            'latestBlogposts' => $latestBlogposts,
+            'popularBlogposts' => $popularBlogposts,
+        ]);
     }
 
     /**
@@ -26,12 +36,17 @@ class BlogPostController extends Controller
      * @param  int  $blogPost_id
      * @return array
      */
-    public function show(int $blogPost_id)
+    public function show(string $blogPostSlug)
     {
-        $blogpost = BlogPost::findOrFail($blogPost_id);
+        $blogpost = BlogPost::with('tags')->where('slug', '=', $blogPostSlug)->first();
+        $latestBlogposts = BlogPost::latest()->limit(3)->get();
+        $popularBlogposts = BlogPost::orderBy('view_count', 'desc')->take(3)->get();
         $blogpost->view_count++;
         $blogpost->save();
-        dd($blogpost);
-        return view('web.blog.layout', ['blogpost' => $blogpost]);
+        return view('web.blog.layout_single', [
+            'blogpost' => $blogpost,
+            'latestBlogposts' => $latestBlogposts,
+            'popularBlogposts' => $popularBlogposts,
+        ]);
     }
 }

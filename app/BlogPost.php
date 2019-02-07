@@ -21,6 +21,10 @@ class BlogPost extends Model
         'author_id',
     ];
 
+    protected $with = [
+        'author',
+    ];
+
     public function banner()
     {
         return $this->morphOne(Image::class, 'imageable');
@@ -29,6 +33,11 @@ class BlogPost extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(Admin::class, 'author_id', 'id');
     }
 
     public function sluggable(): array
