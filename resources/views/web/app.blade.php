@@ -34,6 +34,7 @@
 
 <body class="home1 mutlti-vendor">
 
+{{-- TODO Insert data --}}
 @section('header')
     @include('web.partials.header')
 @show
@@ -41,10 +42,10 @@
 @yield('content')
 
 
+{{-- TODO Insert data --}}
 @section('footer')
     @include('web.partials.footer')
 @show
-{{-- TODO Footer --}}
 
 <!--//////////////////// JS GOES HERE ////////////////-->
 

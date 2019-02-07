@@ -206,7 +206,7 @@
 
                                     <!-- Start Pagination -->
                                     <nav class="pagination-default comments-pagination">
-                                        {{ $service->reviews->links('web.partials.partials.reviews_pagination') }}
+                                        {{ $service->reviews->links('web.partials.pagination') }}
                                     </nav>
                                     <!-- Ends: /pagination-default -->
 
