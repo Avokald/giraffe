@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
 Route::get('services', 'Web\ServiceController@index')->name('services.index');
 Route::get('services/{service}', 'Web\ServiceController@show')->name('services.show');
 
@@ -41,10 +42,7 @@ Route::group([
     Route::resource('categories', 'CategoryController');
     Route::resource('compilations', 'ServiceCompilationController');
 });
-Route::get('/home', 'Web\HomeController@index')->name('home');
+Route::get('home', 'Web\HomeController@index')->name('home');
 
 Route::get('{page}', 'Web\PageController@show')->name('page.show');
 
-
-Auth::routes();
-Route::get('home', 'Web\HomeController@index')->name('home');

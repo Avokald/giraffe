@@ -14,6 +14,7 @@ $factory->state(App\PageElement::class, 'test-phone', function(Faker $faker) {
         'name' => 'phone_numbers',
         'values' => ['87777777777', ],
         'page_element_type_id' => 2,
+        'page_id' => 1,
     ];
 });
 
@@ -22,5 +23,6 @@ $factory->state(App\PageElement::class, 'test-text', function(Faker $faker) {
         'name' => 'subtitles',
         'values' => ['some long ass text for text field',],
         'page_element_type_id' => 1,
+        'page_id' => 1,
     ];
 });

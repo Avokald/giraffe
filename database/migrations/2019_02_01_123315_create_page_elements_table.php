@@ -15,21 +15,12 @@ class CreatePageElementsTable extends Migration
     {
         Schema::create('page_elements', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->json('values');
             $table->timestamps();
-
             $table->unsignedInteger('page_id');
             $table->unsignedInteger('page_element_type_id');
 
-            $table->foreign('page_id')
-                ->references('id')
-                ->on('pages')
-                ->onDelete('cascade');
-
-            $table->foreign('page_element_type_id')
-                ->references('id')
-                ->on('page_element_types')
-                ->onDelete('cascade');
         });
     }
 

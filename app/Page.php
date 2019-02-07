@@ -31,7 +31,7 @@ class Page extends Model
 
     public function pageElements()
     {
-        return $this->hasMany(\App\PageElementType::class );
+        return $this->hasMany(\App\PageElement::class );
     }
 
     public function sluggable(): array

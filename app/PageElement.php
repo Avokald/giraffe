@@ -10,6 +10,7 @@ class PageElement extends Model
         'name',
         'values',
         'page_id',
+        'page_element_type_id',
     ];
 
     protected $casts = [
@@ -27,8 +28,6 @@ class PageElement extends Model
 
     public function page()
     {
-        return $this->belongsTo( \App\Page::class );
+        return $this->belongsTo(\App\Page::class);
     }
-
-
 }
