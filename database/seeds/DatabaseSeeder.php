@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         factory(\App\Service::class, 1)->state('test')->create();
 //        factory(\App\Service::class, 10)->create();
 
-        foreach ( \App\ServiceCompilation::all() as $compilation ) {
-            $compilation->services()->attach( \App\Service::all()->random()->id );
+        foreach (\App\ServiceCompilation::all() as $compilation) {
+            $compilation->services()->attach(\App\Service::all()->random()->id);
         }
 
         factory(\App\Tariff::class, 3)->state('test')->create();
@@ -50,16 +50,21 @@ class DatabaseSeeder extends Seeder
 
         factory(\App\Tag::class, 5)->state('test')->create();
 
-        foreach ( \App\Tag::all() as $tag ) {
+        foreach (\App\Tag::all() as $tag) {
             $blogpost = \App\BlogPost::all()->random();
             $tag->blogposts()->attach($blogpost->id);
         }
 
-        foreach ( \App\Tag::all() as $tag ) {
+        foreach (\App\Tag::all() as $tag) {
             $blogpost = \App\BlogPost::all()->random();
             $tag->blogposts()->attach($blogpost->id);
         }
+        factory(\App\Page::class, 1)->state('test')->create();
 
+        factory(\App\PageElementType::class, 1)->state('test-text')->create();
+        factory(\App\PageElementType::class, 1)->state('test-phone')->create();
 
+        factory(\App\PageElement::class, 1)->state('test-text')->create();
+        factory(\App\PageElement::class, 1)->state('test-phone')->create();
     }
 }

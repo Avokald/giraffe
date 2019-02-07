@@ -7,11 +7,7 @@
     <!-- viewport meta -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title')</title>
-    <meta charset="utf-8">
 
-    <meta name="description" content="OneUI - Admin Dashboard Template &amp; UI Framework created by pixelcave and published on Themeforest">
-    <meta name="author" content="pixelcave">
-    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     @push('icons')
@@ -21,20 +17,18 @@
     @endpush
 
 
-    @push('styles')
-        <!-- Stylesheets -->
-        <!-- Web fonts -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+    <!-- Stylesheets -->
+    <!-- Web fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
 
-        <!-- Bootstrap and OneUI CSS framework -->
-        <link rel="stylesheet" href="/public/admin/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" id="css-main" href="/public/admin/assets/css/oneui.css">
+    <!-- Bootstrap and OneUI CSS framework -->
+    <link rel="stylesheet" href="/public/admin/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" id="css-main" href="/public/admin/assets/css/oneui.css">
 
-        <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-        <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
-        <!-- END Stylesheets -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-    @endpush
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 
     @stack('icons')
 
@@ -149,33 +143,35 @@
     @stack('hidden')
 </div>
 
-@push('scripts')
-    <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
-    <script src="/public/admin/assets/js/core/jquery.min.js"></script>
-    <script src="/public/admin/assets/js/core/bootstrap.min.js"></script>
-    <script src="/public/admin/assets/js/core/jquery.slimscroll.min.js"></script>
-    <script src="/public/admin/assets/js/core/jquery.scrollLock.min.js"></script>
-    <script src="/public/admin/assets/js/core/jquery.appear.min.js"></script>
-    <script src="/public/admin/assets/js/core/jquery.countTo.min.js"></script>
-    <script src="/public/admin/assets/js/core/jquery.placeholder.min.js"></script>
-    <script src="/public/admin/assets/js/core/js.cookie.min.js"></script>
-    <script src="/public/admin/assets/js/app.js"></script>
 
-    <!-- Page Plugins -->
-    <script src="/public/admin/assets/js/plugins/chartjs/Chart.min.js"></script>
+<!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+<script src="/public/admin/assets/js/core/jquery.min.js"></script>
+<script src="/public/admin/assets/js/core/bootstrap.min.js"></script>
+<script src="/public/admin/assets/js/core/jquery.slimscroll.min.js"></script>
+<script src="/public/admin/assets/js/core/jquery.scrollLock.min.js"></script>
+<script src="/public/admin/assets/js/core/jquery.appear.min.js"></script>
+<script src="/public/admin/assets/js/core/jquery.countTo.min.js"></script>
+<script src="/public/admin/assets/js/core/jquery.placeholder.min.js"></script>
+<script src="/public/admin/assets/js/core/js.cookie.min.js"></script>
+<script src="/public/admin/assets/js/app.js"></script>
 
-    <!-- Page JS Code -->
-    <script>
-        jQuery(function () {
-            // Init page helpers (CountTo plugin)
-            App.initHelpers('appear-countTo');
-        });
-    </script>
+<!-- Page Plugins -->
+<script src="/public/admin/assets/js/plugins/chartjs/Chart.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <script src="/public/admin/assets/js/be.js"></script>
-@endpush
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<script src="/public/admin/assets/js/be.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
 @stack('scripts')
+<!-- Page JS Code -->
+<script>
+    jQuery(function () {
+        // Init page helpers (CountTo plugin)
+        App.initHelpers('appear-countTo');
+    });
+
+    @stack('script')
+</script>
+
 </body>
 </html>
