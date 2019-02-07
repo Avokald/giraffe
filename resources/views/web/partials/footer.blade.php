@@ -33,16 +33,17 @@
                                 <h5 class="footer-widget-title">Популярные категории</h5>
                                 <ul>
                                     <li>
-                                        <a href="#">Каталог сервисов</a>
+                                        <a href="{{ route('services.index') }}">Каталог сервисов</a>
                                     </li>
                                     <li>
-                                        <a href="#">Подборки</a>
+                                        <a href="{{ route('compilations.index') }}">Подборки</a>
                                     </li>
                                     <li>
-                                        <a href="#">Блог</a>
+                                        <a href="{{ route('blogpost.index') }}">Блог</a>
                                     </li>
                                     <li>
-                                        <a href="#">О нас</a>
+                                        {{-- TODO Pages --}}
+                                        <a href="{{ route('home') }}">О нас</a>
                                     </li>
                                 </ul>
                             </div>
