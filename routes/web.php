@@ -44,5 +44,28 @@ Route::group([
 });
 Route::get('home', 'Web\HomeController@index')->name('home');
 
+
+// TODO Refactor
+Route::get('about', function () {
+    return view('web.templates.about');
+});
+
+Route::get('/', function () {
+    return view('web.templates.index');
+});
+
+Route::get('contacts', function () {
+    $page = \App\Page::findOrFail(2);
+    return view('web.templates.contacts', [
+        'page' => $page,
+    ]);
+});
+
+Route::get('faq', function () {
+    $page = \App\Page::findOrFail(1);
+    dd($page);
+    return view('web.templates.faq');
+});
+
 Route::get('{page}', 'Web\PageController@show')->name('page.show');
 

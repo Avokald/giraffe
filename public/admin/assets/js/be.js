@@ -28,7 +28,6 @@ jQuery(function() {
     });
 
     $("body").on("click", ".repeater-delete-el", function(event) {
-        console.log('clicked');
         event.preventDefault();
 
         $(this).closest(".repeater-item").remove();

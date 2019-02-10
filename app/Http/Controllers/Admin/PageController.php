@@ -10,8 +10,8 @@ class PageController extends Controller
 {
     public function index()
     {
-        $pages = Page::all(); // TODO Pagination
-        dd($pages);
+        $pages = Page::paginate(10); // TODO Pagination
+        return view('admin.pages.custom.pages', ['pages' => $pages]);
     }
 
     public function create()
@@ -22,7 +22,8 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
-        // TODO
+        $page = Page::create($request->toArray());
+        return redirect()->route('admin.pages.edit', $page);
     }
 
     public function edit(int $page_id)
@@ -34,16 +35,20 @@ class PageController extends Controller
 
     public function update(Request $request, int $page_id)
     {
-        dd($request);
         $page = Page::findOrFail($page_id);
         $page->update($request->toArray());
         $page->save();
+        foreach ( $request->page_elements as $element_name => $element_value ) {
+            $element = $page->getElementByName($element_name);
+            $element->values = $element_value;
+            $element->save();
+        }
         return redirect()->route('admin.pages.edit', ['page_id' => $page_id]);
-        // TODO
     }
 
     public function destroy(int $page_id)
     {
+        dd($page_id);
         // TODO
     }
 

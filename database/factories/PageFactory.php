@@ -11,10 +11,10 @@ $factory->define(App\Page::class, function (Faker $faker) {
 });
 
 
-$factory->state(App\Page::class, 'test', function(Faker $faker) {
+$factory->state(App\Page::class, 'contacts', function(Faker $faker) {
     return [
-        'title' => 'about',
-        'content' => 'content',
-        'template' => 'web.pages.template.about',
+        'title' => 'Contacts',
+        'content' => '',
+        'template' => 'web.pages.template.contacts',
     ];
 });

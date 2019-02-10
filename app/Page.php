@@ -24,10 +24,10 @@ class Page extends Model
         return 'slug';
     }
 
-//    public function getElementValues( string $field_name )
-//    {
-//        return $this->pageElementTypes()->where('name', '=', $field_name)->get()->pageElemets;
-//    }
+    public function getElementByName( string $field_name )
+    {
+        return $this->pageElements()->where('name', '=', $field_name)->first();
+    }
 
     public function pageElements()
     {
