@@ -24,12 +24,6 @@
                 <a href="{{ $singleRoute }}">{{ $product->name }}</a>
             </h5>
             <ul class="titlebtm">
-                <li>
-                    <img class="auth-img" src="/public/images/auth-img2.png" alt="author image">
-                    <p>
-                        <a href="#">Theme-Valley</a>
-                    </p>
-                </li>
                 @if ( $product->category )
                     <li class="product_cat">
                         in
@@ -39,7 +33,7 @@
             </ul>
             <ul class="product-facts clearfix">
                 <li class="price">
-                    $20
+                    {{ $product->price_month }}
                 </li>
                 <li class="sells">
                     <span class="icon-basket"></span>
