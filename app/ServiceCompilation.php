@@ -14,6 +14,7 @@ class ServiceCompilation extends Model
         'price_month',
         'price_year',
         'slug',
+        'category_id',
     ];
 
     protected $with = [

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\ServiceCompilation::class, 10)->create();
 
         factory(\App\Service::class, 1)->state('test')->create();
-        factory(\App\Service::class, 10)->create();
+        factory(\App\Service::class, 50)->create();
 
         foreach (\App\ServiceCompilation::all() as $compilation) {
             $compilation->services()->attach(\App\Service::all()->random()->id);
@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
             $tag->blogposts()->attach($blogpost->id);
         }
 
-        factory(\App\Page::class, 1)->state('test')->create();
+        factory(\App\Page::class, 1)->state('contacts')->create();
 
         factory(\App\PageElementType::class, 1)->state('test-text')->create();
         factory(\App\PageElementType::class, 1)->state('test-phone')->create();

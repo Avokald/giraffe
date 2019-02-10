@@ -24,6 +24,14 @@ class Service extends Model
         'features' => 'array',
     ];
 
+    public function getPriceMonthAttribute()
+    {
+        if ( $this->tariffs->first() ) {
+            return $this->tariffs()->first()->price_month;
+        }
+        return "???";
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
