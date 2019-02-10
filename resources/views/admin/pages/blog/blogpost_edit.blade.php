@@ -76,19 +76,21 @@
 
 
 
-@push('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector("#content"))
-            .catch( error => {
-                console.error( error );
-            });
+@push('script')
+    ClassicEditor
+        .create(document.querySelector("#content"), {
+            extraPlugins: [ MyCustomUploadAdapterPlugin ],
+        })
 
-        ClassicEditor
-            .create(document.querySelector("#excerpt"))
-            .catch( error => {
-                console.error( error );
-            });
-    </script>
+        .catch( error => {
+            console.error( error );
+        });
+
+    ClassicEditor
+        .create(document.querySelector("#excerpt"), {
+            extraPlugins: [ MyCustomUploadAdapterPlugin ],
+        })
+        .catch( error => {
+            console.error( error );
+        });
 @endpush
