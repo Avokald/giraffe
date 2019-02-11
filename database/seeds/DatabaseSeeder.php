@@ -72,11 +72,47 @@ class DatabaseSeeder extends Seeder
         }
 
         factory(\App\Page::class, 1)->state('contacts')->create();
+        factory(\App\Page::class, 1)->state('about')->create();
+        factory(\App\Page::class, 1)->state('index')->create();
+        factory(\App\Page::class, 1)->state('faq')->create();
+        factory(\App\Page::class, 1)->state('404')->create();
 
-        factory(\App\PageElementType::class, 1)->state('test-text')->create();
-        factory(\App\PageElementType::class, 1)->state('test-phone')->create();
+        factory(\App\PageElementType::class, 1)->state('text')->create();
+        factory(\App\PageElementType::class, 1)->state('editor')->create();
+        factory(\App\PageElementType::class, 1)->state('repeater')->create();
+        factory(\App\PageElementType::class, 1)->state('map')->create();
+        factory(\App\PageElementType::class, 1)->state('multifield')->create();
+        factory(\App\PageElementType::class, 1)->state('image')->create();
+        factory(\App\PageElementType::class, 1)->state('file')->create();
 
-        factory(\App\PageElement::class, 1)->state('test-text')->create();
-        factory(\App\PageElement::class, 1)->state('test-phone')->create();
+        factory(\App\PageElement::class, 1)->state('contacts-phone-numbers')->create();
+        factory(\App\PageElement::class, 1)->state('contacts-addresses')->create();
+        factory(\App\PageElement::class, 1)->state('contacts-email-addresses')->create();
+        factory(\App\PageElement::class, 1)->state('contacts-map')->create();
+
+        factory(\App\PageElement::class, 1)->state('about-video-button-text')->create();
+        factory(\App\PageElement::class, 1)->state('about-video-button-link')->create();
+        factory(\App\PageElement::class, 1)->state('about-video-button')->create();
+
+        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-text')->create();
+        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-image')->create();
+        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-multifield')->create();
+
+//      TODO Make it as a repeater
+        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-text')->create();
+        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-image')->create();
+        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-multifield')->create();
+
+//        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image')->create();
+
+
+//        factory(\App\PageElement::class, 1)->state('about-video-button-link')->create();
+//        factory(\App\PageElement::class, 1)->state('about-apply-button-text')->create();
+//        factory(\App\PageElement::class, 1)->state('about-apply-button-link')->create();
+//        factory(\App\PageElement::class, 1)->state('about-block-w-aside-1-text')->create();
+//        factory(\App\PageElement::class, 1)->state('about-block-w-aside-1-image')->create();
+//        factory(\App\PageElement::class, 1)->state('about-block-w-aside-2-text')->create();
+//        factory(\App\PageElement::class, 1)->state('about-block-w-aside-2-image')->create();
+
     }
 }

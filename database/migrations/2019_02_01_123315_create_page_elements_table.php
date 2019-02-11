@@ -17,10 +17,11 @@ class CreatePageElementsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->json('values');
+            $table->string('html_id')->nullable();
+            $table->boolean('hidden')->default(false);
             $table->timestamps();
-            $table->unsignedInteger('page_id');
+            $table->unsignedInteger('page_id')->nullable();
             $table->unsignedInteger('page_element_type_id');
-
         });
     }
 

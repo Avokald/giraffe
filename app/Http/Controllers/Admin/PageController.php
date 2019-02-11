@@ -40,9 +40,21 @@ class PageController extends Controller
         $page->save();
         foreach ( $request->page_elements as $element_name => $element_value ) {
             $element = $page->getElementByName($element_name);
-            $element->values = $element_value;
-            $element->save();
+            if ( $element->page_element_type_id == 5 ) {
+                foreach ( $element_value as $subelement_name => $subelement_value ) {
+                    $subelement = $page->getElementByName($subelement_name);
+                    $subelement->values = $subelement_value;
+                    $subelement->save();
+                }
+            }
+            else {
+                $element->values = $element_value;
+                $element->save();
+            }
         }
+
+
+
         return redirect()->route('admin.pages.edit', ['page_id' => $page_id]);
     }
 

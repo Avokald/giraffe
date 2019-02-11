@@ -16,6 +16,8 @@ class CreatePageElementTypesTable extends Migration
         Schema::create('page_element_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('template');
+            $table->timestamps();
         });
     }
 

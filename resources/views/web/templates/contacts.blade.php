@@ -164,6 +164,6 @@
         <!-- end /.container -->
     </section>
 
-    <div id="map" data-lat="{{ $page->getElementByName("map")->values['lat'] }}" data-lng="{{ $page->getElementByName("map")['lng'] }}"></div>
+    <div id="map" data-lat="{{ $page->getElementByName("map")->values['lat'] }}" data-lng="{{ $page->getElementByName("map")->values['lng'] }}"></div>
     <!-- end /.map -->
 @endsection

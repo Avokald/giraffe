@@ -15,15 +15,15 @@
                     <div class="about_hero_contents">
                         @include('web.partials.bread')
                         <h1 class="display-4">Добро пожаловать в
-                            <span>SoftBox</span> {{-- $page->getElementByName("title")->values[0] --}}
+                            <span>SoftBox</span> {{-- $page->content --}}
                         </h1>
                         <p class="display-4">Мы помогаем маркетологам создавать продукты
                         </p>
 
                         <div class="about_hero_btns">
                             <a href="#" class="play_btn btn btn--lg btn-primary" data-toggle="modal" data-target="#myModal"
-                               data-theVideo="https://www.youtube.com/embed/lvtfD_rJ2hE">
-                                <span class="icon-control-play"></span> Смотреть видео</a>
+                               data-theVideo="{{ $page->getElementByName("about_video_button_link")->values }}">
+                                <span class="icon-control-play"></span> {{ $page->getElementByName("about_video_button_text")->values }}</a>
                             <a href="#" class="btn btn-light btn--lg">Присоединяйтесь К Нам Сегодня</a>
                         </div>
                     </div>
@@ -47,16 +47,9 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
-                        <div class="content_area m-bottom-md">
-                            <h1 class="content_area--title">О
-                                <span class="highlight"> SoftBox</span>
-                            </h1>
-                            <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler isque the mattis,
-                                leo quam aliquet congue this there placerat mi id nisi they interdum mollis. Praesent
-                                pharetra justo ut sceleris que the mattis. <br><br> Leo quam aliquet. Nunc placer atmi id nisi interdum mollis
-                                quam. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                                invidunt sanctus est Lorem ipsum dolor sit amet consetetur sadipscing.</p>
-                        </div>
+                        <div class="content_area m-bottom-md">{!!
+                        $page->getElementByName("block_with_image_on_side_1_text")->values
+                        !!}</div>
                     </div>
                     <!-- end /.col-md-5 -->
                     <div class="col-lg-6 offset-lg-1">
@@ -76,16 +69,9 @@
                         <img src="images/ab2.jpg" alt="" class="img-fluid">
                     </div>
                     <div class="col-lg-5 offset-lg-1">
-                        <div class="content_area">
-                            <h1 class="content_area--title">
-                                <span class="highlight">Миссия </span> SoftBox
-                            </h1>
-                            <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler isque the mattis,
-                                leo quam aliquet congue this there placerat mi id nisi they interdum mollis. Praesent
-                                pharetra justo ut sceleris que thes. <br><br> Mattis leo quam aliquet. Nunc placer atmi id nisi interdum mollis
-                                quam. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                                invidunt sanctus est Lorem ipsum dolor sit amet consetetur sadipscing.</p>
-                        </div>
+                        <div class="content_area">{!!
+                        $page->getElementByName("block_with_image_on_side_2_text")->values
+                        !!}</div>
                     </div>
                     <!-- end /.col-md-6 -->
                 </div>

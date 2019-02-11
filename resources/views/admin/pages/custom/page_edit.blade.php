@@ -43,36 +43,30 @@
                     ])
 
 
-                    @include('admin.partials.repeater', [
-                        'label' => 'Addresses',
-                        'name' => 'page_elements[addresses][]',
-                        'class' => 'addresses-item',
-                        'type' => 'text',
-                        'element' => $page->getElementByName("addresses"),
-                    ])
+                    @foreach ( $page->pageElements as $element )
+                        @if ( !$element->hidden )
+                            @include($element->pageElementType->template, [
+                                'label' => ucfirst(str_replace('_', ' ', $element->name)),
+                                'name' => "page_elements[$element->name]",
+                                'class' => "$element->name-item",
+                                'type' => $element->pageElementType->name,
+                                'id' => $element->html_id,
+                                'element' => $element,
+                                'value' => $element->values ?? '',
+                            ])
+                        @endif
+                    @endforeach
 
-                    @include('admin.partials.repeater', [
-                        'label' => 'Phone numbers',
-                        'name' => 'page_elements[phone_numbers][]',
-                        'class' => 'phone-number-item',
-                        'type' => 'text',
-                        'element' => $page->getElementByName('phone_numbers'),
-                    ])
+                    {{--@include('admin.partials.team_repeater', [--}}
+                        {{--'label' => 'Team',--}}
+                        {{--'name' => "page_elements[team]",--}}
+                        {{--'class' => "team-item",--}}
+                        {{--'type' => 'text',--}}
+                        {{--'id' => null,--}}
+                        {{--'element' => $page->getElementByName("team"),--}}
+                    {{--])--}}
 
-                    @include('admin.partials.repeater', [
-                        'label' => 'Email addresses',
-                        'name' => 'page_elements[email_addresses][]',
-                        'class' => 'email-addresses-item',
-                        'type' => 'text',
-                        'element' => $page->getElementByName('email_addresses'),
-                    ])
 
-                    @include('admin.partials.map', [
-                            'label' => 'Map',
-                            'name' => 'page_elements[map]',
-                            'element' => $page->getElementByName("map"),
-                            'id' => 'loc',
-                    ])
 
                     <button>Submit</button>
                 </form>

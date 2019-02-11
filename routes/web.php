@@ -47,15 +47,25 @@ Route::get('home', 'Web\HomeController@index')->name('home');
 
 // TODO Refactor
 Route::get('about', function () {
-    return view('web.templates.about');
+    $page = \App\Page::findOrFail('2');
+    return view('web.templates.about', [
+        'page' => $page,
+    ]);
 });
 
 Route::get('/', function () {
-    return view('web.templates.index');
+    $page = \App\Page::findOrFail(3);
+    $best_services = \App\Service::limit(3)->get();
+    $best_compilations = \App\ServiceCompilation::limit(3)->get();
+    return view('web.templates.index', [
+        'page' => $page,
+        'best_services' => $best_services,
+        'best_compilations' => $best_compilations,
+    ]);
 });
 
 Route::get('contacts', function () {
-    $page = \App\Page::findOrFail(2);
+    $page = \App\Page::findOrFail(1);
     return view('web.templates.contacts', [
         'page' => $page,
     ]);

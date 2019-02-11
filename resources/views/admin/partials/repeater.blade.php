@@ -2,10 +2,11 @@
     <div class="col-sm-12">
         <div class="form-material">
             <div class="repeater-list">
-                @if ( isset($value->values) )
-                    @foreach ( $value->values as $key => $value )
+                @if ( isset($element->values) )
+                    @foreach ( $element->values as $key => $value )
                         <div class="{{ $class }} repeater-item">
-                            <br><input type="{{ $type }}" name="{{ $name }}" value="{{ $value }}">
+                            <br><input type="{{ $type }}" name="{{ $name }}[]" value="{{ $value }}">
+
                             <button class="repeater-delete-el">X</button>
                         </div>
                     @endforeach

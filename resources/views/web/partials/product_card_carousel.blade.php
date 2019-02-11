@@ -22,7 +22,7 @@
             <a href="{{ $singleRoute }}">{{ $product->name }}</a>
         </h5>
         <ul class="titlebtm">
-            @if ( $service->category )
+            @if ( $product->category )
                 <li class="product_cat">
                     in
                     <a href="{{ route( 'categories.show', $product->category->slug ) }}">{{

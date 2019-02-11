@@ -2,8 +2,8 @@
     <div class="col-sm-12">
         <div class="">
             <label>{{ $label }}</label>
-            <input type="text" id="lat" name="{{ $name }}[lat]" value="{{ $element->values['lat'] }}"><br>
-            <input type="text" id="lng" name="{{ $name }}[lng]" value="{{ $element->values['lng'] }}"><br>
+            Latitude: <input type="text" id="lat" name="{{ $name }}[lat]" value="{{ $element->values ? $element->values['lat'] : '' }}"><br>
+            Longitude: <input type="text" id="lng" name="{{ $name }}[lng]" value="{{ $element->values ? $element->values['lng'] : '' }}"><br>
             <div id="{{ $id }}-map"></div>
         </div>
     </div>
