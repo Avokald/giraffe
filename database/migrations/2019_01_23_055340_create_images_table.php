@@ -21,7 +21,7 @@ class CreateImagesTable extends Migration
             $table->string('type', 30)->nullable();
             $table->timestamps();
 
-            $table->morphs('imageable');
+            $table->nullableMorphs('imageable');
         });
     }
 

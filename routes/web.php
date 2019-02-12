@@ -41,6 +41,9 @@ Route::group([
     Route::resource('pages', 'PageController');
     Route::resource('categories', 'CategoryController');
     Route::resource('compilations', 'ServiceCompilationController');
+
+    Route::post('image-upload', 'Ajax\ImageController@store')->name('image.store');
+    Route::delete('image-delete', 'Ajax\ImageController@destroy')->name('image.destroy');
 });
 Route::get('home', 'Web\HomeController@index')->name('home');
 

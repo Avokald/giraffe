@@ -33,4 +33,25 @@ jQuery(function() {
         $(this).closest(".repeater-item").remove();
     });
 
+    $("body").on("change", ".ajax-image-upload", function () {
+        var it = $(this);
+        if (this.files && this.files[0]) {
+            console.log('sending');
+            console.log(this.files);
+            var data = new FormData();
+            data.append('image', this.files[0]);
+            $.ajax({
+                method: 'POST',
+                url: ajax_image_upload_url,
+                data: data,
+                success: function (response) {
+                    it.siblings(".ajax-image-id").val(response);
+                },
+                cache: false,
+                contentType: false,
+                processData: false,
+            });
+        }
+    });
+
 });

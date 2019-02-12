@@ -1,11 +1,13 @@
 <div class="form-group">
     <div class="col-sm-12">
         <div class="form-material">
-            <input class="form-control image-ajax-upload"
+            <input class="form-control ajax-image-upload"
                    type="file"
-                   name="{{ $name }}"
-                   value="{{ $value }}"
                    accept="image/png, image/jpeg">
+            <input class="ajax-image-id"
+                   type="hidden"
+                   name="{{ $name }}"
+                   value="{{ $value }}">
             <label>{{ $label }}</label>
             {{--<div class="help-block">This is a help block!</div>--}}
         </div>
