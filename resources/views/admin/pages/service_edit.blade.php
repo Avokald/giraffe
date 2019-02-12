@@ -171,14 +171,7 @@
     {!! sprintf($feature_item_format, "") !!}
 @endpush
 
-@push('styles')
-    <link rel="stylesheet" href="/public/admin/assets/js/plugins/select2/select2.min.css">
-    <link rel="stylesheet" href="/public/admin/assets/js/plugins/select2/select2-bootstrap.min.css">
-@endpush
-
 @push('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
-    <script src="/public/admin/assets/js/plugins/select2/select2.full.min.js"></script>
 
     <script>
         jQuery(function () {

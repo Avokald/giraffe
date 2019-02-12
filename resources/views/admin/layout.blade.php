@@ -9,6 +9,7 @@
     <title>@yield('title')</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @push('icons')
         <!-- Icons -->
@@ -29,6 +30,8 @@
     <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
     <!-- END Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="/public/admin/assets/js/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="/public/admin/assets/js/plugins/select2/select2-bootstrap.min.css">
 
     @stack('icons')
 
@@ -162,12 +165,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <script src="/public/admin/assets/js/be.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
+<script src="/public/admin/assets/js/plugins/select2/select2.full.min.js"></script>
 @stack('scripts')
 <!-- Page JS Code -->
+
+<script>
+    var ajax_image_upload_url = '{{ route('admin.image.store') }}';
+    var ajax_image_delete_url = '{{ route('admin.image.destroy') }}';
+    @stack('js-vars')
+</script>
+
 <script>
     jQuery(function () {
         // Init page helpers (CountTo plugin)
         App.initHelpers('appear-countTo');
+    });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
     });
 
 
