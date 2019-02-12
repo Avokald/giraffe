@@ -29,10 +29,10 @@
                     <h3>Tags</h3>
                 </div>
                 <div class="block-content">
-                    <select name="tags[]" multiple>
+                    <select name="tags[]" class="js-select2 form-control" multiple>
                         <?php $blogpost_tags = $blogpost->tags->toArray();
                         $filtered_tags = array_map(function($el) { return $el['id']; }, $blogpost_tags); ?>
-                        @foreach ( $all_tags as $tag )
+                        @foreach ( $allTags as $tag )
                             <option value="{{ $tag['id'] }}"
                                     {{ in_array( $tag['id'], $filtered_tags)
                                        ? ' selected' : '' }}>
@@ -48,9 +48,9 @@
                     <h3>Content Excerpt</h3>
                 </div>
                 <div class="block-content block-content-full">
-                    <textarea id="excerpt" name="excerpt">
-                        {{ $blogpost->excerpt }}
-                    </textarea>
+                    <textarea class="form-control" name="excerpt">{{
+                        $blogpost->excerpt
+                    }}</textarea>
                 </div>
             </div>
 
@@ -65,6 +65,12 @@
                 </div>
             </div>
 
+            @include('admin.partials.image', [
+                'label' => 'Banner image',
+                'name' => 'banner',
+                'value' => $blogpost->banner->id ?? '',
+            ])
+
             <div class="block">
                 <div class="block-content">
                     <button>Submit</button>
@@ -77,19 +83,15 @@
 
 
 @push('script')
+    jQuery(function () {
+        App.initHelpers(['select2']);
+    });
+
     ClassicEditor
         .create(document.querySelector("#content"), {
             extraPlugins: [ MyCustomUploadAdapterPlugin ],
         })
 
-        .catch( error => {
-            console.error( error );
-        });
-
-    ClassicEditor
-        .create(document.querySelector("#excerpt"), {
-            extraPlugins: [ MyCustomUploadAdapterPlugin ],
-        })
         .catch( error => {
             console.error( error );
         });

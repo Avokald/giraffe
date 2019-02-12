@@ -61,10 +61,13 @@
                                 <li>
                                     <div class="thumbnail_img">
                                         {{-- TODO Banner --}}
-                                        <span><img src="/public/images/blog_thumb1.jpg" alt="blog thumbnail"></span>
+                                        <span><img src="{{
+                                        $blogpost->banner
+                                        ? $blogpost->banner->url
+                                        : '' }}" alt="blog thumbnail"></span>
                                     </div>
                                     <div class="title_area">
-                                        <a href="#">
+                                        <a href="{{ route('blogpost.show', $blogpost->slug) }}">
                                             <h6>{{ $blogpost->title }}</h6>
                                         </a>
                                         <div class="date_time">
@@ -85,15 +88,18 @@
                                 <li>
                                     <div class="thumbnail_img">
                                         {{-- TODO Banner --}}
-                                        <span><img src="/public/images/blog_thumb1.jpg" alt="blog thumbnail"></span>
+                                        <span><img src="{{
+                                        $blogpost->banner
+                                        ? $blogpost->banner->url
+                                        : '' }}" alt="blog thumbnail"></span>
                                     </div>
                                     <div class="title_area">
-                                        <a href="#">
+                                        <a href="{{ route('blogpost.show', $blogpost->slug) }}">
                                             <h6>{{ $blogpost->title }}</h6>
                                         </a>
                                         <div class="date_time">
                                             <span class="icon-clock"></span>
-                                            <p>{{ $blogpost->created_at->diffForHumans() }}</p>
+                                            <p>{{ $blogpost->created_at->toFormattedDateString() }}</p>
                                         </div>
                                     </div>
                                 </li>

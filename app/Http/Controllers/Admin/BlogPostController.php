@@ -35,22 +35,39 @@ class BlogPostController extends Controller
     public function create()
     {
         $blogpost = new BlogPost();
-        return view('admin.pages.blog.blogpost_edit', ['blogpost' => $blogpost]);
+        $allTags = \App\Tag::all()->toArray();
+        return view('admin.pages.blog.blogpost_edit', [
+            'blogpost' => $blogpost,
+            'allTags' => $allTags,
+        ]);
     }
 
     public function store(Request $request)
     {
         $request = $request->toArray();
-        $request['author_id'] = Auth::user()->id;
+        $request['author_id'] = Auth::user()->id; // TODO set user
+
         $blogpost = BlogPost::create($request);
+
+        if ($request['banner']) {
+            $blogpost->updateBanner($request['banner']);
+        }
+
+        if (array_key_exists('tags', $request)) {
+            $blogpost->tags()->sync($request['tags']);
+        }
+
         return redirect()->route('admin.blog.edit', ['blogpost' => $blogpost]);
     }
 
     public function edit($blogpost_id)
     {
         $blogpost = BlogPost::with('tags')->findOrFail($blogpost_id);
-        $all_tags = \App\Tag::all()->toArray();
-        return view('admin.pages.blog.blogpost_edit', ['blogpost' => $blogpost, 'all_tags' => $all_tags]);
+        $allTags = \App\Tag::all()->toArray();
+        return view('admin.pages.blog.blogpost_edit', [
+            'blogpost' => $blogpost,
+            'allTags' => $allTags,
+        ]);
     }
 
     public function update(Request $request, int $blogpost_id)
@@ -58,10 +75,11 @@ class BlogPostController extends Controller
         $blogpost = BlogPost::findOrFail($blogpost_id);
         $requestArray = $request->toArray();
         $blogpost->tags()->sync($requestArray['tags']);
-//        if ($requestArray['banner_new']) {
-//            $requestArray['banner'] = $requestArray['banner_new'];
-//            // TODO Image upload handling
-//        }
+
+        if (($requestArray['banner'] && !$blogpost->banner) || ($requestArray['banner'] != $blogpost->banner)) {
+            $blogpost->updateBanner($requestArray['banner']);
+        }
+
         $blogpost->update($requestArray);
         $blogpost->save();
         return redirect()->route('admin.blog.edit', ['blogpost' => $blogpost]);

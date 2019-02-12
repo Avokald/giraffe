@@ -33,9 +33,11 @@
                 <div class="col-lg-8 col-md-12">
                     <div class="single_blog blog--default">
                         <article>
-                            <figure>
-                                <img src="/public/images/bb1.jpg" alt="Blog image">
-                            </figure>
+                            @if ($blogpost->banner)
+                                <figure>
+                                    <img src="{{ $blogpost->banner->url }}" alt="{{ $blogpost->banner->alt }}">
+                                </figure>
+                            @endif
                             <div class="blog__content">
                                 <a href="#" class="blog__title">
                                     <h3>{{ $blogpost->title }}</h3>
@@ -46,7 +48,7 @@
                             </div>
 
                             <div class="single_blog_content">
-                                {!! $blogpost->content !!}
+                                {{ $blogpost->excerpt }}
 
                                 {{-- TODO insert data--}}
                                 @include('web.blog.partials.share')
