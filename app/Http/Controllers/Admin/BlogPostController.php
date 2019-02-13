@@ -73,15 +73,7 @@ class BlogPostController extends Controller
     public function update(Request $request, int $blogpost_id)
     {
         $blogpost = BlogPost::findOrFail($blogpost_id);
-        $requestArray = $request->toArray();
-        $blogpost->tags()->sync($requestArray['tags']);
-
-        if (($requestArray['banner'] && !$blogpost->banner) || ($requestArray['banner'] != $blogpost->banner)) {
-            $blogpost->updateBanner($requestArray['banner']);
-        }
-
-        $blogpost->update($requestArray);
-        $blogpost->save();
+        $blogpost->updateMain($request->toArray());
         return redirect()->route('admin.blog.edit', ['blogpost' => $blogpost]);
     }
 

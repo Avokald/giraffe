@@ -39,14 +39,22 @@ class BlogPost extends Model
         return $this->belongsTo(Admin::class, 'author_id', 'id');
     }
 
-    public function updateBanner(int $banner_id)
+    public function updateMain(array $request)
     {
-        $this->banner ? $this->banner->delete() : null;
+        $this->tags()->sync($request['tags']);
 
-        $banner = Image::findOrFail($banner_id);
-        $banner->imageable_type = BlogPost::class;
-        $banner->imageable_id = $this->id;
-        $banner->save();
+        if (($request['banner'] && !$this->banner) || ($request['banner'] != $this->banner->id)) {
+            $image = Image::findOrFail($request['banner']);
+            $image->updateParent([
+                'type' => $this->banner ? $this->banner->type : null,
+                'imageable_type' => static::class,
+                'imageable_id' => $this->id,
+                'old_banner' => $this->banner,
+            ]);
+        }
+
+        $this->update($request);
+        $this->save();
     }
 
     public function sluggable(): array

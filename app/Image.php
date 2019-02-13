@@ -28,11 +28,23 @@ class Image extends Material
         $path = $file->storeAs(
             'public\\images\\'. $folder_name . '\\' . $subfolder_name,
             $image->id.'.'.$image_extention);
-//        $image->url = '/i/'.$folder_name.$subfolder_name.$image->id.strtolower($file->getClientOriginalExtension());
         $image->url = "/storage/images/$folder_name/$subfolder_name/".$image->id.'.'.$image_extention;
         $image->name = $file->getClientOriginalName();
         $image->save();
 
         return $image;
     }
+
+    public function updateParent(array $oldValues)
+    {
+        $this->imageable_type = $oldValues['imageable_type'];
+        $this->imageable_id = $oldValues['imageable_id'];
+        $this->type = $oldValues['type'];
+        if ($oldValues['old_banner']) {
+            $oldValues['old_banner']->delete();
+        }
+        $this->save();
+    }
+
+
 }

@@ -12,7 +12,10 @@ class ImageController extends Controller
     {
         $image_file = $request->file('image');
         $image = Image::upload($image_file);
-        return $image->id;
+        return [
+            'id' =>$image->id,
+            'url' => $image->url,
+        ];
     }
 
     public function destroy(Image $image)
