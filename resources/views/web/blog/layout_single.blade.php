@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="single_blog_content">
-                                {{ $blogpost->excerpt }}
+                                 {!! $blogpost->content !!}
 
                                 {{-- TODO insert data--}}
                                 @include('web.blog.partials.share')

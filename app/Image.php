@@ -40,8 +40,8 @@ class Image extends Material
         $this->imageable_type = $oldValues['imageable_type'];
         $this->imageable_id = $oldValues['imageable_id'];
         $this->type = $oldValues['type'];
-        if ($oldValues['old_banner']) {
-            $oldValues['old_banner']->delete();
+        if ($oldValues['old_image']) {
+            $oldValues['old_image']->delete();
         }
         $this->save();
     }

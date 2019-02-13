@@ -59,13 +59,11 @@
                         <ul class="post-list">
                             @foreach ( $popularBlogposts as $blogpost )
                                 <li>
-                                    <div class="thumbnail_img">
-                                        {{-- TODO Banner --}}
-                                        <span><img src="{{
-                                        $blogpost->banner
-                                        ? $blogpost->banner->url
-                                        : '' }}" alt="blog thumbnail"></span>
-                                    </div>
+                                    @if ($blogpost->banner)
+                                        <div class="thumbnail_img">
+                                            <span><img src="{{$blogpost->banner->url }}" alt="blog thumbnail"></span>
+                                        </div>
+                                    @endif
                                     <div class="title_area">
                                         <a href="{{ route('blogpost.show', $blogpost->slug) }}">
                                             <h6>{{ $blogpost->title }}</h6>
@@ -86,13 +84,11 @@
                         <ul class="post-list">
                             @foreach ( $latestBlogposts as $blogpost )
                                 <li>
-                                    <div class="thumbnail_img">
-                                        {{-- TODO Banner --}}
-                                        <span><img src="{{
-                                        $blogpost->banner
-                                        ? $blogpost->banner->url
-                                        : '' }}" alt="blog thumbnail"></span>
-                                    </div>
+                                    @if ($blogpost->banner)
+                                        <div class="thumbnail_img">
+                                            <span><img src="{{$blogpost->banner->url }}" alt="blog thumbnail"></span>
+                                        </div>
+                                    @endif
                                     <div class="title_area">
                                         <a href="{{ route('blogpost.show', $blogpost->slug) }}">
                                             <h6>{{ $blogpost->title }}</h6>

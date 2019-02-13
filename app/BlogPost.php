@@ -43,13 +43,14 @@ class BlogPost extends Model
     {
         $this->tags()->sync($request['tags']);
 
-        if (($request['banner'] && !$this->banner) || ($request['banner'] != $this->banner->id)) {
+        if (($request['banner'] && !$this->banner)
+            || ($request['banner'] != $this->banner->id)) {
             $image = Image::findOrFail($request['banner']);
             $image->updateParent([
                 'type' => $this->banner ? $this->banner->type : null,
                 'imageable_type' => static::class,
                 'imageable_id' => $this->id,
-                'old_banner' => $this->banner,
+                'old_image' => $this->banner,
             ]);
         }
 

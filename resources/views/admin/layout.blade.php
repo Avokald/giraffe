@@ -221,8 +221,9 @@
             // integration to choose the right communication channel. This example uses
             // a POST request with JSON as a data structure but your configuration
             // could be different.
-            xhr.open( 'POST', '/ajax', true );
+            xhr.open( 'POST', ajax_image_upload_url, true );
             xhr.responseType = 'json';
+            xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector("[name~=csrf-token][content]").content);
         }
 
         // Initializes XMLHttpRequest listeners.
@@ -272,7 +273,7 @@
         _sendRequest() {
             // Prepare the form data.
             const data = new FormData();
-            data.append( 'upload', this.loader.file );
+            data.append( 'image', this.loader.file );
 
             // Important note: This is the right place to implement security mechanisms
             // like authentication and CSRF protection. For instance, you can use
