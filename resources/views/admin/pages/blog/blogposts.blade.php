@@ -5,15 +5,17 @@
         <table class="table table-striped table-vcenter">
             <thead>
             <th>id</th>
-            <th>Title</th>
-            <th>Slug</th>
-            <th>Date of creation</th>
-            <th>Actions</th>
+            <th>Баннер</th>
+            <th>Название</th>
+            <th>Вид ссылки</th>
+            <th>Дата создания</th>
+            <th>Действия</th>
             </thead>
             <tbody>
             @foreach ( $blogposts as $key => $blogpost )
                 <tr>
                     <td>{{ $blogpost->id }}</td>
+                    <td><img src="{{ $blogpost->banner->url ?? '' }}" height="50"></td>
                     <td>{{ $blogpost->title }}</td>
                     <td>{{ $blogpost->slug }}</td>
                     <td>{{ $blogpost->created_at }}</td>
@@ -37,12 +39,6 @@
                 </tr>
             @endforeach
             </tbody>
-
-
-
-
-
-
         </table>
     </div>
 

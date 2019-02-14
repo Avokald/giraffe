@@ -32,12 +32,13 @@
                     @foreach ( $blogposts as $blogpost )
                         <div class="single_blog blog--default">
                             <figure>
-                                {{-- TODO Insert Banner --}}
-                                <img src="/public/images/bb1.jpg" alt="Blog image">
+                                @if ($blogpost->banner)
+                                    <img src="{{  $blogpost->banner->url }}" alt="Blog image">
+                                @endif
 
                                 <figcaption>
                                     <div class="blog__content">
-                                        <a href="{{ route('blogpost.show', $blogpost->slug) }}" class="blog__title">
+                                        <a href="{{ route('blogposts.show', $blogpost->slug) }}" class="blog__title">
                                             <h3>{{ $blogpost->title }}</h3>
                                         </a>
 
@@ -61,7 +62,7 @@
 
                                     <div class="btn_text">
                                         <p>{{ $blogpost->excerpt }}</p>
-                                        <a href="{{ route('blogpost.show', $blogpost->slug) }}"
+                                        <a href="{{ route('blogposts.show', $blogpost->slug) }}"
                                            class="btn btn--md btn-primary">Прочитайте больше</a>
                                     </div>
                                 </figcaption>

@@ -52,7 +52,7 @@
                                                     <a href="{{ route('compilations.index') }}">Подборки</a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('blogpost.index') }}">Блог</a>
+                                                    <a href="{{ route('blogposts.index') }}">Блог</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{ route('home') }}">О нас</a>

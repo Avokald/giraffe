@@ -28,7 +28,7 @@
             <ul class="tags">
                 @foreach ( $tags as $tag )
                     <li>
-                        <a href="{{ route('home', $tag->slug ) }}">{{ $tag->name }}</a>
+                        <a href="{{ route('tags.show', $tag->slug ) }}">{{ $tag->name }}</a>
                     </li>
                 @endforeach
             </ul>
@@ -65,7 +65,7 @@
                                         </div>
                                     @endif
                                     <div class="title_area">
-                                        <a href="{{ route('blogpost.show', $blogpost->slug) }}">
+                                        <a href="{{ route('blogposts.show', $blogpost->slug) }}">
                                             <h6>{{ $blogpost->title }}</h6>
                                         </a>
                                         <div class="date_time">
@@ -90,7 +90,7 @@
                                         </div>
                                     @endif
                                     <div class="title_area">
-                                        <a href="{{ route('blogpost.show', $blogpost->slug) }}">
+                                        <a href="{{ route('blogposts.show', $blogpost->slug) }}">
                                             <h6>{{ $blogpost->title }}</h6>
                                         </a>
                                         <div class="date_time">

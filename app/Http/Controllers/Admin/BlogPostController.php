@@ -18,8 +18,10 @@ class BlogPostController extends Controller
 
     public function index()
     {
-        $blogposts = BlogPost::all();
-        dd($blogposts);
+        $blogposts = BlogPost::paginate(10);
+        return view('admin.pages.blog.blogposts', [
+            'blogposts' => $blogposts,
+        ]);
     }
 
     /**
@@ -49,13 +51,7 @@ class BlogPostController extends Controller
 
         $blogpost = BlogPost::create($request);
 
-        if ($request['banner']) {
-            $blogpost->updateBanner($request['banner']);
-        }
-
-        if (array_key_exists('tags', $request)) {
-            $blogpost->tags()->sync($request['tags']);
-        }
+        $blogpost->relationshipsSave($request);
 
         return redirect()->route('admin.blog.edit', ['blogpost' => $blogpost]);
     }
@@ -73,7 +69,7 @@ class BlogPostController extends Controller
     public function update(Request $request, int $blogpost_id)
     {
         $blogpost = BlogPost::findOrFail($blogpost_id);
-        $blogpost->updateMain($request->toArray());
+        $blogpost->mainUpdate($request->toArray());
         return redirect()->route('admin.blog.edit', ['blogpost' => $blogpost]);
     }
 
