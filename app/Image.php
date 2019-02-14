@@ -8,7 +8,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 class Image extends Material
-{
+{ // TODO elementses label, placeholder & etc.
     protected $fillable = ['url', 'name', 'type', 'alt'];
 
     public function imageable()
@@ -35,13 +35,29 @@ class Image extends Material
         return $image;
     }
 
+    public function bound(string $class, int $id, ?string $type)
+    {
+        $this->imageable_type = $class;
+        $this->imageable_id = $id;
+        $this->type = $type;
+        $this->save();
+    }
+
+    public function unbound()
+    {
+        $this->imageable_type = null;
+        $this->imageable_id = null;
+        $this->type = null;
+        $this->save();
+    }
+
     public function updateParent(array $oldValues)
     {
-        $this->imageable_type = $oldValues['imageable_type'];
-        $this->imageable_id = $oldValues['imageable_id'];
-        $this->type = $oldValues['type'];
-        if ($oldValues['old_image']) {
-            $oldValues['old_image']->delete();
+        $this->imageable_type = $oldValues['imageable_type'] ?? null;
+        $this->imageable_id = $oldValues['imageable_id'] ?? null;
+        $this->type = $oldValues['type'] ?? null;
+        if (isset($oldValues['old_image'])) {
+            $oldValues['old_image']->unbound();
         }
         $this->save();
     }

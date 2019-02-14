@@ -18,9 +18,10 @@ class ImageController extends Controller
         ];
     }
 
-    public function destroy(Image $image)
+    public function destroy(Request $request)
     {
-        $image->delete();
+        $image = Image::findOrFail($request->image_id);
+        $image->unbound();
         // TODO
     }
 }

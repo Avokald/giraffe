@@ -1,5 +1,5 @@
 <div class="form-group">
-    <div class="col-sm-12">
+    <div class="col-sm-3">
         <div class="form-material">
             <input class="form-control ajax-image-upload"
                    type="file"
