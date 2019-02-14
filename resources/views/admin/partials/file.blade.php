@@ -1,7 +1,7 @@
 <div class="form-group">
     <div class="col-sm-12">
         <div class="form-material">
-            <input class="form-control file-ajax-upload"
+            <input class="form-control ajax-file-upload"
                    type="file"
                    name="{{ $name }}"
                    value="{{ $value }}"

@@ -4,7 +4,8 @@
             <div class="repeater-list">
                 @if ( isset($value) )
                     @foreach ($value as $image)
-                        <div class="{{ $class }} repeater-item">
+                        {{-- TODO Does clearfix really needs to be here--}}
+                        <div class="{{ $class }} repeater-item clearfix">
                             @include('admin.partials.image', [
                                 'label' => '',
                                 'name' => $name ?? '',
@@ -26,7 +27,8 @@
 </div>
 
 @push('hidden')
-    <div class="{{ $class }} repeater-item">
+    {{-- TODO Does clearfix really needs to be here--}}
+    <div class="{{ $class }} repeater-item clearfix">
         @include('admin.partials.image', [
             'name' => $name,
             'value' => '',
