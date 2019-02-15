@@ -107,8 +107,8 @@ class ServiceCompilationController extends Controller
      */
     public function destroy(int $serviceCompilationId)
     {
-        $serviceCompilation = ServiceCompilation::findOrFail($serviceCompilationId);
-        $serviceCompilation->delete();
+        $status = ServiceCompilation::findOrFail($serviceCompilationId)->delete();
+        session()->flash('status', $status);
         return redirect()->route('admin.compilations.index');
     }
 }

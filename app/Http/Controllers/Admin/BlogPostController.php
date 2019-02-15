@@ -73,8 +73,10 @@ class BlogPostController extends Controller
         return redirect()->route('admin.blog.edit', ['blogpost' => $blogpost]);
     }
 
-    public function destroy(BlogPost $blogPost)
+    public function destroy(int $blogPostId)
     {
-        return dd($blogPost);
+        $status = Blogpost::findOrFail($blogPostId)->delete();
+        session()->flash('status', $status);
+        return redirect()->route('admin.blog.index');
     }
 }

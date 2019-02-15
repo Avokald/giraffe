@@ -21,16 +21,16 @@
                     <td>{{ $blogpost->created_at }}</td>
                     <td class="text-center">
                         <div class="btn-group">
-                            <a href="{{ route('admin.blog.edit', ['id' => $blogpost->id]) }}"
+                            <a href="{{ route('admin.blog.edit', $blogpost->id) }}"
                                class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <form action="{{ route('admin.blog.destroy', ['id' => $blogpost->id]) }}"
+                            <form action="{{ route('admin.blog.destroy', $blogpost->id) }}"
                                   method="post" class="hidden" id="form-element-delete-{{ $key }}">
                                 @csrf
                                 @method('delete')
                             </form>
-                            <button class="btn btn-xs btn-default confirm-delete" type="button" data-toggle="tooltip"
+                            <button class="btn btn-xs btn-default confirm-delete" data-toggle="tooltip"
                                     title="Remove" form="form-element-delete-{{ $key }}">
                                 <i class="fa fa-times"></i>
                             </button>

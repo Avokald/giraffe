@@ -10,8 +10,8 @@ jQuery(function() {
 
         result_url += 'category_id=' + (filter_parameters['category'] || '');
         result_url += '&field_name=' + (filter_parameters['sorting'] || '');
-        result_url += '&min=' + (filter_parameters['min'] || '');
-        result_url += '&max=' + (filter_parameters['max'] || '');
+        result_url += '&price_min=' + (filter_parameters['min'] || '');
+        result_url += '&price_max=' + (filter_parameters['max'] || '');
 
         window.location.href = result_url;
     })

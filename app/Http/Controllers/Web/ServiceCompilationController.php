@@ -16,7 +16,8 @@ class ServiceCompilationController extends Controller
      */
     public function index()
     {
-        if (request()->category_id || (request()->price_min && request()->price_max) || request()->field_name) {
+        if (request()->category_id || request()->field_name
+            || (request()->price_min && request()->price_max)) {
             $compilations = ServiceCompilation::categoryId(request()->category_id)
                 ->priceBetween(request()->price_min, request()->price_max)
                 ->sortBy(request()->field_name)

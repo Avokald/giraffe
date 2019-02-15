@@ -25,11 +25,11 @@ Route::get('categories/{category}', 'Web\CategoryController@show')->name('catego
 Route::get('compilations', 'Web\ServiceCompilationController@index')->name('compilations.index');
 Route::get('compilations/{compilation}', 'Web\ServiceCompilationController@show')->name('compilations.show');
 
+Route::get('blog/tags/', 'Web\TagController@index')->name('tags.index');
+Route::get('blog/tags/{tag}', 'Web\TagController@show')->name('tags.show');
+
 Route::get('blog', 'Web\BlogPostController@index')->name('blogposts.index');
 Route::get('blog/{blog_post}', 'Web\BlogPostController@show')->name('blogposts.show');
-
-Route::get('blog/tags/', 'Web\Tags@index')->name('tags.index');
-Route::get('blog/tags/{tag}', 'Web\Tags@show')->name('tags.show');
 
 Route::group([
     'prefix' => 'admin',

@@ -23,16 +23,16 @@
                     <td>{{ $page->created_at }}</td>
                     <td class="text-center">
                         <div class="btn-group">
-                            <a href="{{ route('admin.pages.edit', ['id' => $page->id]) }}"
+                            <a href="{{ route('admin.pages.edit', $page->id) }}"
                                class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <form action="{{ route('admin.pages.destroy', ['id' => $page->id]) }}"
+                            <form action="{{ route('admin.pages.destroy', $page->id) }}"
                                   method="post" class="hidden" id="form-element-delete-{{ $key }}">
                                 @csrf
                                 @method('delete')
                             </form>
-                            <button class="btn btn-xs btn-default confirm-delete" type="button" data-toggle="tooltip"
+                            <button class="btn btn-xs btn-default confirm-delete" data-toggle="tooltip"
                                     title="Remove" form="form-element-delete-{{ $key }}">
                                 <i class="fa fa-times"></i>
                             </button>

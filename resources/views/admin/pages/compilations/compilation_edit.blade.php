@@ -27,19 +27,19 @@
                         <div class="card-content">
 
                             @include('admin.partials.text', [
+                                'label' => 'Название',
                                 'name' => 'name',
                                 'value' => $compilation->name,
-                                'label' => 'Name',
                             ])
 
                             @include('admin.partials.text', [
+                                'label' => 'Вид ссылки',
                                 'name' => 'slug',
                                 'value' => $compilation->slug,
-                                'label' => 'Slug',
                             ])
 
                             @include('admin.partials.gallery', [
-                                'label' => 'Logo',
+                                'label' => 'Логотип',
                                 'name' => 'logo',
                                 'class' => 'logo',
                                 'value' => isset($compilation->logo) ? [$compilation->logo] : null,
@@ -128,22 +128,7 @@
     </div>
 @endsection
 
-
-@push('styles')
-    <link rel="stylesheet" href="/public/admin/assets/js/plugins/select2/select2.min.css">
-    <link rel="stylesheet" href="/public/admin/assets/js/plugins/select2/select2-bootstrap.min.css">
-@endpush
-
-
-@push('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
-    <script src="/public/admin/assets/js/plugins/select2/select2.full.min.js"></script>
-@endpush
-
 @push('script')
-    jQuery(function () {
-        App.initHelpers(['select2']);
-    });
     ClassicEditor
         .create(document.querySelector("#description"), {
             extraPlugins: [ MyCustomUploadAdapterPlugin ],

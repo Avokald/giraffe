@@ -34,7 +34,7 @@
                                 @csrf
                                 @method('delete')
                             </form>
-                            <button class="btn btn-xs btn-default confirm-delete" type="button" data-toggle="tooltip"
+                            <button class="btn btn-xs btn-default confirm-delete" data-toggle="tooltip"
                                     title="Remove" form="form-element-delete-{{ $key }}">
                                 <i class="fa fa-times"></i>
                             </button>

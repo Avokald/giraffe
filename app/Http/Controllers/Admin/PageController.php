@@ -35,6 +35,7 @@ class PageController extends Controller
 
     public function update(Request $request, int $page_id)
     {
+        dd($request);
         $page = Page::findOrFail($page_id);
         $page->update($request->toArray());
         $page->save();
@@ -58,10 +59,11 @@ class PageController extends Controller
         return redirect()->route('admin.pages.edit', ['page_id' => $page_id]);
     }
 
-    public function destroy(int $page_id)
+    public function destroy(int $pageId)
     {
-        dd($page_id);
-        // TODO
+        $status = Page::findOrFail($pageId)->delete();
+        session()->flash('status', $status);
+        return redirect()->route('admin.pages.index');
     }
 
 }

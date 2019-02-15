@@ -26,23 +26,23 @@
                         <td>
                             <ul>
                                 @foreach ($service->features as $feature)
-                                        <li>{{ $feature }}</li>
+                                    <li>{{ $feature }}</li>
                                 @endforeach
                             </ul>
                         </td>
                         <td>{{ $service->created_at }}</td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <a href="{{ route('admin.services.edit', ['id' => $service->id]) }}"
+                                <a href="{{ route('admin.services.edit', $service->id) }}"
                                    class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <form action="{{ route('admin.services.destroy', ['id' => $service->id]) }}"
+                                <form action="{{ route('admin.services.destroy', $service->id) }}"
                                       method="post" class="hidden" id="form-element-delete-{{ $key }}">
                                     @csrf
                                     @method('delete')
                                 </form>
-                                <button class="btn btn-xs btn-default confirm-delete" type="button" data-toggle="tooltip"
+                                <button class="btn btn-xs btn-default confirm-delete" data-toggle="tooltip"
                                         title="Remove" form="form-element-delete-{{ $key }}">
                                     <i class="fa fa-times"></i>
                                 </button>

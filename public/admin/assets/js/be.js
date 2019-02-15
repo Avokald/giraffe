@@ -1,20 +1,19 @@
 jQuery(function() {
-    $(".confirm-delete").click(function() {
+    $(".confirm-delete").click(function(e) {
+        e.preventDefault();
+        var it = $(this);
         $.confirm({
-
             backgroundDismiss: true,
-            title: 'Sure?',
+            title: 'Вы уверены?',
             buttons: {
                 confirm: function() {
-                    $.alert('deleted');
-                    //$(this).submit(); TODO Check delete handler
+                    $('#'+ it.attr('form')).submit(); //TODO Check delete handler
+                    $.alert('Удалено');
                 },
                 cancel: {
                     btnClass: 'btn-blue',
                     keys: ['enter',],
                 },
-
-
             }
         })
     });

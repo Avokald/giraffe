@@ -15,12 +15,24 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::paginate(3);
+        if (request()->category_id || request()->field_name
+            || (request()->price_min && request()->price_max)) {
+
+            if (request()->field_name == 'created_at') {
+                $direction = 'asc';
+            }
+
+            $services = Service::categoryId(request()->category_id)
+                ->priceBetween(request()->price_min, request()->price_max)
+                ->sortBy(request()->field_name, $direction )
+                ->paginate(6);
+        } else {
+            $services = Service::paginate(6);
+        }
         $allCategories = Category::all();
         return view('web.service.layout_archive', [
             'services' => $services,
             'allCategories' => $allCategories,
-
         ]);
     }
 
