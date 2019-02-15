@@ -178,7 +178,8 @@
 <script>
     jQuery(function () {
         // Init page helpers (CountTo plugin)
-        App.initHelpers('appear-countTo');
+        App.initHelpers(['select2', 'appear-countTo']);
+
     });
 
     $.ajaxSetup({

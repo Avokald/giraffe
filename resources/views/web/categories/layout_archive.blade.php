@@ -58,9 +58,11 @@
                             @foreach ( $categories as $category )
                                 <div class="col-lg-6 col-md-6">
                                     <a href="{{ route('categories.show', $category->slug) }}" class="catalog__box">
-                                        <div class="catalog__image">
-                                            <img src="https://via.placeholder.com/180x180" alt="">
-                                        </div>
+                                        @if ($category->logo)
+                                            <div class="catalog__image">
+                                                <img src="{{ $category->logo->url }}" alt="{{ $category->logo->alt }}">
+                                            </div>
+                                        @endif
                                         <div class="catalog__content">
                                             <div class="catalog__name">{{ $category->name }}</div>
                                         </div>

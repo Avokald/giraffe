@@ -19,6 +19,38 @@ class Category extends Model
         return $this->hasMany( \App\Service::class, 'category_id', 'id' );
     }
 
+    public function updateMain(array $request)
+    {
+        $this->update($request);
+
+        if (isset($request['logo'])) {
+
+            $image = Image::findOrFail($request['logo']);
+            $image->updateParent([
+                'type' => $this->logo ? $this->logo->type : null,
+                'imageable_type' => static::class,
+                'imageable_id' => $this->id,
+            ]);
+        }
+
+        if (isset($request['services'])) {
+
+            foreach ($this->services as $service) {
+                $service->category_id = null;
+                $service->save();
+            }
+
+            foreach ($request['services'] as $service_id) {
+                $service = Service::findOrFail($service_id);
+                $service->category_id = $this->id;
+                $service->save();
+            }
+        }
+
+
+        $this->save();
+    }
+
     public function logo()
     {
         return $this->morphOne(\App\Image::class, 'imageable');

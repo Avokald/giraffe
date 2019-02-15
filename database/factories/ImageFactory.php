@@ -81,3 +81,14 @@ $factory->state(App\Image::class, 'compilation-logo', function(Faker $faker) {
     ];
 });
 
+$factory->state(App\Image::class, 'category-logo', function(Faker $faker) {
+    return [
+        'url' => 'https://via.placeholder.com/180x180',
+        'name' => 'category-logo.jpg',
+        'type' => 'logo',
+        'alt'  => 'category logo alt',
+        'imageable_type' => \App\Category::class,
+        'imageable_id' => \App\Category::all()->random()->id,
+    ];
+});
+

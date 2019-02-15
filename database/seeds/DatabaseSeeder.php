@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
         factory(\App\ServiceCompilation::class, 1)->state('test')->create();
         factory(\App\ServiceCompilation::class, 10)->create();
 
-        factory(\App\Image::class, 3)->state('compilation-logo')->create();
-
         factory(\App\Service::class, 1)->state('test')->create();
         factory(\App\Service::class, 50)->create();
 
@@ -34,12 +32,16 @@ class DatabaseSeeder extends Seeder
             $compilation->services()->attach(\App\Service::all()->random()->id);
         }
 
-
         factory(\App\Tariff::class, 3)->state('test')->create();
         factory(\App\Tariff::class, 30)->create();
 
         factory(\App\Review::class, 3)->state('test')->create();
         factory(\App\Review::class, 50)->create();
+
+
+        factory(\App\Image::class, 3)->state('category-logo')->create();
+        factory(\App\Image::class, 5)->state('compilation-logo')->create();
+
 
         factory(\App\Image::class, 1)->state('test-service-logo')->create();
         factory(\App\Image::class, 1)->state('test-service-banner')->create();
