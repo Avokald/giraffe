@@ -19,5 +19,6 @@ $factory->state(App\ServiceCompilation::class, 'test', function(Faker $faker) {
         'description' => 'Compilation description',
         'price_month' => 10000,
         'price_year'  => 100000,
+        'category_id' => 1,
     ];
 });

@@ -3,11 +3,11 @@
     <div class="product-single latest-single">
         <div class="product-thumb">
             <figure>
-                <img src="/public/images/product1.png" alt="" class="img-fluid">
+                <img src="{{ $product->logo->url ?? '' }}" alt="{{ $product->logo->alt ?? '' }}" class="img-fluid">
                 <figcaption>
                     <ul class="list-unstyled">
                         <li>
-                            <a href="">
+                            <a href="{{-- TODO Cart --}}">
                                 <span class="icon-basket"></span>
                             </a>
                         </li>
@@ -44,13 +44,7 @@
                 </li>
                 <li class="product-rating">
                     <ul class="list-unstyled">
-                        <li class="stars">
-                            <span><i class="fa fa-star"></i></span>
-                            <span><i class="fa fa-star"></i></span>
-                            <span><i class="fa fa-star"></i></span>
-                            <span><i class="fa fa-star"></i></span>
-                            <span><i class="fa fa-star"></i></span>
-                        </li>
+                        @include('web.partials.stars')
                     </ul>
                 </li>
             </ul>

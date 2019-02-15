@@ -52,8 +52,32 @@ $factory->state(App\Image::class, 'test-blog-banner', function(Faker $faker) {
         'name' => 'test-blog-banner.jpg',
         'type' => 'banner',
         'alt'  => 'test banner blog alt',
-        'imageable_type' => \App\Service::class,
+        'imageable_type' => \App\BlogPost::class,
         'imageable_id' => 1,
+    ];
+});
+
+
+$factory->state(App\Image::class, 'blog-banner', function(Faker $faker) {
+    return [
+        'url' => 'https://via.placeholder.com/728x417',
+        'name' => 'blog-banner.jpg',
+        'type' => 'banner',
+        'alt'  => 'banner blog alt',
+        'imageable_type' => \App\BlogPost::class,
+        'imageable_id' => \App\BlogPost::alk()->random()->id,
+    ];
+});
+
+
+$factory->state(App\Image::class, 'compilation-logo', function(Faker $faker) {
+    return [
+        'url' => 'https://via.placeholder.com/728x417',
+        'name' => 'compilation-logo.jpg',
+        'type' => 'logo',
+        'alt'  => 'compilation logo alt',
+        'imageable_type' => \App\ServiceCompilation::class,
+        'imageable_id' => \App\ServiceCompilation::all()->random()->id,
     ];
 });
 

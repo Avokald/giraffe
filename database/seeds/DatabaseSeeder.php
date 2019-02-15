@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         factory(\App\ServiceCompilation::class, 1)->state('test')->create();
         factory(\App\ServiceCompilation::class, 10)->create();
 
+        factory(\App\Image::class, 3)->state('compilation-logo')->create();
+
         factory(\App\Service::class, 1)->state('test')->create();
         factory(\App\Service::class, 50)->create();
 
@@ -55,6 +57,8 @@ class DatabaseSeeder extends Seeder
 
         factory(\App\BlogPost::class, 1)->state('test')->create();
         factory(\App\BlogPost::class, 20)->create();
+
+        factory(\App\Image::class, 1)->state('test-blog-banner')->create();
 
         factory(\App\Tag::class, 1)->state('test')->create();
         factory(\App\Tag::class, 7)->create();

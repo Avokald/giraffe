@@ -41,13 +41,7 @@
             </li>
             <li class="product-rating">
                 <ul class="list-unstyled">
-                    <li class="stars">
-                        <span><i class="fa fa-star"></i></span>
-                        <span><i class="fa fa-star"></i></span>
-                        <span><i class="fa fa-star"></i></span>
-                        <span><i class="fa fa-star"></i></span>
-                        <span><i class="fa fa-star"></i></span>
-                    </li>
+                    @include('web.partials.stars')
                 </ul>
             </li>
         </ul>

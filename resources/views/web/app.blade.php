@@ -70,6 +70,8 @@
 <script src="/public/js/dashboard.js"></script>
 <script src="/public/js/main.js"></script>
 <script src="/public/js/map.js"></script>
+<script src="/public/js/be.js"></script>
+
 <!-- endinject -->
 
 <script>

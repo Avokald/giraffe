@@ -16,8 +16,15 @@ class ServiceCompilationController extends Controller
      */
     public function index()
     {
-        $compilations = ServiceCompilation::paginate(3);
-        $allCategories = Category::all();
+        if (request()->category_id || (request()->price_min && request()->price_max) || request()->field_name) {
+            $compilations = ServiceCompilation::categoryId(request()->category_id)
+                ->priceBetween(request()->price_min, request()->price_max)
+                ->sortBy(request()->field_name)
+                ->paginate(6);
+        } else {
+            $compilations = ServiceCompilation::paginate(6);
+        }
+        $allCategories = Category::with('services')->get();
         return view('web.compilations.layout_archive', [
             'compilations' => $compilations,
             'allCategories' => $allCategories,
