@@ -20,6 +20,6 @@ class TagController extends Controller
     { // TODO
         $tag = Tag::where('slug', $tagSlug)->first();
         dd($tag);
-        $blogposts = BlogPost::with('tags')->where('tags', $tag->id); // TODO where clause for filtering
+        $blogposts = BlogPost::with('tags')->where('tags', $tag->id)->firstOrFail(); // TODO where clause for filtering
     }
 }

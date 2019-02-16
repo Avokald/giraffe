@@ -39,9 +39,11 @@ class DatabaseSeeder extends Seeder
         factory(\App\Review::class, 50)->create();
 
 
+        factory(\App\Image::class, 3)->state('test-category-logo')->create();
         factory(\App\Image::class, 3)->state('category-logo')->create();
-        factory(\App\Image::class, 5)->state('compilation-logo')->create();
 
+        factory(\App\Image::class, 5)->state('test-compilation-logo')->create();
+        factory(\App\Image::class, 5)->state('compilation-logo')->create();
 
         factory(\App\Image::class, 1)->state('test-service-logo')->create();
         factory(\App\Image::class, 1)->state('test-service-banner')->create();

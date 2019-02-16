@@ -52,7 +52,7 @@ class ServiceController extends Controller
             'pdfs', 'documents',
             'presentations'])
             ->where('slug', '=', $serviceSlug)
-            ->first();
+            ->firstOrFail();
         $service->reviews = $service->reviews()->with('replies')->paginate(1);
         return view('web.service.layout_single', ['service' => $service]);
     }

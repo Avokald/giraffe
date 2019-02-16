@@ -19,7 +19,7 @@ class CategoryController extends Controller
 
     public function show(string $category_slug)
     {
-        $category = Category::with('services')->where('slug', '=', $category_slug)->first();
+        $category = Category::with('services')->where('slug', '=', $category_slug)->firstOrFail();
         $allCategories = Category::all();
         return view('web.categories.layout_single', [
             'category' => $category,

@@ -37,7 +37,7 @@ class BlogPostController extends Controller
      */
     public function show(string $blogPostSlug)
     {
-        $blogpost = BlogPost::with('tags')->where('slug', '=', $blogPostSlug)->first();
+        $blogpost = BlogPost::with('tags')->where('slug', '=', $blogPostSlug)->firstOrFail();
         $latestBlogposts = BlogPost::latest()->limit(3)->get();
         $popularBlogposts = BlogPost::orderBy('view_count', 'desc')->take(3)->get();
         $blogpost->view_count++;
