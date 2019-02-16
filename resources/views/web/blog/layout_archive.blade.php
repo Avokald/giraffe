@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
                     <h2 class="page-title">Блог</h2>
-                    @include('web.partials.bread')
+                    {{ Breadcrumbs::render('blog') }}
                 </div>
                 <!-- end /.col-md-12 -->
             </div>

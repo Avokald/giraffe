@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
                     <h2 class="page-title">Название подборки</h2>
-                    @include('web.partials.bread')
+                    {{ Breadcrumbs::render('compilation', $compilation) }}
                 </div>
                 <!-- end /.col-md-12 -->
             </div>

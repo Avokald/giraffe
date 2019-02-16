@@ -10,8 +10,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
-                    <h2 class="page-title">Blog Details</h2>
-                    @include('web.partials.bread')
+                    <h2 class="page-title">{{ $blogpost->title }}</h2>
+                    {{ Breadcrumbs::render('blogpost', $blogpost) }}
                 </div>
                 <!-- end /.col-md-12 -->
             </div>

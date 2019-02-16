@@ -13,9 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
-                    @section('bread')
-                        @include('web.partials.bread')
-                    @show
+                    {{ Breadcrumbs::render('service', $service) }}
                     <div class="borzx__flex">
                         @if ($service->logo)
                             <div class="borzx__image">

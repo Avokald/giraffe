@@ -11,9 +11,7 @@
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
                     <h2 class="page-title">Подборки</h2>
-                    @section('bread')
-                        @include('web.partials.bread')
-                    @show
+                    {{ Breadcrumbs::render('compilations') }}
                 </div>
                 <!-- end /.col-md-12 -->
             </div>

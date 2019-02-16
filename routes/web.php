@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 Route::get('services', 'Web\ServiceController@index')->name('services.index');
 Route::get('services/{service}', 'Web\ServiceController@show')->name('services.show');
@@ -60,31 +56,30 @@ Route::get('about', function () {
     return view('web.templates.about', [
         'page' => $page,
     ]);
-});
+})->name('about');
 
 Route::get('/', function () {
     $page = \App\Page::findOrFail(3);
-    $best_services = \App\Service::limit(3)->get();
-    $best_compilations = \App\ServiceCompilation::limit(3)->get();
+    $best_services = \App\Service::limit(12)->get();
+    $best_compilations = \App\ServiceCompilation::limit(12)->get();
     return view('web.templates.index', [
         'page' => $page,
         'best_services' => $best_services,
         'best_compilations' => $best_compilations,
     ]);
-});
+})->name('index');
 
 Route::get('contacts', function () {
     $page = \App\Page::findOrFail(1);
     return view('web.templates.contacts', [
         'page' => $page,
     ]);
-});
+})->name('contacts');
 
 Route::get('faq', function () {
     $page = \App\Page::findOrFail(1);
-    dd($page);
     return view('web.templates.faq');
-});
+})->name('faqs');
 
-Route::get('{page}', 'Web\PageController@show')->name('page.show');
+//Route::get('{page}', 'Web\PageController@show')->name('page.show');
 
