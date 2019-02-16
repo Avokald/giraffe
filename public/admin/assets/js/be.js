@@ -92,4 +92,46 @@ jQuery(function() {
             });
         }
     });
+
+    $("body").on("change", ".ajax-file-upload", function () {
+        var it = $(this);
+        if (this.files && this.files[0]) {
+            var data = new FormData();
+            data.append('file', this.files[0]);
+            $.ajax({
+                method: 'POST',
+                url: ajax_file_upload_url,
+                data: data,
+                success: function (response) {
+                    alert('Загружено');
+                    it.siblings(".ajax-file-id").val(response['id']);
+                    it.siblings(".ajax-file-name").val(response['name']);
+                },
+                cache: false,
+                contentType: false,
+                processData: false,
+            });
+        }
+    });
+
+    $("body").on("click", ".ajax-file-delete", function(event) {
+        event.preventDefault();
+
+        $(this).closest(".repeater-item").remove();
+        var data = new FormData();
+        data.append('file_id', $(this).attr("data-file-id"));
+        data.append('_method', 'delete');
+        console.log('sending');
+        $.ajax({
+            method: 'POST',
+            url: ajax_file_delete_url,
+            data: data,
+            success: function (response) {
+                alert('Удалено');
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+        })
+    });
 });

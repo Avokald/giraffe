@@ -47,6 +47,9 @@ Route::group([
 
     Route::post('image-upload', 'Ajax\ImageController@store')->name('image.store');
     Route::delete('image-delete', 'Ajax\ImageController@destroy')->name('image.destroy');
+
+    Route::post('file-upload', 'Ajax\MaterialController@store')->name('materials.store');
+    Route::delete('file-delete', 'Ajax\MaterialController@destroy')->name('materials.destroy');
 });
 Route::get('home', 'Web\HomeController@index')->name('home');
 

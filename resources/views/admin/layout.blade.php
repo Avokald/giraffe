@@ -172,6 +172,8 @@
 <script>
     var ajax_image_upload_url = '{{ route('admin.image.store') }}';
     var ajax_image_delete_url = '{{ route('admin.image.destroy') }}';
+    var ajax_file_upload_url = '{{ route('admin.materials.store') }}';
+    var ajax_file_delete_url = '{{ route('admin.materials.destroy') }}';
     @stack('js-vars')
 </script>
 
