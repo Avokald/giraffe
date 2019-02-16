@@ -30,12 +30,6 @@ class ServiceController extends Controller
         return redirect()->route('services.show', ['service' => $service]);
     }
 
-    public function store(Request $request)
-    {
-        $service = Service::create($request->toArray());
-        return redirect()->route('admin.services.edit', ['id' => $service->id ]);
-    }
-
     public function create()
     {
         $service = new Service();
@@ -46,6 +40,15 @@ class ServiceController extends Controller
             'all_categories' => $all_categories,
             'all_compilations' => $all_compilations,
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $service = Service::create($request->toArray());
+
+        $service->relationshipsSave($request->toArray());
+
+        return redirect()->route('admin.services.edit', ['id' => $service->id ]);
     }
 
     /**
@@ -70,11 +73,10 @@ class ServiceController extends Controller
      * @param Service $service
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, int $service_id)
     {
-        $service->compilations()->sync($request->compilations);
-        $service->fill($request->toArray());
-        $service->save();
+        $service = Service::findOrFail($service_id);
+        $service->mainUpdate($request->toArray());
         return redirect()->route('admin.services.edit', ['service' => $service]);
     }
 
@@ -84,14 +86,10 @@ class ServiceController extends Controller
      * @return bool
      * @throws \Exception
      */
-    public function delete(Service $service)
+    public function destroy(int $serviceId)
     {
-        if ($service->delete()) {
-            $status = true;
-        } else {
-            $status = false;
-        }
+        $status = Service::findOrFail($serviceId)->delete();
         session()->flash('status', $status);
-        return redirect()->back();
+        return redirect()->route('admin.services.index');
     }
 }

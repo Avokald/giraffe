@@ -1,15 +1,49 @@
 @extends('web.app')
 
 
-
 @section('content')
+    <!--================================
+        START BREADCRUMB AREA
+    =================================-->
+    <section class="breadcrumb-area borzx" {{ isset($service->banner)
+        ? "style='background-image: url({$service->banner->url}'"
+        : '' }}>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 breadcrumb-contents">
+                    {{ Breadcrumbs::render('service', $service) }}
+                    <div class="borzx__flex">
+                        @if ($service->logo)
+                            <div class="borzx__image">
+                                <img src="{{ $service->logo->url ?? '' }}" alt="{{ $service->logo->alt }}">
+                            </div>
+                        @endif
+                        <div class="borzx__content">
+                            <div class="borzx__name">{{ $service->name }}</div>
+                            <div class="borzx__text">{{ $service->description_short }}</div>
+                            <a href="" class="borzx__btn btn btn-lg btn-primary">Подключить</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end /.col-md-12 -->
+            </div>
+            <!-- end /.row -->
+        </div>
+        <!-- end /.container -->
+    </section>
+    <!--================================
+        END BREADCRUMB AREA
+    =================================-->
+
     <section class="single-product-desc">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    @section('item-preview')
-                        @include('web.service.partials.item_preview')
-                    @show
+                    @if ($service->screenshots)
+                        @section('item-preview')
+                            @include('web.service.partials.item_preview')
+                        @show
+                    @endif
 
                     <div class="item-info">
                         @section('item-navigation')
@@ -41,7 +75,7 @@
                                 <h3>{{ $video->name }}</h3>
                                 <?php
                                 preg_match(
-                                    '/^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/',
+    '/^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/',
                                     $video->url,
                                     $url_groups );
                                 ?>
@@ -60,90 +94,9 @@
                                 @endif
                             @endforeach
 
-
-                            <div class="featured_event edit">
-                                <div class="event_img">
-                                    <img src="/public/images/ev1.jpg" alt="event thumbnail">
-                                </div>
-
-                                <div class="v_middle">
-                                    <div class="featured_event_detail">
-                                        <h2><a href="event-detail.html">Digital Product Market Upcoming Event in
-                                                New York</a></h2>
-                                        <ul class="date_place">
-                                            <li>
-                                                <span class="icon-calendar"></span>
-                                                <p>May 17-19, 2018</p>
-                                            </li>
-
-                                            <li>
-                                                <span class="icon-location-pin"></span>
-                                                <p>Dhaka, Bangladesh</p>
-                                            </li>
-                                        </ul>
-                                        <ul class="countdown"></ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="card_style1">
-                                        <figure class="card_style1__info">
-                                            <img src="/public/images/ev2.jpg" alt="Event card thumbnail">
-
-                                            <figcaption>
-                                                <a href="event-detail.html">
-                                                    <h4>Web Design Conference in California</h4>
-                                                </a>
-                                                <ul class="date_place">
-                                                    <li>
-                                                        <span class="icon-calendar"></span>
-                                                        <p>May 17-19, 2018</p>
-                                                    </li>
-                                                    <li>
-                                                        <span class="icon-location-pin"></span>
-                                                        <p>California</p>
-                                                    </li>
-                                                </ul>
-                                            </figcaption>
-                                            <!-- end /.figcaption -->
-                                        </figure>
-                                        <!-- end /.figure -->
-                                    </div>
-                                    <!-- end /.event_card -->
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="card_style1">
-                                        <figure class="card_style1__info">
-                                            <img src="/public/images/ev2.jpg" alt="Event card thumbnail">
-
-                                            <figcaption>
-                                                <a href="event-detail.html">
-                                                    <h4>Web Design Conference in California</h4>
-                                                </a>
-                                                <ul class="date_place">
-                                                    <li>
-                                                        <span class="icon-calendar"></span>
-                                                        <p>May 17-19, 2018</p>
-                                                    </li>
-                                                    <li>
-                                                        <span class="icon-location-pin"></span>
-                                                        <p>California</p>
-                                                    </li>
-                                                </ul>
-                                            </figcaption>
-                                            <!-- end /.figcaption -->
-                                        </figure>
-                                        <!-- end /.figure -->
-                                    </div>
-                                    <!-- end /.event_card -->
-                                </div>
-                            </div>
-
                             @section('tariffs')
                                 @include('web.service.partials.tariffs')
                             @show
-
 
                             <div class="dzdzx__title">
                                 <h3>Отзывы</h3>
@@ -160,12 +113,14 @@
                                                 @if ( $review->replies )
                                                     <ul class="children">
                                                         @foreach ( $review->replies as $reply )
-                                                            @include('web.service.partials.review_reply')
+                                                            @include('web.service.partials.review_reply', [
+                                                                'reply' => $reply
+                                                            ])
                                                         @endforeach
                                                     </ul>
                                                 @endif
 
-                                                <!-- reply to the current parent review -->
+                                                {{-- reply to the current parent review --}}
                                                 @section('review-reply-form')
                                                     @include('web.service.partials.review_reply_form')
                                                 @show
@@ -177,7 +132,7 @@
 
                                     <!-- Start Pagination -->
                                     <nav class="pagination-default comments-pagination">
-                                        {{ $service->reviews->links('web.service.partials.reviews_pagination') }}
+                                        {{ $service->reviews->links('web.partials.pagination') }}
                                     </nav>
                                     <!-- Ends: /pagination-default -->
 
@@ -200,7 +155,6 @@
                                         </div>
                                         <!-- comment reply -->
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -219,12 +173,5 @@
 
 @endsection
 
-@section('title', $service->name)
-@section('logo-link', $service->logo->url)
-@section('logo-alt', $service->logo->alt)
-@section('banner-link', $service->banner->url)
 @section('name', $service->name)
-@section('description-short', $service->description_short)
-
-@include('web.partials.variables')
 

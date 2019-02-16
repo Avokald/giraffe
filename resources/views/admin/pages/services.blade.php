@@ -6,44 +6,38 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>Name</th>
-                    <th>Slug</th>
-                    <th>Rating</th>
-                    <th>Installation difficulty</th>
-                    <th>Features</th>
-                    <th>Date of creation</th>
-                    <th>Actions</th>
+                    <th>Лого</th>
+                    <th>Название</th>
+                    <th>Вид ссылки</th>
+                    <th>Рейтинг</th>
+                    <th>Сложность установки</th>
+                    <th>Дата создания</th>
+                    <th>Действия</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ( $services as $key => $service )
                     <tr>
                         <td>{{ $service->id }}</td>
+                        <td><img height="50" src="{{ $service->logo->url ?? '' }}"></td>
                         <td>{{ $service->name }}</td>
                         <td>{{ $service->slug }}</td>
                         <td>{{ $service->rating }}</td>
                         <td>{{ $service->installation_difficulty }}</td>
-                        <td>
-                            <ul>
-                                @foreach ($service->features as $feature)
-                                        <li>{{ $feature }}</li>
-                                @endforeach
-                            </ul>
-                        </td>
                         <td>{{ $service->created_at }}</td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <a href="{{ route('admin.services.edit', ['id' => $service->id]) }}"
-                                   class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
+                                <a href="{{ route('admin.services.edit', $service->id) }}"
+                                   class="btn btn-xs btn-default" data-toggle="tooltip" title="Изменить">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <form action="{{ route('admin.services.destroy', ['id' => $service->id]) }}"
+                                <form action="{{ route('admin.services.destroy', $service->id) }}"
                                       method="post" class="hidden" id="form-element-delete-{{ $key }}">
                                     @csrf
                                     @method('delete')
                                 </form>
-                                <button class="btn btn-xs btn-default confirm-delete" type="button" data-toggle="tooltip"
-                                        title="Remove" form="form-element-delete-{{ $key }}">
+                                <button class="btn btn-xs btn-default confirm-delete" data-toggle="tooltip"
+                                        title="Удалить" form="form-element-delete-{{ $key }}">
                                     <i class="fa fa-times"></i>
                                 </button>
                             </div>

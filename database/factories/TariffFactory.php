@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Tariff::class, function (Faker $faker) {
     $price_month = $faker->numberBetween(500, 100000);
-    $service = \App\Service::all()->random();
+    $service = \App\Service::all()->except(0)->random();
     return [
         'name'        => $faker->streetName,
         'description' => $faker->text(100),

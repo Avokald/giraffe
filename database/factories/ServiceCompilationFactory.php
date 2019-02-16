@@ -8,6 +8,7 @@ $factory->define(App\ServiceCompilation::class, function (Faker $faker) {
         'description' => $faker->text,
         'price_month' => $faker->numberBetween(5000, 20000),
         'price_year'  => $faker->numberBetween(50000, 200000),
+        'category_id' => \App\Category::all()->random()->id,
     ];
 });
 
@@ -18,5 +19,6 @@ $factory->state(App\ServiceCompilation::class, 'test', function(Faker $faker) {
         'description' => 'Compilation description',
         'price_month' => 10000,
         'price_year'  => 100000,
+        'category_id' => 1,
     ];
 });

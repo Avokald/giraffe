@@ -4,10 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use \App\Traits\Filterable;
 
 class Service extends Model
 {
     use Sluggable;
+
+    use Filterable;
+
     protected $fillable = [
         'name',
         'rating',
@@ -23,6 +27,101 @@ class Service extends Model
     protected $casts = [
         'features' => 'array',
     ];
+
+    public function getPriceMonthAttribute()
+    {
+        return $this->tariffs()->first()->price_month ?? "???";
+    }
+
+    public function relationshipsSave(array $request)
+    {
+        if (isset($request['screenshots'])) {
+
+            foreach ($request['screenshots'] as $screenshot_id) {
+
+                $screenshot = Image::findOrFail($screenshot_id);
+                $screenshot->bound(static::class, $this->id, null);
+            }
+        }
+
+        if (isset($request['banner'])) {
+
+            $banner = Image::findOrFail($request['banner']);
+            $banner->updateParent([
+                'type' => 'banner',
+                'imageable_type' => static::class,
+                'imageable_id' => $this->id,
+            ]);
+        }
+
+        if (isset($request['logo'])) {
+
+            $logo = Image::findOrFail($request['logo']);
+            $logo->updateParent([
+                'type' => 'logo',
+                'imageable_type' => static::class,
+                'imageable_id' => $this->id,
+            ]);
+        }
+
+        $this->compilations()->sync($request['compilations']);
+        $this->category_id = $request['category_id'];
+
+
+        $this->save();
+    }
+
+    public function mainUpdate(array $request)
+    {
+        $this->update($request);
+
+        if (isset($request['banner'])) {
+
+            $banner = Image::findOrFail($request['banner']);
+            $banner->updateParent([
+                'type' => 'banner',
+                'imageable_type' => static::class,
+                'imageable_id' => $this->id,
+            ]);
+        }
+
+        if (isset($request['logo'])) {
+            $logo = Image::findOrFail($request['logo']);
+            $logo->updateParent([
+                'type' => 'logo',
+                'imageable_type' => static::class,
+                'imageable_id' => $this->id,
+            ]);
+        }
+
+        if (isset($request['screenshots'])) {
+
+            foreach ($request['screenshots'] as $screenshot_id) {
+
+                $screenshot = Image::findOrFail($screenshot_id);
+                $screenshot->bound(static::class, $this->id, 'screenshot');
+            }
+        }
+
+        if (isset($request['documents'])) {
+
+            foreach ($this->documents as $document) {
+                $document->unbound();
+            }
+
+            foreach ($request['documents'] as $document_id) {
+
+                $document = Material::findOrFail($document_id);
+                $document->bound(static::class, $this->id, 'document');
+            }
+        }
+
+        $this->compilations()->sync($request['compilations']);
+        $this->category_id = $request['category_id'];
+
+
+        $this->save();
+    }
 
     public function category()
     {

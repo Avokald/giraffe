@@ -13,7 +13,7 @@ $factory->define(App\Review::class, function (Faker $faker) {
 
     return [
         'text'            => $faker->text(200),
-        'rating'          => $faker->randomElement([null, $faker->numberBetween(1, 10)]),
+        'rating'          => $faker->numberBetween(1, 10),
         'reviewable_type' => $reviewableType,
         'reviewable_id'   => $reviewableObjectId,
     ];

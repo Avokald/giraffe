@@ -21,6 +21,11 @@ class PageElement extends Model
         'pageElementType',
     ];
 
+    public function getTemplateAttribute()
+    {
+        return $this->pageElementType->template;
+    }
+
     public function pageElementType()
     {
         return $this->belongsTo( \App\PageElementType::class );

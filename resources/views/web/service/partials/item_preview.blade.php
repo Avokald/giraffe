@@ -2,36 +2,11 @@
     <div class="item-preview">
         <div class="item-prev-area">
             <div class="item__preview-slider">
-                <div class="prev-slide">
-                    <img src="images/single1.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
-                <div class="prev-slide">
-                    <img src="images/single2.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
-                <div class="prev-slide">
-                    <img src="images/single3.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
-                <div class="prev-slide">
-                    <img src="images/single1.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
-                <div class="prev-slide">
-                    <img src="images/single2.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
-                <div class="prev-slide">
-                    <img src="images/single3.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
-                <div class="prev-slide">
-                    <img src="images/single1.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
-                <div class="prev-slide">
-                    <img src="images/single2.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
-                <div class="prev-slide">
-                    <img src="images/single3.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
-                <div class="prev-slide">
-                    <img src="images/single1.jpg" alt="Keep calm this isn't the end of the world, the preview is just missing.">
-                </div>
+                @foreach ($service->screenshots as $screenshot)
+                    <div class="prev-slide">
+                        <img src="{{ $screenshot->url }}" alt="{{ $screenshot->alt }}">
+                    </div>
+                @endforeach
             </div>
             <!-- end /.item--preview-slider -->
             <div class="prev-nav thumb-nav">
@@ -67,13 +42,7 @@
                         <span class="icon-star"></span> Reviews
                     </p>
                     <ul class="list-unstyled">
-                        <li>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                        </li>
+                        @include('web.partials.stars')
                         {{-- TODO Show reviews count. Same file problem --}}
                         <li>(@yield('reviews-count'))</li>
                     </ul>

@@ -17,6 +17,8 @@ class CreateServicesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->unsignedSmallInteger('rating')->nullable();
+            $table->unsignedBigInteger('view_count')->default(0);
+            $table->unsignedBigInteger('deals_count')->default(0);
             $table->boolean('force_rating')->default(false);
             $table->text('description_long')->nullable();
             $table->text('description_short')->nullable();

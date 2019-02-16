@@ -1,12 +1,9 @@
 <div class="form-group">
     <div class="col-sm-12">
         <div class="">
-
             <label>{{ $label }}</label>
-            <input type="text" id="lat" readonly="yes"><br>
-            <input type="text" id="lng" readonly="yes"><br>
-
-
+            Latitude: <input type="text" id="lat" name="{{ $name }}[lat]" value="{{ $element->values ? $element->values['lat'] : '' }}"><br>
+            Longitude: <input type="text" id="lng" name="{{ $name }}[lng]" value="{{ $element->values ? $element->values['lng'] : '' }}"><br>
             <div id="{{ $id }}-map"></div>
         </div>
     </div>
@@ -22,7 +19,7 @@
 
         //Map options.
         var options = {
-            center: {lat: {{ $value['lat'] }}, lng: {{ $value['lng'] }}}, //Set center.
+            center: {lat: {{ $element->values['lat'] }}, lng: {{ $element->values['lng'] }}}, //Set center.
             zoom: 7 //The zoom value.
         };
 

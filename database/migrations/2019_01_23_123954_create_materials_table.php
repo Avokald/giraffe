@@ -20,7 +20,7 @@ class CreateMaterialsTable extends Migration
             $table->string('type', 30)->nullable();
             $table->timestamps();
 
-            $table->morphs('materiable');
+            $table->nullableMorphs('materiable');
         });
     }
 

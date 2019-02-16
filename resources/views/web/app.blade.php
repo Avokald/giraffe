@@ -7,8 +7,7 @@
     <!-- viewport meta -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="DigiPro - Digital Products Marketplace ">
-    <meta name="keywords" content="marketplace, easy digital download, digital product, digital, html5">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon Icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon-32x32.png">
@@ -34,21 +33,18 @@
 
 <body class="home1 mutlti-vendor">
 
+{{-- TODO Insert data --}}
 @section('header')
     @include('web.partials.header')
-@show
-
-@section('bread')
-    @include('web.partials.bread')
 @show
 
 @yield('content')
 
 
+{{-- TODO Insert data --}}
 @section('footer')
     @include('web.partials.footer')
 @show
-{{-- TODO Footer --}}
 
 <!--//////////////////// JS GOES HERE ////////////////-->
 
@@ -74,6 +70,16 @@
 <script src="/public/js/dashboard.js"></script>
 <script src="/public/js/main.js"></script>
 <script src="/public/js/map.js"></script>
+<script src="/public/js/be.js"></script>
+
 <!-- endinject -->
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 </body>
 </html>

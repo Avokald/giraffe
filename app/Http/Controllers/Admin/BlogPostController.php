@@ -18,8 +18,10 @@ class BlogPostController extends Controller
 
     public function index()
     {
-        $blogposts = BlogPost::all();
-        dd($blogposts);
+        $blogposts = BlogPost::paginate(10);
+        return view('admin.pages.blog.blogposts', [
+            'blogposts' => $blogposts,
+        ]);
     }
 
     /**
@@ -35,40 +37,46 @@ class BlogPostController extends Controller
     public function create()
     {
         $blogpost = new BlogPost();
-        return view('admin.pages.blog.blogpost_edit', ['blogpost' => $blogpost]);
+        $allTags = \App\Tag::all()->toArray();
+        return view('admin.pages.blog.blogpost_edit', [
+            'blogpost' => $blogpost,
+            'allTags' => $allTags,
+        ]);
     }
 
     public function store(Request $request)
     {
         $request = $request->toArray();
-        $request['author_id'] = Auth::user()->id;
+        $request['author_id'] = Auth::user()->id; // TODO set user
+
         $blogpost = BlogPost::create($request);
+
+        $blogpost->relationshipsSave($request);
+
         return redirect()->route('admin.blog.edit', ['blogpost' => $blogpost]);
     }
 
     public function edit($blogpost_id)
     {
         $blogpost = BlogPost::with('tags')->findOrFail($blogpost_id);
-        $all_tags = \App\Tag::all()->toArray();
-        return view('admin.pages.blog.blogpost_edit', ['blogpost' => $blogpost, 'all_tags' => $all_tags]);
+        $allTags = \App\Tag::all()->toArray();
+        return view('admin.pages.blog.blogpost_edit', [
+            'blogpost' => $blogpost,
+            'allTags' => $allTags,
+        ]);
     }
 
     public function update(Request $request, int $blogpost_id)
     {
         $blogpost = BlogPost::findOrFail($blogpost_id);
-        $requestArray = $request->toArray();
-        $blogpost->tags()->sync($requestArray['tags']);
-//        if ($requestArray['banner_new']) {
-//            $requestArray['banner'] = $requestArray['banner_new'];
-//            // TODO Image upload handling
-//        }
-        $blogpost->update($requestArray);
-        $blogpost->save();
+        $blogpost->mainUpdate($request->toArray());
         return redirect()->route('admin.blog.edit', ['blogpost' => $blogpost]);
     }
 
-    public function destroy(BlogPost $blogPost)
+    public function destroy(int $blogPostId)
     {
-        return dd($blogPost);
+        $status = Blogpost::findOrFail($blogPostId)->delete();
+        session()->flash('status', $status);
+        return redirect()->route('admin.blog.index');
     }
 }

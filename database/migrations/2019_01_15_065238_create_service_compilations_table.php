@@ -19,6 +19,7 @@ class CreateServiceCompilationsTable extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('price_month')->nullable();
             $table->unsignedInteger('price_year')->nullable();
+            $table->unsignedInteger('category_id')->nullable();
             $table->timestamps();
 
             $table->string('slug');

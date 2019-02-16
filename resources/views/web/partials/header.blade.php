@@ -49,13 +49,13 @@
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <a href="all-products.html">Подборки</a>
+                                                    <a href="{{ route('compilations.index') }}">Подборки</a>
                                                 </li>
                                                 <li>
-                                                    <a href="category-grid.html">Блог</a>
+                                                    <a href="{{ route('blogposts.index') }}">Блог</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">О нас</a>
+                                                    <a href="{{ route('home') }}">О нас</a>
                                                 </li>
                                             </ul>
                                         </div>

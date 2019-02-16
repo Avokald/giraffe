@@ -35,14 +35,15 @@ class TagController extends Controller
 
     public function update(Request $request, Tag $tag)
     {
-        $tag->update($request);
+        $tag->update($request->toArray());
         $tag->save();
         return redirect()->route('admin.tags.edit', $tag);
     }
 
-    public function destroy(Tag $tag)
+    public function destroy(int $tagId)
     {
-        $tag->delete();
+        $status = Tag::findOrFail($tagId)->delete();
+        session()->flash('status', $status);
         return redirect()->route('admin.tags.index');
     }
 }
