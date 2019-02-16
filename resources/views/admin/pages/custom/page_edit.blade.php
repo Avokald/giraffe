@@ -42,20 +42,32 @@
                         'value' => $page->template,
                     ])
 
+                    <?php
+                    $element = \App\PageElement::find(17);
+                    ?>
 
-                    @foreach ( $page->pageElements as $element )
-                        @if ( !$element->hidden )
-                            @include($element->pageElementType->template, [
-                                'label' => ucfirst(str_replace('_', ' ', $element->name)),
-                                'name' => "page_elements[$element->name]",
-                                'class' => "$element->name-item",
-                                'type' => $element->pageElementType->name,
-                                'id' => $element->html_id,
-                                'element' => $element,
-                                'value' => $element->values ?? '',
-                            ])
-                        @endif
-                    @endforeach
+                    @include('admin.partials.repeater', [
+                        'element' => $element,
+                        'value' => $element->values,
+                        'class' => $element->name,
+                        'name' => "page_elements[$element->name]",
+                        'label' => $element->name,
+                    ])
+
+
+                    {{--@foreach ( $page->pageElements as $element )--}}
+                        {{--@if ( !$element->hidden )--}}
+                            {{--@include($element->pageElementType->template, [--}}
+                                {{--'label' => ucfirst(str_replace('_', ' ', $element->name)),--}}
+                                {{--'name' => "page_elements[$element->name]",--}}
+                                {{--'class' => "$element->name-item",--}}
+                                {{--'type' => $element->pageElementType->name,--}}
+                                {{--'id' => $element->html_id,--}}
+                                {{--'element' => $element,--}}
+                                {{--'value' => $element->values ?? '',--}}
+                            {{--])--}}
+                        {{--@endif--}}
+                    {{--@endforeach--}}
 
                     {{--@include('admin.partials.team_repeater', [--}}
                         {{--'label' => 'Team',--}}
