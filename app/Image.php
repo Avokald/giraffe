@@ -3,11 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
-class Image extends Material
+class Image extends Model
 { // TODO elementses label, placeholder & etc.
     protected $fillable = ['url', 'name', 'type', 'alt'];
 

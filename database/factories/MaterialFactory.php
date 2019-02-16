@@ -21,7 +21,7 @@ $factory->state(App\Material::class, 'test-pdf', function(Faker $faker) {
 $factory->state(App\Material::class, 'test-presentation', function(Faker $faker) {
     return [
         'url' => 'http://example.com/example.pptx',
-        'name' => 'test-pdf.pptx',
+        'name' => 'test-pptx.pptx',
         'type' => 'presentation',
         'materiable_type' => \App\Service::class,
         'materiable_id' => 1,

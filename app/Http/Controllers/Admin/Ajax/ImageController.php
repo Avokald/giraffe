@@ -22,6 +22,5 @@ class ImageController extends Controller
     {
         $image = Image::findOrFail($request->image_id);
         $image->unbound();
-        // TODO
     }
 }

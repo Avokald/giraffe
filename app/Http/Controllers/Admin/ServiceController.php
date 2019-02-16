@@ -86,9 +86,9 @@ class ServiceController extends Controller
      * @return bool
      * @throws \Exception
      */
-    public function delete(int $serviceId)
+    public function destroy(int $serviceId)
     {
-        $status = Service::findOrFail($serviceId)->delete;
+        $status = Service::findOrFail($serviceId)->delete();
         session()->flash('status', $status);
         return redirect()->route('admin.services.index');
     }
