@@ -38,6 +38,8 @@ Route::group([
     Route::resource('tags', 'TagController');
 
     Route::resource('pages', 'PageController');
+    Route::resource('menus', 'MenuController');
+    Route::resource('menu-elements', 'MenuElementController');
     Route::resource('categories', 'CategoryController');
     Route::resource('compilations', 'ServiceCompilationController');
 

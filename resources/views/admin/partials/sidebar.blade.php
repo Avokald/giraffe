@@ -52,6 +52,22 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Меню</a>
+                    <ul>
+                        <li><a href="{{ route('admin.menus.index') }}">Список</a></li>
+                        <li><a href="{{ route('admin.menus.create') }}">Создать</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Меню элементы</a>
+                    <ul>
+                        <li><a href="{{ route('admin.menu-elements.index') }}">Список</a></li>
+                        <li><a href="{{ route('admin.menu-elements.create') }}">Создать</a></li>
+                    </ul>
+                </li>
+
                 <a href="/logout">Logout</a>
             </ul>
 

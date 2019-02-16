@@ -11,7 +11,7 @@
                         <div class="menu-fullwidth">
                             <div class="logo-wrapper">
                                 <div class="logo logo-top">
-                                    <a href="index.html"><img src="images/logo.png" alt="logo image" class="img-fluid"></a>
+                                    <a href="{{ route('services.index') }}"><img src="images/logo.png" alt="logo image" class="img-fluid"></a>
                                 </div>
                             </div>
 
@@ -27,7 +27,7 @@
                                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                             <ul class="navbar-nav">
                                                 <li class="has_dropdown">
-                                                    <a href="index.html">Каталог</a>
+                                                    <a href="{{ route('services.index') }}">Каталог</a>
                                                     <div class="dropdown dropdown--menu">
                                                         <ul>
                                                             <li>
@@ -81,7 +81,7 @@
                                             <li class="has_dropdown">
                                                 <div class="icon_wrap">
                                                     <span class="icon-basket-loaded"></span>
-                                                    <span class="notification_count purch">2</span>
+                                                    <span class="notification_count purch">0</span>
                                                 </div>
 
                                                 <div class="dropdown dropdown--cart">
@@ -237,7 +237,7 @@
                                                     <a href="cart.html">
                                                         <div class="icon_wrap">
                                                             <span class="icon-basket"></span>
-                                                            <span class="notification_count purch">2</span>
+                                                            <span class="notification_count purch">0</span>
                                                         </div>
                                                     </a>
                                                 </li>
