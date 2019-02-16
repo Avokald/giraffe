@@ -114,48 +114,19 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3>Materials</h3>
+                            <h3>PDF</h3>
                         </div>
                         <div class="card-content">
-                            @foreach ($service->pdfs as $pdf)
-                                <div class="material-pdf-item repeater-item">
-                                    <br><input type="text" name="materials[pdfs][]" value="{{ $pdf->name }}">
-                                    <button class="repeater-delete-el">X</button>
-                                </div>
-                            @endforeach
+                            @include('admin.partials-new.repeater', [
+                                 'label' => '',
+                                 'name' => 'pdfs[]',
+                                 'template' => 'admin.partials.file',
+                                 'class' => 'pdfs-item',
+                                 'value' => $service->pdfs,
+                             ])
                         </div>
-                        {{--<div class="card-content">--}}
-                            {{--@foreach ($service->presentations as $presentation)--}}
-                                {{--<div class="material-presentation-item repeater-item">--}}
-                                    {{--<br><input type="text" name="materials[presentations][]" value="{{ $presentation->name }}">--}}
-                                    {{--<button class="repeater-delete-el">X</button>--}}
-                                {{--</div>--}}
-                            {{--@endforeach--}}
-                        {{--</div>--}}
-                        {{--<div class="card-content">--}}
-                            {{--@foreach ($service->documents as $document)--}}
-                                {{--<div class="material-document-item repeater-item">--}}
-                                    {{--<br><input type="text" name="materials[documents][]" value="{{ $document->name }}">--}}
-                                    {{--<button class="repeater-delete-el">X</button>--}}
-                                {{--</div>--}}
-                            {{--@endforeach--}}
-                        {{--</div>--}}
                     </div>
 
-                    {{--<div class="card">--}}
-                        {{--<div class="card-header">--}}
-                            {{--<h3>PDF</h3>--}}
-                        {{--</div>--}}
-                        {{--<div class="card-content">--}}
-                            {{--@include('admin.partials-new.repeater', [--}}
-                                 {{--'label' => '',--}}
-                                 {{--'name' => 'pdfs[]',--}}
-                                 {{--'template' => 'admin.partials.file',--}}
-                                 {{--'class' => 'pdfs-item',--}}
-                                 {{--'value' => $service->pdfs,--}}
-                             {{--])--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
 
 
                     <div class="card">
@@ -169,6 +140,21 @@
                                  'template' => 'admin.partials.file',
                                  'class' => 'documents-item',
                                  'value' => $service->documents,
+                             ])
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Presentations</h3>
+                        </div>
+                        <div class="card-content">
+                            @include('admin.partials-new.repeater', [
+                                 'label' => '',
+                                 'name' => 'presentations[]',
+                                 'template' => 'admin.partials.file',
+                                 'class' => 'presentations-item',
+                                 'value' => $service->presentations,
                              ])
                         </div>
                     </div>
