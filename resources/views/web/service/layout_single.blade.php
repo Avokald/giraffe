@@ -5,11 +5,9 @@
     <!--================================
         START BREADCRUMB AREA
     =================================-->
-    <section class="breadcrumb-area borzx"
-             @if ( $service->banner ) :
-                 style="background-image: url({{ $service->banner->url ?? '' }});"
-             @endif
-    >
+    <section class="breadcrumb-area borzx" {{ isset($service->banner)
+        ? "style='background-image: url({$service->banner->url}'"
+        : '' }}>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
@@ -36,6 +34,7 @@
     <!--================================
         END BREADCRUMB AREA
     =================================-->
+
     <section class="single-product-desc">
         <div class="container">
             <div class="row">

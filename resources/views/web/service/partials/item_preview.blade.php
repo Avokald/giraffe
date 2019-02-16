@@ -1,5 +1,4 @@
 @section('item-preview')
-@section('item-preview')
     <div class="item-preview">
         <div class="item-prev-area">
             <div class="item__preview-slider">

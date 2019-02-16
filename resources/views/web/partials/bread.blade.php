@@ -2,8 +2,13 @@
 {{-- TODO Refactor so the whole breadcrubms class will fit in this view.
     The view should be extendible so that I can place an image in services
 --}}
-{{--{{ Breadcrumbs::render('blogpost') }}--}}
 @if (count($breadcrumbs))
+    <?php // TODO wtf, how does this work
+    $lastBread = last(last($breadcrumbs));
+    ?>
+    @if (!preg_match('/services\/.+/', last($lastBread)))
+        <h2 class="page-title">{{ head($lastBread) }}</h2>
+    @endif
     <div class="breadcrumb">
         <ul>
             @foreach ($breadcrumbs as $breadcrumb)

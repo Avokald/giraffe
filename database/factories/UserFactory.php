@@ -18,7 +18,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'email_verified_at' => now(),
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'password' => \Illuminate\Support\Facades\Hash::make($faker->password),
         'remember_token' => str_random(10),
     ];
 });
@@ -36,9 +36,9 @@ $factory->state(App\User::class, 'test', function(Faker $faker) {
 $factory->state(App\User::class, 'test-admin', function(Faker $faker) {
     return [
         'name' => 'Test user admin',
-        'email' => 'testadmin@example.com',
+        'email' => 'admin@example.com',
         'email_verified_at' => now(),
-        'password' => \Illuminate\Support\Facades\Hash::make('211293'),
+        'password' => \Illuminate\Support\Facades\Hash::make('111'),
         'remember_token' => str_random(10),
     ];
 });

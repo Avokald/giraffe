@@ -11,13 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Category::class, 1)->state('test')->create();
+
         factory(\App\Category::class, 5)->create();
 
-        factory(\App\ServiceCompilation::class, 1)->state('test')->create();
         factory(\App\ServiceCompilation::class, 10)->create();
 
-        factory(\App\Service::class, 1)->state('test')->create();
         factory(\App\Service::class, 50)->create();
 
         foreach (\App\ServiceCompilation::all() as $compilation) {
@@ -32,22 +30,20 @@ class DatabaseSeeder extends Seeder
             $compilation->services()->attach(\App\Service::all()->random()->id);
         }
 
-        factory(\App\Tariff::class, 3)->state('test')->create();
         factory(\App\Tariff::class, 30)->create();
 
-        factory(\App\Review::class, 3)->state('test')->create();
         factory(\App\Review::class, 50)->create();
 
 
-        factory(\App\Image::class, 3)->state('test-category-logo')->create();
         factory(\App\Image::class, 3)->state('category-logo')->create();
 
-        factory(\App\Image::class, 5)->state('test-compilation-logo')->create();
         factory(\App\Image::class, 5)->state('compilation-logo')->create();
 
-        factory(\App\Image::class, 1)->state('test-service-logo')->create();
-        factory(\App\Image::class, 1)->state('test-service-banner')->create();
-        factory(\App\Image::class, 10)->state('test-service-screenshot')->create();
+        foreach (\App\Service::all()->except(0) as $service) {
+            factory(\App\Image::class)->state('service-logo')->create($service->id);
+            factory(\App\Image::class)->state('service-banner')->create($service->id);
+            factory(\App\Image::class, 10)->state('service-screenshot')->create($service->id);
+        }
 
         factory(\App\Material::class, 1)->state('test-pdf')->create();
         factory(\App\Material::class, 1)->state('test-video')->create();
@@ -57,24 +53,19 @@ class DatabaseSeeder extends Seeder
         factory(\App\Admin::class, 1)->state('test-admin')->create();
 //        factory(\App\Admin::class, 1)->state('test-moderator')->create();
 
-        factory(\App\User::class, 10)->state('test')->create();
+        factory(\App\User::class, 10)->create();
 
-        factory(\App\BlogPost::class, 1)->state('test')->create();
-        factory(\App\BlogPost::class, 20)->create();
+        factory(\App\BlogPost::class, 30)->create();
 
-        factory(\App\Image::class, 1)->state('test-blog-banner')->create();
-
-        factory(\App\Tag::class, 1)->state('test')->create();
-        factory(\App\Tag::class, 7)->create();
-
+        factory(\App\Tag::class, 10)->create();
 
         foreach (\App\Tag::all() as $tag) {
             $blogpost = \App\BlogPost::all()->random();
             $tag->blogposts()->attach($blogpost->id);
         }
 
-        foreach (\App\Tag::all() as $tag) {
-            $blogpost = \App\BlogPost::all()->random();
+        foreach (\App\BlogPost::all() as $blogpost) {
+            $tag = \App\Tag::all()->random();
             $tag->blogposts()->attach($blogpost->id);
         }
 

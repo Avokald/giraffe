@@ -24,7 +24,7 @@ class ServiceController extends Controller
 
             $services = Service::categoryId(request()->category_id)
                 ->priceBetween(request()->price_min, request()->price_max)
-                ->sortBy(request()->field_name, $direction )
+                ->sortBy(request()->field_name, $direction ?? null)
                 ->paginate(6);
         } else {
             $services = Service::paginate(6);

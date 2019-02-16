@@ -13,47 +13,36 @@ $factory->define(App\Image::class, function (Faker $faker) {
     ];
 });
 
-$factory->state(App\Image::class, 'test-service-logo', function(Faker $faker) {
+$factory->state(App\Image::class, 'service-logo', function(Faker $faker) {
     return [
         'url' => 'https://via.placeholder.com/250x250',
-        'name' => 'test-logo.jpg',
-        'type' => 'logo',
-        'alt'  => 'test service logo alt',
+        'name' => 'service-logo.jpg',
+        'type' => 'service logo',
+        'alt'  => 'service logo alt',
         'imageable_type' => \App\Service::class,
-        'imageable_id' => 1,
+        'imageable_id' => \App\Service::all()->except(0)->random()->id,
     ];
 });
 
-$factory->state(App\Image::class, 'test-service-banner', function(Faker $faker) {
+$factory->state(App\Image::class, 'service-banner', function(Faker $faker) {
     return [
         'url' => 'https://via.placeholder.com/1920x446',
-        'name' => 'test-banner.jpg',
-        'type' => 'banner',
-        'alt'  => 'test service banner alt',
+        'name' => 'service-banner.jpg',
+        'type' => 'service banner',
+        'alt'  => 'service banner alt',
         'imageable_type' => \App\Service::class,
-        'imageable_id' => 1,
+        'imageable_id' => \App\Service::all()->except(0)->random()->id,
     ];
 });
 
-$factory->state(App\Image::class, 'test-service-screenshot', function(Faker $faker) {
+$factory->state(App\Image::class, 'service-screenshot', function(Faker $faker) {
     return [
         'url' => 'https://via.placeholder.com/250x250',
         'name' => 'test-screenshot.jpg',
         'type' => 'screenshot',
         'alt'  => 'test service screenshot alt',
         'imageable_type' => \App\Service::class,
-        'imageable_id' => 1,
-    ];
-});
-
-$factory->state(App\Image::class, 'test-blog-banner', function(Faker $faker) {
-    return [
-        'url' => 'https://via.placeholder.com/728x417',
-        'name' => 'test-blog-banner.jpg',
-        'type' => 'banner',
-        'alt'  => 'test banner blog alt',
-        'imageable_type' => \App\BlogPost::class,
-        'imageable_id' => 1,
+        'imageable_id' => \App\Service::all()->except(0)->random()->id,
     ];
 });
 
@@ -114,3 +103,46 @@ $factory->state(App\Image::class, 'test-category-logo', function(Faker $faker) {
     ];
 });
 
+$factory->state(App\Image::class, 'test-service-logo', function(Faker $faker) {
+    return [
+        'url' => 'https://via.placeholder.com/250x250',
+        'name' => 'test-logo.jpg',
+        'type' => 'logo',
+        'alt'  => 'test service logo alt',
+        'imageable_type' => \App\Service::class,
+        'imageable_id' => 1,
+    ];
+});
+
+$factory->state(App\Image::class, 'test-service-banner', function(Faker $faker) {
+    return [
+        'url' => 'https://via.placeholder.com/1920x446',
+        'name' => 'test-banner.jpg',
+        'type' => 'banner',
+        'alt'  => 'test service banner alt',
+        'imageable_type' => \App\Service::class,
+        'imageable_id' => 1,
+    ];
+});
+
+$factory->state(App\Image::class, 'test-service-screenshot', function(Faker $faker) {
+    return [
+        'url' => 'https://via.placeholder.com/250x250',
+        'name' => 'test-screenshot.jpg',
+        'type' => 'screenshot',
+        'alt'  => 'test service screenshot alt',
+        'imageable_type' => \App\Service::class,
+        'imageable_id' => 1,
+    ];
+});
+
+$factory->state(App\Image::class, 'test-blog-banner', function(Faker $faker) {
+    return [
+        'url' => 'https://via.placeholder.com/728x417',
+        'name' => 'test-blog-banner.jpg',
+        'type' => 'banner',
+        'alt'  => 'test banner blog alt',
+        'imageable_type' => \App\BlogPost::class,
+        'imageable_id' => 1,
+    ];
+});

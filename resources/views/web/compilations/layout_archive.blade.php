@@ -10,7 +10,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
-                    <h2 class="page-title">Подборки</h2>
                     {{ Breadcrumbs::render('compilations') }}
                 </div>
                 <!-- end /.col-md-12 -->
