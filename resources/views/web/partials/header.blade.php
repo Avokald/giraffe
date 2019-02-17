@@ -11,7 +11,7 @@
                         <div class="menu-fullwidth">
                             <div class="logo-wrapper">
                                 <div class="logo logo-top">
-                                    <a href="index.html"><img src="images/logo.png" alt="logo image" class="img-fluid"></a>
+                                    <a href="{{ route('services.index') }}"><img src="images/logo.png" alt="logo image" class="img-fluid"></a>
                                 </div>
                             </div>
 
@@ -26,37 +26,27 @@
                                         <!-- Collect the nav links, forms, and other content for toggling -->
                                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                             <ul class="navbar-nav">
-                                                <li class="has_dropdown">
-                                                    <a href="index.html">Каталог</a>
-                                                    <div class="dropdown dropdown--menu">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="all-products.html">Recent Items</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="all-products.html">Popular Items</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="index5.html">Free Templates</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">Follow Feed</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">Top Authors</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ route('compilations.index') }}">Подборки</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ route('blogposts.index') }}">Блог</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ route('home') }}">О нас</a>
-                                                </li>
+                                                <?php
+                                                $headerMenuElements = $menus->where('slug', 'header-menu')->first()->menuElements ?? null;
+                                                ?>
+                                                @if ($headerMenuElements)
+                                                    @foreach ($headerMenuElements as $menuElement)
+                                                        <li{{ $menuElement->subMenuElements->isNotEmpty() ? ' class=has_dropdown' : '' }}>
+                                                            <a href={{ $menuElement->url }}>{{ $menuElement->title }}</a>
+                                                            @if ($menuElement->subMenuElements->isNotEmpty())
+                                                                <div class="dropdown dropdown--menu">
+                                                                    <ul>
+                                                                        @foreach ($menuElement->subMenuElements as $subMenuElement)
+                                                                           <li>
+                                                                                <a href={{ $subMenuElement->url }}>{{ $subMenuElement->title }}</a>
+                                                                            </li>
+                                                                        @endforeach
+                                                                    </ul>
+                                                                </div>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                @endif
                                             </ul>
                                         </div>
                                         <!-- /.navbar-collapse -->
@@ -81,7 +71,7 @@
                                             <li class="has_dropdown">
                                                 <div class="icon_wrap">
                                                     <span class="icon-basket-loaded"></span>
-                                                    <span class="notification_count purch">2</span>
+                                                    <span class="notification_count purch">0</span>
                                                 </div>
 
                                                 <div class="dropdown dropdown--cart">
@@ -237,7 +227,7 @@
                                                     <a href="cart.html">
                                                         <div class="icon_wrap">
                                                             <span class="icon-basket"></span>
-                                                            <span class="notification_count purch">2</span>
+                                                            <span class="notification_count purch">0</span>
                                                         </div>
                                                     </a>
                                                 </li>

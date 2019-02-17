@@ -29,9 +29,6 @@ class TestUnitsSeeder extends Seeder
 
         factory(\App\Image::class, 5)->state('test-compilation-logo')->create();
 
-        factory(\App\Image::class, 1)->state('service-logo')->create(['imageable_id' => 1]);
-        factory(\App\Image::class, 1)->state('service-banner')->create(['imageable_id' => 1]);
-        factory(\App\Image::class, 10)->state('service-screenshot')->create(['imageable_id' => 1]);
 
         factory(\App\Material::class, 1)->state('service-pdf')->create(['materiable_id' => 1]);
         factory(\App\Material::class, 1)->state('service-video')->create(['materiable_id' => 1]);
@@ -44,7 +41,6 @@ class TestUnitsSeeder extends Seeder
 
         factory(\App\BlogPost::class, 1)->state('test')->create();
 
-        factory(\App\Image::class, 1)->state('test-blog-banner')->create();
 
         factory(\App\Tag::class, 1)->state('test')->create();
 
@@ -63,6 +59,35 @@ class TestUnitsSeeder extends Seeder
         factory(\App\PageElementType::class, 1)->state('multifield')->create();
         factory(\App\PageElementType::class, 1)->state('image')->create();
         factory(\App\PageElementType::class, 1)->state('file')->create();
+
+
+
+        factory(\App\Menu::class, 1)->state('setup-header')->create();
+        factory(\App\Menu::class, 1)->state('setup-footer')->create();
+        factory(\App\Menu::class, 1)->state('setup-copyright')->create();
+
+        factory(\App\MenuElement::class, 1)->state('setup-header-services')->create();
+        factory(\App\MenuElement::class, 5)->state('setup-header-services-filtered')->create();
+        factory(\App\MenuElement::class, 1)->state('setup-header-compilations')->create();
+        factory(\App\MenuElement::class, 1)->state('setup-header-blog')->create();
+        factory(\App\MenuElement::class, 1)->state('setup-header-about')->create();
+
+        factory(\App\MenuElement::class, 1)->state('setup-footer-popular')->create();
+        factory(\App\MenuElement::class, 1)->state('setup-footer-services')->create();
+        factory(\App\MenuElement::class, 1)->state('setup-footer-compilations')->create();
+        factory(\App\MenuElement::class, 1)->state('setup-footer-blog')->create();
+        factory(\App\MenuElement::class, 1)->state('setup-footer-about')->create();
+
+        factory(\App\MenuElement::class, 1)->state('setup-copyright-text')->create();
+
+
+
+
+
+        factory(\App\Image::class, 1)->state('service-logo')->create(['imageable_id' => 1]);
+        factory(\App\Image::class, 1)->state('service-banner')->create(['imageable_id' => 1]);
+        factory(\App\Image::class, 10)->state('service-screenshot')->create(['imageable_id' => 1]);
+        factory(\App\Image::class, 1)->state('test-blog-banner')->create();
 
     }
 }

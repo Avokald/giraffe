@@ -79,13 +79,13 @@
                             <select name="category_id" class="js-select2 form-control">
                                 <option value="">Без категории</option>
                                 @foreach ( $all_categories as $category )
-                                    <option value="{{ $category['id'] }}"
+                                    <option value="{{ $category->id }}"
                                             @if ( $service->category )
-                                                {{ ($category['id'] == $service->category->id)
+                                                {{ ($category->id == $service->category->id)
                                                    ? ' selected' : '' }}
                                             @endif
                                     >
-                                        {{ $category['name'] }}
+                                        {{ $category->name }}
                                     </option>
                                 @endforeach
                             </select>

@@ -27,81 +27,32 @@
                         <!-- Ends: .footer-widget -->
                     </div>
                     <!-- end /.col-md-4 -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="footer-widget">
-                            <div class="footer-menu footer-menu--1">
-                                <h5 class="footer-widget-title">Популярные категории</h5>
-                                <ul>
-                                    <li>
-                                        <a href="{{ route('services.index') }}">Каталог сервисов</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('compilations.index') }}">Подборки</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('blogposts.index') }}">Блог</a>
-                                    </li>
-                                    <li>
-                                        {{-- TODO Pages --}}
-                                        <a href="{{ route('home') }}">О нас</a>
-                                    </li>
-                                </ul>
+                    <?php
+                    $footerMenuElements = $menus->where('slug', 'footer-menu')->first()->menuElements ?? null;
+                    ?>
+                    @if ($footerMenuElements)
+                        @foreach ($footerMenuElements as $menuElement)
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="footer-widget">
+                                    <div class="footer-menu">
+                                        <h5 class="footer-widget-title">{{ $menuElement->title }}</h5>
+                                        @if ($menuElement->subMenuElements->isNotEmpty())
+                                            <ul>
+                                                @foreach ($menuElement->subMenuElements as $subMenuElement)
+                                                    <li>
+                                                        <a href="{{ $subMenuElement->url }}">{{ $subMenuElement->title }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </div>
+                                    <!-- end /.footer-menu -->
+                                </div>
+                                <!-- Ends: .footer-widget -->
                             </div>
-                            <!-- end /.footer-menu -->
-                        </div>
-                        <!-- Ends: .footer-widget -->
-                    </div>
-                    <!-- end /.col-md-3 -->
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="footer-widget">
-                            <div class="footer-menu">
-                                <h5 class="footer-widget-title">Популярные категории</h5>
-                                <ul>
-                                    <li>
-                                        <a href="#">Каталог сервисов</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Подборки</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Блог</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">О нас</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- end /.footer-menu -->
-                        </div>
-                        <!-- Ends: .footer-widget -->
-                    </div>
-                    <!-- end /.col-lg-3 -->
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="footer-widget">
-                            <div class="footer-menu no-padding">
-                                <h5 class="footer-widget-title">Популярные категории</h5>
-                                <ul>
-                                    <li>
-                                        <a href="#">Каталог сервисов</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Подборки</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Блог</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">О нас</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- end /.footer-menu -->
-                        </div>
-                        <!-- Ends: .footer-widget -->
-                    </div>
-                    <!-- Ends: .col-lg-3 -->
+                            <!-- end /.col-md-3 -->
+                        @endforeach
+                    @endif
 
                 </div>
                 <!-- end /.row -->
@@ -114,10 +65,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="copyright-text">
-                            <p>&copy; 2018, SoftBox</p>
-                        </div>
-
+                        <?php
+                        $copyrightMenuElements = $menus->where('slug', 'copyright-menu')->first()->menuElements ?? null;
+                        ?>
+                        @if ($copyrightMenuElements)
+                            <div class="copyright-text">
+                                @foreach ($copyrightMenuElements as $menuElement)
+                                    <p>{{ $menuElement->title }}</p>
+                                @endforeach
+                            </div>
+                        @endif
                         <div class="go_top">
                             <span class="icon-arrow-up"></span>
                         </div>
