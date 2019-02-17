@@ -36,7 +36,7 @@
                                 <div class="footer-widget">
                                     <div class="footer-menu">
                                         <h5 class="footer-widget-title">{{ $menuElement->title }}</h5>
-                                        @if (isset($menuElement->subMenuElements))
+                                        @if ($menuElement->subMenuElements->isNotEmpty())
                                             <ul>
                                                 @foreach ($menuElement->subMenuElements as $subMenuElement)
                                                     <li>
