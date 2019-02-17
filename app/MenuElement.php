@@ -2,16 +2,20 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class MenuElement extends Model
 {
+    use Sluggable;
+
     protected $fillable = [
         'title',
         'url',
         'parent_element_id',
         'menu_id',
         'type_id',
+        'slug',
     ];
 
     protected $with = [
@@ -35,7 +39,7 @@ class MenuElement extends Model
 
     public function relationshipsSave(array $request)
     {
-        $parentElement = static::findOrFail($request['parent_element_id']);
+        $parentElement = static::find($request['parent_element_id']);
         $this->parent_element_id = $parentElement->id ?? null;
         $this->menu_id = $parentElement->menu_id ?? $request['menu_id'];
         $this->save();
@@ -43,9 +47,19 @@ class MenuElement extends Model
 
     public function mainUpdate(array $request)
     {
-        $parentElement = static::findOrFail($request['parent_element_id']);
+        $this->update($request);
+        $parentElement = static::find($request['parent_element_id']);
         $this->parent_element_id = $parentElement->id ?? null;
         $this->menu_id = $parentElement->menu_id ?? $request['menu_id'];
         $this->save();
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }

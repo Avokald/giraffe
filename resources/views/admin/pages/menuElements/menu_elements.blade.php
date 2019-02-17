@@ -8,6 +8,7 @@
                 <th>id</th>
                 <th>Название</th>
                 <th>Ссылка</th>
+                <td>Меню</td>
                 <th>Надменю</th>
                 <th>Дата создания</th>
                 <th>Действия</th>
@@ -19,7 +20,8 @@
                     <td>{{ $menuElement->id }}</td>
                     <td>{{ $menuElement->title }}</td>
                     <td>{{ $menuElement->url }}</td>
-                    <td>{{ $menuElement->parent_element_id }}</td>
+                    <td>{{ $menuElement->menu->title ?? '' }}</td>
+                    <td>{{ $menuElement->parentElement->title ?? '' }}</td>
                     <td>{{ $menuElement->created_at }}</td>
                     <td class="text-center">
                         <div class="btn-group">

@@ -23,3 +23,10 @@ $factory->state(App\Menu::class, 'setup-footer', function(Faker $faker) {
     ];
 });
 
+$factory->state(App\Menu::class, 'setup-copyright', function(Faker $faker) {
+    return [
+        'title' => 'Copyright menu',
+        'slug' => 'copyright-menu',
+    ];
+});
+

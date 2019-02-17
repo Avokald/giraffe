@@ -65,10 +65,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="copyright-text">
-                            <p>&copy; 2018, SoftBox</p>
-                        </div>
-
+                        <?php
+                        $copyrightMenuElements = $menus->where('slug', 'copyright-menu')->first()->menuElements ?? null;
+                        ?>
+                        @if ($copyrightMenuElements)
+                            <div class="copyright-text">
+                                @foreach ($copyrightMenuElements as $menuElement)
+                                    <p>{{ $menuElement->title }}</p>
+                                @endforeach
+                            </div>
+                        @endif
                         <div class="go_top">
                             <span class="icon-arrow-up"></span>
                         </div>

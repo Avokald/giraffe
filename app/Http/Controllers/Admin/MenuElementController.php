@@ -47,7 +47,7 @@ class MenuElementController extends Controller
     {
         $menuElement = MenuElement::create($request->toArray());
         $menuElement->relationshipsSave($request->toArray());
-        return redirect()->route('admin.menu-elements.edit', $menuElement);
+        return redirect()->route('admin.menu-elements.edit', $menuElement->id);
     }
 
     /**
