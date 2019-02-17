@@ -17,7 +17,7 @@ $factory->state(App\Image::class, 'service-logo', function(Faker $faker) {
     return [
         'url' => 'https://via.placeholder.com/250x250',
         'name' => 'service-logo.jpg',
-        'type' => 'service logo',
+        'type' => 'logo',
         'alt'  => 'service logo alt',
         'imageable_type' => \App\Service::class,
         'imageable_id' => \App\Service::all()->except(0)->random()->id,
@@ -28,7 +28,7 @@ $factory->state(App\Image::class, 'service-banner', function(Faker $faker) {
     return [
         'url' => 'https://via.placeholder.com/1920x446',
         'name' => 'service-banner.jpg',
-        'type' => 'service banner',
+        'type' => 'banner',
         'alt'  => 'service banner alt',
         'imageable_type' => \App\Service::class,
         'imageable_id' => \App\Service::all()->except(0)->random()->id,
@@ -54,7 +54,7 @@ $factory->state(App\Image::class, 'blog-banner', function(Faker $faker) {
         'type' => 'banner',
         'alt'  => 'banner blog alt',
         'imageable_type' => \App\BlogPost::class,
-        'imageable_id' => \App\BlogPost::alk()->random()->id,
+        'imageable_id' => \App\BlogPost::all()->random()->id,
     ];
 });
 

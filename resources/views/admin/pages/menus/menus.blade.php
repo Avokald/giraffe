@@ -15,8 +15,8 @@
             <tbody>
             @foreach ( $menus as $key => $menu )
                 <tr>
-                    <td>{{ $service->id }}</td>
-                    <td>{{ $menu->name }}</td>
+                    <td>{{ $menu->id }}</td>
+                    <td>{{ $menu->title }}</td>
                     <td>{{ $menu->slug }}</td>
                     <td>{{ $menu->created_at }}</td>
                     <td class="text-center">
