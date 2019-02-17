@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Menu;
 use App\MenuElement;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,8 +16,8 @@ class MenuElementController extends Controller
      */
     public function index()
     {
-        $menuElements = MenuElement::paginate(50);
-        return view('admin.pages.menu.menus', ['menu' => $menuElements]);
+        $menuElements = MenuElement::paginate(20);
+        return view('admin.pages.menuElements.menu_elements', ['menuElements' => $menuElements]);
     }
 
     /**
@@ -26,7 +27,14 @@ class MenuElementController extends Controller
      */
     public function create()
     {
-        //
+        $menuElement = new MenuElement();
+        $allMenuElements = MenuElement::all();
+        $allMenus = Menu::all();
+        return view('admin.pages.menuElements.menu_element_edit', [
+            'menuElement' => $menuElement,
+            'allMenuElements' => $allMenuElements,
+            'allMenus' => $allMenus,
+        ]);
     }
 
     /**
@@ -37,7 +45,9 @@ class MenuElementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $menuElement = MenuElement::create($request->toArray());
+        $menuElement->relationshipsSave($request->toArray());
+        return redirect()->route('admin.menu-elements.edit', $menuElement);
     }
 
     /**
@@ -59,7 +69,13 @@ class MenuElementController extends Controller
      */
     public function edit(MenuElement $menuElement)
     {
-        //
+        $allMenuElements = MenuElement::all();
+        $allMenus = Menu::all();
+        return view('admin.pages.menuElements.menu_element_edit', [
+            'menuElement' => $menuElement,
+            'allMenuElements' => $allMenuElements,
+            'allMenus' => $allMenus,
+        ]);
     }
 
     /**
@@ -71,7 +87,8 @@ class MenuElementController extends Controller
      */
     public function update(Request $request, MenuElement $menuElement)
     {
-        //
+        $menuElement->mainUpdate($request->toArray());
+        return redirect()->route('admin.menu-elements.edit', $menuElement);
     }
 
     /**
@@ -79,9 +96,11 @@ class MenuElementController extends Controller
      *
      * @param  \App\MenuElement  $menuElement
      * @return \Illuminate\Http\Response
+     * @throws
      */
     public function destroy(MenuElement $menuElement)
     {
-        //
+        $menuElement->delete();
+        return redirect()->route('admin.menu-elements.index');
     }
 }

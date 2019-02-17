@@ -16,7 +16,9 @@ class MenuController extends Controller
     public function index()
     {
         $menus = Menu::paginate(50);
-        return view('admin.pages.menu.menus', ['menu' => $menus]);
+        return view('admin.pages.menus.menus', [
+            'menus' => $menus,
+        ]);
     }
 
     /**
@@ -26,7 +28,10 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        $menu = new Menu();
+        return view('admin.pages.menus.menu_edit', [
+            'menu' => $menu,
+        ]);
     }
 
     /**
@@ -37,7 +42,8 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $menu = Menu::create($request->toArray());
+        return redirect()->route('admin.menus.edit', $menu->id);
     }
 
     /**
@@ -59,7 +65,9 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('admin.pages.menus.menu_edit', [
+            'menu' => $menu,
+        ]);
     }
 
     /**
@@ -71,7 +79,9 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        //
+        $menu->update($request->toArray());
+        $menu->save();
+        return redirect()->route('admin.menus.edit', $menu->id);
     }
 
     /**
@@ -79,9 +89,11 @@ class MenuController extends Controller
      *
      * @param  \App\Menu  $menu
      * @return \Illuminate\Http\Response
+     * @throws
      */
     public function destroy(Menu $menu)
     {
-        //
+        $menu->delete();
+        return redirect()->route('admin.menus.index');
     }
 }

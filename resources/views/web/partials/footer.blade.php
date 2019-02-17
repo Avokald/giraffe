@@ -27,6 +27,8 @@
                         <!-- Ends: .footer-widget -->
                     </div>
                     <!-- end /.col-md-4 -->
+
+
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
                             <div class="footer-menu footer-menu--1">
@@ -43,7 +45,7 @@
                                     </li>
                                     <li>
                                         {{-- TODO Pages --}}
-                                        <a href="{{ route('home') }}">О нас</a>
+                                        <a href="{{ route('about') }}">О нас</a>
                                     </li>
                                 </ul>
                             </div>
@@ -53,55 +55,7 @@
                     </div>
                     <!-- end /.col-md-3 -->
 
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="footer-widget">
-                            <div class="footer-menu">
-                                <h5 class="footer-widget-title">Популярные категории</h5>
-                                <ul>
-                                    <li>
-                                        <a href="#">Каталог сервисов</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Подборки</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Блог</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">О нас</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- end /.footer-menu -->
-                        </div>
-                        <!-- Ends: .footer-widget -->
-                    </div>
-                    <!-- end /.col-lg-3 -->
 
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="footer-widget">
-                            <div class="footer-menu no-padding">
-                                <h5 class="footer-widget-title">Популярные категории</h5>
-                                <ul>
-                                    <li>
-                                        <a href="#">Каталог сервисов</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Подборки</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Блог</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">О нас</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- end /.footer-menu -->
-                        </div>
-                        <!-- Ends: .footer-widget -->
-                    </div>
-                    <!-- Ends: .col-lg-3 -->
 
                 </div>
                 <!-- end /.row -->
