@@ -27,35 +27,32 @@
                         <!-- Ends: .footer-widget -->
                     </div>
                     <!-- end /.col-md-4 -->
-
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="footer-widget">
-                            <div class="footer-menu footer-menu--1">
-                                <h5 class="footer-widget-title">Популярные категории</h5>
-                                <ul>
-                                    <li>
-                                        <a href="{{ route('services.index') }}">Каталог сервисов</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('compilations.index') }}">Подборки</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('blogposts.index') }}">Блог</a>
-                                    </li>
-                                    <li>
-                                        {{-- TODO Pages --}}
-                                        <a href="{{ route('about') }}">О нас</a>
-                                    </li>
-                                </ul>
+                    <?php
+                    $footerMenuElements = $menus->where('slug', 'footer-menu')->first()->menuElements ?? null;
+                    ?>
+                    @if ($footerMenuElements)
+                        @foreach ($footerMenuElements as $menuElement)
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="footer-widget">
+                                    <div class="footer-menu">
+                                        <h5 class="footer-widget-title">{{ $menuElement->title }}</h5>
+                                        @if (isset($menuElement->subMenuElements))
+                                            <ul>
+                                                @foreach ($menuElement->subMenuElements as $subMenuElement)
+                                                    <li>
+                                                        <a href="{{ $subMenuElement->url }}">{{ $subMenuElement->title }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </div>
+                                    <!-- end /.footer-menu -->
+                                </div>
+                                <!-- Ends: .footer-widget -->
                             </div>
-                            <!-- end /.footer-menu -->
-                        </div>
-                        <!-- Ends: .footer-widget -->
-                    </div>
-                    <!-- end /.col-md-3 -->
-
-
+                            <!-- end /.col-md-3 -->
+                        @endforeach
+                    @endif
 
                 </div>
                 <!-- end /.row -->

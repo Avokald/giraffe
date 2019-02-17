@@ -14,6 +14,10 @@ class MenuElement extends Model
         'type_id',
     ];
 
+    protected $with = [
+        'subMenuElements',
+    ];
+
     public function menu()
     {
         return $this->belongsTo(Menu::class);
@@ -31,15 +35,17 @@ class MenuElement extends Model
 
     public function relationshipsSave(array $request)
     {
-        $this->menu_id = $request['menu_id'] ?? null;
-        $this->parent_element_id = $request['parent_element_id'] ?? null;
+        $parentElement = static::findOrFail($request['parent_element_id']);
+        $this->parent_element_id = $parentElement->id ?? null;
+        $this->menu_id = $parentElement->menu_id ?? $request['menu_id'];
         $this->save();
     }
 
     public function mainUpdate(array $request)
     {
-        $this->parent_element_id = $request['parent_element_id'];
-        $this->menu_id = $request['menu_id'];
+        $parentElement = static::findOrFail($request['parent_element_id']);
+        $this->parent_element_id = $parentElement->id ?? null;
+        $this->menu_id = $parentElement->menu_id ?? $request['menu_id'];
         $this->save();
     }
 }

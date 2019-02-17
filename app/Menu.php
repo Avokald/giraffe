@@ -14,9 +14,14 @@ class Menu extends Model
         'slug',
     ];
 
+    public function allMenuElements()
+    {
+        return $this->hasMany(MenuElement::class, 'menu_id', 'id');
+    }
+
     public function menuElements()
     {
-        return $this->hasMany(MenuElemenent::class);
+        return $this->hasMany(MenuElement::class, 'menu_id', 'id')->where('parent_element_id', null);
     }
 
     public function sluggable(): array
