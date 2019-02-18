@@ -34,7 +34,7 @@
         <ul class="product-facts clearfix">
             <li class="price">{{ $product->price_month }}</li>
             <li class="sells">
-                <span class="icon-basket"></span>81
+                <span class="icon-basket"></span>0
             </li>
             <li class="product-fav">
                 <span class="icon-heart" title="Add to collection" data-toggle="tooltip"></span>

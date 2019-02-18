@@ -78,5 +78,7 @@ class TestUnitsSeeder extends Seeder
 
         $this->call(ImagesTableSeeder::class);
 
+        $this->call(SettingsTableSeeder::class);
+
     }
 }

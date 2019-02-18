@@ -37,7 +37,7 @@
                 </li>
                 <li class="sells">
                     <span class="icon-basket"></span>
-                    81
+                    0
                 </li>
                 <li class="product-fav">
                     <span class="icon-heart" title="Add to collection" data-toggle="tooltip"></span>
