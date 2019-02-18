@@ -1,6 +1,6 @@
 <?php
 
-
+use \App\Menu;
 use Illuminate\Database\Seeder;
 
 class MenusTableSeeder extends Seeder
@@ -12,9 +12,9 @@ class MenusTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Menu::class, 1)->state('setup-header')->create();
-        factory(\App\Menu::class, 1)->state('setup-footer')->create();
-        factory(\App\Menu::class, 1)->state('setup-copyright')->create();
+        factory(Menu::class, 1)->state('setup-header')->create();
+        factory(Menu::class, 1)->state('setup-footer')->create();
+        factory(Menu::class, 1)->state('setup-copyright')->create();
 
     }
 }
