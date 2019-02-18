@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
+        $this->call(TestUnitsSeeder::class);
         factory(\App\Category::class, 5)->create();
 
         factory(\App\ServiceCompilation::class, 10)->create();
@@ -40,24 +40,25 @@ class DatabaseSeeder extends Seeder
         factory(\App\Image::class, 5)->state('compilation-logo')->create();
 
         foreach (\App\Service::all()->except(0) as $service) {
-            factory(\App\Image::class)->state('service-logo')->create($service->id);
-            factory(\App\Image::class)->state('service-banner')->create($service->id);
-            factory(\App\Image::class, 10)->state('service-screenshot')->create($service->id);
+            factory(\App\Image::class)->state('service-logo')->create(['imageable_id' => $service->id]);
+            factory(\App\Image::class)->state('service-banner')->create(['imageable_id' => $service->id]);
+            factory(\App\Image::class, 10)->state('service-screenshot')->create(['imageable_id' => $service->id]);
         }
 
-        factory(\App\Material::class, 1)->state('test-pdf')->create();
-        factory(\App\Material::class, 1)->state('test-video')->create();
-        factory(\App\Material::class, 1)->state('test-document')->create();
-        factory(\App\Material::class, 1)->state('test-presentation')->create();
+        factory(\App\Material::class, 1)->state('service-pdf')->create();
+        factory(\App\Material::class, 1)->state('service-video')->create();
+        factory(\App\Material::class, 1)->state('service-document')->create();
+        factory(\App\Material::class, 1)->state('service-presentation')->create();
 
-        factory(\App\Admin::class, 1)->state('test-admin')->create();
-//        factory(\App\Admin::class, 1)->state('test-moderator')->create();
-
-        factory(\App\User::class, 10)->create();
+        factory(\App\User::class, 20)->create();
 
         factory(\App\BlogPost::class, 30)->create();
 
         factory(\App\Tag::class, 10)->create();
+
+        factory(\App\FaqCategory::class, 4)->create();
+
+        factory(\App\Faq::class, 50)->create();
 
         foreach (\App\Tag::all() as $tag) {
             $blogpost = \App\BlogPost::all()->random();
@@ -68,45 +69,6 @@ class DatabaseSeeder extends Seeder
             $tag = \App\Tag::all()->random();
             $tag->blogposts()->attach($blogpost->id);
         }
-
-        factory(\App\Page::class, 1)->state('contacts')->create();
-        factory(\App\Page::class, 1)->state('about')->create();
-        factory(\App\Page::class, 1)->state('index')->create();
-        factory(\App\Page::class, 1)->state('faq')->create();
-        factory(\App\Page::class, 1)->state('404')->create();
-
-        factory(\App\PageElementType::class, 1)->state('text')->create();
-        factory(\App\PageElementType::class, 1)->state('editor')->create();
-        factory(\App\PageElementType::class, 1)->state('repeater')->create();
-        factory(\App\PageElementType::class, 1)->state('map')->create();
-        factory(\App\PageElementType::class, 1)->state('multifield')->create();
-        factory(\App\PageElementType::class, 1)->state('image')->create();
-        factory(\App\PageElementType::class, 1)->state('file')->create();
-
-
-//        factory(\App\PageElement::class, 1)->state('about-video-button-text')->create();
-//        factory(\App\PageElement::class, 1)->state('about-video-button-link')->create();
-//        factory(\App\PageElement::class, 1)->state('about-video-button')->create();
-//
-//        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-text')->create();
-//        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-image')->create();
-//        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-multifield')->create();
-//
-////      TODO Make it as a repeater
-//        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-text')->create();
-//        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-image')->create();
-//        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image-multifield')->create();
-
-//        factory(\App\PageElement::class, 1)->state('about-block-with-aside-image')->create();
-
-
-//        factory(\App\PageElement::class, 1)->state('about-video-button-link')->create();
-//        factory(\App\PageElement::class, 1)->state('about-apply-button-text')->create();
-//        factory(\App\PageElement::class, 1)->state('about-apply-button-link')->create();
-//        factory(\App\PageElement::class, 1)->state('about-block-w-aside-1-text')->create();
-//        factory(\App\PageElement::class, 1)->state('about-block-w-aside-1-image')->create();
-//        factory(\App\PageElement::class, 1)->state('about-block-w-aside-2-text')->create();
-//        factory(\App\PageElement::class, 1)->state('about-block-w-aside-2-image')->create();
 
     }
 }

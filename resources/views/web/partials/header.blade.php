@@ -11,7 +11,7 @@
                         <div class="menu-fullwidth">
                             <div class="logo-wrapper">
                                 <div class="logo logo-top">
-                                    <a href="{{ route('services.index') }}"><img src="images/logo.png" alt="logo image" class="img-fluid"></a>
+                                    <a href="{{ route('services.index') }}"><img src="/images/logo.png" alt="logo image" class="img-fluid"></a>
                                 </div>
                             </div>
 

@@ -36,7 +36,7 @@ $factory->state(App\User::class, 'test', function(Faker $faker) {
 $factory->state(App\User::class, 'test-admin', function(Faker $faker) {
     return [
         'name' => 'Test user admin',
-        'email' => 'admin@example.com',
+        'email' => 'test_admin@example.com',
         'email_verified_at' => now(),
         'password' => \Illuminate\Support\Facades\Hash::make('111'),
         'remember_token' => str_random(10),
