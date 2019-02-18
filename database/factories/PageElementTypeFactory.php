@@ -25,7 +25,7 @@ $factory->state(App\PageElementType::class, 'editor', function(Faker $faker) {
 $factory->state(App\PageElementType::class, 'repeater', function(Faker $faker) {
     return [
         'name' => 'repeater',
-        'template' => 'admin.partials.repeater',
+        'template' => 'admin.partials-new.repeater2',
     ];
 });
 
