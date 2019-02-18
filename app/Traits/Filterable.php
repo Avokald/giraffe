@@ -6,17 +6,17 @@ use \Illuminate\Database\Eloquent\Builder;
 
 
 trait Filterable {
-    public function scopeCategoryId(Builder $query, ?string $category_id)
+    public function scopeEqual(Builder $query, ?string $column, ?string $category_id)
     {
         return $category_id
-            ? $query->where('category_id', $category_id)
+            ? $query->where($column, $category_id)
             : $query;
     }
 
-    public function scopePriceBetween(Builder $query, ?int $min, ?int $max)
+    public function scopeBetween(Builder $query, ?string $column, ?int $min, ?int $max)
     {
         return ($min && $max)
-            ? $query->whereBetween('price_month', [$min, $max])
+            ? $query->whereBetween($column, [$min, $max])
             : $query;
     }
 

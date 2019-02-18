@@ -15,16 +15,17 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        if (request()->category_id || request()->field_name
+        if (request()->category_id || request()->field_name || request()->q
             || (request()->price_min && request()->price_max)) {
 
             if (request()->field_name == 'created_at') {
                 $direction = 'asc';
             }
 
-            $services = Service::categoryId(request()->category_id)
-                ->priceBetween(request()->price_min, request()->price_max)
-                ->sortBy(request()->field_name, $direction ?? null)
+            $services = Service::equal('category_id', request()->category_id)
+                ->between('price_month', request()->price_min, request()->price_max)
+                ->sortBy(request()->field_name, $direction ?? 'desc')
+                ->search('name', request()->q)
                 ->paginate(6);
         } else {
             $services = Service::paginate(6);
@@ -53,6 +54,9 @@ class ServiceController extends Controller
             'presentations'])
             ->where('slug', '=', $serviceSlug)
             ->firstOrFail();
+
+        $service->view_count++;
+        $service->save();
         $service->reviews = $service->reviews()->with('replies')->paginate(1);
         return view('web.service.layout_single', ['service' => $service]);
     }
