@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="/public/css/trumbowyg.min.css">
     <link rel="stylesheet" href="/public/css/venobox.css">
     <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="/public/new.css">
     <!-- endinject -->
 </head>
 

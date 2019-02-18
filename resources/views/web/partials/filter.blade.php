@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="filter-bar">
+                <div class="filter-bar barx">
                     <div class="filter__option filter--dropdown">
                         <a href="#" id="drop1" class="dropdown-trigger dropdown-toggle" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Категория
@@ -72,9 +72,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="filter__option filter--dropdown filter--range">
-                        <button class="filter-services-submit">Применить</button>
-                    </div>
+                    <button class="btn btn--md btn-primary">Применить</button>
                     <!-- end /.filter__option -->
                     <!-- end /.filter__option -->
                 </div>
