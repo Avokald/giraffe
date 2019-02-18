@@ -26,6 +26,9 @@ Route::get('blog/tags/{tag}', 'Web\TagController@show')->name('tags.show');
 Route::get('blog', 'Web\BlogPostController@index')->name('blogposts.index');
 Route::get('blog/{blog_post}', 'Web\BlogPostController@show')->name('blogposts.show');
 
+Route::get('faqs', 'Web\FaqController@index')->name('faqs.index');
+Route::get('faqs/{faq}', 'Web\FaqController@show')->name('faqs.show');
+
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
@@ -42,6 +45,9 @@ Route::group([
     Route::resource('menu-elements', 'MenuElementController');
     Route::resource('categories', 'CategoryController');
     Route::resource('compilations', 'ServiceCompilationController');
+
+    Route::resource('faqs', 'FaqController');
+
 
     Route::post('image-upload', 'Ajax\ImageController@store')->name('image.store');
     Route::delete('image-delete', 'Ajax\ImageController@destroy')->name('image.destroy');

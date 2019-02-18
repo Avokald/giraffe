@@ -2,6 +2,7 @@
 
 use \App\Page;
 use \App\PageElement;
+use App\Faq;
 use \App\PageElementType;
 use \App\Menu;
 use \App\MenuElement;
@@ -47,10 +48,14 @@ class TestUnitsSeeder extends Seeder
 
         factory(\App\BlogPost::class, 1)->state('test')->create();
 
-
         factory(\App\Tag::class, 1)->state('test')->create();
 
         \App\Tag::findOrFail(1)->blogposts()->attach(1);
+
+        $faq = Faq::create([
+            'name' => 'Test FAQ',
+            'content' => 'Test FAQ\'s content',
+        ]);
 
         //$this->call(PagesTableSeeder::class);
         $indexPage = Page::create([
