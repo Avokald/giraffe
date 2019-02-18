@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Faq;
+use App\FaqCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,9 +16,9 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faqs = Faq::paginate(20);
+        $faqCategories = FaqCategory::with('faqs')->get();
         return view('web.faqs.layout_archive', [
-            'faqs' => $faqs,
+            'faqCategories' => $faqCategories,
         ]);
     }
 
@@ -30,11 +31,13 @@ class FaqController extends Controller
     public function show(Faq $faq)
     {
         $faq->view_count++;
-        $popularFaq = Faq::orderBy('view_count', 'desc')->limit(5)->get();
+        $popularFaqs = Faq::orderBy('view_count', 'desc')->limit(5)->get();
+        $sameCategoryFaqs = $faq->faqCategory->faqs;
         $faq->save();
         return view('web.faqs.layout_single', [
             'faq' => $faq,
-            'popularFaq' => $popularFaq,
+            'popularFaqs' => $popularFaqs,
+            'sameCategoryFaqs' => $sameCategoryFaqs,
         ]);
     }
 }

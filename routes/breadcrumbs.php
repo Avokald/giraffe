@@ -18,7 +18,7 @@ Breadcrumbs::for('blogpost', function ($trail, $blogpost) {
 
 Breadcrumbs::for('faqs', function ($trail) {
     $trail->parent('index');
-    $trail->push('ЧАВО', route('faqs.index'));
+    $trail->push('Поддержка', route('faqs.index'));
 });
 
 Breadcrumbs::for('faq', function ($trail, $faq) {
@@ -76,16 +76,6 @@ Breadcrumbs::for('about', function ($trail) {
 Breadcrumbs::for('contacts', function ($trail) {
     $trail->parent('index');
     $trail->push('Контакты', route('contacts'));
-});
-
-Breadcrumbs::for('faqs', function ($trail) {
-    $trail->parent('index');
-    $trail->push('Поддержка', route('faqs.index'));
-});
-
-Breadcrumbs::for('faq', function ($trail, $faq) {
-    $trail->parent('faqs');
-    $trail->push($faq->title, route('faqs.show'));
 });
 
 //Breadcrumbs::for('', function ($trail) {

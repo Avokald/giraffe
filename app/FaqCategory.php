@@ -5,25 +5,17 @@ namespace App;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
-class Faq extends Model
+class FaqCategory extends Model
 {
     use Sluggable;
     protected $fillable = [
         'name',
         'slug',
-        'content',
-        'view_count',
-        'faq_category_id',
     ];
 
-    public function faqCategory()
+    public function faqs()
     {
-        return $this->belongsTo(FaqCategory::class);
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
+        return $this->hasMany(Faq::class, 'faq_category_id', 'id');
     }
 
     public function sluggable(): array

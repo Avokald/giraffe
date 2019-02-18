@@ -45,10 +45,18 @@
                 </li>
 
                 <li>
-                    <a class="nav-submenu" data-toggle="nav-submenu">ЧАВО</a>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Поддержка</a>
                     <ul>
                         <li><a href="{{ route('admin.faqs.index') }}">Список</a></li>
                         <li><a href="{{ route('admin.faqs.create') }}">Добавить</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Категории поддержки</a>
+                    <ul>
+                        <li><a href="{{ route('admin.faq-categories.index') }}">Список</a></li>
+                        <li><a href="{{ route('admin.faq-categories.create') }}">Добавить</a></li>
                     </ul>
                 </li>
 

@@ -29,9 +29,9 @@
                                 </div>
                                 <div class="faq-content">
                                     <ul class="list-unstyled">
-                                        @foreach ($popularFaq as $faq)
+                                        @foreach ($popularFaqs as $faq)
                                             <li>
-                                                <a href="{{ route('faqs.show', $faq->id) }}">{{ $faq->name }}</a>
+                                                <a href="{{ route('faqs.show', $faq->slug) }}">{{ $faq->name }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -43,27 +43,19 @@
                             <!-- Ends: .faq-box -->
                             <div class="faq-box">
                                 <div class="faq-head">
-                                    <h4>For Author</h4>
+                                    <h4>{{ $faq->faqCategory->name }}</h4>
                                 </div>
                                 <div class="faq-content">
                                     <ul class="list-unstyled">
-                                        <li>
-                                            <a href="">How can I update a theme that is live on DigiPro?</a>
-                                        </li>
-                                        <li>
-                                            <a href="">How to write the changelog for theme updates?</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Do you have any guideline on item promotions?</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Why my item has been rejected?</a>
-                                        </li>
-                                        <li>
-                                            <a href="">I’ve submitted an item, how much time will require to be live on?</a>
-                                        </li>
+                                        @foreach ($sameCategoryFaqs as $faq)
+                                            <li>
+                                                <a href="{{ route('faqs.show', $faq->slug) }}">
+                                                    {{ $faq->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
                                     </ul>
-                                    <a href="" class="link-more">View All Articles
+                                    <a href="{{ route('faqs.index') }}" class="link-more">View All Articles
                                         <span class="icon icon-arrow-right-circle"></span>
                                     </a>
                                 </div>
