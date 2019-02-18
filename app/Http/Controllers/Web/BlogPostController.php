@@ -20,7 +20,6 @@ class BlogPostController extends Controller
         $allTags = Tag::all();
         $latestBlogposts = BlogPost::latest()->limit(3)->get();
         $popularBlogposts = BlogPost::orderBy('view_count', 'desc')->take(3)->get();
-//        dd($blogposts);
         return view('web.blog.layout_archive', [
             'blogposts' => $blogposts,
             'allTags' => $allTags,

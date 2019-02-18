@@ -21,7 +21,6 @@ Route::get('categories/{category}', 'Web\CategoryController@show')->name('catego
 Route::get('compilations', 'Web\ServiceCompilationController@index')->name('compilations.index');
 Route::get('compilations/{compilation}', 'Web\ServiceCompilationController@show')->name('compilations.show');
 
-Route::get('blog/tags/', 'Web\TagController@index')->name('tags.index');
 Route::get('blog/tags/{tag}', 'Web\TagController@show')->name('tags.show');
 
 Route::get('blog', 'Web\BlogPostController@index')->name('blogposts.index');
