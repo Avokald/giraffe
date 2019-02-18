@@ -6,7 +6,7 @@
             <thead>
             <tr>
                 <th>id</th>
-                <th>Title</th>
+                <th>Name</th>
                 <th>Slug</th>
                 <th>Template</th>
                 <th>Date of creation</th>
@@ -17,7 +17,7 @@
             @foreach ( $pages as $key => $page )
                 <tr>
                     <td>{{ $page->id }}</td>
-                    <td>{{ $page->title }}</td>
+                    <td>{{ $page->name }}</td>
                     <td>{{ $page->slug }}</td>
                     <td>{{ $page->template }}</td>
                     <td>{{ $page->created_at }}</td>

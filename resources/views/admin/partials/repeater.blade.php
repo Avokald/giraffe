@@ -39,7 +39,7 @@
             @include($first_subelement->template, [
                 'name' => $name.'[<js-counter>]['.$first_subelement->name.']',
                 'value' => $first_subelement->values,
-                'label' => '', // TODO elementses label, placeholder & etc.
+                'label' => '',
                 'id' => '<js-uniqid>',
             ])
             <button class="repeater-delete-el">X</button>
