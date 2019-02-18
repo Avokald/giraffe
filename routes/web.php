@@ -38,6 +38,7 @@ Route::group([
     Route::resource('tags', 'TagController');
 
     Route::resource('pages', 'PageController');
+    Route::resource('page-elements', 'PageElementController');
     Route::resource('menus', 'MenuController');
     Route::resource('menu-elements', 'MenuElementController');
     Route::resource('categories', 'CategoryController');
@@ -54,14 +55,14 @@ Route::get('home', 'Web\HomeController@index')->name('home');
 
 // TODO Refactor
 Route::get('about', function () {
-    $page = \App\Page::findOrFail('2');
+    $page = \App\Page::findOrFail(3);
     return view('web.templates.about', [
         'page' => $page,
     ]);
 })->name('about');
 
 Route::get('/', function () {
-    $page = \App\Page::findOrFail(3);
+    $page = \App\Page::findOrFail(1);
     $best_services = \App\Service::limit(12)->get();
     $best_compilations = \App\ServiceCompilation::limit(12)->get();
     return view('web.templates.index', [
@@ -72,7 +73,7 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('contacts', function () {
-    $page = \App\Page::findOrFail(1);
+    $page = \App\Page::findOrFail(2);
     return view('web.templates.contacts', [
         'page' => $page,
     ]);
