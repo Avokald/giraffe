@@ -9,49 +9,6 @@ $factory->define(App\PageElement::class, function (Faker $faker) {
 });
 
 
-$factory->state(App\PageElement::class, 'contacts-phone-numbers', function(Faker $faker) {
-    return [
-        'name' => 'phone_numbers',
-        'values' => ['87777777777', ],
-        'page_id' => 1,
-        'page_element_type_id' => 3,
-    ];
-});
-
-$factory->state(App\PageElement::class, 'contacts-addresses', function(Faker $faker) {
-    return [
-        'name' => 'addresses',
-        'values' => [
-            'address 1',
-            'address 2',
-            'address 3',
-        ],
-        'page_id' => 1,
-        'page_element_type_id' => 3,
-    ];
-});
-
-$factory->state(App\PageElement::class, 'contacts-email-addresses', function(Faker $faker) {
-    return [
-        'name' => 'email_addresses',
-        'values' => [],
-        'page_id' => 1,
-        'page_element_type_id' => 3,
-    ];
-});
-
-$factory->state(App\PageElement::class, 'contacts-map', function(Faker $faker) {
-    return [
-        'name' => 'map',
-        'values' => [],
-        'page_id' => 1,
-        'page_element_type_id' => 3,
-    ];
-});
-
-
-
-
 $factory->state(App\PageElement::class, 'about-video-button-text', function(Faker $faker) {
     return [
         'name' => 'about_video_button_text',

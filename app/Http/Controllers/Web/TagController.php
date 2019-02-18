@@ -9,17 +9,17 @@ use App\Http\Controllers\Controller;
 
 class TagController extends Controller
 {
-    public function index()
-    { // TODO
-        $blogposts = BlogPost::paginate(5);
-        dd($blogposts);
-        return view('web.home');
-    }
-
     public function show(string $tagSlug)
-    { // TODO
-        $tag = Tag::where('slug', $tagSlug)->first();
-        dd($tag);
-        $blogposts = BlogPost::with('tags')->where('tags', $tag->id)->firstOrFail(); // TODO where clause for filtering
+    {
+        $tag = Tag::where('slug', $tagSlug)->firstOrFail();
+        $allTags = Tag::all();
+        $latestBlogposts = BlogPost::latest()->limit(3)->get();
+        $popularBlogposts = BlogPost::orderBy('view_count', 'desc')->take(3)->get();
+        return view('web.blog.layout_archive', [
+            'blogposts' => $tag->blogposts()->paginate(10),
+            'allTags' => $allTags,
+            'latestBlogposts' => $latestBlogposts,
+            'popularBlogposts' => $popularBlogposts,
+        ]);
     }
 }

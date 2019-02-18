@@ -2,15 +2,19 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class PageElement extends Model
 {
+    use Sluggable;
     protected $fillable = [
         'name',
         'values',
+        'slug',
         'page_id',
         'page_element_type_id',
+        'parent_element_id',
     ];
 
     protected $casts = [
@@ -34,5 +38,24 @@ class PageElement extends Model
     public function page()
     {
         return $this->belongsTo(\App\Page::class);
+    }
+
+    public function subPageElements()
+    {
+        return $this->hasMany(static::class, 'parent_element_id', 'id');
+    }
+
+    public function parentElement()
+    {
+        return $this->belongsTo(static::class, 'parent_element_id', 'id');
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 }

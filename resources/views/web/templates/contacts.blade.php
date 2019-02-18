@@ -9,17 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
-                    <h2 class="page-title">Контакты</h2>
-                    <div class="breadcrumb">
-                        <ul>
-                            <li>
-                                <a href="#">Главная</a>
-                            </li>
-                            <li class="active">
-                                <a href="#">Контакты</a>
-                            </li>
-                        </ul>
-                    </div>
+                    {!! Breadcrumbs::render('contacts') !!}
                 </div>
                 <!-- end /.col-md-12 -->
             </div>
@@ -53,13 +43,13 @@
                         <div class="col-md-4">
                             <div class="contact_tile">
                                 <?php
-                                $addressesElement = $page->getElementByName("addresses");
+                                $addressesElement = $page->getElementByName("addresses")->values;
                                 ?>
                                 <span class="tiles__icon icon-location-pin"></span>
                                 <h4 class="tiles__title">Office Address</h4>
                                 <div class="tiles__content">
-                                    @foreach ( $addressesElement->values as $address )
-                                        <p>{{ $address }}</p>
+                                    @foreach ( $addressesElement as $address )
+                                        <p>{{ $address["address"] }}</p>
                                     @endforeach
                                 </div>
                             </div>
@@ -68,14 +58,14 @@
 
                         <div class="col-md-4">
                             <?php
-                            $phoneNumbersElement = $page->getElementByName("phone_numbers");
+                            $phoneNumbersElement = $page->getElementByName("phone_numbers")->values;
                             ?>
                             <div class="contact_tile">
                                 <span class="tiles__icon icon-earphones"></span>
                                 <h4 class="tiles__title">Phone Number</h4>
                                 <div class="tiles__content">
-                                    @foreach ( $phoneNumbersElement->values as $phoneNumber )
-                                        <p>{{ $phoneNumber }}</p>
+                                    @foreach ( $phoneNumbersElement as $phoneNumber )
+                                        <p>{{ $phoneNumber['phone_number'] }}</p>
                                     @endforeach
                                 </div>
                             </div>
@@ -85,14 +75,14 @@
 
                         <div class="col-md-4">
                             <?php
-                            $emailAddressesElement = $page->getElementByName("email_addresses");
+                            $emailAddressesElement = $page->getElementByName("email_addresses")->values;
                             ?>
                             <div class="contact_tile">
                                 <span class="tiles__icon icon-envelope-open"></span>
                                 <h4 class="tiles__title">Email Addresses</h4>
                                 <div class="tiles__content">
-                                    @foreach ( $emailAddressesElement->values as $emailAddress )
-                                        <p>{{ $emailAddress }}</p>
+                                    @foreach ( $emailAddressesElement as $address )
+                                        <p>{{ $address["email_address"] }}</p>
                                     @endforeach
                                 </div>
                             </div>
@@ -164,6 +154,6 @@
         <!-- end /.container -->
     </section>
 
-    <div id="map" data-lat="{{ $page->getElementByName("map")->values['lat'] }}" data-lng="{{ $page->getElementByName("map")->values['lng'] }}"></div>
+    {{--<div id="map" data-lat="{{ $page->getElementByName("map")->values['lat'] }}" data-lng="{{ $page->getElementByName("map")->values['lng'] }}"></div>--}}
     <!-- end /.map -->
 @endsection

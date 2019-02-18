@@ -30,28 +30,30 @@ class PageController extends Controller
     {
         $page = Page::findOrFail($page_id);
         return view('admin.pages.custom.page_edit', ['page' => $page]);
-        // TODO
     }
 
     public function update(Request $request, int $page_id)
     {
-        dd($request);
         $page = Page::findOrFail($page_id);
         $page->update($request->toArray());
         $page->save();
+
         foreach ( $request->page_elements as $element_name => $element_value ) {
             $element = $page->getElementByName($element_name);
-            if ( $element->page_element_type_id == 5 ) {
-                foreach ( $element_value as $subelement_name => $subelement_value ) {
-                    $subelement = $page->getElementByName($subelement_name);
-                    $subelement->values = $subelement_value;
-                    $subelement->save();
-                }
-            }
-            else {
-                $element->values = $element_value;
-                $element->save();
-            }
+            $element->values = $element_value;
+            $element->save();
+//            $element = $page->getElementByName($element_name);
+//            if ( $element->page_element_type_id == 5 ) {
+//                foreach ( $element_value as $subelement_name => $subelement_value ) {
+//                    $subelement = $page->getElementByName($subelement_name);
+//                    $subelement->values = $subelement_value;
+//                    $subelement->save();
+//                }
+//            }
+//            else {
+//                $element->values = $element_value;
+//                $element->save();
+//            }
         }
 
 

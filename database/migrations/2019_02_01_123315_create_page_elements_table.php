@@ -16,11 +16,11 @@ class CreatePageElementsTable extends Migration
         Schema::create('page_elements', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->json('values');
-            $table->string('html_id')->nullable();
-            $table->boolean('hidden')->default(false);
+            $table->string('slug')->unique();
+            $table->json('values')->nullable();
             $table->timestamps();
             $table->unsignedInteger('page_id')->nullable();
+            $table->unsignedInteger('parent_element_id')->nullable()->default(null);
             $table->unsignedInteger('page_element_type_id');
         });
     }

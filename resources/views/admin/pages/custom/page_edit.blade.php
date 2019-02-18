@@ -18,9 +18,9 @@
                         @method('patch')
                     @endif
                     @include('admin.partials.text', [
-                        'label' => 'Title',
-                        'name' => 'title',
-                        'value' => $page->title,
+                        'label' => 'Name',
+                        'name' => 'name',
+                        'value' => $page->name,
                     ])
 
                     @include('admin.partials.text', [
@@ -42,42 +42,54 @@
                         'value' => $page->template,
                     ])
 
+                    @foreach ( $page->pageElements as $element )
+                        @include($element->template, [
+                            'label' => ucfirst(str_replace('_', ' ', $element->name)),
+                            'name' => "page_elements[$element->name]",
+                            'element' => $element,
+                            'id' => $element->name.'-id',
+                            'class' => $element->name.'-class',
+                            'value' => $element->values ?? '',
+                        ])
+                    @endforeach
+
                     <?php
-                    $element = \App\PageElement::find(17);
+//                    $element = $page->getElementByName('team') ?? '';
                     ?>
+                    {{--@if ($element)--}}
+                        {{--<div class="form-group repeater">--}}
+                            {{--<div class="col-sm-12">--}}
+                                {{--<div class="form-material">--}}
+                                    {{--<div class="repeater-list">--}}
+                                        {{--@foreach ($element->values as $key => $values)--}}
+                                            {{--<div class="team-single repeater-item">--}}
+                                                {{--@foreach ($values as $field_name => $value)--}}
+                                                    {{--<input type="text"--}}
+                                                           {{--name="page_elements[{{ $element->name }}][{{ $key }}][{{ $field_name }}]"--}}
+                                                           {{--value="{{ $value }}">--}}
+                                                {{--@endforeach--}}
+                                                {{--<button class="repeater-delete-el">X</button>--}}
+                                            {{--</div>--}}
+                                        {{--@endforeach--}}
+                                    {{--</div>--}}
+                                    {{--<label>Team</label>--}}
+                                    {{--<div class="help-block">This is a help block!</div>--}}
+                                    {{--<button class="btn btn--default repeater-add-el"--}}
+                                            {{--data-block-type="team-single" data-counter="{{ count($element->values) }}">+</button>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
-                    @include('admin.partials.repeater', [
-                        'element' => $element,
-                        'value' => $element->values,
-                        'class' => $element->name,
-                        'name' => "page_elements[$element->name]",
-                        'label' => $element->name,
-                    ])
+                        {{--@push('hidden')--}}
+                            {{--<div class="team-single repeater-item">--}}
+                                {{--<input type="text" name="page_elements[{{ $element->name }}][<js-counter>][name]">--}}
+                                {{--<input type="text" name="page_elements[{{ $element->name }}][<js-counter>][position]">--}}
+                                {{--<input type="text" name="page_elements[{{ $element->name }}][<js-counter>][email]">--}}
 
-
-                    {{--@foreach ( $page->pageElements as $element )--}}
-                        {{--@if ( !$element->hidden )--}}
-                            {{--@include($element->pageElementType->template, [--}}
-                                {{--'label' => ucfirst(str_replace('_', ' ', $element->name)),--}}
-                                {{--'name' => "page_elements[$element->name]",--}}
-                                {{--'class' => "$element->name-item",--}}
-                                {{--'type' => $element->pageElementType->name,--}}
-                                {{--'id' => $element->html_id,--}}
-                                {{--'element' => $element,--}}
-                                {{--'value' => $element->values ?? '',--}}
-                            {{--])--}}
-                        {{--@endif--}}
-                    {{--@endforeach--}}
-
-                    {{--@include('admin.partials.team_repeater', [--}}
-                        {{--'label' => 'Team',--}}
-                        {{--'name' => "page_elements[team]",--}}
-                        {{--'class' => "team-item",--}}
-                        {{--'type' => 'text',--}}
-                        {{--'id' => null,--}}
-                        {{--'element' => $page->getElementByName("team"),--}}
-                    {{--])--}}
-
+                                {{--<button class="repeater-delete-el">X</button>--}}
+                            {{--</div>--}}
+                        {{--@endpush--}}
+                    {{--@endif--}}
 
 
                     <button>Submit</button>

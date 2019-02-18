@@ -24,14 +24,8 @@ jQuery(function() {
         var clone = $(".block-saver > ." + $(this).attr('data-block-type')).clone();
         let counter = $(this).attr('data-counter');
 
-        clone.html((i, html) => {
-            return html.replace('<js-counter>', counter);
-        });
 
-        // var editor_id = uuidv4();
-        clone.html((i, html) => {
-            return html.replace('<js-counter>', counter);
-        });
+        clone.html(clone.html().replace(/\<js-counter\>/g, counter));
 
         $(this).attr('data-counter', ++counter);
         $(this).closest(".repeater").find(".repeater-list").append(clone);

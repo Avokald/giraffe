@@ -14,7 +14,7 @@ $factory->define(App\MenuElement::class, function (Faker $faker) {
 $factory->state(App\MenuElement::class, 'setup-header-services', function(Faker $faker) {
     return [
         'title' => 'Каталог сервисов',
-        'url' => route('services.index'),
+        'url' => '/services',
         'menu_id' => 1,
         'parent_element_id' => null,
         'type_id' => 0,
@@ -24,7 +24,7 @@ $factory->state(App\MenuElement::class, 'setup-header-services', function(Faker 
 $factory->state(App\MenuElement::class, 'setup-header-services-filtered', function(Faker $faker) {
     return [
         'title' => 'Недавние',
-        'url' => route('services.index'),
+        'url' => '/services',
         'menu_id' => 1,
         'parent_element_id' => 1,
         'type_id' => 0,
@@ -34,7 +34,7 @@ $factory->state(App\MenuElement::class, 'setup-header-services-filtered', functi
 $factory->state(App\MenuElement::class, 'setup-header-compilations', function(Faker $faker) {
     return [
         'title' => 'Подборки',
-        'url' => route('compilations.index'),
+        'url' => '/compilations',
         'parent_element_id' => null,
         'menu_id' => 1,
         'type_id' => 0,
@@ -44,7 +44,7 @@ $factory->state(App\MenuElement::class, 'setup-header-compilations', function(Fa
 $factory->state(App\MenuElement::class, 'setup-header-blog', function(Faker $faker) {
     return [
         'title' => 'Блог',
-        'url' => route('blogposts.index'),
+        'url' => '/blog',
         'parent_element_id' => null,
         'menu_id' => 1,
         'type_id' => 0,
@@ -54,7 +54,7 @@ $factory->state(App\MenuElement::class, 'setup-header-blog', function(Faker $fak
 $factory->state(App\MenuElement::class, 'setup-header-about', function(Faker $faker) {
     return [
         'title' => 'О нас',
-        'url' => route('about'),
+        'url' => '/about',
         'parent_element_id' => null,
         'menu_id' => 1,
         'type_id' => 0,
@@ -64,7 +64,7 @@ $factory->state(App\MenuElement::class, 'setup-header-about', function(Faker $fa
 $factory->state(App\MenuElement::class, 'setup-footer-popular', function(Faker $faker) {
     return [
         'title' => 'Популярные категории',
-        'url' => route('services.index'),
+        'url' => '/services',
         'parent_element_id' => null,
         'menu_id' => 2,
         'type_id' => 0,
@@ -74,7 +74,7 @@ $factory->state(App\MenuElement::class, 'setup-footer-popular', function(Faker $
 $factory->state(App\MenuElement::class, 'setup-footer-services', function(Faker $faker) {
     return [
         'title' => 'Каталог сервисов',
-        'url' => route('services.index'),
+        'url' => '/services',
         'parent_element_id' => 10,
         'menu_id' => 2,
         'type_id' => 0,
@@ -84,7 +84,7 @@ $factory->state(App\MenuElement::class, 'setup-footer-services', function(Faker 
 $factory->state(App\MenuElement::class, 'setup-footer-compilations', function(Faker $faker) {
     return [
         'title' => 'Подборки',
-        'url' => route('services.index'),
+        'url' => '/compilations',
         'parent_element_id' => 10,
         'menu_id' => 2,
         'type_id' => 0,
@@ -94,7 +94,7 @@ $factory->state(App\MenuElement::class, 'setup-footer-compilations', function(Fa
 $factory->state(App\MenuElement::class, 'setup-footer-blog', function(Faker $faker) {
     return [
         'title' => 'Блог',
-        'url' => route('blogposts.index'),
+        'url' => '/blog',
         'parent_element_id' => 10,
         'menu_id' => 2,
         'type_id' => 0,
@@ -104,7 +104,7 @@ $factory->state(App\MenuElement::class, 'setup-footer-blog', function(Faker $fak
 $factory->state(App\MenuElement::class, 'setup-footer-about', function(Faker $faker) {
     return [
         'title' => 'О нас',
-        'url' => route('about'),
+        'url' => '/abour',
         'parent_element_id' => 10,
         'menu_id' => 2,
         'type_id' => 0,

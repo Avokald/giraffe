@@ -10,9 +10,8 @@ class TagController extends Controller
 {
     public function index()
     {
-        $tags = Tag::all();
-        dd($tags);
-        return view('admin.pages.tags.tags', $tags);
+        $tags = Tag::paginate(30);
+        return view('admin.pages.tags.tags', ['tags' => $tags]);
     }
 
     public function create()
@@ -27,14 +26,15 @@ class TagController extends Controller
         return redirect()->route('admin.tags.edit', $tag);
     }
 
-    public function edit(Tag $tag)
+    public function edit(int $tag_id)
     {
-//        $tag = Tag::findOrFail($tag_id);
+        $tag = Tag::findOrFail($tag_id);
         return view('admin.pages.tags.tag_edit', ['tag' => $tag]);
     }
 
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request, int $tag_id)
     {
+        $tag = Tag::findOrFail($tag_id);
         $tag->update($request->toArray());
         $tag->save();
         return redirect()->route('admin.tags.edit', $tag);

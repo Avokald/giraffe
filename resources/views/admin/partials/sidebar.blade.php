@@ -53,6 +53,14 @@
                 </li>
 
                 <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Элементы страниц</a>
+                    <ul>
+                        <li><a href="{{ route('admin.page-elements.index') }}">Список</a></li>
+                        <li><a href="{{ route('admin.page-elements.create') }}">Создать</a></li>
+                    </ul>
+                </li>
+
+                <li>
                     <a class="nav-submenu" data-toggle="nav-submenu">Меню</a>
                     <ul>
                         <li><a href="{{ route('admin.menus.index') }}">Список</a></li>

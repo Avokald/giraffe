@@ -12,7 +12,7 @@
                        ? ' selected' : '' }}
                         @endif
                 >
-                    {{ $item->title }}
+                    {{ $item->name }}
                 </option>
             @endforeach
         </select>

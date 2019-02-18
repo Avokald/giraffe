@@ -7,27 +7,25 @@
             <tr>
                 <th>id</th>
                 <th>Name</th>
-                <th>Slug</th>
-                <th>Template</th>
+                <th>Value</th>
                 <th>Date of creation</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            @foreach ( $pages as $key => $page )
+            @foreach ( $pageElements as $key => $pageElement )
                 <tr>
-                    <td>{{ $page->id }}</td>
-                    <td>{{ $page->name }}</td>
-                    <td>{{ $page->slug }}</td>
-                    <td>{{ $page->template }}</td>
-                    <td>{{ $page->created_at }}</td>
+                    <td>{{ $pageElement->id }}</td>
+                    <td>{{ $pageElement->name }}</td>
+                    <td>{{ print_r($pageElement->values) }}</td>
+                    <td>{{ $pageElement->created_at }}</td>
                     <td class="text-center">
                         <div class="btn-group">
-                            <a href="{{ route('admin.pages.edit', $page->id) }}"
+                            <a href="{{ route('admin.page-elements.edit', $pageElement->id) }}"
                                class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <form action="{{ route('admin.pages.destroy', $page->id) }}"
+                            <form action="{{ route('admin.page-elements.destroy', $pageElement->id) }}"
                                   method="post" class="hidden" id="form-element-delete-{{ $key }}">
                                 @csrf
                                 @method('delete')
@@ -44,5 +42,5 @@
         </table>
     </div>
 
-    {{ $pages->links('admin.partials.pagination') }}
+    {{ $pageElements->links('admin.partials.pagination') }}
 @endsection

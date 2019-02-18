@@ -83,11 +83,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\PageElementType::class, 1)->state('image')->create();
         factory(\App\PageElementType::class, 1)->state('file')->create();
 
-//        factory(\App\PageElement::class, 1)->state('contacts-phone-numbers')->create();
-//        factory(\App\PageElement::class, 1)->state('contacts-addresses')->create();
-//        factory(\App\PageElement::class, 1)->state('contacts-email-addresses')->create();
-//        factory(\App\PageElement::class, 1)->state('contacts-map')->create();
-//
+
 //        factory(\App\PageElement::class, 1)->state('about-video-button-text')->create();
 //        factory(\App\PageElement::class, 1)->state('about-video-button-link')->create();
 //        factory(\App\PageElement::class, 1)->state('about-video-button')->create();
