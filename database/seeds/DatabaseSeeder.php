@@ -12,7 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(TestUnitsSeeder::class);
+
         factory(\App\Category::class, 5)->create();
+
+        foreach(\App\Category::all() as $category) {
+            factory(\App\Image::class, 1)->state('category-logo')->create(['imageable_id' => $category->id]);
+        }
 
         factory(\App\ServiceCompilation::class, 10)->create();
 
@@ -28,16 +33,12 @@ class DatabaseSeeder extends Seeder
 
         foreach (\App\ServiceCompilation::all() as $compilation) {
             $compilation->services()->attach(\App\Service::all()->random()->id);
+            factory(\App\Image::class, 1)->state('compilation-logo')->create(['imageable_id' => $compilation->id]);
         }
 
         factory(\App\Tariff::class, 30)->create();
 
         factory(\App\Review::class, 50)->create();
-
-
-        factory(\App\Image::class, 3)->state('category-logo')->create();
-
-        factory(\App\Image::class, 5)->state('compilation-logo')->create();
 
         foreach (\App\Service::all()->except(0) as $service) {
             factory(\App\Image::class)->state('service-logo')->create(['imageable_id' => $service->id]);
@@ -52,7 +53,11 @@ class DatabaseSeeder extends Seeder
 
         factory(\App\User::class, 20)->create();
 
+
         factory(\App\BlogPost::class, 30)->create();
+        foreach (\App\BlogPost::all() as $blogpost) {
+            factory(\App\Image::class, 1)->state('test-blog-banner')->create(['imageable_id' => $blogpost->id]);
+        }
 
         factory(\App\Tag::class, 10)->create();
 

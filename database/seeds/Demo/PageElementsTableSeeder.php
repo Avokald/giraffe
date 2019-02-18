@@ -95,7 +95,7 @@ class PageElementsTableSeeder extends Seeder
 
         $partnersDescription = App\PageElement::create([
             'name' => 'partners_description',
-            'values' => '<h1>Команда SoftBox1</h1><p>Laborum dolo rumes fugats untras. ',
+            'values' => '<h1>Мы представлены на</h1><p>Laborum dolo rumes fugats untras. </p>',
             /*
                 'Etharums ser quidem rerum facilis dolores nemis omnis fugats. ' .
                 'Lid est laborum dolo rumes fugats untras.1</p>'
@@ -120,7 +120,7 @@ class PageElementsTableSeeder extends Seeder
 
         $membersDescription = App\PageElement::create([
             'name' => 'members_description',
-            'values' => '<h1>Мы представлены на</h1><p>Laborum dolo rumes fugats untras. </p>',
+            'values' => '<h1>Команда SoftBox1</h1><p>Laborum dolo rumes fugats untras. </p>',
             /*
                 'Etharums ser quidem rerum facilis dolores nemis omnis fugats. ' .
                 'Lid est laborum dolo rumes fugats untras. ' .
@@ -161,7 +161,7 @@ class PageElementsTableSeeder extends Seeder
         $leftText = PageElement::create([
             'name' => 'left_text_block',
             'values' => '<h1><span>Миссия</span> SoftBox</h1>' .
-                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler '/* .
+                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler</p>'/* .
                 'isque the mattis leo quam aliquet congue this there placerat mi id nisi ' .
                 'they interdum mollis Praesent pharetra justo ut sceleris que the mattis. </p>',
             '<p>Leo quam aliquet. Nunc placer atmi id nisi interdum mollis quam. '.
