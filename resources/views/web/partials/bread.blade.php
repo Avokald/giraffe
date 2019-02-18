@@ -6,7 +6,7 @@
     <?php // TODO wtf, how does this work
     $lastBread = last(last($breadcrumbs));
     ?>
-    @if (!preg_match('/services\/.+/', last($lastBread)))
+    @if (!preg_match('/(services\/.+)|(\/about$)/', last($lastBread)))
         <h2 class="page-title">{{ head($lastBread) }}</h2>
     @endif
     <div class="breadcrumb">

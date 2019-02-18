@@ -6,7 +6,7 @@
         ================================= -->
     <section class="hero-area bgimage">
         <div class="bg_image_holder">
-            <img src="images/hero-image01.png" alt="background-image">
+            <img src="{{ App\Image::find($page->getElementByName("banner")->values)->url }}" alt="background-image">
         </div>
         <!-- start hero-content -->
         <div class="hero-content content_above">
@@ -18,9 +18,12 @@
                     <div class="row">
                         <!-- start col-md-12 -->
                         <div class="col-md-12">
+                            <?php
+                            $headingElement = $page->getElementByName("heading")->values;
+                            ?>
                             <div class="hero__content__title">
                                 <h2 class="display-5">
-                                    Увеличим Ваши продажи с помощью внедрения <br> "AmoCRM" и CRM системы "Битрикс 24"
+                                    {!! $headingElement !!}
                                 </h2>
                             </div>
                             <!-- end .hero__btn-area-->
