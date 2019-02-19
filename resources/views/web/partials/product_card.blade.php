@@ -43,6 +43,7 @@
                 <li class="product-rating">
                     <ul class="list-unstyled">
                         @include('web.partials.stars', ['product' => $product])
+                        @include('web.partials.installation_difficulty', ['product' => $product])
                     </ul>
                 </li>
             </ul>
