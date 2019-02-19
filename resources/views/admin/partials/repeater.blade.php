@@ -12,14 +12,14 @@
                         <?php
                         $subelement = \App\PageElement::findOrFail($id);
                         ?>
-                        <div class="{{ $class }} repeater-item">
+                        <div class="{{ $class }} repeater-item col-sm-10">
                             @include($subelement->template, [
                                  'name' => $name."[$key][$subelement->name]",
                                  'value' => $subelement->values,
                                  'label' => '',
                                  'id' => $name.$key.$subelement->name,
                             ])
-                            <button class="repeater-delete-el">X</button>
+                            <button class="repeater-delete-el pull-right col-sm-1">X</button>
                         </div>
                     @endforeach
                 @endif
@@ -35,14 +35,14 @@
 
 @push('hidden')
     @if ( isset($value) )
-        <div class="{{ $first_subelement->name }} repeater-item">
+        <div class="{{ $first_subelement->name }} repeater-item col-sm-10">
             @include($first_subelement->template, [
                 'name' => $name.'[<js-counter>]['.$first_subelement->name.']',
                 'value' => $first_subelement->values,
                 'label' => '',
                 'id' => '<js-uniqid>',
             ])
-            <button class="repeater-delete-el">X</button>
+            <button class="repeater-delete-el pull-right col-sm-1">X</button>
         </div>
     @endif
 @endpush

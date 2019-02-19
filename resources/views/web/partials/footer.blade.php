@@ -10,16 +10,16 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
                             <div class="widget-about">
-                                <img src="/public/images/logo.png" alt="" class="img-fluid">
+                                <img src="{{ $companyLogo->url ?? '/public/images/logo.png' }}" alt="" class="img-fluid">
                                 <ul class="contact-details">
                                     <li>
                                         <span class="icon-earphones"></span>
                                         Call Us:
-                                        <a href="tel:344-755-111">344-755-111</a>
+                                        <a href="tel:{{ $mainPhoneNumber }}">{{ $mainPhoneNumber }}</a>
                                     </li>
                                     <li>
                                         <span class="icon-envelope-open"></span>
-                                        <a href="mailto:support@aazztech.com">support@aazztech.com</a>
+                                        <a href="mailto:{{ $mainEmailAddress }}">{{ $mainEmailAddress }}</a>
                                     </li>
                                 </ul>
                             </div>

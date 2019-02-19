@@ -13,7 +13,7 @@ $factory->define(App\Service::class, function (Faker $faker) {
         'description_short'       => $faker->text(100),
         'materials_description'   => $faker->text(500),
         'features'                => $features,
-        'installation_difficulty' => $faker->numberBetween(1, 10),
+        'installation_difficulty' => $faker->numberBetween(1, 6),
         'category_id'             => \App\Category::all()->random()->id,
     ];
 });
@@ -29,7 +29,7 @@ $factory->state(App\Service::class, 'test', function(Faker $faker) {
         'description_short'       => $faker->text(100),
         'materials_description'   => $faker->text(500),
         'features'                => $features,
-        'installation_difficulty' => 5,
+        'installation_difficulty' => 3,
         'category_id'             => 1,
     ];
 });

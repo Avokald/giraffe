@@ -18,9 +18,14 @@ class ServiceCompilationController extends Controller
     {
         if (request()->category_id || request()->field_name
             || (request()->price_min && request()->price_max)) {
-            $compilations = ServiceCompilation::categoryId(request()->category_id)
-                ->priceBetween(request()->price_min, request()->price_max)
-                ->sortBy(request()->field_name)
+
+            if (request()->field_name == 'created_at') {
+                $direction = 'asc';
+            }
+
+            $compilations = ServiceCompilation::equal('category_id', request()->category_id)
+                ->between('price_month', request()->price_min, request()->price_max)
+                ->sortBy(request()->field_name, $direction ?? 'desc')
                 ->paginate(6);
         } else {
             $compilations = ServiceCompilation::paginate(6);
@@ -40,6 +45,8 @@ class ServiceCompilationController extends Controller
      */
     public function show(ServiceCompilation $compilation)
     {
+        $compilation->view_count++;
+        $compilation->save();
         return view('web.compilations.layout_single', [
             'compilation' => $compilation,
         ]);

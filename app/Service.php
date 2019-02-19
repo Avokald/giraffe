@@ -5,12 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use \App\Traits\Filterable;
+use \App\Traits\Searchable;
 
 class Service extends Model
 {
     use Sluggable;
 
     use Filterable;
+
+    use Searchable;
 
     protected $fillable = [
         'name',

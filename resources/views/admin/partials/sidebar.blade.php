@@ -92,6 +92,14 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Общие настройки</a>
+                    <ul>
+                        <li><a href="{{ route('admin.settings.index') }}">Список</a></li>
+                        <li><a href="{{ route('admin.settings.create') }}">Добавить</a></li>
+                    </ul>
+                </li>
+
                 <a href="/logout">Logout</a>
             </ul>
 

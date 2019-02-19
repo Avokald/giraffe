@@ -31,9 +31,9 @@
             <div class="row">
                 <div class="col-lg-3 col-md-12">
                     <div class="catalog__search">
-                        <form action="#">
+                        <form method="get" action="{{ route('services.index') }}">
                             <div class="searc-wrap">
-                                <input type="text" placeholder="Search product here...">
+                                <input name="q" type="text" placeholder="Search product here...">
                                 <button type="submit" class="search-wrap__btn">
                                     <span class="icon-magnifier"></span>
                                 </button>

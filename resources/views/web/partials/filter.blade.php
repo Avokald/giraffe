@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="filter-bar">
+                <div class="filter-bar barx">
                     <div class="filter__option filter--dropdown">
                         <a href="#" id="drop1" class="dropdown-trigger dropdown-toggle" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Категория
@@ -62,19 +62,17 @@
                             <span class="icon-arrow-down"></span>
                         </a>
                         <div class="custom_dropdown dropdown-menu" aria-labelledby="drop3">
-                            <div class="range-slider price-range"></div>
+                            <div class="range-slider price-range" data-min="1" data-max="100000" data-valmin="1" data-valmax="100000" data-currency="руб"></div>
 
                             <div class="price-ranges">
                                 <span class="from rounded filter-services-element"
-                                      data-filter-name="min" data-filter-value="">30</span>
+                                      data-filter-name="min" data-filter-value="1">1</span>
                                 <span class="to rounded filter-services-element"
-                                      data-filter-name="max" data-filter-value="">300</span>
+                                      data-filter-name="max" data-filter-value="100000">100000</span>
                             </div>
                         </div>
                     </div>
-                    <div class="filter__option filter--dropdown filter--range">
-                        <button class="filter-services-submit">Применить</button>
-                    </div>
+                    <button class="btn btn--md btn-primary filter-services-submit">Применить</button>
                     <!-- end /.filter__option -->
                     <!-- end /.filter__option -->
                 </div>
