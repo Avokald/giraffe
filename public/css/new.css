@@ -1,0 +1,17 @@
+.filter-area.product-filter-area .filter-bar.barx{
+	display: flex;
+	align-items: center;
+}
+.post-list .thumbnail_img{
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+}
+.texz{
+	height: 75px;
+	overflow: hidden;
+	text-align: left;
+}
+.ozon p {
+	color: #fff;
+}
