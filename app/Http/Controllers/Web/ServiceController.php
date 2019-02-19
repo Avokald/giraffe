@@ -23,7 +23,7 @@ class ServiceController extends Controller
             }
 
             $services = Service::equal('category_id', request()->category_id)
-                ->between('price_month', request()->price_min, request()->price_max)
+                ->priceBetween('price_month', request()->price_min, request()->price_max)
                 ->sortBy(request()->field_name, $direction ?? 'desc')
                 ->search('name', request()->q)
                 ->paginate(6);

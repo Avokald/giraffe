@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Home
- * Date: 18.02.2019
- * Time: 16:59
- */
-
 namespace App\Traits;
 
 
 use \Illuminate\Database\Eloquent\Builder;
+
 
 trait Searchable
 {

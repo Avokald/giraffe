@@ -5,7 +5,8 @@ namespace App\Traits;
 use \Illuminate\Database\Eloquent\Builder;
 
 
-trait Filterable {
+trait Filterable
+{
     public function scopeEqual(Builder $query, ?string $column, ?string $category_id)
     {
         return $category_id
@@ -25,5 +26,13 @@ trait Filterable {
         return $column
             ? $query->orderBy($column, $direction)
             : $query;
+    }
+
+    public function scopePriceBetween(Builder $query, ?string $column, ?int $min, ?int $max)
+    {
+        return $query
+            ->select('services.*', 'tariffs.price_month')
+            ->join('tariffs', 'tariffs.service_id', '=', 'services.id')
+            ->whereBetween($column, [$min, $max]);
     }
 }

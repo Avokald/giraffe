@@ -57,9 +57,9 @@
                             <div class="author-menu">
                                 <!-- start .author-area -->
                                 @if ($currentSaleLink || $currentSaleText)
-                                    <a href="{{ $currentSaleLink }}" class="author-button">
+                                    <div href="{{ $currentSaleLink }}" class="author-button">
                                         {!! $currentSaleText !!}
-                                    </a>
+                                    </div>
                                 @endif
                                 <div class="author-area">
                                     <div class="search-wrapper">
