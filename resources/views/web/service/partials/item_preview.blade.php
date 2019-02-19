@@ -42,7 +42,7 @@
                         <span class="icon-star"></span> Reviews
                     </p>
                     <ul class="list-unstyled">
-                        @include('web.partials.stars')
+                        @include('web.partials.stars', ['product' => $service])
                         {{-- TODO Show reviews count. Same file problem --}}
                         <li>(@yield('reviews-count'))</li>
                     </ul>
