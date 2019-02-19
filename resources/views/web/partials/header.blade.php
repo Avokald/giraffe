@@ -11,7 +11,7 @@
                         <div class="menu-fullwidth">
                             <div class="logo-wrapper">
                                 <div class="logo logo-top">
-                                    <a href="{{ route('services.index') }}"><img src="/images/logo.png" alt="logo image" class="img-fluid"></a>
+                                    <a href="/"><img src="{{ $companyLogo->url ?? '/images/logo.png' }}" alt="logo image" class="img-fluid"></a>
                                 </div>
                             </div>
 
@@ -56,10 +56,11 @@
 
                             <div class="author-menu">
                                 <!-- start .author-area -->
-                                <a href="/" class="author-button">
-                                    <b>BLACK FRIDAY</b>
-                                    <span>Get 45 ff!</span>
-                                </a>
+                                @if ($currentSaleLink || $currentSaleText)
+                                    <div href="{{ $currentSaleLink }}" class="author-button">
+                                        {!! $currentSaleText !!}
+                                    </div>
+                                @endif
                                 <div class="author-area">
                                     <div class="search-wrapper">
                                         <a href="/favorits.html" class="nav_right_module search_module">

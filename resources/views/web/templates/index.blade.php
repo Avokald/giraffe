@@ -33,15 +33,14 @@
                                     <div class="col-md-10 offset-md-1">
                                         <!-- start .search_box -->
                                         <div class="search_box">
-                                            <form action="#">
-                                                <input type="text" class="text_field" placeholder="Поиск...">
+                                            <form method="get" action="{{ route('services.index') }}">
+                                                <input type="text" name="q" class="text_field" placeholder="Поиск...">
                                                 <div class="search__select select-wrap">
-                                                    <select name="category" class="select--field">
+                                                    <select name="category_id" class="select--field">
                                                         <option value="">Все категории</option>
-                                                        <option value="">PSD</option>
-                                                        <option value="">HTML</option>
-                                                        <option value="">WordPress</option>
-                                                        <option value="">Plugins</option>
+                                                        @foreach ($allCategories as $category)
+                                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                     <span class="icon-arrow-down"></span>
                                                 </div>

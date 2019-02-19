@@ -2,16 +2,22 @@ jQuery(function() {
     $(".filter-services-element").bind("click", function (e) {
         e.preventDefault();
         filter_parameters[$(this).attr('data-filter-name')] = $(this).attr('data-filter-value');
-        console.log(filter_parameters);
     });
+
+
 
     $(".filter-services-submit").on("click", function (e) {
         var result_url = location.protocol + '//' + location.host + location.pathname + "?";
 
+        $(".filter-services-element").each(function (e) {
+            if ($(this).attr('data-filter-name') == "max" || $(this).attr('data-filter-name') == "min") {
+                filter_parameters[$(this).attr('data-filter-name')] = $(this).attr('data-filter-value');
+            }
+        })
         result_url += 'category_id=' + (filter_parameters['category'] || '');
         result_url += '&field_name=' + (filter_parameters['sorting'] || '');
-        result_url += '&price_min=' + (filter_parameters['min'] || '');
-        result_url += '&price_max=' + (filter_parameters['max'] || '');
+        result_url += '&price_min=' +  (filter_parameters['min'] || '');
+        result_url += '&price_max=' +  (filter_parameters['max'] || '');
 
         window.location.href = result_url;
     })

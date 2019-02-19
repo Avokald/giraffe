@@ -23,7 +23,6 @@
         @endif
     @endforeach
 
-
     <li class="page-item">
         <a class="page-link" href="{{ $paginator->nextPageUrl() }}" aria-label="Next">
             <span aria-hidden="true"><i class="fa fa-long-arrow-right"></i></span>

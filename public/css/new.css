@@ -1,0 +1,30 @@
+.filter-area.product-filter-area .filter-bar.barx{
+	display: flex;
+	align-items: center;
+}
+.post-list .thumbnail_img{
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+}
+.texz{
+	height: 75px;
+	overflow: hidden;
+	text-align: left;
+}
+.ozon p {
+	color: #fff;
+}
+li.product-rating ul{
+	flex-wrap: wrap !important;
+	justify-content: flex-end !important;
+}
+.product-facts li.product-rating ul li.stars span{
+	color: #6F7495 !important;
+}
+.product-facts li.product-rating ul li.stars span.active{
+	color: #FFB822 !important;
+}
+.product-excerpt .product-facts li:nth-last-child(2){
+	margin-right: 0;
+}

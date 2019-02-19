@@ -14,7 +14,7 @@ $factory->define(App\MenuElement::class, function (Faker $faker) {
 $factory->state(App\MenuElement::class, 'setup-header-services', function(Faker $faker) {
     return [
         'title' => 'Каталог',
-        'url' => '/services',
+        'url' => '/categories',
         'menu_id' => 1,
         'parent_element_id' => null,
         'type_id' => 0,

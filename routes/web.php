@@ -50,6 +50,9 @@ Route::group([
     Route::resource('faq-categories', 'FaqCategoryController');
 
 
+    Route::resource('settings', "SettingController");
+
+
     Route::post('image-upload', 'Ajax\ImageController@store')->name('image.store');
     Route::delete('image-delete', 'Ajax\ImageController@destroy')->name('image.destroy');
 
@@ -71,10 +74,12 @@ Route::get('/', function () {
     $page = \App\Page::findOrFail(1);
     $best_services = \App\Service::limit(12)->get();
     $best_compilations = \App\ServiceCompilation::limit(12)->get();
+    $allCategories = \App\Category::all();
     return view('web.templates.index', [
         'page' => $page,
         'best_services' => $best_services,
         'best_compilations' => $best_compilations,
+        'allCategories' => $allCategories,
     ]);
 })->name('index');
 

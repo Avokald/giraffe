@@ -78,7 +78,7 @@
                                 <span class="icon-arrow-down"></span>
                             </a>
                             <div class="custom_dropdown dropdown-menu" aria-labelledby="drop3">
-                                <div class="range-slider price-range"></div>
+                                <div class="range-slider price-range" data-min="10" data-max="50" data-valmin="25" data-valmax="35" data-currency="руб"></div>
 
                                 <div class="price-ranges">
                                     <span class="from rounded">$30</span>

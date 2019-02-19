@@ -43,7 +43,7 @@
                     ])
 
                     @foreach ( $page->pageElements as $element )
-                        @include($element->template, [
+                        @includeIf($element->template, [
                             'label' => ucfirst(str_replace('_', ' ', $element->name)),
                             'name' => "page_elements[$element->name]",
                             'element' => $element,

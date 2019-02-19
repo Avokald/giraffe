@@ -17,6 +17,7 @@ class CreateServiceCompilationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description')->nullable();
+            $table->unsignedInteger('view_count')->default(0);
             $table->unsignedInteger('price_month')->nullable();
             $table->unsignedInteger('price_year')->nullable();
             $table->unsignedInteger('category_id')->nullable();
