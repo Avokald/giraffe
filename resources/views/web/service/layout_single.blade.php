@@ -127,16 +127,17 @@
                                         @endforeach
                                     </ul>
 
-
-                                    <!-- Start Pagination -->
-                                    <nav class="pagination-default comments-pagination">
-                                        {{ $service->reviews->links('web.partials.pagination') }}
-                                    </nav>
-                                    <!-- Ends: /pagination-default -->
+                                    {{--@if ($service->reviews->isNotEmpty())--}}
+                                        <!-- Start Pagination -->
+                                        <nav class="pagination-default comments-pagination">
+                                            {{ $service->reviews->links('web.partials.pagination') }}
+                                        </nav>
+                                        <!-- Ends: /pagination-default -->
+                                    {{--@endif--}}
 
                                     {{-- TODO Reply to the current review --}}
                                     <div class="comment-form-area">
-                                        <h4>Leave a comment</h4>
+                                        <h4>Оставьте свой отзыв</h4>
                                         <!-- comment reply -->
                                         <div class="media comment-form">
                                             <div class="media-left">
@@ -146,8 +147,8 @@
                                             </div>
                                             <div class="media-body">
                                                 <form action="#" class="comment-reply-form">
-                                                    <textarea name="reply-comment" placeholder="Write your comment..."></textarea>
-                                                    <button class="btn btn--sm btn-primary">Post Comment</button>
+                                                    <textarea name="reply-comment" placeholder="Ваш комментарий"></textarea>
+                                                    <button class="btn btn--sm btn-primary">Отправить</button>
                                                 </form>
                                             </div>
                                         </div>

@@ -30,30 +30,31 @@
             </div>
             <!-- end /.item__action -->
 
-            <div class="item-activity">
-                <div class="activity-single">
-                    <p>
-                        <span class="icon-basket"></span> Total Sales
-                    </p>
-                    <p>2451</p>
-                </div>
-                <div class="activity-single">
-                    <p>
-                        <span class="icon-star"></span> Reviews
-                    </p>
-                    <ul class="list-unstyled">
-                        @include('web.partials.stars', ['product' => $service])
+            {{-- TODO 2-nd part --}}
+            {{--<div class="item-activity">--}}
+                {{--<div class="activity-single">--}}
+                    {{--<p>--}}
+                        {{--<span class="icon-basket"></span> Total Sales--}}
+                    {{--</p>--}}
+                    {{--<p>2451</p>--}}
+                {{--</div>--}}
+                {{--<div class="activity-single">--}}
+                    {{--<p>--}}
+                        {{--<span class="icon-star"></span> Reviews--}}
+                    {{--</p>--}}
+                    {{--<ul class="list-unstyled">--}}
+                        {{--@include('web.partials.stars', ['product' => $service])--}}
                         {{-- TODO Show reviews count. Same file problem --}}
-                        <li>(@yield('reviews-count'))</li>
-                    </ul>
-                </div>
-                <div class="activity-single">
-                    <p>
-                        <span class="icon-heart"></span>Favorities
-                    </p>
-                    <p>425</p>
-                </div>
-            </div>
+                        {{--<li>(@yield('reviews-count'))</li>--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
+                {{--<div class="activity-single">--}}
+                    {{--<p>--}}
+                        {{--<span class="icon-heart"></span>Favorities--}}
+                    {{--</p>--}}
+                    {{--<p>425</p>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <!-- Ends: /.item-activity -->
 
         </div>

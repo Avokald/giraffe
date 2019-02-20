@@ -13,6 +13,14 @@
                 </li>
 
                 <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Тарифы</a>
+                    <ul>
+                        <li><a href="{{ route('admin.tariffs.index') }}">Список</a></li>
+                        <li><a href="{{ route('admin.tariffs.create') }}">Добавить</a></li>
+                    </ul>
+                </li>
+
+                <li>
                     <a class="nav-submenu" data-toggle="nav-submenu">Подборки</a>
                     <ul>
                         <li><a href="{{ route('admin.compilations.index') }}">Список</a></li>

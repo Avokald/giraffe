@@ -1,5 +1,6 @@
 @extends('admin.layout')
 
+@section('page-name', 'Блог')
 
 @section('main')
     <div class="content content-narrow">

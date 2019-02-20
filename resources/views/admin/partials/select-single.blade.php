@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card col-xs-12 clearfix push-20">
     <div class="card-header">
         <h3>{{ $label ?? '' }}</h3>
     </div>
