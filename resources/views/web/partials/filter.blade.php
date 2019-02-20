@@ -18,7 +18,7 @@
                                     <a href="javascript:" class="filter-services-element"
                                        data-filter-name="category"
                                        data-filter-value="{{ $category->id }}">{{ $category->name }}
-                                        <span>{{ count($category->services) }}</span>
+                                        <span>{{ isset($type) ? count($category->services) : count($category->compilations) }}</span>
                                     </a>
                                 </li>
                             @endforeach

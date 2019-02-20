@@ -77,8 +77,10 @@ jQuery(function() {
                 url: ajax_image_upload_url,
                 data: data,
                 success: function (response) {
+                    console.log(response);
                     alert('Загружено');
                     it.siblings(".ajax-image-id").val(response['id']);
+                    it.siblings(".ajax-image-preview").attr('src', response['url']);
                 },
                 cache: false,
                 contentType: false,

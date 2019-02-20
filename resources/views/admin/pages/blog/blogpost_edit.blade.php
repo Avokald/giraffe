@@ -39,7 +39,7 @@
                                 'label' => 'Баннер',
                                 'name' => 'banner',
                                 'class' => 'banner',
-                                'value' => isset($blogpost->banner) ? [$blogpost->banner] : '',
+                                'value' => isset($blogpost->banner) ? [$blogpost->banner] : null,
                             ])
 
                             {{--<br><input type="file" name="banner_new">--}}

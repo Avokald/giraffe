@@ -1,4 +1,4 @@
-<div class="form-group col-sm-10">
+<div class="form-group col-sm-12">
     <div class="form-material push-20">
         <input class="form-control" type="text" name="{{ $name }}" value="{{ $value }}">
         @if (isset($label))
