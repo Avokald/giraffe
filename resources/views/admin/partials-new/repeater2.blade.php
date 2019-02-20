@@ -11,14 +11,18 @@
                             $subPageElement = $element->subPageElements()->where('name', key($val))->first();
                         ?>
                         <div class="{{ $class }} repeater-item col-sm-12">
-                            @include($subPageElement->template, [
-                                'label' => $subPageElement->name,
-                                'name' => $name."[$key][$subPageElement->name]" ?? '',
-                                'element' => $subPageElement,
-                                'id' => $subPageElement->name.$key ?? '',
-                                'value' => $value[$key][$subPageElement->name] ?? '',
-                            ])
-                            <button class="repeater-delete-el btn btn-danger pull-right col-sm-1">Удалить</button>
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    @include($subPageElement->template, [
+                                        'label' => $subPageElement->name,
+                                        'name' => $name."[$key][$subPageElement->name]" ?? '',
+                                        'element' => $subPageElement,
+                                        'id' => $subPageElement->name.$key ?? '',
+                                        'value' => $value[$key][$subPageElement->name] ?? '',
+                                    ])
+                                </div>
+                                <button class="repeater-delete-el btn btn-danger pull-right col-sm-1">Удалить</button>
+                            </div>
                         </div>
                     @endforeach
                 {{--@else--}}
@@ -37,7 +41,7 @@
                 @endif
             </div>
             {{--<div class="help-block">This is a help block!</div>--}}
-            <button class="btn btn-success repeater-add-el"
+            <button class="repeater-add-el btn btn-success"
                     data-block-type="{{ $class }}"
                     data-counter="{{ @sizeof($value) ?? 1 }}">Добавить</button>
         </div>
