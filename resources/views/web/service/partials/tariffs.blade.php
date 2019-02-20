@@ -1,4 +1,4 @@
-<div class="row xxx">
+<div class="row xxx" id="tazz3">
     <div class="col-lg-12">
         <div class="pricing-wrapper">
             @foreach( $service->tariffs as $tariff)
