@@ -42,7 +42,7 @@
                     <aside class="sidebar sidebar--single-product">
                         <div class="sidebar-card card-pricing">
                             <div class="price">
-                                <h1>от {{ $compilation->price_month }} руб. <sup>мес</sup></h1>
+                            <h1>от <span class="piz">{{ $compilation->price_month }}</span> руб. <sup>мес</sup></h1>
                             </div>
 
                             <div class="purchase-button">

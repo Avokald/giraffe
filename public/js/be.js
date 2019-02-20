@@ -3,6 +3,10 @@ jQuery(function() {
         e.preventDefault();
         filter_parameters[$(this).attr('data-filter-name')] = $(this).attr('data-filter-value');
     });
+    $('input[name="filter_opt"]').change(function(){
+        var val = $(this).val();
+        $('.piz').html(val);
+    })
 
 
 
