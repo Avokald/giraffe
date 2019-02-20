@@ -96,66 +96,67 @@
                                 @include('web.service.partials.tariffs')
                             @show
 
-                            <div class="dzdzx__title">
-                                <h3>Отзывы</h3>
-                            </div>
+                            {{-- TODO Review display part 2 --}}
+                            {{--<div class="dzdzx__title" id="tazz4">--}}
+                                {{--<h3>Отзывы</h3>--}}
+                            {{--</div>--}}
 
-                            <div class="row zog">
-                                <div class="thread">
-                                    <ul class="media-list thread-list">
-                                        @foreach ( $service->reviews as $review )
-                                            <li class="single-thread">
-                                                @include('web.service.partials.review')
+                            {{--<div class="row zog">--}}
+                                {{--<div class="thread">--}}
+                                    {{--<ul class="media-list thread-list">--}}
+                                        {{--@foreach ( $service->reviews as $review )--}}
+                                            {{--<li class="single-thread">--}}
+                                                {{--@include('web.service.partials.review')--}}
 
-                                                <!-- nested comment markup -->
-                                                @if ( $review->replies )
-                                                    <ul class="children">
-                                                        @foreach ( $review->replies as $reply )
-                                                            @include('web.service.partials.review_reply', [
-                                                                'reply' => $reply
-                                                            ])
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
+                                                {{--<!-- nested comment markup -->--}}
+                                                {{--@if ( $review->replies )--}}
+                                                    {{--<ul class="children">--}}
+                                                        {{--@foreach ( $review->replies as $reply )--}}
+                                                            {{--@include('web.service.partials.review_reply', [--}}
+                                                                {{--'reply' => $reply--}}
+                                                            {{--])--}}
+                                                        {{--@endforeach--}}
+                                                    {{--</ul>--}}
+                                                {{--@endif--}}
 
                                                 {{-- reply to the current parent review --}}
-                                                @section('review-reply-form')
-                                                    @include('web.service.partials.review_reply_form')
-                                                @show
-                                            </li>
-                                            <!-- end single comment thread /.comment-->
-                                        @endforeach
-                                    </ul>
+                                                {{--@section('review-reply-form')--}}
+                                                    {{--@include('web.service.partials.review_reply_form')--}}
+                                                {{--@show--}}
+                                            {{--</li>--}}
+                                            {{--<!-- end single comment thread /.comment-->--}}
+                                        {{--@endforeach--}}
+                                    {{--</ul>--}}
 
                                     {{--@if ($service->reviews->isNotEmpty())--}}
-                                        <!-- Start Pagination -->
-                                        <nav class="pagination-default comments-pagination">
-                                            {{ $service->reviews->links('web.partials.pagination') }}
-                                        </nav>
-                                        <!-- Ends: /pagination-default -->
+                                        {{--<!-- Start Pagination -->--}}
+                                        {{--<nav class="pagination-default comments-pagination">--}}
+                                            {{--{{ $service->reviews->links('web.partials.pagination') }}--}}
+                                        {{--</nav>--}}
+                                        {{--<!-- Ends: /pagination-default -->--}}
                                     {{--@endif--}}
 
                                     {{-- TODO Reply to the current review --}}
-                                    <div class="comment-form-area">
-                                        <h4>Оставьте свой отзыв</h4>
-                                        <!-- comment reply -->
-                                        <div class="media comment-form">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img class="media-object" src="/public/images/m7.png" alt="Commentator Avatar">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <form action="#" class="comment-reply-form">
-                                                    <textarea name="reply-comment" placeholder="Ваш комментарий"></textarea>
-                                                    <button class="btn btn--sm btn-primary">Отправить</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <!-- comment reply -->
-                                    </div>
-                                </div>
-                            </div>
+                                    {{--<div class="comment-form-area">--}}
+                                        {{--<h4>Оставьте свой отзыв</h4>--}}
+                                        {{--<!-- comment reply -->--}}
+                                        {{--<div class="media comment-form">--}}
+                                            {{--<div class="media-left">--}}
+                                                {{--<a href="#">--}}
+                                                    {{--<img class="media-object" src="/public/images/m7.png" alt="Commentator Avatar">--}}
+                                                {{--</a>--}}
+                                            {{--</div>--}}
+                                            {{--<div class="media-body">--}}
+                                                {{--<form action="#" class="comment-reply-form">--}}
+                                                    {{--<textarea name="reply-comment" placeholder="Ваш комментарий"></textarea>--}}
+                                                    {{--<button class="btn btn--sm btn-primary">Отправить</button>--}}
+                                                {{--</form>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<!-- comment reply -->--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </div>

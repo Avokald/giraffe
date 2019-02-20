@@ -11,7 +11,18 @@
                 <h4>TOD{{ 0/* TODO $reply->author->name */ }}</h4>
                 <span>{{ $reply->created_at->diffForHumans() }}</span>
             </div>
-            <span class="comment-tag author">Author</span>
+            <span class="comment-tag">
+                <ul class="list-unstyled stars">
+                    <li>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </li>
+                </ul>
+            </span>
+
             <p>{{ $reply->text  }}</p>
         </div>
     </div>
