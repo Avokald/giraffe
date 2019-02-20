@@ -36,6 +36,7 @@ Route::group([
     'as' => 'admin.',
 ], function() {
     Route::resource('services', 'ServiceController');
+    Route::resource('tariffs', 'TariffController');
     Route::resource('blog', 'BlogPostController');
     Route::resource('tags', 'TagController');
 

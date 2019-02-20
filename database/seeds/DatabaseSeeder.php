@@ -36,14 +36,13 @@ class DatabaseSeeder extends Seeder
             factory(\App\Image::class, 1)->state('compilation-logo')->create(['imageable_id' => $compilation->id]);
         }
 
-        factory(\App\Tariff::class, 30)->create();
-
         factory(\App\Review::class, 50)->create();
 
         foreach (\App\Service::all()->except(0) as $service) {
             factory(\App\Image::class)->state('service-logo')->create(['imageable_id' => $service->id]);
             factory(\App\Image::class)->state('service-banner')->create(['imageable_id' => $service->id]);
             factory(\App\Image::class, 10)->state('service-screenshot')->create(['imageable_id' => $service->id]);
+            factory(\App\Tariff::class, 3)->create(['service_id' => $service->id]);
         }
 
         factory(\App\Material::class, 1)->state('service-pdf')->create();

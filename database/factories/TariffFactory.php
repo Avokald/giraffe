@@ -10,6 +10,7 @@ $factory->define(App\Tariff::class, function (Faker $faker) {
         'description' => $faker->text(100),
         'price_month' => $price_month,
         'price_year'  => $price_month * 12 - 1000,
+        'is_recommended' => $faker->boolean,
         'permissions' => str_pad(
             decbin($faker->numberBetween(0, sizeof($service->features))),
             sizeof($service->features),
@@ -27,6 +28,7 @@ $factory->state(App\Tariff::class, 'test', function(Faker $faker) {
         'price_month' => 1000,
         'price_year'  => 10000,
         'permissions' => "0001101",
+        'is_recommended' => $faker->boolean,
         'service_id'  => 1,
     ];
 });

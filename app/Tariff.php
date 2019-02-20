@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tariff extends Model
 {
-    protected $fillable = ['name', 'price_month', 'price_year', 'permissions', 'is_on'];
+    protected $fillable = [
+        'name',
+        'description',
+        'price_month',
+        'price_year',
+        'permissions',
+        'is_recommended',
+        'service_id',
+    ];
 
     public function service()
     {
