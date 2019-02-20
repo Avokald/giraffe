@@ -1,6 +1,16 @@
+{{-- TODO Refactor--}}
+<?php
+$url = \App\Image::find($value)->url ?? null;
+?>
 <div class="form-group">
-    <div class="col-sm-3">
+    <div class="col-sm-12">
         <div class="form-material">
+            <img class="ajax-image-preview"
+                 src="{{ $url }}"
+                 height="100"
+                 width="100"
+                 alt="uploaded image preview"
+            >
             <input class="form-control ajax-image-upload"
                    type="file"
                    accept="image/png, image/jpeg">

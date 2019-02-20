@@ -14,9 +14,14 @@ class Category extends Model
         'slug',
     ];
 
+    public function compilations()
+    {
+        return $this->hasMany(\App\ServiceCompilation::class, 'category_id', 'id');
+    }
+
     public function services()
     {
-        return $this->hasMany( \App\Service::class, 'category_id', 'id' );
+        return $this->hasMany(\App\Service::class, 'category_id', 'id' );
     }
 
     public function updateMain(array $request)

@@ -1,48 +1,45 @@
 <div class="form-group repeater">
-    <?php
-    if (isset($value[0])) {
-        $first_subelement = \App\PageElement::findOrFail($value[0]);
-    }
-    ?>
     <div class="col-sm-12">
         <div class="form-material">
             <div class="repeater-list">
-                 @if ( isset($value) )
-                   @foreach ( $value as $key => $id )
-                        <?php
-                        $subelement = \App\PageElement::findOrFail($id);
-                        ?>
-                        <div class="{{ $class }} repeater-item col-sm-10">
-                            @include($subelement->template, [
-                                 'name' => $name."[$key][$subelement->name]",
-                                 'value' => $subelement->values,
-                                 'label' => '',
-                                 'id' => $name.$key.$subelement->name,
-                            ])
-                            <button class="repeater-delete-el pull-right col-sm-1">X</button>
+                @if ( isset($value) )
+                    @foreach ($value as $key => $element)
+                        <div class="{{ $class }} repeater-item">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    @include($template, [
+                                        'label' => '',
+                                        'name' => $name ?? '',
+                                        'value' => $element ?? '',
+                                    ])
+                                </div>
+                                <button class="repeater-delete-el btn btn-danger pull-right col-sm-1">Удалить</button>
+                            </div>
                         </div>
                     @endforeach
                 @endif
             </div>
-            <label>{{ $label }}</label>
+            @if ($label)
+                <label>{{ $label }}</label>
+            @endif
             {{--<div class="help-block">This is a help block!</div>--}}
-            <button class="btn btn--default repeater-add-el"
-                    data-block-type="{{ $first_subelement->name }}"
-                    data-counter="{{ sizeof($value) }}">+</button>
+            <button class="repeater-add-el btn btn-success"
+                    data-block-type="{{ $class }}">Добавить</button>
         </div>
     </div>
 </div>
 
 @push('hidden')
-    @if ( isset($value) )
-        <div class="{{ $first_subelement->name }} repeater-item col-sm-10">
-            @include($first_subelement->template, [
-                'name' => $name.'[<js-counter>]['.$first_subelement->name.']',
-                'value' => $first_subelement->values,
-                'label' => '',
-                'id' => '<js-uniqid>',
-            ])
-            <button class="repeater-delete-el pull-right col-sm-1">X</button>
+    <div class="{{ $class }} repeater-item">
+        <div class="row">
+            <div class="col-sm-10">
+                @include($template, [
+                    'name' => $name,
+                    'value' => '',
+                    'label' => '',
+               ])
+            </div>
+            <button class="repeater-delete-el btn btn-danger pull-right col-sm-1">Удалить</button>
         </div>
-    @endif
+    </div>
 @endpush

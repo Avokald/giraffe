@@ -16,7 +16,7 @@
                     @if ( $service->id )
                         @method('patch')
                     @endif
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
                             <h3>Main</h3>
                         </div>
@@ -45,7 +45,10 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card push-30 clearfix">
+                        <div class="card-header">
+                            <h3>Изображения сервиса</h3>
+                        </div>
                         <div class="card-content">
 
                             @include('admin.partials.gallery', [
@@ -71,28 +74,38 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
                             <h3>Category</h3>
                         </div>
                         <div class="card-content">
-                            <select name="category_id" class="js-select2 form-control">
-                                <option value="">Без категории</option>
-                                @foreach ( $all_categories as $category )
-                                    <option value="{{ $category->id }}"
-                                            @if ( $service->category )
-                                                {{ ($category->id == $service->category->id)
-                                                   ? ' selected' : '' }}
-                                            @endif
-                                    >
-                                        {{ $category->name }}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <div class="row">
+                                <div class="col-12">
+
+                                    <div class="form-group col-sm-12">
+                                        <div class="form-material push-20-t">
+                                            <select name="category_id" class="js-select2 form-control">
+                                                <option value="">Без категории</option>
+                                                @foreach ( $all_categories as $category )
+                                                    <option value="{{ $category->id }}"
+                                                            @if ( $service->category )
+                                                                {{ ($category->id == $service->category->id)
+                                                                   ? ' selected' : '' }}
+                                                            @endif
+                                                    >
+                                                        {{ $category->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
                             <h3>Compilations</h3>
                         </div>
@@ -112,12 +125,12 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
                             <h3>PDF</h3>
                         </div>
                         <div class="card-content">
-                            @include('admin.partials-new.repeater', [
+                            @include('admin.partials.repeater', [
                                  'label' => '',
                                  'name' => 'pdfs[]',
                                  'template' => 'admin.partials.file',
@@ -129,12 +142,12 @@
 
 
 
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Documents</h3>
+                            <h3>Документы</h3>
                         </div>
                         <div class="card-content">
-                            @include('admin.partials-new.repeater', [
+                            @include('admin.partials.repeater', [
                                  'label' => '',
                                  'name' => 'documents[]',
                                  'template' => 'admin.partials.file',
@@ -144,12 +157,12 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Presentations</h3>
+                            <h3>Презентации</h3>
                         </div>
                         <div class="card-content">
-                            @include('admin.partials-new.repeater', [
+                            @include('admin.partials.repeater', [
                                  'label' => '',
                                  'name' => 'presentations[]',
                                  'template' => 'admin.partials.file',
@@ -160,12 +173,12 @@
                     </div>
 
 
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Features</h3>
+                            <h3>Фичи</h3>
                         </div>
                         <div class="card-content">
-                            @include('admin.partials-new.repeater', [
+                            @include('admin.partials.repeater', [
                                  'label' => '',
                                  'name' => 'features[]',
                                  'template' => 'admin.partials.text',
@@ -175,35 +188,13 @@
                         </div>
                     </div>
 
-
-
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Tariffs</h3>
-                        </div>
-                        <div class="card-content">
-                            <div class="row">
-                                {{--@foreach ( $service->tariffs as $key => $tariff )--}}
-                                    {{--<div class="col-xs-6 col-sm-3">--}}
-                                        {{--<input type="text" name="tariffs[{{ $key }}][name]" value="{{ $tariff->name }}">--}}
-                                        {{--<br><input type="checkbox" name="tariffs[{{ $key }}][recommended]" value="{{ $tariff->is_recommended }}">--}}
-                                        {{--<br><input type="number" name="tariffs[{{ $key }}][price_month]" value="{{ $tariff->price_month }}">--}}
-                                        {{--<br><input type="number" name="tariffs[{{ $key }}][price_year]" value="{{ $tariff->price_year }}">--}}
-                                        {{--<br><textarea name="tariffs[{{ $key }}][description]">{{ $tariff->description }}</textarea>--}}
-                                    {{--</div>--}}
-                                {{--@endforeach--}}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Short description</h3>
+                            <h3>Короткое описание</h3>
                         </div>
                         <div class="card-content">
                             <div class="form-group">
                                 <div class="col-xs-12">
-                                    <!-- CKEditor Container -->
                                     <textarea name="description_short" style="min-width: 100%;" >{{
                                         $service->description_short
                                     }}</textarea>
@@ -212,9 +203,9 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Long Description</h3>
+                            <h3>Длинное описание</h3>
                         </div>
                         <div class="card-content">
                             <div class="form-group">
@@ -228,21 +219,21 @@
                     </div>
 
 
-                    <div class="card">
+                    <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Materials description</h3>
+                            <h3>Описание материалов</h3>
                         </div>
-                        <div class="card-body">
+                        <div class="card-content">
                             <div class="form-group">
                                 <div class="col-xs-12">
-                                    <textarea id="materials_description_editor" name="materials_description">
-                                        {{ $service->materials_description }}
-                                    </textarea>
+                                    <textarea id="materials_description_editor" name="materials_description">{{
+                                        $service->materials_description
+                                        }}</textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn--default">Save</button>
+                    <button class="btn btn-info">Сохранить</button>
                 </form>
             </div>
         </div>

@@ -62,149 +62,149 @@
                                     </div>
                                 @endif
                                 <div class="author-area">
-                                    <div class="search-wrapper">
-                                        <a href="/favorits.html" class="nav_right_module search_module">
-                                            <span class="icon-heart"></span>
-                                        </a>
-                                    </div>
-                                    <div class="author__notification_area">
-                                        <ul>
-                                            <li class="has_dropdown">
-                                                <div class="icon_wrap">
-                                                    <span class="icon-basket-loaded"></span>
-                                                    <span class="notification_count purch">0</span>
-                                                </div>
+                                    {{--<div class="search-wrapper">--}}
+                                        {{--<a href="/favorits.html" class="nav_right_module search_module">--}}
+                                            {{--<span class="icon-heart"></span>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="author__notification_area">--}}
+                                        {{--<ul>--}}
+                                            {{--<li class="has_dropdown">--}}
+                                                {{--<div class="icon_wrap">--}}
+                                                    {{--<span class="icon-basket-loaded"></span>--}}
+                                                    {{--<span class="notification_count purch">0</span>--}}
+                                                {{--</div>--}}
 
-                                                <div class="dropdown dropdown--cart">
-                                                    <div class="cart_area">
-                                                        <div class="cart_list">
-                                                            <div class="cart_product">
-                                                                <div class="product__info">
-                                                                    <div class="thumbn">
-                                                                        <img src="images/capro1.jpg" alt="cart product thumbnail">
-                                                                    </div>
+                                                {{--<div class="dropdown dropdown--cart">--}}
+                                                    {{--<div class="cart_area">--}}
+                                                        {{--<div class="cart_list">--}}
+                                                            {{--<div class="cart_product">--}}
+                                                                {{--<div class="product__info">--}}
+                                                                    {{--<div class="thumbn">--}}
+                                                                        {{--<img src="images/capro1.jpg" alt="cart product thumbnail">--}}
+                                                                    {{--</div>--}}
 
-                                                                    <div class="info">
-                                                                        <a class="title" href="single-product.html">Finance
-                                                                            and Consulting Business Theme</a>
-                                                                        <div class="cat">
-                                                                            <a href="#">
-                                                                                <img src="images/catword.png" alt="">Wordpress</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                                    {{--<div class="info">--}}
+                                                                        {{--<a class="title" href="single-product.html">Finance--}}
+                                                                            {{--and Consulting Business Theme</a>--}}
+                                                                        {{--<div class="cat">--}}
+                                                                            {{--<a href="#">--}}
+                                                                                {{--<img src="images/catword.png" alt="">Wordpress</a>--}}
+                                                                        {{--</div>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
 
-                                                                <div class="product__action">
-                                                                    <a href="#">
-                                                                        <span class="icon-trash"></span>
-                                                                    </a>
-                                                                    <p>$60</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="cart_product">
-                                                                <div class="product__info">
-                                                                    <div class="thumbn">
-                                                                        <img src="images/capro2.jpg" alt="cart product thumbnail">
-                                                                    </div>
+                                                                {{--<div class="product__action">--}}
+                                                                    {{--<a href="#">--}}
+                                                                        {{--<span class="icon-trash"></span>--}}
+                                                                    {{--</a>--}}
+                                                                    {{--<p>$60</p>--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="cart_product">--}}
+                                                                {{--<div class="product__info">--}}
+                                                                    {{--<div class="thumbn">--}}
+                                                                        {{--<img src="images/capro2.jpg" alt="cart product thumbnail">--}}
+                                                                    {{--</div>--}}
 
-                                                                    <div class="info">
-                                                                        <a class="title" href="single-product.html">Flounce
-                                                                            - Multipurpose OpenCart Theme</a>
-                                                                        <div class="cat">
-                                                                            <a href="#">
-                                                                                <img src="images/catword.png" alt="">Wordpress</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                                    {{--<div class="info">--}}
+                                                                        {{--<a class="title" href="single-product.html">Flounce--}}
+                                                                            {{--- Multipurpose OpenCart Theme</a>--}}
+                                                                        {{--<div class="cat">--}}
+                                                                            {{--<a href="#">--}}
+                                                                                {{--<img src="images/catword.png" alt="">Wordpress</a>--}}
+                                                                        {{--</div>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
 
-                                                                <div class="product__action">
-                                                                    <a href="#">
-                                                                        <span class="icon-trash"></span>
-                                                                    </a>
-                                                                    <p>$60</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="total">
-                                                            <p>
-                                                                <span>Total :</span>$80</p>
-                                                        </div>
-                                                        <div class="cart_action">
-                                                            <a class="btn btn-primary" href="cart.html">В корзину</a>
-                                                            <a class="btn btn-secondary" href="checkout.html">Checkout</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--start .author-author__info-->
-                                    <div class="author-author__info has_dropdown">
-                                        <div class="author__avatar online">
-                                            <img src="images/user-avater.png" alt="user avatar" class="rounded-circle">
-                                        </div>
+                                                                {{--<div class="product__action">--}}
+                                                                    {{--<a href="#">--}}
+                                                                        {{--<span class="icon-trash"></span>--}}
+                                                                    {{--</a>--}}
+                                                                    {{--<p>$60</p>--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="total">--}}
+                                                            {{--<p>--}}
+                                                                {{--<span>Total :</span>$80</p>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="cart_action">--}}
+                                                            {{--<a class="btn btn-primary" href="cart.html">В корзину</a>--}}
+                                                            {{--<a class="btn btn-secondary" href="checkout.html">Checkout</a>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                            {{--</li>--}}
+                                        {{--</ul>--}}
+                                    {{--</div>--}}
+                                    {{--<!--start .author-author__info-->--}}
+                                    {{--<div class="author-author__info has_dropdown">--}}
+                                        {{--<div class="author__avatar online">--}}
+                                            {{--<img src="images/user-avater.png" alt="user avatar" class="rounded-circle">--}}
+                                        {{--</div>--}}
 
-                                        <div class="dropdown dropdown--author">
-                                            <div class="author-credits d-flex">
-                                                <div class="author__avatar">
-                                                    <img src="images/user-avater.png" alt="user avatar" class="rounded-circle">
-                                                </div>
-                                                <div class="autor__info">
-                                                    <p class="name">
-                                                        Chris Bent
-                                                    </p>
-                                                    <p class="amount">$20.45</p>
-                                                </div>
-                                            </div>
-                                            <ul>
-                                                <li>
-                                                    <a href="author.html">
-                                                        <span class="icon-user"></span>Profile</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard.html">
-                                                        <span class="icon-home"></span> Dashboard</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-setting.html">
-                                                        <span class="icon-settings"></span> Setting</a>
-                                                </li>
-                                                <li>
-                                                    <a href="cart.html">
-                                                        <span class="icon-basket"></span>Purchases</a>
-                                                </li>
-                                                <li>
-                                                    <a href="favourites.html">
-                                                        <span class="icon-heart"></span> Favourite</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-add-credit.html">
-                                                        <span class="icon-credit-card"></span>Add Credits</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-statement.html">
-                                                        <span class="icon-chart"></span>Sale Statement</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-upload.html">
-                                                        <span class="icon-cloud-upload"></span>Upload Item</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-manage-item.html">
-                                                        <span class="icon-notebook"></span>Manage Item</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-withdrawal.html">
-                                                        <span class="icon-briefcase"></span>Withdrawals</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="icon-logout"></span>Logout</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!--end /.author-author__info-->
+                                        {{--<div class="dropdown dropdown--author">--}}
+                                            {{--<div class="author-credits d-flex">--}}
+                                                {{--<div class="author__avatar">--}}
+                                                    {{--<img src="images/user-avater.png" alt="user avatar" class="rounded-circle">--}}
+                                                {{--</div>--}}
+                                                {{--<div class="autor__info">--}}
+                                                    {{--<p class="name">--}}
+                                                        {{--Chris Bent--}}
+                                                    {{--</p>--}}
+                                                    {{--<p class="amount">$20.45</p>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                            {{--<ul>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="author.html">--}}
+                                                        {{--<span class="icon-user"></span>Profile</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard.html">--}}
+                                                        {{--<span class="icon-home"></span> Dashboard</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-setting.html">--}}
+                                                        {{--<span class="icon-settings"></span> Setting</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="cart.html">--}}
+                                                        {{--<span class="icon-basket"></span>Purchases</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="favourites.html">--}}
+                                                        {{--<span class="icon-heart"></span> Favourite</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-add-credit.html">--}}
+                                                        {{--<span class="icon-credit-card"></span>Add Credits</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-statement.html">--}}
+                                                        {{--<span class="icon-chart"></span>Sale Statement</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-upload.html">--}}
+                                                        {{--<span class="icon-cloud-upload"></span>Upload Item</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-manage-item.html">--}}
+                                                        {{--<span class="icon-notebook"></span>Manage Item</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-withdrawal.html">--}}
+                                                        {{--<span class="icon-briefcase"></span>Withdrawals</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="#">--}}
+                                                        {{--<span class="icon-logout"></span>Logout</a>--}}
+                                                {{--</li>--}}
+                                            {{--</ul>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<!--end /.author-author__info-->--}}
                                 </div>
                                 <!-- end .author-area -->
 

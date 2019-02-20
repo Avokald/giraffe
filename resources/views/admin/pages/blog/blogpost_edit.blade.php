@@ -1,5 +1,6 @@
 @extends('admin.layout')
 
+@section('page-name', 'Блог')
 
 @section('main')
     <div class="content content-narrow">
@@ -39,7 +40,7 @@
                                 'label' => 'Баннер',
                                 'name' => 'banner',
                                 'class' => 'banner',
-                                'value' => isset($blogpost->banner) ? [$blogpost->banner] : '',
+                                'value' => isset($blogpost->banner) ? [$blogpost->banner] : null,
                             ])
 
                             {{--<br><input type="file" name="banner_new">--}}

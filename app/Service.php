@@ -39,11 +39,14 @@ class Service extends Model
     public function relationshipsSave(array $request)
     {
         if (isset($request['screenshots'])) {
+            foreach ($this->screenshots as $screenshot) {
+                $screenshot->unbound();
+            }
 
             foreach ($request['screenshots'] as $screenshot_id) {
 
                 $screenshot = Image::findOrFail($screenshot_id);
-                $screenshot->bound(static::class, $this->id, null);
+                $screenshot->bound(static::class, $this->id, 'screenshot');
             }
         }
 
@@ -94,6 +97,7 @@ class Service extends Model
                 'type' => 'logo',
                 'imageable_type' => static::class,
                 'imageable_id' => $this->id,
+                'old_image' => $this->logo,
             ]);
         }
 

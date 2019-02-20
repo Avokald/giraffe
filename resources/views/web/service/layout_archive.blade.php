@@ -22,7 +22,7 @@
     End Hero Area
     ================================= -->
 
-    @include('web.partials.filter')
+    @include('web.partials.filter', ['type' => 1])
 
     <!--================================
         START Product Grid
