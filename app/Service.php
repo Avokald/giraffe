@@ -105,6 +105,10 @@ class Service extends Model
             $this->category_id = $request['category_id'];
         }
 
+        if (isset($request['related_services'])) {
+            $this->relatedServicesTo()->sync($request['related_services']);
+        }
+
         $this->save();
     }
 
@@ -192,6 +196,12 @@ class Service extends Model
         } else {
             $this->category_id = null;
         }
+        if (isset($request['related_services'])) {
+            $this->relatedServicesTo()->sync($request['related_services']);
+        } else {
+            $this->relatedServicesTo()->detach();
+        }
+
         $this->save();
     }
 
@@ -278,6 +288,16 @@ class Service extends Model
     {
         return $this->morphMany(Material::class, 'materiable')
             ->where('type', '=', 'video');
+    }
+
+    public function relatedServicesFrom()
+    {
+        return $this->belongsToMany(Service::class, 'service_service', 'from_service_id', 'to_service_id');
+    }
+
+    public function relatedServicesTo()
+    {
+        return $this->belongsToMany(Service::class, 'service_service', 'to_service_id', 'from_service_id');
     }
 
 
