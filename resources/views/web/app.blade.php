@@ -71,6 +71,7 @@
 <script src="/public/js/dashboard.js"></script>
 <script src="/public/js/main.js"></script>
 <script src="/public/js/map.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js"></script>
 <script src="/public/js/be.js"></script>
 
 <!-- endinject -->

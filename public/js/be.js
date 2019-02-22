@@ -6,7 +6,8 @@ jQuery(function() {
     $('input[name="filter_opt"]').change(function(){
         var val = $(this).val();
         $('.piz').html(val);
-    })
+    });
+    $('.mans').stick_in_parent();
 
 
 
