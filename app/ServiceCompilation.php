@@ -61,7 +61,7 @@ class ServiceCompilation extends Model
         $this->save();
         $this->services()->sync($request['services']);
 
-        if (isset($request['logo'])) {
+        if (isset($request['logo']) && ($request['logo'] != $this->logo->id)) {
 
             $image = Image::findOrFail($request['logo']);
             $image->updateParent([

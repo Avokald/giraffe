@@ -29,13 +29,14 @@ class Category extends Model
     {
         $this->update($request);
 
-        if (isset($request['logo'])) {
+        if (isset($request['logo']) && ($request['logo'] != $this->logo->id)) {
 
             $image = Image::findOrFail($request['logo']);
             $image->updateParent([
                 'type' => $this->logo ? $this->logo->type : null,
                 'imageable_type' => static::class,
                 'imageable_id' => $this->id,
+                'old_image' => $this->logo,
             ]);
         }
 

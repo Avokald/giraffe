@@ -35,7 +35,7 @@ class CategoryController extends Controller
         $request = $request->toArray();
         $category = Category::create($request);
 
-        if ($request['logo']) {
+        if (isset($request['logo'])) {
             $image = \App\Image::findOrFail($request['logo']);
             $image->updateParent([
                 'imageable_type' => Category::class,

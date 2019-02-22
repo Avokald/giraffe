@@ -81,7 +81,7 @@ class Service extends Model
     {
         $this->update($request);
 
-        if (isset($request['banner'])) {
+        if (isset($request['banner']) && ($request['banner'] != $this->banner->id)) {
 
             $banner = Image::findOrFail($request['banner']);
             $banner->updateParent([
@@ -92,7 +92,7 @@ class Service extends Model
             ]);
         }
 
-        if (isset($request['logo'])) {
+        if (isset($request['logo']) && ($request['logo'] != $this->logo->id)) {
             $logo = Image::findOrFail($request['logo']);
             $logo->updateParent([
                 'type' => 'logo',

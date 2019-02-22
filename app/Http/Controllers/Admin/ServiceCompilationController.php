@@ -54,7 +54,7 @@ class ServiceCompilationController extends Controller
             $compilation->services()->sync($request['services']);
         }
 
-        if ($request['logo']) {
+        if (isset($request['logo'])) {
             $image = Image::findOrFail($request['logo']);
             $image->updateParent([
                 'imageable_type' => ServiceCompilation::class,

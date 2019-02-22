@@ -42,7 +42,7 @@ class BlogPost extends Model
 
     public function relationshipsSave(array $request)
     {
-        if ($request['banner']) {
+        if (isset($request['banner'])) {
             $banner = Image::findOrFail($request['banner']);
             $banner->updateParent([
                 'imageable_type' => static::class,
@@ -59,8 +59,7 @@ class BlogPost extends Model
     {
         $this->tags()->sync($request['tags']);
 
-        if (($request['banner'] && !$this->banner)
-            || ($this->banner && ($request['banner'] != $this->banner->id))) {
+        if (isset($request['banner']) && ($request['logo'] != $this->logo->id)) {
 
             $image = Image::findOrFail($request['banner']);
             $image->updateParent([
