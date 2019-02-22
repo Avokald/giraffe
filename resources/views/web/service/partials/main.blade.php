@@ -264,6 +264,7 @@
                 <!-- end /.col-md-8 -->
 
                 <div class="col-lg-4 col-md-12">
+                    <div class="mans">
                     <aside class="sidebar sidebar--single-product">
                         <div class="sidebar-card card-pricing">
                             <div class="price">
@@ -342,6 +343,7 @@
 
                         <!-- end /.author-card -->
                     </aside>
+                    </div>
                     <!-- end /.aside -->
                 </div>
                 <!-- end /.col-md-4 -->

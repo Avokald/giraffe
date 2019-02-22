@@ -39,21 +39,23 @@
                 <!-- end /.col-md-8 -->
 
                 <div class="col-lg-4 col-md-12 bild">
-                    <aside class="sidebar sidebar--single-product">
-                        <div class="sidebar-card card-pricing">
-                            <div class="price">
-                            <h1>от <span class="piz">{{ $compilation->price_month }}</span> руб. <sup>мес</sup></h1>
-                            </div>
+                    <div class="mans">
+                        <aside class="sidebar sidebar--single-product">
+                            <div class="sidebar-card card-pricing">
+                                <div class="price">
+                                <h1>от <span class="piz">{{ $compilation->price_month }}</span> руб. <sup>мес</sup></h1>
+                                </div>
 
-                            <div class="purchase-button">
-                                <a href="#" class="btn btn--lg btn-primary">Подключить</a>
-                                <a href="#" class="btn btn--lg cart-btn btn-secondary">
-                                    <span class="icon-heart"></span> Добавить в избранное</a>
+                                <div class="purchase-button">
+                                    <a href="#" class="btn btn--lg btn-primary">Подключить</a>
+                                    <a href="#" class="btn btn--lg cart-btn btn-secondary">
+                                        <span class="icon-heart"></span> Добавить в избранное</a>
+                                </div>
+                                <!-- end /.purchase-button -->
                             </div>
-                            <!-- end /.purchase-button -->
-                        </div>
-                        <!-- end /.author-card -->
-                    </aside>
+                            <!-- end /.author-card -->
+                        </aside>
+                    </div>
                     <!-- end /.aside -->
                 </div>
                 <!-- end /.col-md-4 -->
