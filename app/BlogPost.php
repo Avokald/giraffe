@@ -68,7 +68,6 @@ class BlogPost extends Model
 
             $image = Image::findOrFail($request['banner']);
             $image->updateParent([
-                'type' => $this->banner ? $this->banner->type : null,
                 'imageable_type' => static::class,
                 'imageable_id' => $this->id,
                 'old_image' => $this->banner,
