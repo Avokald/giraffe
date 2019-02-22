@@ -28,8 +28,7 @@ class Category extends Model
     public function updateMain(array $request)
     {
         $this->update($request);
-
-        if (isset($request['logo']) && ($request['logo'] != $this->logo->id)) {
+        if (isset($request['logo']) && (!$this->logo || ($request['logo'] != $this->logo->id))) {
 
             $image = Image::findOrFail($request['logo']);
             $image->updateParent([
@@ -53,7 +52,6 @@ class Category extends Model
                 $service->save();
             }
         }
-
 
         $this->save();
     }

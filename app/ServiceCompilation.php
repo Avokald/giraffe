@@ -58,10 +58,12 @@ class ServiceCompilation extends Model
     public function updateMain(array $request)
     {
         $this->update($request);
-        $this->save();
-        $this->services()->sync($request['services']);
-
-        if (isset($request['logo']) && ($request['logo'] != $this->logo->id)) {
+        if (isset($request['services'])) {
+            $this->services()->sync($request['services']);
+        } else {
+            $this->services()->detach();
+        }
+        if (isset($request['logo']) && (!$this->logo || ($request['logo'] != $this->logo->id))) {
 
             $image = Image::findOrFail($request['logo']);
             $image->updateParent([
@@ -71,6 +73,8 @@ class ServiceCompilation extends Model
                 'old_image' => $this->logo,
             ]);
         }
+
+        $this->save();
     }
 
     public function sluggable(): array

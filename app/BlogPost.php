@@ -57,9 +57,14 @@ class BlogPost extends Model
 
     public function mainUpdate(array $request)
     {
-        $this->tags()->sync($request['tags']);
+        $this->update($request);
+        if (isset($request['tags'])) {
+            $this->tags()->sync($request['tags']);
+        } else {
+            $this->tags()->detach();
+        }
 
-        if (isset($request['banner']) && ($request['logo'] != $this->logo->id)) {
+        if (isset($request['banner']) && (!$this->banner || ($request['logo'] != $this->logo->id))) {
 
             $image = Image::findOrFail($request['banner']);
             $image->updateParent([
@@ -70,7 +75,6 @@ class BlogPost extends Model
             ]);
         }
 
-        $this->update($request);
         $this->save();
     }
 

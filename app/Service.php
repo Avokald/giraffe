@@ -70,9 +70,40 @@ class Service extends Model
             ]);
         }
 
-        $this->compilations()->sync($request['compilations']);
-        $this->category_id = $request['category_id'];
+        if (isset($request['documents'])) {
 
+            foreach ($request['documents'] as $document_id) {
+
+                $document = Material::findOrFail($document_id);
+                $document->bound(static::class, $this->id, 'document');
+            }
+        }
+
+        if (isset($request['pdfs'])) {
+
+            foreach ($request['pdfs'] as $pdf_id) {
+
+                $pdf = Material::findOrFail($pdf_id);
+                $pdf->bound(static::class, $this->id, 'pdf');
+            }
+        }
+
+        if (isset($request['presentations'])) {
+
+            foreach ($request['presentations'] as $presentation_id) {
+
+                $presentation = Material::findOrFail($presentation_id);
+                $presentation->bound(static::class, $this->id, 'presentation');
+            }
+        }
+
+        if (isset($request['compilations'])) {
+            $this->compilations()->sync($request['compilations']);
+        }
+
+        if (isset($request['category_id'])) {
+            $this->category_id = $request['category_id'];
+        }
 
         $this->save();
     }
@@ -81,7 +112,7 @@ class Service extends Model
     {
         $this->update($request);
 
-        if (isset($request['banner']) && ($request['banner'] != $this->banner->id)) {
+        if (isset($request['banner']) && (!$this->banner || ($request['banner'] != $this->banner->id))) {
 
             $banner = Image::findOrFail($request['banner']);
             $banner->updateParent([
@@ -92,7 +123,7 @@ class Service extends Model
             ]);
         }
 
-        if (isset($request['logo']) && ($request['logo'] != $this->logo->id)) {
+        if (isset($request['logo']) && (!$this->logo || ($request['logo'] != $this->logo->id))) {
             $logo = Image::findOrFail($request['logo']);
             $logo->updateParent([
                 'type' => 'logo',
@@ -124,10 +155,43 @@ class Service extends Model
             }
         }
 
-        $this->compilations()->sync($request['compilations']);
-        $this->category_id = $request['category_id'];
+        if (isset($request['pdfs'])) {
 
+            foreach ($this->pdfs as $pdf) {
+                $pdf->unbound();
+            }
 
+            foreach ($request['pdfs'] as $pdf_id) {
+
+                $pdf = Material::findOrFail($pdf_id);
+                $pdf->bound(static::class, $this->id, 'pdf');
+            }
+        }
+
+        if (isset($request['presentations'])) {
+
+            foreach ($this->presentations as $presentation) {
+                $presentation->unbound();
+            }
+
+            foreach ($request['presentations'] as $presentation_id) {
+
+                $presentation = Material::findOrFail($presentation_id);
+                $presentation->bound(static::class, $this->id, 'presentation');
+            }
+        }
+
+        if (isset($request['compilations'])) {
+            $this->compilations()->sync($request['compilations']);
+        } else {
+            $this->compilations()->detach();
+        }
+
+        if (isset($request['category_id'])) {
+            $this->category_id = $request['category_id'];
+        } else {
+            $this->category_id = null;
+        }
         $this->save();
     }
 
