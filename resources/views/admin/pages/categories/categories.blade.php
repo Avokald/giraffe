@@ -8,6 +8,7 @@
             <th>Logo</th>
             <th>Name</th>
             <th>Slug</th>
+            <th>Описание</th>
             <th>Date of creation</th>
             <th>Actions</th>
             </thead>
@@ -18,6 +19,7 @@
                     <td><img src="{{ $category->logo->url ?? '' }}" height="50"></td>
                     <td><p>{{ $category->name }}</p></td>
                     <td><p>{{ $category->slug }}</p></td>
+                    <td><p>{{ $category->description }}</p></td>
                     <td><p>{{ $category->created_at }}</p></td>
                     <td class="text-center">
                         <div class="btn-group">

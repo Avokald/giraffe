@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::paginate(3);
+        $categories = Category::paginate(14);
         $allCategories = Category::all();
         return view('web.categories.layout_archive', [
             'categories' => $categories,

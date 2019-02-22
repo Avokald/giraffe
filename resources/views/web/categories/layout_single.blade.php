@@ -11,6 +11,7 @@
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
                     {{ Breadcrumbs::render('category', $category) }}
+                    <div class="ozon"><p>{{ $category->description }}</p></div>
                 </div>
                 <!-- end /.col-md-12 -->
             </div>

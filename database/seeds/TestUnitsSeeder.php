@@ -24,12 +24,13 @@ class TestUnitsSeeder extends Seeder
         factory(\App\ServiceCompilation::class, 1)->state('test')->create();
 
         factory(\App\Service::class, 1)->state('test')->create();
+        factory(\App\Service::class, 1)->create();
 
         foreach (\App\ServiceCompilation::all() as $compilation) {
             $compilation->services()->attach(1);
         }
 
-        factory(\App\Tariff::class, 3)->state('test')->create();
+        factory(\App\Tariff::class, 3)->state('test')->create(['service_id' => 1]);
 
         factory(\App\Review::class, 3)->state('test')->create();
 

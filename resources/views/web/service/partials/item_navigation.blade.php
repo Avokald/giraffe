@@ -13,10 +13,10 @@
                 <a href="#tazz3" id="tab5" >
                     <span class="icon"></span> Тарифы</a>
             </li>
-            <li>
-                <a href="#tazz4" id="tab2">
-                    <span class="icon icon-bubbles"></span> Отзывы </a>
-            </li>
+            {{--<li>--}}
+                {{--<a href="#tazz4" id="tab2">--}}
+                    {{--<span class="icon icon-bubbles"></span> Отзывы </a>--}}
+            {{--</li>--}}
         </ul>
     </div>
     <!-- end /.item-navigation -->

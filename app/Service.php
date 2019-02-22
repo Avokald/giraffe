@@ -88,6 +88,7 @@ class Service extends Model
                 'type' => 'banner',
                 'imageable_type' => static::class,
                 'imageable_id' => $this->id,
+                'old_image' => $this->banner,
             ]);
         }
 

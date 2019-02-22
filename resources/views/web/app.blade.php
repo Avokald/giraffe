@@ -30,6 +30,15 @@
     <link rel="stylesheet" href="/public/style.css">
     <link rel="stylesheet" href="/public/css/new.css">
     <!-- endinject -->
+    @if ($settingFonts)
+        <style type="text/css">
+            *,
+            *::before,
+            *::after {
+                font-family: {!! $settingFonts !!} !important;
+            }
+        </style>
+    @endif
 </head>
 
 <body class="home1 mutlti-vendor">
@@ -71,6 +80,7 @@
 <script src="/public/js/dashboard.js"></script>
 <script src="/public/js/main.js"></script>
 <script src="/public/js/map.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js"></script>
 <script src="/public/js/be.js"></script>
 
 <!-- endinject -->

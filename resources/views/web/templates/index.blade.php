@@ -123,7 +123,7 @@
                         @foreach ( $best_services as $service )
                             @include('web.partials.product_card_carousel', [
                                 'product' => $service,
-                                'singleRoute' => route('compilations.show', $service->slug ),
+                                'singleRoute' => route('services.show', $service->slug ),
                             ])
                         @endforeach
                     </div>

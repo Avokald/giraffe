@@ -30,10 +30,13 @@ class ServiceCompilationController extends Controller
         } else {
             $compilations = ServiceCompilation::paginate(6);
         }
+
         $allCategories = Category::with('services')->get();
+        $page = \App\Page::where('slug', 'compilations')->firstOrFail();
         return view('web.compilations.layout_archive', [
             'compilations' => $compilations,
             'allCategories' => $allCategories,
+            'page' => $page,
         ]);
     }
 

@@ -11,6 +11,7 @@
             <div class="row">
                 <div class="col-md-12 breadcrumb-contents">
                     {{ Breadcrumbs::render('compilations') }}
+                    <div class="ozon"><p>{{ $page->content}}</p></div>
                 </div>
                 <!-- end /.col-md-12 -->
             </div>
@@ -31,7 +32,7 @@
     <section class="product-grid p-bottom-100">
         <div class="container">
             <div class="section-title">
-                <h2>Подборки</h2>
+                <h2>{{ $page->name }}</h2>
             </div>
             <div class="row">
                 <!-- Start .product-list -->
