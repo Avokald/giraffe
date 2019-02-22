@@ -35,5 +35,12 @@ class PagesTableSeeder extends Seeder
             'content' => '<h2>К сожалению страница не найдена</h2>',
             'template' => 'errors.404',
         ]);
+
+        $compilationsPage = Page::create([
+            'name' => 'Подборки',
+            'slug' => 'compilations',
+            'content' => 'Описание подборок',
+            'template' => '',
+        ]);
     }
 }
