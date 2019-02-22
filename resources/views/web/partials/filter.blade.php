@@ -42,16 +42,16 @@
                                    data-filter-name="sorting"
                                    data-filter-value="created_at">Новые</a>
                             </li>
-                            <li>
-                                <a href="#" class="filter-services-element"
-                                   data-filter-name="sorting"
-                                   data-filter-value="deals_count">Самые продаваемые</a>
-                            </li>
-                            <li>
-                                <a href="#" class="filter-services-element"
-                                   data-filter-name="sorting"
-                                   data-filter-value="rating">С наивысшим рейтингом</a>
-                            </li>
+                            {{--<li>--}}
+                                {{--<a href="#" class="filter-services-element"--}}
+                                   {{--data-filter-name="sorting"--}}
+                                   {{--data-filter-value="deals_count">Самые продаваемые</a>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                                {{--<a href="#" class="filter-services-element"--}}
+                                   {{--data-filter-name="sorting"--}}
+                                   {{--data-filter-value="rating">С наивысшим рейтингом</a>--}}
+                            {{--</li>--}}
                         </ul>
                     </div>
                     <!-- end /.filter__option -->

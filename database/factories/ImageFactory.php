@@ -20,7 +20,7 @@ $factory->state(App\Image::class, 'service-logo', function(Faker $faker) {
         'type' => 'logo',
         'alt'  => 'service logo alt',
         'imageable_type' => \App\Service::class,
-        'imageable_id' => \App\Service::all()->except(0)->random()->id,
+        'imageable_id' => \App\Service::all()->except(1)->random()->id,
     ];
 });
 
@@ -31,7 +31,7 @@ $factory->state(App\Image::class, 'service-banner', function(Faker $faker) {
         'type' => 'banner',
         'alt'  => 'service banner alt',
         'imageable_type' => \App\Service::class,
-        'imageable_id' => \App\Service::all()->except(0)->random()->id,
+        'imageable_id' => \App\Service::all()->except(1)->random()->id,
     ];
 });
 
@@ -42,7 +42,7 @@ $factory->state(App\Image::class, 'service-screenshot', function(Faker $faker) {
         'type' => 'screenshot',
         'alt'  => 'test service screenshot alt',
         'imageable_type' => \App\Service::class,
-        'imageable_id' => \App\Service::all()->except(0)->random()->id,
+        'imageable_id' => \App\Service::all()->except(1)->random()->id,
     ];
 });
 

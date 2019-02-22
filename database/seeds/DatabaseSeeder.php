@@ -38,17 +38,18 @@ class DatabaseSeeder extends Seeder
 
         factory(\App\Review::class, 50)->create();
 
-        foreach (\App\Service::all()->except(0) as $service) {
+        foreach (\App\Service::all()->except(1) as $service) {
             factory(\App\Image::class)->state('service-logo')->create(['imageable_id' => $service->id]);
             factory(\App\Image::class)->state('service-banner')->create(['imageable_id' => $service->id]);
             factory(\App\Image::class, 10)->state('service-screenshot')->create(['imageable_id' => $service->id]);
             factory(\App\Tariff::class, 3)->create(['service_id' => $service->id]);
+
+            factory(\App\Material::class, 1)->state('service-pdf')->create(['materiable_id' => $service->id]);
+            factory(\App\Material::class, 1)->state('service-video')->create(['materiable_id' => $service->id]);
+            factory(\App\Material::class, 1)->state('service-document')->create(['materiable_id' => $service->id]);
+            factory(\App\Material::class, 1)->state('service-presentation')->create(['materiable_id' => $service->id]);
         }
 
-        factory(\App\Material::class, 1)->state('service-pdf')->create();
-        factory(\App\Material::class, 1)->state('service-video')->create();
-        factory(\App\Material::class, 1)->state('service-document')->create();
-        factory(\App\Material::class, 1)->state('service-presentation')->create();
 
         factory(\App\User::class, 20)->create();
 
