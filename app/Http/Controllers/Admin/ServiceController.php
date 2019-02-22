@@ -35,10 +35,12 @@ class ServiceController extends Controller
         $service = new Service();
         $all_categories = Category::all();
         $all_compilations = ServiceCompilation::all();
+        $allServicesExceptCurrent = Service::all();
         return view('admin.pages.service_edit', [
             'service' => $service,
             'all_categories' => $all_categories,
             'all_compilations' => $all_compilations,
+            'allServicesExceptCurrent' => $allServicesExceptCurrent,
         ]);
     }
 
@@ -61,10 +63,12 @@ class ServiceController extends Controller
         $service = Service::with('tariffs', 'category')->findOrFail($service_id);
         $all_categories = Category::all();
         $all_compilations = ServiceCompilation::all();
+        $allServicesExceptCurrent = Service::all()->except($service->id);
         return view('admin.pages.service_edit', [
             'service' => $service,
             'all_categories' => $all_categories,
             'all_compilations' => $all_compilations,
+            'allServicesExceptCurrent' => $allServicesExceptCurrent,
         ]);
     }
 

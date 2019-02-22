@@ -66,7 +66,7 @@ class ServiceCompilation extends Model
         if (isset($request['logo']) && (!$this->logo || ($request['logo'] != $this->logo->id))) {
 
             $image = Image::findOrFail($request['logo']);
-        $image->updateParent([
+            $image->updateParent([
                 'imageable_type' => static::class,
                 'imageable_id' => $this->id,
                 'old_image' => $this->logo,

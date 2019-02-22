@@ -233,6 +233,31 @@
                             </div>
                         </div>
                     </div>
+
+                    @php
+                    $relatedServices = $service->relatedServicesTo->toArray();
+                    @endphp
+                    <div class="card push-30 clearfix">
+                        <div class="card-header">
+                            <h3>Связанные сервисы</h3>
+                        </div>
+                        <div class="card-content">
+                            <select name="related_services[]" class="js-select2 form-control" multiple>
+                                @php
+                                $filteredRelatedServices = array_map(function($el) { return $el['id']; }, $relatedServices);
+                                @endphp
+                                @foreach ($allServicesExceptCurrent as $singleService)
+                                    <option value="{{ $singleService->id }}"
+                                            {{ in_array($singleService->id, $filteredRelatedServices)
+                                               ? ' selected' : '' }}>
+                                        {{ $singleService->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+
                     <button class="btn btn-info">Сохранить</button>
                 </form>
             </div>
