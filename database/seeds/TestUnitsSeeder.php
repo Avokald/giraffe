@@ -26,6 +26,8 @@ class TestUnitsSeeder extends Seeder
         factory(\App\Service::class, 1)->state('test')->create();
         factory(\App\Service::class, 1)->create();
 
+        \App\Service::find(1)->relatedServicesTo()->attach(\App\Service::find(2));
+
         foreach (\App\ServiceCompilation::all() as $compilation) {
             $compilation->services()->attach(1);
         }
