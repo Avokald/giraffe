@@ -5,7 +5,7 @@
             @if ( $service->tariffs->isNotEmpty() )
                 <div class="price">
                     <h1>
-                        от {{ $service->tariffs[0]->price_month }} руб. <sup>мес</sup></h1>
+                        от <span class="priz">{{ $service->tariffs[0]->price_month }} руб.</span> <sup>мес</sup></h1>
                 </div>
                 <ul class="pricing-options">
                     <li>
@@ -24,7 +24,7 @@
                     @foreach ( $rest_tariffs as $key => $tariff )
                         <li>
                             <div class="custom-radio">
-                                <input type="radio" id="opt{{ $key + 2}}" class="" name="filter_opt">
+                                <input type="radio" id="opt{{ $key + 2}}" class="" value="{{ $tariff->price_month }}" name="filter_opt">
                                 <label for="opt{{ $key + 2}}">
                                     <span class="circle"></span>{{ $tariff->name }} –
                                     <span class="pricing__opt">{{ $tariff->price_month }} руб.</span>

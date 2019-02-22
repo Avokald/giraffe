@@ -12,6 +12,20 @@
 	overflow: hidden;
 	text-align: left;
 }
+.catalog__text{
+	height: 132px;
+	overflow: hidden;
+}
+.catalogx .catalog__content{
+	padding-left: 25px;
+	padding-right: 25px;
+}
+.product-excerpt h5+ul.titlebtm li:last-child{
+	margin-left: 0;
+}
+.latest-single .product-excerpt h5{
+	text-align: left;
+}
 .ozon p {
 	color: #fff;
 }
