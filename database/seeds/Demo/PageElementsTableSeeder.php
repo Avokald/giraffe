@@ -27,6 +27,13 @@ class PageElementsTableSeeder extends Seeder
             'page_element_type_id' => 6,
         ]);
 
+        $emailSubscribe = PageElement::create([
+            'name' => 'email-subscribe',
+            'values' => '<p>Подписывайтесь на наши новости и обновления</p>',
+            'page_id' => 1,
+            'page_element_type_id' => 3,
+        ]);
+
         // Contacts
         $addresses = PageElement::create([
             'name' => 'addresses',
