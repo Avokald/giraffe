@@ -43,6 +43,12 @@
                                 'value' => isset($category->logo) ? [$category->logo] : null,
                             ])
 
+                            @include('admin.partials.text', [
+                                'label' => 'Описание',
+                                'name' => 'description',
+                                'value' => $category->description,
+                            ])
+
                         </div>
                     </div>
 
