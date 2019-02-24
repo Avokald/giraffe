@@ -69,12 +69,10 @@
                             @endforeach
 
                             @foreach ( $service->videos as $video )
-
-                                <h3>{{ $video->name }}</h3>
                                 <?php
                                 preg_match(
     '/^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/',
-                                    $video->url,
+                                    $video,
                                     $url_groups );
                                 ?>
                                 @if ( $url_groups[5] )

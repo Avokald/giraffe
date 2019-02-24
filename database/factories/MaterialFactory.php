@@ -37,13 +37,3 @@ $factory->state(App\Material::class, 'service-document', function(Faker $faker) 
         'materiable_id' => \App\Service::all()->except(1)->random()->id,
     ];
 });
-
-$factory->state(App\Material::class, 'service-video', function(Faker $faker) {
-    return [
-        'url' => 'https://www.youtube.com/watch?v=yagzOX7VpNs',
-        'name' => $faker->word.'video',
-        'type' => 'video',
-        'materiable_type' => \App\Service::class,
-        'materiable_id' => \App\Service::all()->except(1)->random()->id,
-    ];
-});

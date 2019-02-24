@@ -24,11 +24,13 @@ class Service extends Model
         'materials_description',
         'installation_difficulty',
         'features',
+        'videos',
         'category_id',
     ];
 
     protected $casts = [
         'features' => 'array',
+        'videos'   => 'array',
     ];
 
     public function getPriceMonthAttribute()
@@ -114,6 +116,9 @@ class Service extends Model
 
     public function mainUpdate(array $request)
     {
+        $request['features'] = $request['features'] ?? null;
+        $request['videos'] = $request['videos'] ?? null;
+
         $this->update($request);
 
         if (isset($request['banner']) && (!$this->banner || ($request['banner'] != $this->banner->id))) {
@@ -138,7 +143,7 @@ class Service extends Model
         }
 
         foreach ($this->screenshots as $screenshot) {
-            $screenshot->unbount();
+            $screenshot->unbound();
         }
 
         if (isset($request['screenshots'])) {
@@ -190,6 +195,7 @@ class Service extends Model
                 $presentation->bound(static::class, $this->id, 'presentation');
             }
         }
+
 
         if (isset($request['compilations'])) {
             $this->compilations()->sync($request['compilations']);
@@ -288,12 +294,6 @@ class Service extends Model
     {
         return $this->morphMany(Material::class, 'materiable')
             ->where('type', '=', 'presentation');
-    }
-
-    public function videos()
-    {
-        return $this->morphMany(Material::class, 'materiable')
-            ->where('type', '=', 'video');
     }
 
     public function relatedServicesFrom()
