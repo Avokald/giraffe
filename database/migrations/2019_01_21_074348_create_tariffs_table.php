@@ -23,12 +23,7 @@ class CreateTariffsTable extends Migration
             $table->boolean('is_recommended')->default(false);
             $table->timestamps();
 
-            $table->unsignedInteger('service_id');
-
-            $table->foreign('service_id')
-                ->references('id')
-                ->on('services')
-                ->onDelete('cascade');
+            $table->unsignedInteger('service_id')->nullable();
         });
     }
 

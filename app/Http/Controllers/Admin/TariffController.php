@@ -29,7 +29,9 @@ class TariffController extends Controller
     {
         $request = $request->toArray();
 
-        $request['is_recommended'] = $request['is_recommended'] ? 1: 0;
+        $request['service_id'] = $request['service_id'] ?? null;
+
+        $request['is_recommended'] = isset($request['is_recommended']) ? 1: 0;
 
         $tariff = Tariff::create($request);
 
@@ -51,7 +53,9 @@ class TariffController extends Controller
         $request = $request->toArray();
         $tariff = Tariff::findOrFail($tariff_id);
 
-        $request['is_recommended'] = $request['is_recommended'] ? 1: 0;
+        $request['service_id'] = $request['service_id'] ?? null;
+
+        $request['is_recommended'] = isset($request['is_recommended']) ? 1: 0;
 
         if (isset($request['perms'])) {
             $perms = str_split($tariff->permissions);
@@ -63,6 +67,8 @@ class TariffController extends Controller
                 $perms[$perm_id] = 1;
             }
             $request['permissions'] = strrev(implode('', $perms));
+        } else {
+            $request['permissions'] = "0";
         }
 
         $tariff->update($request);
