@@ -14,6 +14,7 @@ class PagesTableSeeder extends Seeder
     {
         $indexPage = Page::create([
             'name' => 'Главная',
+            'slug' => ' ',
             'content' => '<h2>SoftBox</h2>
                         <p>Идейные соображения высшего порядка, а также новая модель организационной деятельности
                             позволяет выполнять важные задания <br>
@@ -26,12 +27,14 @@ class PagesTableSeeder extends Seeder
 
         $contactsPage = Page::create([
             'name' => 'Contacts',
+            'slug' => 'contacts',
             'content' => 'For the glory',
             'template' => 'web.template.contacts',
         ]);
 
         $aboutPage = Page::create([
             'name' => 'About',
+            'slug' => 'about',
             'content' => 'You will pay for this',
             'template' => 'web.template.about',
         ]);
