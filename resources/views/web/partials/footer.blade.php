@@ -35,12 +35,12 @@
                             <div class="col-lg-3 col-sm-6">
                                 <div class="footer-widget">
                                     <div class="footer-menu">
-                                        <h5 class="footer-widget-title">{{ $menuElement->title }}</h5>
+                                        <h5 class="footer-widget-title">{{ $menuElement->name }}</h5>
                                         @if ($menuElement->subMenuElements->isNotEmpty())
                                             <ul>
                                                 @foreach ($menuElement->subMenuElements as $subMenuElement)
                                                     <li>
-                                                        <a href="{{ $subMenuElement->url }}">{{ $subMenuElement->title }}</a>
+                                                        <a href="{{ $subMenuElement->url }}">{{ $subMenuElement->name }}</a>
                                                     </li>
                                                 @endforeach
                                             </ul>
@@ -71,7 +71,7 @@
                         @if ($copyrightMenuElements)
                             <div class="copyright-text">
                                 @foreach ($copyrightMenuElements as $menuElement)
-                                    <p>{{ $menuElement->title }}</p>
+                                    <p>{{ $menuElement->name }}</p>
                                 @endforeach
                             </div>
                         @endif
