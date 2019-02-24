@@ -10,7 +10,7 @@ class Menu extends Model
     use Sluggable;
 
     protected $fillable = [
-        'title',
+        'name',
         'slug',
     ];
 
@@ -28,7 +28,7 @@ class Menu extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'name'
             ]
         ];
     }

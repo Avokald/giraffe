@@ -45,7 +45,6 @@ class DatabaseSeeder extends Seeder
             factory(\App\Tariff::class, 3)->create(['service_id' => $service->id]);
 
             factory(\App\Material::class, 1)->state('service-pdf')->create(['materiable_id' => $service->id]);
-            factory(\App\Material::class, 1)->state('service-video')->create(['materiable_id' => $service->id]);
             factory(\App\Material::class, 1)->state('service-document')->create(['materiable_id' => $service->id]);
             factory(\App\Material::class, 1)->state('service-presentation')->create(['materiable_id' => $service->id]);
         }

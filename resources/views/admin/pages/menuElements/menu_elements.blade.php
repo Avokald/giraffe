@@ -18,10 +18,10 @@
             @foreach ( $menuElements as $key => $menuElement )
                 <tr>
                     <td>{{ $menuElement->id }}</td>
-                    <td>{{ $menuElement->title }}</td>
+                    <td>{{ $menuElement->name }}</td>
                     <td>{{ $menuElement->url }}</td>
-                    <td>{{ $menuElement->menu->title ?? '' }}</td>
-                    <td>{{ $menuElement->parentElement->title ?? '' }}</td>
+                    <td>{{ $menuElement->menu->name ?? '' }}</td>
+                    <td>{{ $menuElement->parentElement->name ?? '' }}</td>
                     <td>{{ $menuElement->created_at }}</td>
                     <td class="text-center">
                         <div class="btn-group">

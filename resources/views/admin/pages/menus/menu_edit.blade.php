@@ -20,8 +20,8 @@
 
                     @include('admin.partials.text', [
                         'label' => 'Название',
-                        'name' => 'title',
-                        'value' => $menu->title ?? '',
+                        'name' => 'name',
+                        'value' => $menu->name ?? '',
                     ])
 
                     @include('admin.partials.text', [

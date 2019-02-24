@@ -32,13 +32,13 @@
                                                 @if ($headerMenuElements)
                                                     @foreach ($headerMenuElements as $menuElement)
                                                         <li{{ $menuElement->subMenuElements->isNotEmpty() ? ' class=has_dropdown' : '' }}>
-                                                            <a href={{ $menuElement->url }}>{{ $menuElement->title }}</a>
+                                                            <a href={{ $menuElement->url }}>{{ $menuElement->name }}</a>
                                                             @if ($menuElement->subMenuElements->isNotEmpty())
                                                                 <div class="dropdown dropdown--menu">
                                                                     <ul>
                                                                         @foreach ($menuElement->subMenuElements as $subMenuElement)
                                                                            <li>
-                                                                                <a href={{ $subMenuElement->url }}>{{ $subMenuElement->title }}</a>
+                                                                                <a href={{ $subMenuElement->url }}>{{ $subMenuElement->name }}</a>
                                                                             </li>
                                                                         @endforeach
                                                                     </ul>
@@ -61,7 +61,7 @@
                                         {!! $currentSaleText !!}
                                     </div>
                                 @endif
-                                <div class="author-area">
+                                {{--<div class="author-area">--}}
                                     {{--<div class="search-wrapper">--}}
                                         {{--<a href="/favorits.html" class="nav_right_module search_module">--}}
                                             {{--<span class="icon-heart"></span>--}}
@@ -205,93 +205,93 @@
                                         {{--</div>--}}
                                     {{--</div>--}}
                                     {{--<!--end /.author-author__info-->--}}
-                                </div>
-                                <!-- end .author-area -->
+                                {{--</div>--}}
+                                {{--<!-- end .author-area -->--}}
 
-                                <!-- author area restructured for mobile -->
-                                <div class="mobile_content ">
-                                    <span class="icon-user menu_icon"></span>
+                                {{--<!-- author area restructured for mobile -->--}}
+                                {{--<div class="mobile_content ">--}}
+                                    {{--<span class="icon-user menu_icon"></span>--}}
 
-                                    <!-- offcanvas menu -->
-                                    <div class="offcanvas-menu closed">
-                                        <span class="icon-close close_menu"></span>
-                                        <div class="author-author__info">
-                                            <div class="author__avatar v_middle">
-                                                <img src="images/user-avater.png" alt="user avatar">
-                                            </div>
-                                        </div>
-                                        <!--end /.author-author__info-->
+                                    {{--<!-- offcanvas menu -->--}}
+                                    {{--<div class="offcanvas-menu closed">--}}
+                                        {{--<span class="icon-close close_menu"></span>--}}
+                                        {{--<div class="author-author__info">--}}
+                                            {{--<div class="author__avatar v_middle">--}}
+                                                {{--<img src="images/user-avater.png" alt="user avatar">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<!--end /.author-author__info-->--}}
 
-                                        <div class="author__notification_area">
-                                            <ul>
-                                                <li>
-                                                    <a href="cart.html">
-                                                        <div class="icon_wrap">
-                                                            <span class="icon-basket"></span>
-                                                            <span class="notification_count purch">0</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!--start .author__notification_area -->
+                                        {{--<div class="author__notification_area">--}}
+                                            {{--<ul>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="cart.html">--}}
+                                                        {{--<div class="icon_wrap">--}}
+                                                            {{--<span class="icon-basket"></span>--}}
+                                                            {{--<span class="notification_count purch">0</span>--}}
+                                                        {{--</div>--}}
+                                                    {{--</a>--}}
+                                                {{--</li>--}}
+                                            {{--</ul>--}}
+                                        {{--</div>--}}
+                                        {{--<!--start .author__notification_area -->--}}
 
-                                        <div class="dropdown dropdown--author">
-                                            <ul>
-                                                <li>
-                                                    <a href="author.html">
-                                                        <span class="icon-user"></span>Profile</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard.html">
-                                                        <span class="icon-home"></span> Dashboard</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-setting.html">
-                                                        <span class="icon-settings"></span> Setting</a>
-                                                </li>
-                                                <li>
-                                                    <a href="cart.html">
-                                                        <span class="icon-basket"></span>Purchases</a>
-                                                </li>
-                                                <li>
-                                                    <a href="favourites.html">
-                                                        <span class="icon-heart"></span> Favourite</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-add-credit.html">
-                                                        <span class="icon-credit-card"></span>Add Credits</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-statement.html">
-                                                        <span class="icon-chart"></span>Sale Statement</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-upload.html">
-                                                        <span class="icon-cloud-upload"></span>Upload Item</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-manage-item.html">
-                                                        <span class="icon-notebook"></span>Manage Item</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dashboard-withdrawal.html">
-                                                        <span class="icon-briefcase"></span>Withdrawals</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="icon-logout"></span>Logout</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        {{--<div class="dropdown dropdown--author">--}}
+                                            {{--<ul>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="author.html">--}}
+                                                        {{--<span class="icon-user"></span>Profile</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard.html">--}}
+                                                        {{--<span class="icon-home"></span> Dashboard</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-setting.html">--}}
+                                                        {{--<span class="icon-settings"></span> Setting</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="cart.html">--}}
+                                                        {{--<span class="icon-basket"></span>Purchases</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="favourites.html">--}}
+                                                        {{--<span class="icon-heart"></span> Favourite</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-add-credit.html">--}}
+                                                        {{--<span class="icon-credit-card"></span>Add Credits</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-statement.html">--}}
+                                                        {{--<span class="icon-chart"></span>Sale Statement</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-upload.html">--}}
+                                                        {{--<span class="icon-cloud-upload"></span>Upload Item</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-manage-item.html">--}}
+                                                        {{--<span class="icon-notebook"></span>Manage Item</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="dashboard-withdrawal.html">--}}
+                                                        {{--<span class="icon-briefcase"></span>Withdrawals</a>--}}
+                                                {{--</li>--}}
+                                                {{--<li>--}}
+                                                    {{--<a href="#">--}}
+                                                        {{--<span class="icon-logout"></span>Logout</a>--}}
+                                                {{--</li>--}}
+                                            {{--</ul>--}}
+                                        {{--</div>--}}
 
-                                        <div class="text-center">
-                                            <a href="signup.html" class="author-area__seller-btn inline">Become a
-                                                Seller</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end /.mobile_content -->
+                                        {{--<div class="text-center">--}}
+                                            {{--<a href="signup.html" class="author-area__seller-btn inline">Become a--}}
+                                                {{--Seller</a>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<!-- end /.mobile_content -->--}}
                             </div>
 
                         </div>

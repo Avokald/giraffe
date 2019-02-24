@@ -10,7 +10,7 @@ class MenuElement extends Model
     use Sluggable;
 
     protected $fillable = [
-        'title',
+        'name',
         'url',
         'parent_element_id',
         'menu_id',
@@ -58,7 +58,7 @@ class MenuElement extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'name'
             ]
         ];
     }

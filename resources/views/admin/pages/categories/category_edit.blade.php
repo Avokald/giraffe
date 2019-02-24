@@ -57,7 +57,7 @@
                             <h3>Services</h3>
                         </div>
                         <div class="card-content">
-                            <select class="js-select2 form-control" name="services[]" multiple>
+                            <select class="js-select2 form-control" name="services_id[]" multiple>
                                 <?php $compilation_services = $category->services->toArray();
                                 $filtered_services = array_map(function($el) { return $el['id']; }, $compilation_services); ?>
                                 @foreach ( $allServices as $service )

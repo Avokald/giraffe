@@ -37,14 +37,13 @@ class Category extends Model
             ]);
         }
 
-        if (isset($request['services'])) {
+        foreach ($this->services as $service) {
+            $service->category_id = null;
+            $service->save();
+        }
 
-            foreach ($this->services as $service) {
-                $service->category_id = null;
-                $service->save();
-            }
-
-            foreach ($request['services'] as $service_id) {
+        if (isset($request['services_id'])) {
+            foreach ($request['services_id'] as $service_id) {
                 $service = Service::findOrFail($service_id);
                 $service->category_id = $this->id;
                 $service->save();

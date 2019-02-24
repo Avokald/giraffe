@@ -15,7 +15,7 @@ class CreateMenuElementsTable extends Migration
     {
         Schema::create('menu_elements', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->nullable();
+            $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->string('url')->nullable();
             $table->unsignedInteger('menu_id')->nullable();

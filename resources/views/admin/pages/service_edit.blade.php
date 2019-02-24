@@ -172,6 +172,20 @@
                         </div>
                     </div>
 
+                    <div class="card push-30 clearfix">
+                        <div class="card-header">
+                            <h3>Видеозаписи</h3>
+                        </div>
+                        <div class="card-content">
+                            @include('admin.partials.repeater', [
+                                 'label' => '',
+                                 'name' => 'videos[]',
+                                 'template' => 'admin.partials.text',
+                                 'class' => 'videos-item',
+                                 'value' => $service->videos,
+                             ])
+                        </div>
+                    </div>
 
                     <div class="card push-30 clearfix">
                         <div class="card-header">

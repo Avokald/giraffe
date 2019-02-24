@@ -31,7 +31,7 @@ class PageElementsTableSeeder extends Seeder
             'name' => 'email-subscribe',
             'values' => '<p>Подписывайтесь на наши новости и обновления</p>',
             'page_id' => 1,
-            'page_element_type_id' => 3,
+            'page_element_type_id' => 2,
         ]);
 
         // Contacts
