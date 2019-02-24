@@ -43,6 +43,14 @@ class CategoryController extends Controller
             ]);
         }
 
+        if (isset($request['services_id'])) {
+            foreach ($request['services_id'] as $service_id) {
+                $service = Service::find($service_id);
+                $service->category_id = $category->id;
+                $service->save();
+            }
+        }
+
         return redirect()->route('admin.categories.edit', $category->id);
     }
 
