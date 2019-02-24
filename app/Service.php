@@ -137,6 +137,10 @@ class Service extends Model
             ]);
         }
 
+        foreach ($this->screenshots as $screenshot) {
+            $screenshot->unbount();
+        }
+
         if (isset($request['screenshots'])) {
 
             foreach ($request['screenshots'] as $screenshot_id) {
@@ -146,11 +150,11 @@ class Service extends Model
             }
         }
 
-        if (isset($request['documents'])) {
+        foreach ($this->documents as $document) {
+            $document->unbound();
+        }
 
-            foreach ($this->documents as $document) {
-                $document->unbound();
-            }
+        if (isset($request['documents'])) {
 
             foreach ($request['documents'] as $document_id) {
 
@@ -159,11 +163,12 @@ class Service extends Model
             }
         }
 
-        if (isset($request['pdfs'])) {
 
-            foreach ($this->pdfs as $pdf) {
-                $pdf->unbound();
-            }
+        foreach ($this->pdfs as $pdf) {
+            $pdf->unbound();
+        }
+
+        if (isset($request['pdfs'])) {
 
             foreach ($request['pdfs'] as $pdf_id) {
 
@@ -172,11 +177,12 @@ class Service extends Model
             }
         }
 
-        if (isset($request['presentations'])) {
 
-            foreach ($this->presentations as $presentation) {
-                $presentation->unbound();
-            }
+        foreach ($this->presentations as $presentation) {
+            $presentation->unbound();
+        }
+
+        if (isset($request['presentations'])) {
 
             foreach ($request['presentations'] as $presentation_id) {
 
