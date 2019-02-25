@@ -35,6 +35,11 @@
             * {
                 font-family: {!! $settingFonts !!} !important;
             }
+
+            [class^='icon-'], [class*='icon-'],
+            .fa{
+                font-family: FontAwesome !important;
+            }
         </style>
     @endif
 </head>
