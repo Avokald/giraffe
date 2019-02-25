@@ -32,9 +32,7 @@
     <!-- endinject -->
     @if ($settingFonts)
         <style type="text/css">
-            *,
-            *::before,
-            *::after {
+            * {
                 font-family: {!! $settingFonts !!} !important;
             }
         </style>
