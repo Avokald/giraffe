@@ -8,6 +8,7 @@ jQuery(function() {
         $('.piz').html(val);
     });
     $('.mans').stick_in_parent();
+    $('.item-navigation').stick_in_parent();
 
 
 
