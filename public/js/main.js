@@ -50,7 +50,7 @@
     var sMax = +$('.price-range').data('max');
     var sMinVal = +$('.price-range').data('valmin');
     var sMaxVal = +$('.price-range').data('valmax');
-    var currensy = $('.price-range').data('currency');4
+    var currensy = $('.price-range').data('currency');
     console.log(sMax)
     console.log(sMin)
     console.log(sMinVal)

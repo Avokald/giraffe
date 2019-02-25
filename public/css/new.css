@@ -42,3 +42,7 @@ li.product-rating ul{
 .product-excerpt .product-facts li:nth-last-child(2){
 	margin-right: 0;
 }
+.item-navigation{
+	background-color: #fff;
+	z-index: 20;
+}
