@@ -9,7 +9,38 @@ jQuery(function() {
     });
     $('.mans').stick_in_parent();
     $('.item-navigation').stick_in_parent();
-
+    $(window).scroll(function(){
+        var scrollPos = $(document).scrollTop();
+        $('.item-navigation a').each(function () {
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('.item-navigation a').removeClass("active");
+                currLink.addClass("active");
+            }
+            else{
+                currLink.removeClass("active");
+            }
+        });
+    });
+    $('.item-navigation a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+        
+        $('.item-navigation a').each(function () {
+            $(this).removeClass('active');
+        })
+        $(this).addClass('active');
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top+2
+        }, 500, 'swing', function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
+    });
 
 
     $(".filter-services-submit").on("click", function (e) {
