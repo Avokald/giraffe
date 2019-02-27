@@ -29,6 +29,14 @@
                 </li>
 
                 <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Ситуации</a>
+                    <ul>
+                        <li><a href="{{ route('admin.situations.index') }}">Список</a></li>
+                        <li><a href="{{ route('admin.situations.create') }}">Добавить</a></li>
+                    </ul>
+                </li>
+
+                <li>
                     <a class="nav-submenu" data-toggle="nav-submenu">Категории</a>
                     <ul>
                         <li><a href="{{ route('admin.categories.index') }}">Список</a></li>

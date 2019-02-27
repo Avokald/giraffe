@@ -28,8 +28,12 @@ class TestUnitsSeeder extends Seeder
 
         \App\Service::find(1)->relatedServicesTo()->attach(\App\Service::find(2));
 
+        $this->call(ServiceCompilationSituationsTableSeeder::class);
+
         foreach (\App\ServiceCompilation::all() as $compilation) {
             $compilation->services()->attach(1);
+            $compilation->situations()->attach(\App\ServiceCompilationSituation::all()->random());
+
         }
 
         factory(\App\Tariff::class, 3)->state('test')->create(['service_id' => 1]);
@@ -81,6 +85,7 @@ class TestUnitsSeeder extends Seeder
         $this->call(ImagesTableSeeder::class);
 
         $this->call(SettingsTableSeeder::class);
+
 
     }
 }

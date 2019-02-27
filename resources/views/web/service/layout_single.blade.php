@@ -159,7 +159,7 @@
                     </div>
                 </div>
 
-                @include('web.service.partials.sidebar')
+                {{--@include('web.service.partials.sidebar')--}}
             </div>
         </div>
     </section>
