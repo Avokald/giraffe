@@ -23,7 +23,7 @@
     End Hero Area
     ================================= -->
 
-    @include('web.partials.filter')
+    {{--@include('web.partials.filter')--}}
 
 
     <!--================================

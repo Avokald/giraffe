@@ -42,10 +42,13 @@ Route::group([
 
     Route::resource('pages', 'PageController');
     Route::resource('page-elements', 'PageElementController');
+
     Route::resource('menus', 'MenuController');
     Route::resource('menu-elements', 'MenuElementController');
+
     Route::resource('categories', 'CategoryController');
     Route::resource('compilations', 'ServiceCompilationController');
+    Route::resource('situations', 'ServiceCompilationSituationController');
 
     Route::resource('faqs', 'FaqController');
     Route::resource('faq-categories', 'FaqCategoryController');

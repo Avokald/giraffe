@@ -43,6 +43,16 @@ class ServiceCompilation extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
+    public function situations()
+    {
+        return $this->belongsToMany(
+            ServiceCompilationSituation::class,
+            'service_compilation_service_compilation_situation',
+            'service_compilation_situation_id',
+            'service_compilation_id'
+        );
+    }
+
     /**
      * Get the route key for the model.
      *
@@ -52,8 +62,6 @@ class ServiceCompilation extends Model
     {
         return 'slug';
     }
-
-
 
     public function updateMain(array $request)
     {
@@ -72,7 +80,6 @@ class ServiceCompilation extends Model
                 'old_image' => $this->logo,
             ]);
         }
-
         $this->save();
     }
 
