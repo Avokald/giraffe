@@ -48,8 +48,8 @@ class ServiceCompilation extends Model
         return $this->belongsToMany(
             ServiceCompilationSituation::class,
             'service_compilation_service_compilation_situation',
-            'service_compilation_id',
-            'service_compilation_situation_id'
+            'service_compilation_situation_id',
+            'service_compilation_id'
         );
     }
 

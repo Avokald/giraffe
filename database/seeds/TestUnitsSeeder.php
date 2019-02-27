@@ -32,7 +32,7 @@ class TestUnitsSeeder extends Seeder
 
         foreach (\App\ServiceCompilation::all() as $compilation) {
             $compilation->services()->attach(1);
-            $compilation->situations()->attach(\App\ServiceCompilationSituation::all()->random());
+            $compilation->situations()->attach(\App\ServiceCompilationSituation::all()->random()->id);
 
         }
 
