@@ -1,12 +1,10 @@
 @extends('admin.layout')
 
+@section('page-name', 'Категории поддержки')
+
 @section('main')
     <div class="content content-narrow">
         <div class="block">
-
-            <div class="block-header">
-                <h1>Категории Поддержки</h1>
-            </div>
 
             <div class="block-content">
                 <form action="{{
@@ -22,12 +20,13 @@
                         <div class="card-header">
                             <h3>Основные</h3>
                         </div>
-                        <div class="card-content">
+                        <div class="card-content push-30-t">
 
                             @include('admin.partials.text', [
                                 'label' => 'Название',
                                 'name' => 'name',
                                 'value' => $faqCategory->name,
+                                'required' => 1,
                             ])
 
                             @include('admin.partials.text', [
@@ -39,7 +38,8 @@
                         </div>
                     </div>
 
-                    <button class="btn btn--default">Save</button>
+                    <button class="btn btn-info push-30-t">Сохранить</button>
+                    <a href="{{ route('admin.faq-categories.index') }}" class="btn btn-link push-30-t">Отменить</a>
                 </form>
             </div>
         </div>

@@ -39,7 +39,7 @@
                                 'label' => 'Тип',
                                 'name' => 'page_element_type_id',
                                 'allValues' => $allPageElementTypes,
-                                'localValue' => $setting->pageElementType ?? '',
+                                'localValue' => $setting->pageElementType->id ?? '',
                             ])
                             <div class="block-content clearfix">
                                 @includeIf($setting->template, [
@@ -53,7 +53,8 @@
                         </div>
                     </div>
 
-                    <button>Сохранить</button>
+                    <button class="btn btn-info">Сохранить</button>
+                    <a href="{{ route('admin.settings.index') }}" class="btn btn-link">Отменить</a>
                 </form>
             </div>
         </div>

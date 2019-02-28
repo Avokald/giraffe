@@ -1,13 +1,16 @@
 @extends('admin.layout')
 
+@section('page-name', 'Подборки')
 
 @section('main')
     <div class="content content-narrow">
         <div class="block">
 
-            <div class="block-header">
-                <h1>Подборки</h1>
-            </div>
+            @if (isset($compilation->id))
+                <div class="block-header pull-right">
+                    <a href="{{ route('compilations.show', $compilation->slug) }}">Перейти на страницу элемента</a>
+                </div>
+            @endif
 
             <div class="block-content">
                 <form method="post" action="{{
@@ -30,6 +33,7 @@
                                 'label' => 'Название',
                                 'name' => 'name',
                                 'value' => $compilation->name,
+                                'required' => 1,
                             ])
 
                             @include('admin.partials.text', [
@@ -121,7 +125,8 @@
                             </textarea>
                         </div>
                     </div>
-                    <button>Submit</button>
+                    <button class="btn btn-info">Сохранить</button>
+                    <a href="{{ route('admin.compilations.index') }}" class="btn btn-link">Отменить</a>
                 </form>
             </div>
         </div>

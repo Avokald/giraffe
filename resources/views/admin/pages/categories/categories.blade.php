@@ -1,16 +1,18 @@
 @extends('admin.layout')
 
+@section('page-name', 'Список категорий')
+
 @section('main')
     <div class="table-responsive">
         <table class="table table-striped table-vcenter table-responsive">
             <thead>
             <th>id</th>
-            <th>Logo</th>
-            <th>Name</th>
-            <th>Slug</th>
+            <th>Логотип</th>
+            <th>Название</th>
+            <th>Вид ссылки</th>
             <th>Описание</th>
-            <th>Date of creation</th>
-            <th>Actions</th>
+            <th>Дата создания</th>
+            <th>Действия</th>
             </thead>
             <tbody>
             @foreach ( $categories as $key => $category )
@@ -24,7 +26,7 @@
                     <td class="text-center">
                         <div class="btn-group">
                             <a href="{{ route('admin.categories.edit', $category->id) }}"
-                               class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
+                               class="btn btn-xs btn-default" data-toggle="tooltip" title="Изменить">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <form action="{{ route('admin.categories.destroy', $category->id) }}"
@@ -33,7 +35,7 @@
                                 @method('delete')
                             </form>
                             <button class="btn btn-xs btn-default confirm-delete" data-toggle="tooltip"
-                                    title="Remove" form="form-element-delete-{{ $key }}">
+                                    title="Удалить" form="form-element-delete-{{ $key }}">
                                 <i class="fa fa-times"></i>
                             </button>
                         </div>

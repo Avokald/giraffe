@@ -1,11 +1,10 @@
 @extends('admin.layout')
 
+@section('page-name', 'Сервисы')
+
 @section('main')
     <div class="content content-narrow">
         <div class="block">
-            <div class="block-header">
-                Service
-            </div>
             <div class="block-content">
                 <form  action="{{
                         $service->id
@@ -18,30 +17,41 @@
                     @endif
                     <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Main</h3>
+                            <h3>Основные</h3>
                         </div>
                         <div class="card-content">
 
                             @include('admin.partials.text', [
                                 'name' => 'name',
                                 'value' => $service->name,
-                                'label' => 'Name',
+                                'label' => 'Название',
+                                'required' => 1,
                             ])
 
                             @include('admin.partials.text', [
                                 'name' => 'slug',
                                 'value' => $service->slug,
-                                'label' => 'Slug',
+                                'label' => 'Вид ссылки',
                             ])
 
                             @include('admin.partials.number', [
                                 'name' => 'rating',
                                 'value' => $service->rating,
-                                'label' => 'Rating',
+                                'label' => 'Рейтинг',
                             ])
 
-                            {{-- TODO Remove force rating --}}
-                            {{--<input type="checkbox" name="force_rating" value="{{ $service->force_rating }}"> --}}
+                            @include('admin.partials.number', [
+                                'name' => 'installation_difficulty',
+                                'value' => $service->installation_difficulty,
+                                'label' => 'Сложность установки',
+                            ])
+
+                            @include('admin.partials.text', [
+                                'label' => 'Ссылка на сервис',
+                                'name' => 'partner_url',
+                                'value' => $service->partner_url,
+                            ])
+
                         </div>
                     </div>
 
@@ -52,21 +62,21 @@
                         <div class="card-content">
 
                             @include('admin.partials.gallery', [
-                                'label' => 'Logo',
+                                'label' => 'Логотип',
                                 'name' => 'logo',
                                 'class' => 'logo',
                                 'value' => isset($service->logo) ? [$service->logo] : null,
                             ])
 
                             @include('admin.partials.gallery', [
-                                'label' => 'Banner image',
+                                'label' => 'Баннер',
                                 'name' => 'banner',
                                 'class' => 'banner',
                                 'value' => isset($service->banner) ? [$service->banner] : null,
                             ])
 
                             @include('admin.partials.gallery', [
-                                'label' => 'Screenshots',
+                                'label' => 'Скриншоты',
                                 'name' => 'screenshots[]',
                                 'class' => 'screenshot',
                                 'value' => $service->screenshots,
@@ -76,7 +86,7 @@
 
                     <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Category</h3>
+                            <h3>Категория</h3>
                         </div>
                         <div class="card-content">
                             <div class="row">
@@ -107,7 +117,7 @@
 
                     <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Compilations</h3>
+                            <h3>Подборки</h3>
                         </div>
                         <div class="card-content">
                             <select name="compilations[]" class="js-select2 form-control" multiple>
@@ -189,7 +199,7 @@
 
                     <div class="card push-30 clearfix">
                         <div class="card-header">
-                            <h3>Фичи</h3>
+                            <h3>Фичи тарифов</h3>
                         </div>
                         <div class="card-content">
                             @include('admin.partials.repeater', [
@@ -273,6 +283,7 @@
 
 
                     <button class="btn btn-info">Сохранить</button>
+                    <a href="{{ route('admin.services.index') }}" class="btn btn-link">Отменить</a>
                 </form>
             </div>
         </div>

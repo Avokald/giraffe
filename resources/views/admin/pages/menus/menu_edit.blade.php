@@ -65,7 +65,8 @@
                     </table>
 
 
-                    <button>Сохранить</button>
+                    <button class="btn btn-info">Сохранить</button>
+                    <a href="{{ route('admin.menus.index') }}" class="btn btn-link">Отменить</a>
                 </form>
             </div>
         </div>

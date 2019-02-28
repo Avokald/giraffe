@@ -1,12 +1,16 @@
 @extends('admin.layout')
 
+@section('page-name', 'Страница')
 
 @section('main')
     <div class="content content-narrow">
         <div class="block">
-            <div class="block-header">
-                <h1>{{ $page->title }}</h1>
-            </div>
+
+            @if (isset($page->id))
+                <div class="block-header pull-right">
+                    <a href="/{{ ($page->slug != 'frontpage') ? $page->slug : '' }}">Перейти на страницу элемента</a>
+                </div>
+            @endif
 
             <div class="block-content">
                 <form class="form-horizontal" method="post" action="{{
@@ -18,26 +22,27 @@
                         @method('patch')
                     @endif
                     @include('admin.partials.text', [
-                        'label' => 'Name',
+                        'label' => 'Название',
                         'name' => 'name',
                         'value' => $page->name,
+                        'required' => 1,
                     ])
 
                     @include('admin.partials.text', [
-                        'label' => 'Slug',
+                        'label' => 'Вид ссылки',
                         'name' => 'slug',
                         'value' => $page->slug,
                     ])
 
                     @include('admin.partials.editor', [
-                        'label' => 'Content',
+                        'label' => 'Контент',
                         'name'  => 'content',
                         'value' => $page->content,
                         'id'    => 'content',
                     ])
 
                     @include('admin.partials.text', [
-                        'label' => 'Template',
+                        'label' => 'Шаблон',
                         'name' => 'template',
                         'value' => $page->template,
                     ])
@@ -53,46 +58,8 @@
                         ])
                     @endforeach
 
-                    <?php
-//                    $element = $page->getElementByName('team') ?? '';
-                    ?>
-                    {{--@if ($element)--}}
-                        {{--<div class="form-group repeater">--}}
-                            {{--<div class="col-sm-12">--}}
-                                {{--<div class="form-material">--}}
-                                    {{--<div class="repeater-list">--}}
-                                        {{--@foreach ($element->values as $key => $values)--}}
-                                            {{--<div class="team-single repeater-item">--}}
-                                                {{--@foreach ($values as $field_name => $value)--}}
-                                                    {{--<input type="text"--}}
-                                                           {{--name="page_elements[{{ $element->name }}][{{ $key }}][{{ $field_name }}]"--}}
-                                                           {{--value="{{ $value }}">--}}
-                                                {{--@endforeach--}}
-                                                {{--<button class="repeater-delete-el">X</button>--}}
-                                            {{--</div>--}}
-                                        {{--@endforeach--}}
-                                    {{--</div>--}}
-                                    {{--<label>Team</label>--}}
-                                    {{--<div class="help-block">This is a help block!</div>--}}
-                                    {{--<button class="btn btn--default repeater-add-el"--}}
-                                            {{--data-block-type="team-single" data-counter="{{ count($element->values) }}">+</button>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-
-                        {{--@push('hidden')--}}
-                            {{--<div class="team-single repeater-item">--}}
-                                {{--<input type="text" name="page_elements[{{ $element->name }}][<js-counter>][name]">--}}
-                                {{--<input type="text" name="page_elements[{{ $element->name }}][<js-counter>][position]">--}}
-                                {{--<input type="text" name="page_elements[{{ $element->name }}][<js-counter>][email]">--}}
-
-                                {{--<button class="repeater-delete-el">X</button>--}}
-                            {{--</div>--}}
-                        {{--@endpush--}}
-                    {{--@endif--}}
-
-
-                    <button>Submit</button>
+                    <button class="btn btn-info">Сохранить</button>
+                    <a href="{{ route('admin.pages.index') }}" class="btn btn-link">Отменить</a>
                 </form>
             </div>
         </div>

@@ -1,5 +1,7 @@
 @extends('admin.layout')
 
+@section('page-name', 'Список категорий поддержки')
+
 @section('main')
     <div class="table-responsive">
         <table class="table table-striped table-vcenter">

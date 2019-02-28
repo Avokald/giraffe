@@ -6,6 +6,12 @@
     <div class="content content-narrow">
         <div class="block">
 
+            @if (isset($blogpost->id))
+                <div class="block-header pull-right">
+                    <a href="{{ route('blogposts.show', $blogpost->slug) }}">Перейти на страницу элемента</a>
+                </div>
+            @endif
+
             <div class="block-content">
 
                 <form method="post" action="{{
@@ -19,7 +25,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3>Main</h3>
+                            <h3>Основные</h3>
                         </div>
 
                         <div class="card-content">
@@ -28,6 +34,7 @@
                                 'label' => 'Название',
                                 'name' => 'title',
                                 'value' => $blogpost->title,
+                                'required' => 1,
                             ])
 
                             @include('admin.partials.text', [
@@ -91,6 +98,7 @@
                     <div class="card">
                         <div class="card-content">
                             <button>Сохранить</button>
+                            <a href="{{ route('admin.blog.index') }}" class="btn btn-link">Отменить</a>
                         </div>
                     </div>
                 </form>

@@ -1,5 +1,7 @@
 @extends('admin.layout')
 
+@section('page-name', 'Подборки')
+
 @section('main')
     <div class="table-responsive">
         <table class="table table-striped table-vcenter table-responsive">
@@ -26,7 +28,7 @@
                     <td class="text-center">
                         <div class="btn-group">
                             <a href="{{ route('admin.compilations.edit', $compilation->id) }}"
-                               class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
+                               class="btn btn-xs btn-default" data-toggle="tooltip" title="Изменить">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <form action="{{ route('admin.compilations.destroy', $compilation->id) }}"
@@ -35,7 +37,7 @@
                                 @method('delete')
                             </form>
                             <button class="btn btn-xs btn-default confirm-delete" data-toggle="tooltip"
-                                    title="Remove" form="form-element-delete-{{ $key }}">
+                                    title="Удалить" form="form-element-delete-{{ $key }}">
                                 <i class="fa fa-times"></i>
                             </button>
                         </div>
