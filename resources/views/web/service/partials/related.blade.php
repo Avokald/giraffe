@@ -18,8 +18,12 @@
                                     <img src="/public/images/product1.png" alt="" class="img-fluid">
                                     <figcaption>
                                         <ul class="list-unstyled">
+                                        <li class="product__hover">
+                                                <div class="product__title">Title</div>
+                                                <div class="product__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolorum eligendi molestias assumenda, facilis nihil dolorem optio. Ipsam, veritatis neque!</div>
+                                            </li>
                                             <li>
-                                                <a href="">Подключитьб</a>
+                                                <a href="">Подключить</a>
                                             </li>
                                         </ul>
                                     </figcaption>
