@@ -106,22 +106,22 @@
                     <div class="counter-up">
                         <div class="counter warning">
                             <span class="icon-briefcase"></span>
-                            <span class="count_up">38436</span>
+                            <span class="count_up">{{ $page->getElementByName("products_for_sale_count")->values ?? '' }}</span>
                             <p>Вещи на продажу</p>
                         </div>
                         <div class="counter info">
                             <span class="icon-basket"></span>
-                            <span class="count_up">68254</span>
+                            <span class="count_up">{{ $page->getElementByName("products_bought_count")->values ?? '' }}</span>
                             <p>Тотальная распродажа</p>
                         </div>
                         <div class="counter secondary">
                             <span class="icon-emotsmile"></span>
-                            <span class="count_up">25546</span>
+                            <span class="count_up">{{ $page->getElementByName("happy_customer_count")->values ?? '' }}</span>
                             <p>Счастливые клиенты</p>
                         </div>
                         <div class="counter danger">
                             <span class="icon-people"></span>
-                            <span class="count_up">76358</span>
+                            <span class="count_up">{{ $page->getElementByName("customer_count")->values ?? '' }}</span>
                             <p>Члены</p>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                 <!-- start col-md-12 -->
                 <div class="col-md-12 cont">
                     <div class="section-title">
-                        {!! $page->getElementByName("members_description")->values !!}
+                        {!! $page->getElementByName("members_description")->values ?? '' !!}
                     </div>
                 </div>
                 <!-- end /.col-md-12 -->

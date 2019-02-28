@@ -128,12 +128,6 @@ class PageElementsTableSeeder extends Seeder
         $membersDescription = App\PageElement::create([
             'name' => 'members_description',
             'values' => '<h1>Команда SoftBox1</h1><p>Laborum dolo rumes fugats untras. </p>',
-            /*
-                'Etharums ser quidem rerum facilis dolores nemis omnis fugats. ' .
-                'Lid est laborum dolo rumes fugats untras. ' .
-                'Etharums ser quidem rerum facilis dolores nemis omnis fugats. ' .
-                'Lid est laborum dolo rumes fugats untras.1</p>'
-            */
             'page_id' => 3,
             'page_element_type_id' => 2,
         ]);
@@ -155,12 +149,7 @@ class PageElementsTableSeeder extends Seeder
         $rightText = PageElement::create([
             'name' => 'right_text_block',
             'values' => '<h1>О <span>SoftBox</span></h1>' .
-                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler '/* .
-                'isque the mattis leo quam aliquet congue this there placerat mi id nisi ' .
-                'they interdum mollis Praesent pharetra justo ut sceleris que the mattis. </p>',
-            '<p>Leo quam aliquet. Nunc placer atmi id nisi interdum mollis quam. '.
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy ' .
-            'eirmod tempor invidunt sanctus est Lorem ipsum dolor sit amet consetetur sadipscing.</p>'*/,
+                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler ',
             'page_id' => 3,
             'page_element_type_id' => 2,
         ]);
@@ -168,14 +157,37 @@ class PageElementsTableSeeder extends Seeder
         $leftText = PageElement::create([
             'name' => 'left_text_block',
             'values' => '<h1><span>Миссия</span> SoftBox</h1>' .
-                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler</p>'/* .
-                'isque the mattis leo quam aliquet congue this there placerat mi id nisi ' .
-                'they interdum mollis Praesent pharetra justo ut sceleris que the mattis. </p>',
-            '<p>Leo quam aliquet. Nunc placer atmi id nisi interdum mollis quam. '.
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy ' .
-            'eirmod tempor invidunt sanctus est Lorem ipsum dolor sit amet consetetur sadipscing.</p>'*/,
+                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler</p>',
             'page_id' => 3,
             'page_element_type_id' => 2,
+        ]);
+
+        $productsForSaleCount = PageElement::create([
+            'name' => 'products_for_sale_count',
+            'values' => '38436',
+            'page_id' => 3,
+            'page_element_type_id' => 1,
+        ]);
+
+        $productsBoughtCount = PageElement::create([
+            'name' => 'products_bought_count',
+            'values' => '68254',
+            'page_id' => 3,
+            'page_element_type_id' => 1,
+        ]);
+
+        $happyCustomerCount = PageElement::create([
+            'name' => 'happy_customer_count',
+            'values' => '25546',
+            'page_id' => 3,
+            'page_element_type_id' => 1,
+        ]);
+
+        $customerCount = PageElement::create([
+            'name' => 'customer_count',
+            'values' => '76358',
+            'page_id' => 3,
+            'page_element_type_id' => 1,
         ]);
 
 
