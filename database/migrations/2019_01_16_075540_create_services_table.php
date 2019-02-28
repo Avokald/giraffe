@@ -28,6 +28,7 @@ class CreateServicesTable extends Migration
             $table->unsignedSmallInteger('installation_difficulty')->nullable();
             $table->timestamps();
             $table->string('slug');
+            $table->string('partner_url')->nullable()->default(null);
 
             $table->unsignedInteger('category_id')->nullable();
         });
