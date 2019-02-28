@@ -47,11 +47,5 @@ class SettingsTableSeeder extends Seeder
            'page_element_type_id' => 1,
         ]);
 
-        $fonts = Setting::create([
-            'name' => 'Шрифты',
-            'slug' => 'setting-fonts',
-            'value' => 'Work Sans,sans-serif',
-            'page_element_type_id' => 1,
-        ]);
     }
 }
