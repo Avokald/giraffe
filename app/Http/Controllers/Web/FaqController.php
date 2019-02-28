@@ -28,12 +28,15 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function show(Faq $faq)
+    public function show(string $faq_slug)
     {
+        $faq = Faq::where('slug', $faq_slug)->firstOrFail();
         $faq->view_count++;
+        $faq->save();
+
         $popularFaqs = Faq::orderBy('view_count', 'desc')->limit(5)->get();
         $sameCategoryFaqs = $faq->faqCategory->faqs;
-        $faq->save();
+
         return view('web.faqs.layout_single', [
             'faq' => $faq,
             'popularFaqs' => $popularFaqs,

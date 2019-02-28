@@ -1,12 +1,16 @@
 @extends('admin.layout')
 
+@section('page-name', 'Категория')
+
 @section('main')
     <div class="content content-narrow">
         <div class="block">
 
-            <div class="block-header">
-                <h1>Категории</h1>
-            </div>
+            @if (isset($category->id))
+                <div class="block-header pull-right">
+                    <a href="{{ route('categories.show', $category->slug) }}">Перейти на страницу элемента</a>
+                </div>
+            @endif
 
             <div class="block-content">
                 <form action="{{
@@ -28,6 +32,7 @@
                                 'label' => 'Название',
                                 'name' => 'name',
                                 'value' => $category->name,
+                                'required' => 1,
                             ])
 
                             @include('admin.partials.text', [
@@ -54,7 +59,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3>Services</h3>
+                            <h3>Привязанные сервисы</h3>
                         </div>
                         <div class="card-content">
                             <select class="js-select2 form-control" name="services_id[]" multiple>
@@ -71,7 +76,8 @@
                         </div>
                     </div>
 
-                    <button class="btn btn--default">Save</button>
+                    <button class="btn btn-info">Сохранить</button>
+                    <a href="{{ route('admin.categories.index') }}" class="btn btn-link">Отменить</a>
                 </form>
             </div>
         </div>

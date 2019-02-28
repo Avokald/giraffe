@@ -1,16 +1,18 @@
 @extends('admin.layout')
 
+@section('page-name', 'Список страниц')
+
 @section('main')
     <div class="table-responsive">
         <table class="table table-striped table-vcenter">
             <thead>
             <tr>
                 <th>id</th>
-                <th>Name</th>
-                <th>Slug</th>
-                <th>Template</th>
-                <th>Date of creation</th>
-                <th>Actions</th>
+                <th>Название</th>
+                <th>Вид ссылки</th>
+                <th>Шаблон</th>
+                <th>Дата создания</th>
+                <th>Действия</th>
             </tr>
             </thead>
             <tbody>
@@ -24,7 +26,7 @@
                     <td class="text-center">
                         <div class="btn-group">
                             <a href="{{ route('admin.pages.edit', $page->id) }}"
-                               class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
+                               class="btn btn-xs btn-default" data-toggle="tooltip" title="Изменить">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <form action="{{ route('admin.pages.destroy', $page->id) }}"
@@ -33,7 +35,7 @@
                                 @method('delete')
                             </form>
                             <button class="btn btn-xs btn-default confirm-delete" data-toggle="tooltip"
-                                    title="Remove" form="form-element-delete-{{ $key }}">
+                                    title="Удалить" form="form-element-delete-{{ $key }}">
                                 <i class="fa fa-times"></i>
                             </button>
                         </div>

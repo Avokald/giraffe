@@ -25,13 +25,15 @@
                         <div class="sidebar-card faq--card">
                             <div class="faq-box">
                                 <div class="faq-head">
-                                    <h4>Most Popular</h4>
+                                    <h4>Самые популярные</h4>
                                 </div>
                                 <div class="faq-content">
                                     <ul class="list-unstyled">
-                                        @foreach ($popularFaqs as $faq)
+                                        @foreach ($popularFaqs as $popularFaq)
                                             <li>
-                                                <a href="{{ route('faqs.show', $faq->slug) }}">{{ $faq->name }}</a>
+                                                <a href="{{ route('faqs.show', $popularFaq->slug) }}">{{
+                                                    $popularFaq->name
+                                                }}</a>
                                             </li>
                                         @endforeach
                                     </ul>

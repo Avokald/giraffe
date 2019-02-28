@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Faq;
+use App\FaqCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -29,8 +30,10 @@ class FaqController extends Controller
     public function create()
     {
         $faq = new Faq();
+        $allFaqCategories = FaqCategory::all();
         return view('admin.pages.faqs.faq_edit', [
             'faq' => $faq,
+            'allFaqCategories' => $allFaqCategories,
         ]);
     }
 
@@ -43,18 +46,7 @@ class FaqController extends Controller
     public function store(Request $request)
     {
         $faq = Faq::create($request->toArray());
-        return redirect()->route('admin.faqs.edit', $faq);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Faq  $faq
-     * @return \Illuminate\Http\Response
-     */
-    public function show(int $faq_id)
-    {
-        abort(404);
+        return redirect()->route('admin.faqs.edit', $faq->id);
     }
 
     /**
@@ -66,8 +58,10 @@ class FaqController extends Controller
     public function edit(int $faq_id)
     {
         $faq = Faq::findOrFail($faq_id);
+        $allFaqCategories = FaqCategory::all();
         return view('admin.pages.faqs.faq_edit', [
             'faq' => $faq,
+            'allFaqCategories' => $allFaqCategories,
         ]);
     }
 
@@ -92,7 +86,7 @@ class FaqController extends Controller
      * @param  \App\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faq $faq)
+    public function destroy(int $faq_id)
     {
         $faq = Faq::findOrFail($faq_id);
         $status = $faq->delete();

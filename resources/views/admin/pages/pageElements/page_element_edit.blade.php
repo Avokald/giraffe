@@ -27,26 +27,27 @@
                         'label' => 'Type',
                         'name' => 'page_element_type_id',
                         'allValues' => $allPageElementTypes,
-                        'localValue' => $pageElement->pageElementType ?? '',
+                        'localValue' => $pageElement->pageElementType->id ?? '',
                     ])
 
                     @include('admin.partials.select-single', [
                         'label' => 'Page',
                         'name' => 'page_id',
                         'allValues' => $allPages,
-                        'localValue' => $pageElement->page ?? '',
+                        'localValue' => $pageElement->page->id ?? '',
                     ])
 
                     @include('admin.partials.select-single', [
                         'label' => 'Parent element',
                         'name' => 'parent_element_id',
                         'allValues' => $allPageElements,
-                        'localValue' => $pageElement->parentElement ?? '',
+                        'localValue' => $pageElement->parentElement->id ?? '',
                     ])
 
 
 
-                    <button>Submit</button>
+                    <button class="btn btn-info">Сохранить</button>
+                    <a href="{{ route('admin.page-elements.index') }}" class="btn btn-link">Отменить</a>
                 </form>
             </div>
         </div>

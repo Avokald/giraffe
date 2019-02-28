@@ -24,7 +24,7 @@
                     <td class="text-center">
                         <div class="btn-group">
                             <a href="{{ route('admin.blog.edit', $blogpost->id) }}"
-                               class="btn btn-xs btn-default" data-toggle="tooltip" title="Edit">
+                               class="btn btn-xs btn-default" data-toggle="tooltip" title="Изменить">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <form action="{{ route('admin.blog.destroy', $blogpost->id) }}"
@@ -33,7 +33,7 @@
                                 @method('delete')
                             </form>
                             <button class="btn btn-xs btn-default confirm-delete" data-toggle="tooltip"
-                                    title="Remove" form="form-element-delete-{{ $key }}">
+                                    title="Удалить" form="form-element-delete-{{ $key }}">
                                 <i class="fa fa-times"></i>
                             </button>
                         </div>

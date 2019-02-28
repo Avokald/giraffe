@@ -8,7 +8,7 @@
             @foreach ( $allValues as $item )
                 <option value="{{ $item->id }}"
                 @if ( $localValue )
-                    {{ ($item->id == $localValue->id)
+                    {{ ($item->id == $localValue)
                        ? ' selected' : '' }}
                         @endif
                 >

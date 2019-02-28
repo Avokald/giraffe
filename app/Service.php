@@ -26,6 +26,7 @@ class Service extends Model
         'features',
         'videos',
         'category_id',
+        'partner_url',
     ];
 
     protected $casts = [

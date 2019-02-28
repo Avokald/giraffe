@@ -34,7 +34,7 @@
                                 'label' => 'Сервис',
                                 'name' => 'service_id',
                                 'allValues' => $allServices,
-                                'localValue' => $tariff->service ?? '',
+                                'localValue' => $tariff->service->id ?? '',
                             ])
 
                             @include('admin.partials.text', [
@@ -91,7 +91,8 @@
 
                     <div class="card">
                         <div class="card-content">
-                            <button>Сохранить</button>
+                            <button class="btn btn-info">Сохранить</button>
+                            <a href="{{ route('admin.tariffs.index') }}" class="btn btn-link">Отменить</a>
                         </div>
                     </div>
                 </form>

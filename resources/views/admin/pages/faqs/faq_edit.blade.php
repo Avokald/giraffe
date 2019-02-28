@@ -1,9 +1,16 @@
 @extends('admin.layout')
 
+@section('page-name', 'Поддержка')
 
 @section('main')
     <div class="content content-narrow">
         <div class="block">
+
+            @if (isset($faq->id))
+                <div class="block-header pull-right">
+                    <a href="{{ route('faqs.show', $faq->slug) }}">Перейти на страницу элемента</a>
+                </div>
+            @endif
 
             <div class="block-content">
 
@@ -18,10 +25,10 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3>Main</h3>
+                            <h3>Основные</h3>
                         </div>
 
-                        <div class="card-content">
+                        <div class="card-content push-30-t">
 
                             @include('admin.partials.text', [
                                 'label' => 'Название',
@@ -37,7 +44,14 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    @include('admin.partials.select-single', [
+                        'label' => 'Категория поддержки',
+                        'name' => 'faq_category_id',
+                        'allValues' => $allFaqCategories,
+                        'localValue' => $faq->faqCategory->id ?? '',
+                    ])
+
+                    <div class="card push-30-t">
                         <div class="card-header">
                             <h3>Контент</h3>
                         </div>
@@ -48,7 +62,8 @@
                         </div>
                     </div>
 
-                    <button>Сохранить</button>
+                    <button class="btn btn-info push-30-t">Сохранить</button>
+                    <a href="{{ route('admin.faqs.index') }}" class="btn btn-link push-30-t">Отменить</a>
                 </form>
             </div>
         </div>
