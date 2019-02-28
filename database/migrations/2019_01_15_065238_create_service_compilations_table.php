@@ -23,6 +23,9 @@ class CreateServiceCompilationsTable extends Migration
             $table->unsignedInteger('category_id')->nullable();
             $table->timestamps();
 
+            $table->string('hover_title')->nullable()->default(null);
+            $table->string('hover_description')->nullable()->default(null);
+
             $table->string('slug');
         });
     }

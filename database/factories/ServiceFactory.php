@@ -15,6 +15,8 @@ $factory->define(App\Service::class, function (Faker $faker) {
         'features'                => $features,
         'installation_difficulty' => $faker->numberBetween(1, 6),
         'category_id'             => \App\Category::all()->random()->id,
+        'hover_title'             => $faker->text(30),
+        'hover_description'       => $faker->text(100),
     ];
 });
 
@@ -35,5 +37,8 @@ $factory->state(App\Service::class, 'test', function(Faker $faker) {
         ],
         'installation_difficulty' => 3,
         'category_id'             => 1,
+        'hover_title'             => 'Title for hover text',
+        'hover_description'       => 'Description for hover text',
+
     ];
 });

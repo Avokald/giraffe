@@ -42,6 +42,18 @@
                                 'value' => $compilation->slug,
                             ])
 
+                            @include('admin.partials.text', [
+                                'name' => 'hover_title',
+                                'value' => $service->hover_title,
+                                'label' => 'Заголовок при наведении',
+                            ])
+
+                            @include('admin.partials.text', [
+                                'name' => 'hover_description',
+                                'value' => $service->hover_description,
+                                'label' => 'Описание при наведении',
+                            ])
+
                             @include('admin.partials.gallery', [
                                 'label' => 'Логотип',
                                 'name' => 'logo',
