@@ -20,6 +20,8 @@ class ServiceCompilation extends Model
         'price_year',
         'slug',
         'category_id',
+        'hover_title',
+        'hover_description',
     ];
 
     // TODO Categorizable

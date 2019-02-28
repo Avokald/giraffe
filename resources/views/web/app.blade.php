@@ -30,18 +30,6 @@
     <link rel="stylesheet" href="/public/style.css">
     <link rel="stylesheet" href="/public/css/new.css">
     <!-- endinject -->
-    @if ($settingFonts)
-        <style type="text/css">
-            * {
-                font-family: {!! $settingFonts !!} !important;
-            }
-
-            [class^='icon-'], [class*='icon-'],
-            .fa{
-                font-family: FontAwesome !important;
-            }
-        </style>
-    @endif
 </head>
 
 <body class="home1 mutlti-vendor">

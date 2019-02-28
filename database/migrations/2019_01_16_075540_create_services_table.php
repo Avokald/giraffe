@@ -29,6 +29,8 @@ class CreateServicesTable extends Migration
             $table->timestamps();
             $table->string('slug');
             $table->string('partner_url')->nullable()->default(null);
+            $table->string('hover_title')->nullable()->defautl(null);
+            $table->string('hover_description')->nullable()->defautl(null);
 
             $table->unsignedInteger('category_id')->nullable();
         });

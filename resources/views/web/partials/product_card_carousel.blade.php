@@ -4,6 +4,10 @@
             <img src="{{ $product->logo->url ?? '' }}" alt="{{ $product->logo->alt ?? '' }}" class="img-fluid">
             <figcaption>
                 <ul class="list-unstyled">
+                    <li class="product__hover">
+                        <div class="product__title">{{ $product->hover_title ?? '' }}</div>
+                        <div class="product__text">{{ $product->hover_description ?? '' }}</div>
+                    </li>
                     <li>
                         <a href="">Подключить</a>
                     </li>

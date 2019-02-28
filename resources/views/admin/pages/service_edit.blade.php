@@ -52,6 +52,19 @@
                                 'value' => $service->partner_url,
                             ])
 
+                            @include('admin.partials.text', [
+                                'name' => 'hover_title',
+                                'value' => $service->hover_title,
+                                'label' => 'Заголовок при наведении',
+                            ])
+
+
+                            @include('admin.partials.text', [
+                                'name' => 'hover_description',
+                                'value' => $service->hover_description,
+                                'label' => 'Описание при наведении',
+                            ])
+
                         </div>
                     </div>
 

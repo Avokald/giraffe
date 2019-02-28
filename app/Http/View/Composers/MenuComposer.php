@@ -40,7 +40,6 @@ class MenuComposer
         $currentSaleLink = \App\Setting::where('slug', 'current-sale-link')->first()->value;
         $mainPhoneNumber = \App\Setting::where('slug', 'main-phone-number')->first()->value;
         $mainEmailAddress = \App\Setting::where('slug', 'main-email-address')->first()->value;
-        $settingFonts = \App\Setting::where('slug', 'setting-fonts')->first()->value ?? null;
 
         $view->with('menus', $menus);
         $view->with('companyLogo', $companyLogo);
@@ -48,6 +47,5 @@ class MenuComposer
         $view->with('currentSaleLink', $currentSaleLink);
         $view->with('mainPhoneNumber', $mainPhoneNumber);
         $view->with('mainEmailAddress', $mainEmailAddress);
-        $view->with('settingFonts', $settingFonts);
     }
 }

@@ -46,3 +46,26 @@ li.product-rating ul{
 	background-color: #fff;
 	z-index: 20;
 }
+.product__hover{
+	display: flex;
+	flex-direction: column;	
+}
+.product__title{
+	color: #fff;
+	font-weight: 700;
+	text-align: center;
+	font-size: 21px;
+	margin-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%;
+}
+.product__text{
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #fff;
+	height: 88px;
+	overflow: hidden;
+	margin-bottom: 10px;
+	width: 100%;
+}
