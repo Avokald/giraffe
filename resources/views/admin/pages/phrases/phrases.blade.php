@@ -16,7 +16,7 @@
             @foreach ( $phrases as $key => $phrase )
                 <tr>
                     <td>{{ $phrase->id }}</td>
-                    <td>{{ $phrase->name }}</td>
+                    <td>{{ $phrase->slug }}</td>
                     <td>{{ $phrase->value }}</td>
                     <td>{{ $phrase->created_at }}</td>
                     <td class="text-center">

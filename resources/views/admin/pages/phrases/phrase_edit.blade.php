@@ -22,13 +22,7 @@
                         <div class="card-header">
                             <h3>Основные</h3>
                         </div>
-                        <div class="card-content">
-
-                            @include('admin.partials.text', [
-                                'label' => 'Название',
-                                'name' => 'name',
-                                'value' => $phrase->name,
-                            ])
+                        <div class="card-content push-30-t">
 
                             @include('admin.partials.text', [
                                 'label' => 'Вид ссылки',

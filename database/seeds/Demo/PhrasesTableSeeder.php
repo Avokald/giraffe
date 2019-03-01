@@ -13,33 +13,54 @@ class PhrasesTableSeeder extends Seeder
     public function run()
     {
         $indexSearchButtonText = Phrase::create([
-            'name' => 'Поиск на главной',
             'slug' => 'search-button-text',
             'value' => 'Найти',
         ]);
 
         $indexAllCategories = Phrase::create([
-            'name' => 'Все категории',
             'slug' => 'all-categories',
             'value' => 'Все категории',
         ]);
 
         $indexSearchPlaceholder = Phrase::create([
-            'name' => 'Заполнитель поиска',
             'slug' => 'search-placeholder',
             'value' => 'Поиск...',
         ]);
 
         $indexButtonSend = Phrase::create([
-            'name' => 'Отправить текст',
             'slug' => 'button-send-text',
             'value' => 'Отправить',
         ]);
 
         $insertEmailPlaceholder = Phrase::create([
-            'name' => 'Текст заполнитель для почты',
             'slug' => 'email-placeholder',
             'value' => 'Введите ваш e-mail...',
+        ]);
+
+        $watchVideoButtonText = Phrase::create([
+            'slug' => 'watch-video-button-text',
+            'value' => 'Смотреть видео',
+        ]);
+
+        $joinUsButtonText= Phrase::create([
+            'slug' => 'join-us-button-text',
+            'value' => 'Присоединяйтесь К Нам Сегодня',
+        ]);
+
+
+        $namePlaceholder= Phrase::create([
+            'slug' => 'name-placeholder',
+            'value' => 'Ваше имя',
+        ]);
+
+//        $emailPlaceholder= Phrase::create([
+//            'slug' => 'email-placeholder',
+//            'value' => 'Ваша почта',
+//        ]);
+
+        $textareaPlaceholder= Phrase::create([
+            'slug' => 'textarea-placeholder',
+            'value' => 'Ваше сообщение',
         ]);
     }
 }

@@ -99,7 +99,7 @@
                 <!-- Start Section Title -->
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h2>Наши подборки для развития Вашего бизнеса</h2>
+                        {!! $page->getElementByName('heading_compilations')->values !!}
                     </div>
                 </div>
                 <div class="col-md-12 bgdor">
@@ -115,7 +115,7 @@
 
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h2>Наиболее популярные сервисы</h2>
+                        {!! $page->getElementByName('heading_services')->values !!}
                     </div>
                 </div>
                 <div class="col-md-12 bgdor">

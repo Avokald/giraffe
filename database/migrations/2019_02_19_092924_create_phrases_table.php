@@ -15,7 +15,6 @@ class CreatePhrasesTable extends Migration
     {
         Schema::create('phrases', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->string('slug')->unique();
             $table->string('value');
             $table->timestamps();

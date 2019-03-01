@@ -34,7 +34,42 @@ class PageElementsTableSeeder extends Seeder
             'page_element_type_id' => 2,
         ]);
 
+
+        $headingCompilations = PageElement::create([
+            'name' => 'heading_compilations',
+            'values' => '<h2>Наши подборки для развития Вашего бизнеса</h2>',
+            'page_id' => 1,
+            'page_element_type_id' => 2,
+        ]);
+
+        $headingServices = PageElement::create([
+            'name' => 'heading_services',
+            'values' => '<h2>Наиболее популярные сервисы</h2>',
+            'page_id' => 1,
+            'page_element_type_id' => 2,
+        ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Contacts
+        $leaveYourMessage = PageElement::create([
+            'name' => 'leave-your-message',
+            'values' => 'Оставьте ваше сообщение',
+            'page_id' => 2,
+            'page_element_type_id' => 1,
+        ]);
+
         $addresses = PageElement::create([
             'name' => 'addresses',
             'values' => [
@@ -43,6 +78,13 @@ class PageElementsTableSeeder extends Seeder
             ],
             'page_id' => 2,
             'page_element_type_id' => 3,
+        ]);
+
+        $addressesTitle = PageElement::create([
+            'name' => 'addresses_title',
+            'values' => 'Адрес',
+            'page_element_type_id' => 1,
+            'parent_element_id' => $addresses->id,
         ]);
 
         $emailAddresses = PageElement::create([
@@ -55,6 +97,14 @@ class PageElementsTableSeeder extends Seeder
             'page_element_type_id' => 3,
         ]);
 
+
+        $emailAddressesTitle = PageElement::create([
+            'name' => 'email_addresses_title',
+            'values' => 'Почта',
+            'page_id' => 2,
+            'page_element_type_id' => 1,
+        ]);
+
         $phoneNumbers = PageElement::create([
             'name' => 'phone_numbers',
             'values' => [
@@ -64,6 +114,13 @@ class PageElementsTableSeeder extends Seeder
             ],
             'page_id' => 2,
             'page_element_type_id' => 3,
+        ]);
+
+        $phoneNumbersTitle = PageElement::create([
+            'name' => 'phone_numbers_title',
+            'values' => 'Номера телефонов',
+            'page_id' => 2,
+            'page_element_type_id' => 1,
         ]);
 
         $address = PageElement::create([

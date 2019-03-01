@@ -46,7 +46,7 @@
                                 $addressesElement = $page->getElementByName("addresses")->values;
                                 ?>
                                 <span class="tiles__icon icon-location-pin"></span>
-                                <h4 class="tiles__title">Office Address</h4>
+                                <h4 class="tiles__title">{{ $page->getElementByName("addresses_title")->values ?? '' }}</h4>
                                 <div class="tiles__content">
                                     @foreach ( $addressesElement as $address )
                                         <p>{{ $address["address"] }}</p>
@@ -62,7 +62,7 @@
                             ?>
                             <div class="contact_tile">
                                 <span class="tiles__icon icon-earphones"></span>
-                                <h4 class="tiles__title">Phone Number</h4>
+                                <h4 class="tiles__title">{{ $page->getElementByName('phone_numbers_title')->values ?? '' }}</h4>
                                 <div class="tiles__content">
                                     @foreach ( $phoneNumbersElement as $phoneNumber )
                                         <p>{{ $phoneNumber['phone_number'] }}</p>
@@ -79,7 +79,7 @@
                             ?>
                             <div class="contact_tile">
                                 <span class="tiles__icon icon-envelope-open"></span>
-                                <h4 class="tiles__title">Email Addresses</h4>
+                                <h4 class="tiles__title">{{ $page->getElementByName("email_addresses_title")->values ?? '' }}</h4>
                                 <div class="tiles__content">
                                     @foreach ( $emailAddressesElement as $address )
                                         <p>{{ $address["email_address"] }}</p>
@@ -93,7 +93,7 @@
                         <div class="col-md-12">
                             <div class="contact_form cardify">
                                 <div class="contact_form__title">
-                                    <h2>Leave Your Messages</h2>
+                                    <h2>{{ $page->getElementByName("leave-your-message")->values }}</h2>
                                 </div>
 
                                 <div class="row">
@@ -103,35 +103,21 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Name">
+                                                            <input type="text" placeholder="{{ $phrases->where('slug', 'name-placeholder')->first() ?? '' }}">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Email">
+                                                            <input type="text" placeholder="{{ $phrases->where('slug', 'email-placeholder')->first() ?? '' }}">
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="text" placeholder="Name">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="text" placeholder="Email">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <textarea cols="30" rows="10" placeholder="Yout text here"></textarea>
+                                                <textarea cols="30" rows="10" placeholder="{{ $phrases->where('slug', 'textarea-placeholder')->first() ?? '' }}"></textarea>
 
                                                 <div class="sub_btn">
-                                                    <button type="button" class="btn btn--md btn-primary">Отправить
+                                                    <button type="button" class="btn btn--md btn-primary">{{ $phrases->where('slug', 'button-send-text')->first() ?? '' }}
                                                     </button>
                                                 </div>
                                             </form>
