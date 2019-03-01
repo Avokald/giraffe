@@ -54,7 +54,8 @@ Route::group([
     Route::resource('faq-categories', 'FaqCategoryController');
 
 
-    Route::resource('settings', "SettingController");
+    Route::resource('settings', 'SettingController');
+    Route::resource('phrases',  'PhraseController');
 
 
     Route::post('image-upload', 'Ajax\ImageController@store')->name('image.store');
