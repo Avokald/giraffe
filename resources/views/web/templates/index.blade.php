@@ -34,17 +34,17 @@
                                         <!-- start .search_box -->
                                         <div class="search_box">
                                             <form method="get" action="{{ route('services.index') }}">
-                                                <input type="text" name="q" class="text_field" placeholder="Поиск...">
+                                                <input type="text" name="q" class="text_field" placeholder="{{ $phrases->where('slug', 'search-placeholder')->first()->value ?? ''  }}">
                                                 <div class="search__select select-wrap">
                                                     <select name="category_id" class="select--field">
-                                                        <option value="">Все категории</option>
+                                                        <option value="">{{ $phrases->where('slug', 'all-categories')->first()->value ?? ''  }}</option>
                                                         @foreach ($allCategories as $category)
                                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                         @endforeach
                                                     </select>
                                                     <span class="icon-arrow-down"></span>
                                                 </div>
-                                                <button type="submit" class="search-btn btn--lg btn-primary">Найти</button>
+                                                <button type="submit" class="search-btn btn--lg btn-primary">{{ $phrases->where('slug', 'search-button-text')->first()->value ?? '' }}</button>
                                             </form>
                                         </div>
                                         <!-- end ./search_box -->
@@ -99,7 +99,7 @@
                 <!-- Start Section Title -->
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h2>Наши подборки для развития Вашего бизнеса</h2>
+                        {!! $page->getElementByName('heading_compilations')->values !!}
                     </div>
                 </div>
                 <div class="col-md-12 bgdor">
@@ -115,7 +115,7 @@
 
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h2>Наиболее популярные сервисы</h2>
+                        {!! $page->getElementByName('heading_services')->values !!}
                     </div>
                 </div>
                 <div class="col-md-12 bgdor">
@@ -157,8 +157,8 @@
                         {!! $emailSubscribeText->values !!}
                         <form action="#">
                             <div class="form-group">
-                                <input type="text" placeholder="Введите ваш e-mail..." required>
-                                <button type="submit" class="btn btn--sm btn-primary">Отправить</button>
+                                <input type="text" placeholder="{{ $phrases->where('slug', 'email-placeholder')->first()->value ?? ''  }}" required>
+                                <button type="submit" class="btn btn--sm btn-primary">{{ $phrases->where('slug', 'button-send-text')->first()->value ?? ''  }}</button>
                             </div>
                         </form>
                     </div>

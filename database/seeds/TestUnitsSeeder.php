@@ -86,6 +86,7 @@ class TestUnitsSeeder extends Seeder
 
         $this->call(SettingsTableSeeder::class);
 
+        $this->call(PhrasesTableSeeder::class);
 
     }
 }
