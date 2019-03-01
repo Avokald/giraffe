@@ -108,6 +108,14 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Фразы</a>
+                    <ul>
+                        <li><a href="{{ route('admin.phrases.index') }}">Список</a></li>
+                        <li><a href="{{ route('admin.phrases.create') }}">Добавить</a></li>
+                    </ul>
+                </li>
+
                 <a href="/logout">Logout</a>
             </ul>
 

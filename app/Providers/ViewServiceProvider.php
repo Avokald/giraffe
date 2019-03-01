@@ -16,7 +16,7 @@ class ViewServiceProvider extends ServiceProvider
     {
         // Using class based composers...
         View::composer(
-            'web.app', 'App\Http\View\Composers\MenuComposer'
+            ['web.app', 'web.templates.index'], 'App\Http\View\Composers\MenuComposer'
         );
     }
 

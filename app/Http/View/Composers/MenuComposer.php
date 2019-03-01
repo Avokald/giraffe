@@ -41,6 +41,8 @@ class MenuComposer
         $mainPhoneNumber = \App\Setting::where('slug', 'main-phone-number')->first()->value;
         $mainEmailAddress = \App\Setting::where('slug', 'main-email-address')->first()->value;
         $settingFonts = \App\Setting::where('slug', 'setting-fonts')->first()->value ?? null;
+        $phrases = \App\Phrase::all();
+//        dd($phrases);
 
         $view->with('menus', $menus);
         $view->with('companyLogo', $companyLogo);
@@ -49,5 +51,6 @@ class MenuComposer
         $view->with('mainPhoneNumber', $mainPhoneNumber);
         $view->with('mainEmailAddress', $mainEmailAddress);
         $view->with('settingFonts', $settingFonts);
+        $view->with('phrases', $phrases);
     }
 }
