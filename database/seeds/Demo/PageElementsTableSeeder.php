@@ -70,6 +70,21 @@ class PageElementsTableSeeder extends Seeder
             'page_element_type_id' => 1,
         ]);
 
+        $mapLat = PageElement::create([
+            'name' => 'lat',
+            'values' => '50',
+            'page_element_type_id' => 1,
+            'page_id' => 2,
+        ]);
+
+        $mapLng = PageElement::create([
+            'name' => 'lng',
+            'values' => '50',
+            'page_element_type_id' => 1,
+            'page_id' => 2,
+        ]);
+
+
         $addresses = PageElement::create([
             'name' => 'addresses',
             'values' => [
@@ -83,8 +98,8 @@ class PageElementsTableSeeder extends Seeder
         $addressesTitle = PageElement::create([
             'name' => 'addresses_title',
             'values' => 'Адрес',
+            'page_id' => 2,
             'page_element_type_id' => 1,
-            'parent_element_id' => $addresses->id,
         ]);
 
         $emailAddresses = PageElement::create([
@@ -140,6 +155,12 @@ class PageElementsTableSeeder extends Seeder
             'page_element_type_id' => 1,
             'parent_element_id' => $phoneNumbers->id,
         ]);
+
+
+
+
+
+
 
 
         // About

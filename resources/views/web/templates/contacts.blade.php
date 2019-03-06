@@ -103,21 +103,21 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="{{ $phrases->where('slug', 'name-placeholder')->first() ?? '' }}">
+                                                            <input type="text" placeholder="{{ $phrases->where('slug', 'name-placeholder')->first()->value ?? '' }}">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="{{ $phrases->where('slug', 'email-placeholder')->first() ?? '' }}">
+                                                            <input type="text" placeholder="{{ $phrases->where('slug', 'email-placeholder')->first()->value ?? '' }}">
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <textarea cols="30" rows="10" placeholder="{{ $phrases->where('slug', 'textarea-placeholder')->first() ?? '' }}"></textarea>
+                                                <textarea cols="30" rows="10" placeholder="{{ $phrases->where('slug', 'textarea-placeholder')->first()->value ?? '' }}"></textarea>
 
                                                 <div class="sub_btn">
-                                                    <button type="button" class="btn btn--md btn-primary">{{ $phrases->where('slug', 'button-send-text')->first() ?? '' }}
+                                                    <button type="button" class="btn btn--md btn-primary">{{ $phrases->where('slug', 'button-send-text')->first()->value ?? '' }}
                                                     </button>
                                                 </div>
                                             </form>
@@ -140,6 +140,8 @@
         <!-- end /.container -->
     </section>
 
-    {{--<div id="map" data-lat="{{ $page->getElementByName("map")->values['lat'] }}" data-lng="{{ $page->getElementByName("map")->values['lng'] }}"></div>--}}
+    <div id="map" data-lat="{{ $page->getElementByName("lat")->values ?? '25' }}" data-lng="{{ $page->getElementByName("lng")->values ?? '25' }}"></div>
     <!-- end /.map -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDxflHHc5FlDVI-J71pO7hM1QJNW1dRp4U"></script>
 @endsection
+
