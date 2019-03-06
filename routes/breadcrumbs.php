@@ -2,7 +2,7 @@
 
 // Главная
 Breadcrumbs::for('index', function($trail) {
-    $trail->push('Главная', route('index'));
+    $trail->push('Главная', '/');
 });
 
 // Главная / Blog
@@ -70,12 +70,12 @@ Breadcrumbs::for('tag', function ($trail, $tag) {
 
 Breadcrumbs::for('about', function ($trail) {
     $trail->parent('index');
-    $trail->push('О нас', route('about'));
+    $trail->push('О нас', route('page.show', ['about']));
 });
 
 Breadcrumbs::for('contacts', function ($trail) {
     $trail->parent('index');
-    $trail->push('Контакты', route('contacts'));
+    $trail->push('Контакты', route('page.show', ['contacts']));
 });
 
 //Breadcrumbs::for('', function ($trail) {
