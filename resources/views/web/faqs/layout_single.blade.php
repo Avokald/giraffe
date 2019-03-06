@@ -37,7 +37,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                    <a href="{{ route('faqs.index') }}" class="link-more">View All Articles
+                                    <a href="{{ route('faqs.index') }}" class="link-more">Просмотреть все
                                         <span class="icon icon-arrow-right-circle"></span>
                                     </a>
                                 </div>
@@ -57,7 +57,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                    <a href="{{ route('faqs.index') }}" class="link-more">View All Articles
+                                    <a href="{{ route('faqs.index') }}" class="link-more">Просмотреть все
                                         <span class="icon icon-arrow-right-circle"></span>
                                     </a>
                                 </div>

@@ -62,5 +62,12 @@ class PhrasesTableSeeder extends Seeder
             'slug' => 'textarea-placeholder',
             'value' => 'Ваше сообщение',
         ]);
+
+
+        // Compilations
+        $servicesIncluded = Phrase::create([
+            'slug' => 'services-included',
+            'value' => 'Сервисы входящие в подборку',
+        ]);
     }
 }
