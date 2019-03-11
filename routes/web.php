@@ -37,6 +37,7 @@ Route::group([
 ], function() {
     Route::resource('services', 'ServiceController');
     Route::resource('tariffs', 'TariffController');
+
     Route::resource('blog', 'BlogPostController');
     Route::resource('tags', 'TagController');
 
@@ -65,40 +66,6 @@ Route::group([
     Route::delete('file-delete', 'Ajax\MaterialController@destroy')->name('materials.destroy');
 });
 Route::get('home', 'Web\HomeController@index')->name('home');
-
-
-// TODO Refactor
-//Route::get('about', function () {
-//    $page = \App\Page::findOrFail(3);
-//    return view('web.templates.about', [
-//        'page' => $page,
-//    ]);
-//})->name('about');
-//
-//Route::get('/', function () {
-//    $page = \App\Page::findOrFail(1);
-//    $best_services = \App\Service::limit(12)->get();
-//    $best_compilations = \App\ServiceCompilation::limit(12)->get();
-//    $allCategories = \App\Category::all();
-//    return view('web.templates.index', [
-//        'page' => $page,
-//        'best_services' => $best_services,
-//        'best_compilations' => $best_compilations,
-//        'allCategories' => $allCategories,
-//    ]);
-//})->name('index');
-//
-//Route::get('contacts', function () {
-//    $page = \App\Page::findOrFail(2);
-//    return view('web.templates.contacts', [
-//        'page' => $page,
-//    ]);
-//})->name('contacts');
-//
-//Route::get('faq', function () {
-//    $page = \App\Page::findOrFail(1);
-//    return view('web.templates.faq');
-//})->name('faqs');
 
 Route::get('/', 'Web\PageController@frontpage')->name('page.frontpage');
 Route::get('{page}', 'Web\PageController@show')->name('page.show');
