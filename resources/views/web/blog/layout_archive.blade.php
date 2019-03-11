@@ -50,7 +50,7 @@
                                             </div>
                                             <div class="date_time">
                                                 <span class="icon-clock"></span>
-                                                <p>{{ $blogpost->created_at->toFormattedDateString() }}</p>
+                                                <p>{{ $blogpost->created_at->diffForHumans() }}</p>
                                             </div>
                                             <div class="comment_view">
                                                 <p class="view">
@@ -62,7 +62,7 @@
                                     <div class="btn_text">
                                         <p>{{ $blogpost->excerpt }}</p>
                                         <a href="{{ route('blogposts.show', $blogpost->slug) }}"
-                                           class="btn btn--md btn-primary">Прочитайте больше</a>
+                                           class="btn btn--md btn-primary">{{ $phrases->where('slug', 'read-more')->first()->value ?? '' }}</a>
                                     </div>
                                 </figcaption>
                             </figure>

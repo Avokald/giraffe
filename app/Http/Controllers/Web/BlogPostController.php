@@ -16,7 +16,7 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $blogposts = BlogPost::paginate(5);
+        $blogposts = BlogPost::orderBy('created_at', 'desc')->paginate(5);
         $allTags = Tag::all();
         $latestBlogposts = BlogPost::latest()->limit(3)->get();
         $popularBlogposts = BlogPost::orderBy('view_count', 'desc')->take(3)->get();

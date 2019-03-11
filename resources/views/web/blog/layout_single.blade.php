@@ -61,7 +61,6 @@
                 </div>
                 <!-- end /.col-md-8 -->
 
-                {{-- TODO insert data--}}
                 @include('web.blog.partials.sidebar', ['tags' => $blogpost->tags])
 
             </div>

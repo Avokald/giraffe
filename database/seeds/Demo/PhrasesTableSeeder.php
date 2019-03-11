@@ -12,6 +12,7 @@ class PhrasesTableSeeder extends Seeder
      */
     public function run()
     {
+        // Index
         $indexSearchButtonText = Phrase::create([
             'slug' => 'search-button-text',
             'value' => 'Найти',
@@ -37,6 +38,7 @@ class PhrasesTableSeeder extends Seeder
             'value' => 'Введите ваш e-mail...',
         ]);
 
+        // About
         $watchVideoButtonText = Phrase::create([
             'slug' => 'watch-video-button-text',
             'value' => 'Смотреть видео',
@@ -69,5 +71,45 @@ class PhrasesTableSeeder extends Seeder
             'slug' => 'services-included',
             'value' => 'Сервисы входящие в подборку',
         ]);
+
+
+        // Blog
+        Phrase::create([
+            'slug' => 'subscribe-email-title',
+            'value' => 'Подпишитесь на рассылку',
+        ]);
+
+        Phrase::create([
+            'slug' => 'subscribe-email-button-text',
+            'value' => 'Подписаться',
+        ]);
+
+        Phrase::create([
+            'slug' => 'tags-title',
+            'value' => 'Теги',
+        ]);
+
+        Phrase::create([
+            'slug' => 'blogposts-popular',
+            'value' => 'Популярные посты',
+        ]);
+
+        Phrase::create([
+            'slug' => 'blogposts-latest',
+            'value' => 'Последние публикации',
+        ]);
+
+        Phrase::create([
+            'slug' => 'read-more',
+            'value' => 'Прочитайте больше',
+        ]);
+
+        Phrase::create([
+            'slug' => 'share-text',
+            'value' => 'Поделиться',
+        ]);
+
+
+
     }
 }

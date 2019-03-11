@@ -2,17 +2,17 @@
     <aside class="sidebar sidebar--blog">
         <div class="sidebar-card card--search card--blog_sidebar">
             <div class="card-title">
-                <h4>Подпишитесь на рассылку</h4>
+                <h4>{{ $phrases->where('slug', 'subscribe-email-title')->first()->value ?? '' }}</h4>
             </div>
             <!-- end /.card-title -->
 
             <div class="card_content">
                 <form action="#">
                     <div class="searc-wrap">
-                        <input type="text" placeholder="Email">
+                        <input type="text" placeholder="{{ $phrases->where('slug', 'email-placeholder')->first()->value ?? '' }}">
                     </div>
                     <button type="submit" class="btn btn-md btn-primary">
-                        Подписаться
+                        {{ $phrases->where('slug', 'subscribe-email-button-text')->first()->value ?? '' }}
                     </button>
                 </form>
             </div>
@@ -22,7 +22,7 @@
 
         <div class="sidebar-card card--blog_sidebar card--tags">
             <div class="card-title">
-                <h4>Теги</h4>
+                <h4>{{ $phrases->where('slug', 'tags-title')->first()->value ?? '' }}</h4>
             </div>
 
             <ul class="tags">
@@ -41,11 +41,11 @@
                 <ul class="post-tab nav" role="tablist">
                     <li>
                         <a href="#popular" id="popular-tab" class="active" aria-controls="popular"
-                           role="tab" data-toggle="tab" aria-selected="true">Популярные посты</a>
+                           role="tab" data-toggle="tab" aria-selected="true">{{ $phrases->where('slug', 'blogposts-popular')->first()->value ?? '' }}</a>
                     </li>
                     <li>
                         <a href="#latest" class="" id="latest-tab" aria-controls="latest" role="tab"
-                           data-toggle="tab" aria-selected="false">Последние публикации</a>
+                           data-toggle="tab" aria-selected="false">{{ $phrases->where('slug', 'blogposts-latest')->first()->value ?? '' }}</a>
                     </li>
                 </ul>
             </div>
@@ -70,7 +70,7 @@
                                         </a>
                                         <div class="date_time">
                                             <span class="icon-clock"></span>
-                                            <p>{{ $blogpost->created_at->toFormattedDateString() }}</p>
+                                            <p>{{ $blogpost->created_at->diffForHumans() }}</p>
                                         </div>
                                     </div>
                                 </li>
@@ -95,7 +95,7 @@
                                         </a>
                                         <div class="date_time">
                                             <span class="icon-clock"></span>
-                                            <p>{{ $blogpost->created_at->toFormattedDateString() }}</p>
+                                            <p>{{ $blogpost->created_at->diffForHumans() }}</p>
                                         </div>
                                     </div>
                                 </li>
