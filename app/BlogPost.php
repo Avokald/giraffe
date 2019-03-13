@@ -23,6 +23,7 @@ class BlogPost extends Model
 
     protected $with = [
         'author',
+        'banner',
     ];
 
     public function banner()

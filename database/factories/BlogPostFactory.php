@@ -6,6 +6,7 @@ $factory->define(App\BlogPost::class, function (Faker $faker) {
     return [
         'title' => $faker->streetName,
         'content' => $faker->text,
+        'excerpt' => $faker->text(200),
         'author_id' => 1,
     ];
 });
@@ -19,6 +20,7 @@ $factory->state(App\BlogPost::class, 'test', function(Faker $faker) {
             </ul><figure class="table"><table><thead><tr><th>1</th><th>2</th></tr></thead><tbody><tr>
             <td>3</td><td>4</td></tr></tbody></table></figure><blockquote><p>dsdsadsdadwddscasdfassad</p>
             </blockquote><h3>hgh</h3><p>asdasd</p><h4>asdsd</h4><p>sadasd</p>',
+        'excerpt' => '123 excerpt for test blog post',
         'author_id' => 1,
     ];
 });
