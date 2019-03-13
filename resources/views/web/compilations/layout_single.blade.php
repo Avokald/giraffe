@@ -76,7 +76,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h2>Сервисы входящие в подборку</h2>
+                        <h2>{{ $phrases->where('slug', 'services-included')->first()->value ?? '' }}</h2>
                     </div>
                 </div>
                 <div class="col-md-12 bgdor">

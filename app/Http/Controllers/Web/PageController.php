@@ -8,14 +8,40 @@ use \App\Http\Controllers\Controller;
 class PageController extends Controller
 {
     /**
+     * Display front page
+     */
+    public function frontpage()
+    {
+        $page = Page::where('slug', 'frontpage')->firstOrFail();
+
+        $best_services = \App\Service::with(['tariffs', 'logo'])->limit(12)->get();
+        $best_compilations = \App\ServiceCompilation::with(['logo'])->limit(12)->get();
+        $allCategories = \App\Category::with(['logo']);
+        return view($page->template, [
+            'page' => $page,
+            'best_services' => $best_services,
+            'best_compilations' => $best_compilations,
+            'allCategories' => $allCategories,
+        ]);
+    }
+
+
+    /**
      * Display the specified resource.
      *
-     * @param  \App\Page  $page
+     * @param  string $pageSlug
      * @return \Illuminate\Http\Response
      */
-    public function show(Page $page)
+    public function show(string $pageSlug)
     {
-        dd($page);
-        return view(${$page->template}, ['page' => $page]);
+        if ($pageSlug === 'frontpage') {
+            abort(404);
+        }
+        $page = Page::where('slug', $pageSlug)->firstOrFail();
+        $phrases = \App\Phrase::all();
+
+        return view($page->template, [
+            'page' => $page,
+        ]);
     }
 }

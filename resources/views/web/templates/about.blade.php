@@ -22,9 +22,9 @@
 
                         <div class="about_hero_btns">
                             <a href="#" class="play_btn btn btn--lg btn-primary" data-toggle="modal" data-target="#myModal"
-                               data-theVideo="{{ $page->getElementByName("about_button_link")->values }}">
-                                <span class="icon-control-play"></span>{{ $phrases->where('slug', 'watch-video-button-text')->first() }}</a>
-                            <a href="#" class="btn btn-light btn--lg">{{ $phrases->where('slug', 'join-us-button-text')->first() }}</a>
+                               data-theVideo="{{ $page->getElementByName("about_button_link")->values ?? '' }}">
+                                <span class="icon-control-play"></span>{{ $phrases->where('slug', 'watch-video-button-text')->first()->value ?? '' }}</a>
+                            <a href="#" class="btn btn-light btn--lg">{{ $phrases->where('slug', 'join-us-button-text')->first()->value ?? '' }}</a>
                         </div>
                     </div>
                     <!-- end /.about_hero_contents -->

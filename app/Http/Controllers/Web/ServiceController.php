@@ -28,7 +28,7 @@ class ServiceController extends Controller
                 ->search('name', request()->q)
                 ->paginate(6);
         } else {
-            $services = Service::paginate(6);
+            $services = Service::with(['tariffs', 'logo'])->paginate(6);
         }
         $allCategories = Category::all();
         return view('web.service.layout_archive', [

@@ -8,7 +8,7 @@
     </div>
     <div class="date_time">
         <span class="icon-clock"></span>
-        <p>{{ $blogpost->created_at->toFormattedDateString() }}</p>
+        <p>{{ $blogpost->created_at->diffForHumans() }}</p>
     </div>
     <div class="comment_view">
         <p class="view">

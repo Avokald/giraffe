@@ -1,6 +1,6 @@
 <div class="share_tags">
     <div class="share">
-        <p>Share this post</p>
+        <p>{{ $phrases->where('slug', 'share-text')->first()->value ?? '' }}</p>
         <div class="social_share">
             <ul class="social_icons">
                 <li>
@@ -9,7 +9,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://twitter.com/intent/tweet">
                         <span class="fa fa-twitter"></span>
                     </a>
                 </li>

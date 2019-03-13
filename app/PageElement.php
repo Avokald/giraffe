@@ -21,10 +21,6 @@ class PageElement extends Model
         'values' => 'array',
     ];
 
-    protected $with = [
-        'pageElementType',
-    ];
-
     public function getTemplateAttribute()
     {
         return $this->pageElementType->template;
