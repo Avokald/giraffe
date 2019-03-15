@@ -19,7 +19,7 @@
                         <div class="borzx__content">
                             <div class="borzx__name">{{ $service->name }}</div>
                             <div class="borzx__text">{{ $service->description_short }}</div>
-                            <a href="" class="borzx__btn btn btn-lg btn-primary">Подключить</a>
+                            <a href="" class="borzx__btn btn btn-lg btn-primary">{{ $phrases->where('slug', 'hook-up')->first()->value ?? '' }}</a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
 
                             {{-- TODO Review display part 2 --}}
                             {{--<div class="dzdzx__title" id="tazz4">--}}
-                                {{--<h3>Отзывы</h3>--}}
+                                {{--<h3>{{ $phrases->where('slug', 'reviews')->first()->value ?? '' }}</h3>--}}
                             {{--</div>--}}
 
                             {{--<div class="row zog">--}}

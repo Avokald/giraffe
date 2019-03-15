@@ -1,14 +1,10 @@
 @section('product-details')
     <div class="fade show tab-pane product-tab active" id="tazz1">
         <div class="tab-content-wrapper" >
-            <h3>Описание</h3> {{-- TODO Description long w anchor --}}
+            <h3>{{ $phrases->where('slug', 'description')->first()->value ?? '' }}</h3>
             {!! $service->description_long !!}
-            <h3 id="tazz2">Материалы:</h3> {{-- TODO Materials title w anchor --}}
+            <h3 id="tazz2">{{ $phrases->where('slug', 'materials')->first()->value ?? '' }}</h3>
             {!! $service->materials_description !!}
-
-            {{--@foreach ( $service->materialImages as $materialImage )--}}
-                {{--<img src="{{ $materialImage->url }}" alt="{{ $materialImage->alt }}">--}}
-            {{--@endforeach--}}
         </div>
     </div>
 @endsection
