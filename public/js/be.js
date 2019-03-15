@@ -14,12 +14,12 @@ jQuery(function() {
         $('.item-navigation a').each(function () {
             var currLink = $(this);
             var refElement = $(currLink.attr("href"));
-            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.outerHeight() > scrollPos) {
                 $('.item-navigation a').removeClass("active");
-                currLink.addClass("active");
+                $(this).addClass("active");
             }
             else{
-                currLink.removeClass("active");
+                $(this).removeClass("active");
             }
         });
     });
