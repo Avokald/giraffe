@@ -1,4 +1,5 @@
-@section('related')
+
+@if ($service->relatedServicesTo->isNotEmpty())
     <!--============================================
             START MORE PRODUCT ARE
         ==============================================-->
@@ -7,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title">
-                        <h2>С этим продуктом будет эффективно</h2>
+                        <h2>{{ $phrases->where('slug', 'related-service-title')->first()->value ?? '' }}</h2>
                     </div>
                 </div>
                 <div class="col-md-12 bgdor">
@@ -29,4 +30,4 @@
     <!--============================================
         END MORE PRODUCT AREA
     ==============================================-->
-@endsection
+@endif
