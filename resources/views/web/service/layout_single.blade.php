@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    @if ($service->screenshots)
+                    @if (isset($service->screenshots))
                         @section('item-preview')
                             @include('web.service.partials.item_preview')
                         @show
@@ -56,39 +56,48 @@
 
                         <div class="dzdzx">
 
-                            @foreach ( $service->pdfs as $pdf )
-                                <a href="{{ $pdf->url }}">{{ $pdf->name }}</a><hr>
-                            @endforeach
+                            @if (isset($service->pdfs))
+                                @foreach ( $service->pdfs as $pdf )
+                                    <a href="{{ $pdf->url }}">{{ $pdf->name }}</a><hr>
+                                @endforeach
+                            @endif
 
-                            @foreach ( $service->documents as $document )
-                                <a href="{{ $document->url }}">{{ $document->name }}</a><hr>
-                            @endforeach
 
-                            @foreach ( $service->presentations as $presentation )
-                                <a href="{{ $presentation->url }}">{{ $presentation->name }}</a><hr>
-                            @endforeach
+                            @if (isset($service->documents))
+                                @foreach ( $service->documents as $document )
+                                    <a href="{{ $document->url }}">{{ $document->name }}</a><hr>
+                                @endforeach
+                            @endif
 
-                            @foreach ( $service->videos as $video )
-                                <?php
-                                preg_match(
-    '/^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/',
-                                    $video,
-                                    $url_groups );
-                                ?>
-                                @if ( $url_groups[5] )
-                                    <iframe width="560"
-                                            height="315"
-                                            src="https://www.youtube.com/embed/{{ $url_groups[5] }}"
-                                            frameborder="0"
-                                            allow="accelerometer;
-                                                   autoplay;
-                                                   encrypted-media;
-                                                   gyroscope;
-                                                   picture-in-picture"
-                                            allowfullscreen >
-                                    </iframe>
-                                @endif
-                            @endforeach
+                            @if (isset($service->presentations))
+                                @foreach ( $service->presentations as $presentation )
+                                    <a href="{{ $presentation->url }}">{{ $presentation->name }}</a><hr>
+                                @endforeach
+                            @endif
+
+                            @if (isset($service->videos))
+                                @foreach ( $service->videos as $video )
+                                    <?php
+                                    preg_match(
+        '/^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/',
+                                        $video,
+                                        $url_groups );
+                                    ?>
+                                    @if ( $url_groups[5] )
+                                        <iframe width="560"
+                                                height="315"
+                                                src="https://www.youtube.com/embed/{{ $url_groups[5] }}"
+                                                frameborder="0"
+                                                allow="accelerometer;
+                                                       autoplay;
+                                                       encrypted-media;
+                                                       gyroscope;
+                                                       picture-in-picture"
+                                                allowfullscreen >
+                                        </iframe>
+                                    @endif
+                                @endforeach
+                            @endif
 
                             @section('tariffs')
                                 @include('web.service.partials.tariffs')
@@ -164,10 +173,7 @@
         </div>
     </section>
 
-
-    @section('related')
-        @include('web.service.partials.related')
-    @show
+    @include('web.service.partials.related')
 
 @endsection
 
