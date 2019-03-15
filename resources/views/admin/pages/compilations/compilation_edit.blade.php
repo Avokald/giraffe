@@ -44,13 +44,13 @@
 
                             @include('admin.partials.text', [
                                 'name' => 'hover_title',
-                                'value' => $service->hover_title,
+                                'value' => $compilation->hover_title,
                                 'label' => 'Заголовок при наведении',
                             ])
 
                             @include('admin.partials.text', [
                                 'name' => 'hover_description',
-                                'value' => $service->hover_description,
+                                'value' => $compilation->hover_description,
                                 'label' => 'Описание при наведении',
                             ])
 

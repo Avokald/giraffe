@@ -110,6 +110,39 @@ class PhrasesTableSeeder extends Seeder
         ]);
 
 
+        // Service
+        Phrase::create([
+            'slug' => 'related-service-title',
+            'value' => 'С этим продуктом будет эффективно',
+        ]);
+
+        Phrase::create([
+            'slug' => 'hook-up',
+            'value' => 'Подключить',
+        ]);
+
+        Phrase::create([
+            'slug' => 'description',
+            'value' => 'Описание',
+        ]);
+
+        Phrase::create([
+            'slug' => 'materials',
+            'value' => 'Материалы',
+        ]);
+
+        Phrase::create([
+            'slug' => 'tariffs',
+            'value' => 'Тарифы',
+        ]);
+
+        Phrase::create([
+            'slug' => 'reviews',
+            'value' => 'отзывы',
+        ]);
+
+
+
 
     }
 }

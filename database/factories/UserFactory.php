@@ -15,10 +15,17 @@ use Faker\Generator as Faker;
 
 $factory->define(App\User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->firstName,
+        'surname' => $faker->lastName,
+        'middle_name' => $faker->lastName,
+        'phone_number' => $faker->phoneNumber,
         'email' => $faker->safeEmail,
         'email_verified_at' => now(),
+        'birthday' => $faker->date('Y-m-d'),
+        'has_site' => $faker->boolean,
+        'site_url' => $faker->url,
         'password' => \Illuminate\Support\Facades\Hash::make($faker->password),
+        'user_role_id' => 1,
         'remember_token' => str_random(10),
     ];
 });
@@ -26,10 +33,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->state(App\User::class, 'test', function(Faker $faker) {
     return [
         'name' => 'Test user',
-        'email' => $faker->safeEmail,
-        'email_verified_at' => now(),
         'password' => \Illuminate\Support\Facades\Hash::make('1234'),
-        'remember_token' => str_random(10),
     ];
 });
 
@@ -37,8 +41,7 @@ $factory->state(App\User::class, 'test-admin', function(Faker $faker) {
     return [
         'name' => 'Test user admin',
         'email' => 'test_admin@example.com',
-        'email_verified_at' => now(),
         'password' => \Illuminate\Support\Facades\Hash::make('111'),
-        'remember_token' => str_random(10),
+        'user_role_id' => 2,
     ];
 });

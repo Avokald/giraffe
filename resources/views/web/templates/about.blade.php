@@ -14,10 +14,10 @@
                 <div class="col-md-12">
                     <div class="about_hero_contents">
                         {{ Breadcrumbs::render('about') }}
-                        <h1 class="display-4">Добро пожаловать в
+                        <h1>Добро пожаловать в
                             <span>SoftBox</span> {{-- $page->content --}}
                         </h1>
-                        <p class="display-4">Мы помогаем маркетологам создавать продукты
+                        <p>Мы помогаем маркетологам создавать продукты
                         </p>
 
                         <div class="about_hero_btns">
