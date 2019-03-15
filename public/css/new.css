@@ -54,17 +54,19 @@ li.product-rating ul{
 	color: #fff;
 	font-weight: 700;
 	text-align: center;
-	font-size: 21px;
+	font-size: 20px;
 	margin-bottom: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
 	width: 100%;
+	height: 30px;
+	overflow: hidden;
 }
 .product__text{
 	padding-left: 15px;
 	padding-right: 15px;
 	color: #fff;
-	height: 88px;
+	max-height: 64px;
 	overflow: hidden;
 	margin-bottom: 10px;
 	width: 100%;
