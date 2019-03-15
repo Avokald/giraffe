@@ -17,7 +17,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'surname',
+        'middle_name',
+        'phone_number',
+        'email',
+        'birthday',
+        'has_site',
+        'site_url',
+        'password',
+        'user_role_id',
     ];
     // TODO Status field, twitter, linkedin, facebook, googleplus, photo
 
