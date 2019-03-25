@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class InitialUnitsSeeder extends Seeder
+class InitUnitsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -26,6 +26,8 @@ class InitialUnitsSeeder extends Seeder
         $this->call(PhrasesTableSeeder::class);
 
         $this->call(ServiceCompilationSituationsTableSeeder::class);
+
+        $this->call(UserRolesTableSeeder::class);
 
         $this->call(UsersTableSeeder::class);
     }

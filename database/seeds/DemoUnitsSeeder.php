@@ -10,7 +10,7 @@ use \App\MenuElement;
 
 use Illuminate\Database\Seeder;
 
-class TestUnitsSeeder extends Seeder
+class DemoUnitsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +19,7 @@ class TestUnitsSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(InitialUnitsSeeder::class);
+        $this->call(InitUnitsSeeder::class);
 
 
         factory(\App\Category::class)->state('test')->create();

@@ -16,7 +16,7 @@ $factory->state(App\Admin::class, 'admin', function(Faker $faker) {
 });
 
 $factory->state(App\Admin::class, 'moderator', function(Faker $faker) {
-    factory(\App\User::class, 1)->state('pleb')->create();
+    factory(\App\User::class, 1)->state('user')->create();
     return [
         'type' => 'moderator',
         'user_id' => 2,

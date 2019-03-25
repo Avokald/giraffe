@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        //$this->call(InitialUnitsSeeder::class);
-        $this->call(TestUnitsSeeder::class);
+        //$this->call(InitUnitsSeeder::class);
+        $this->call(DemoUnitsSeeder::class);
 
         factory(\App\Category::class, 5)->create();
 

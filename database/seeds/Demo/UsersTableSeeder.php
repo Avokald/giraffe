@@ -13,6 +13,6 @@ class UsersTableSeeder extends Seeder
     {
         factory(\App\Admin::class, 1)->state('admin')->create();
 
-        factory(\App\User::class, 2)->state('pleb')->create();
+        factory(\App\User::class, 2)->state('user')->create();
     }
 }

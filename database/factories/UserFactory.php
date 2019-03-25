@@ -30,7 +30,7 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-$factory->state(App\User::class, 'pleb', function(Faker $faker) {
+$factory->state(App\User::class, 'user', function(Faker $faker) {
     return [
         'name' => 'Test user',
         'password' => \Illuminate\Support\Facades\Hash::make('1234'),
