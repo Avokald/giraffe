@@ -30,9 +30,19 @@ trait Filterable
 
     public function scopePriceBetween(Builder $query, ?string $column, ?int $min, ?int $max)
     {
+        if (!$min) {
+            $min = 0;
+        }
+
+        if (!$max) {
+//            TODO Replace magic number
+            $max = 100000000;
+        }
         return $query
-            ->select('services.*', 'tariffs.price_month')
+            ->selectRaw('services.*, min(tariffs.price_month)')
             ->join('tariffs', 'tariffs.service_id', '=', 'services.id')
-            ->whereBetween($column, [$min, $max]);
+            ->whereBetween($column, [$min, $max])
+            ->groupBy('services.id')
+            ->havingRaw('min(tariffs.price_month)');
     }
 }
