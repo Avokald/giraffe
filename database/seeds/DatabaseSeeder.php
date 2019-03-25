@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        //$this->call(InitialUnitsSeeder::class);
         $this->call(TestUnitsSeeder::class);
 
         factory(\App\Category::class, 5)->create();
@@ -36,7 +38,14 @@ class DatabaseSeeder extends Seeder
             factory(\App\Image::class, 1)->state('compilation-logo')->create(['imageable_id' => $compilation->id]);
         }
 
-        factory(\App\Review::class, 50)->create();
+        // There must be first distinct review in order to create other reviews
+        factory(\App\Review::class)->create([
+            'reviewable_type' => \App\Service::class,
+            'reviewable_id' => 1,
+        ]);
+        for ($i = 0; $i < 50; $i++) {
+            factory(\App\Review::class)->create();
+        }
 
         foreach (\App\Service::all()->except(1) as $service) {
             factory(\App\Image::class)->state('service-logo')->create(['imageable_id' => $service->id]);

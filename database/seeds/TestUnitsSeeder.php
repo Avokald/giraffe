@@ -19,45 +19,38 @@ class TestUnitsSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Category::class, 1)->state('test')->create();
+        $this->call(InitialUnitsSeeder::class);
 
-        factory(\App\ServiceCompilation::class, 1)->state('test')->create();
 
-        factory(\App\Service::class, 1)->state('test')->create();
-        factory(\App\Service::class, 1)->create();
+        factory(\App\Category::class)->state('test')->create();
 
-        \App\Service::find(1)->relatedServicesTo()->attach(\App\Service::find(2));
+        factory(\App\ServiceCompilation::class)->state('test')->create();
 
-        $this->call(ServiceCompilationSituationsTableSeeder::class);
+        // Test service and recommended together service
+        $firstService = factory(\App\Service::class)->state('test')->create();
+
+        $secondService = factory(\App\Service::class)->create();
+        $firstService->relatedServicesTo()->attach($secondService->id);
+
 
         foreach (\App\ServiceCompilation::all() as $compilation) {
-            $compilation->services()->attach(1);
+            $compilation->services()->attach($firstService->id);
             $compilation->situations()->attach(\App\ServiceCompilationSituation::all()->random()->id);
-
         }
 
-        factory(\App\Tariff::class, 3)->state('test')->create(['service_id' => 1]);
+        factory(\App\Tariff::class, 3)->state('test')->create(['service_id' => $firstService->id]);
 
         factory(\App\Review::class, 3)->state('test')->create();
 
-        factory(\App\Image::class, 1)->state('test-category-logo')->create();
+        $this->call(ImagesTableSeeder::class);
 
-        factory(\App\Image::class, 5)->state('test-compilation-logo')->create();
+        $this->call(MaterialsTableSeeder::class);
 
 
-        factory(\App\Material::class, 1)->state('service-pdf')->create(['materiable_id' => 1]);
-        factory(\App\Material::class, 1)->state('service-document')->create(['materiable_id' => 1]);
-        factory(\App\Material::class, 1)->state('service-presentation')->create(['materiable_id' => 1]);
+        $firstBlog = factory(\App\BlogPost::class)->state('test')->create();
 
-        factory(\App\Admin::class, 1)->state('test-admin')->create();
-
-        factory(\App\User::class, 3)->state('test')->create();
-
-        factory(\App\BlogPost::class, 1)->state('test')->create();
-
-        factory(\App\Tag::class, 1)->state('test')->create();
-
-        \App\Tag::findOrFail(1)->blogposts()->attach(1);
+        $testTag = factory(\App\Tag::class)->state('test')->create();
+        $testTag->blogposts()->attach($firstBlog->id);
 
 
         $faqCategory = FaqCategory::create([
@@ -69,24 +62,5 @@ class TestUnitsSeeder extends Seeder
             'content' => 'Test FAQ\'s content',
             'faq_category_id' => $faqCategory->id,
         ]);
-
-
-
-        $this->call(PagesTableSeeder::class);
-
-        $this->call(PageElementTypesTableSeeder::class);
-
-        $this->call(PageElementsTableSeeder::class);
-
-        $this->call(MenusTableSeeder::class);
-
-        $this->call(MenuElementsTableSeeder::class);
-
-        $this->call(ImagesTableSeeder::class);
-
-        $this->call(SettingsTableSeeder::class);
-
-        $this->call(PhrasesTableSeeder::class);
-
     }
 }

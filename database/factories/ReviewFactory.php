@@ -9,7 +9,7 @@ $factory->define(App\Review::class, function (Faker $faker) {
     ];
     $reviewableType = $faker->randomElement($reviewable);
     $reviewableObjectAll = $reviewableType::all();
-    $reviewableObjectId = $reviewableObjectAll->isNotEmpty() ? $reviewableObjectAll->random()->id : null;
+    $reviewableObjectId = $reviewableObjectAll->isNotEmpty() ? $reviewableObjectAll->random()->id: 1;
 
     return [
         'text'            => $faker->text(200),

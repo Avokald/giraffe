@@ -30,18 +30,18 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-$factory->state(App\User::class, 'test', function(Faker $faker) {
+$factory->state(App\User::class, 'pleb', function(Faker $faker) {
     return [
         'name' => 'Test user',
         'password' => \Illuminate\Support\Facades\Hash::make('1234'),
     ];
 });
 
-$factory->state(App\User::class, 'test-admin', function(Faker $faker) {
+$factory->state(App\User::class, 'admin', function(Faker $faker) {
     return [
-        'name' => 'Test user admin',
-        'email' => 'test_admin@example.com',
-        'password' => \Illuminate\Support\Facades\Hash::make('111'),
+        'name' => 'Administrator',
+        'email' => 'a@a.a',
+        'password' => \Illuminate\Support\Facades\Hash::make('1'),
         'user_role_id' => 2,
     ];
 });
