@@ -72,7 +72,7 @@
 
 
                     <!-- Start Pagination -->
-                    {{ $blogposts->links('web.partials.pagination') }}
+                    {{ $blogposts->appends(request()->except('page'))->links('web.partials.pagination') }}
                     <!-- Ends: /pagination-default -->
                 </div>
                 <!-- end /.col-md-8 -->

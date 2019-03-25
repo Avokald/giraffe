@@ -45,5 +45,5 @@
     </div>
 
 
-    {{ $blogposts->links('admin.partials.pagination') }}
+    {{ $blogposts->appends(request()->except('page'))->links('admin.partials.pagination') }}
 @endsection

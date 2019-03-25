@@ -71,7 +71,7 @@
                             @endforeach
                         </div>
                     </div>
-                    {{ $categories->links('web.partials.pagination') }}
+                    {{ $categories->appends(request()->except('page'))->links('web.partials.pagination') }}
                 </div>
             </div>
             <!-- end /.row -->
