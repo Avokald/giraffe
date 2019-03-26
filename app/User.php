@@ -54,14 +54,19 @@ class User extends Authenticatable
         return $this->belongsToMany(Tariff::class)->withTimestamps();
     }
 
+    public function blogposts()
+    {
+        return $this->hasMany(Blogpost::class);
+    }
+
     public function getMoneyAttribute()
     {
-        return $this->attributes['money'] / 10;
+        return $this->attributes['money'] / 100;
     }
 
     public function setMoneyAttribute($value)
     {
-        $this->attributes['money'] = $value * 10;
+        $this->attributes['money'] = $value * 100;
     }
 
 }

@@ -44,8 +44,8 @@
                                         <div class="blog__meta">
                                             <div class="author">
                                                 <span class="icon-user"></span>
-                                                <p><a href="{{ route( 'home', $blogpost->author->metadata->id ) }}">{{
-                                                    $blogpost->author->metadata->name
+                                                <p><a href="{{ route( 'home', $blogpost->author->id ) }}">{{
+                                                    $blogpost->author->name
                                                  }}</a></p>
                                             </div>
                                             <div class="date_time">
