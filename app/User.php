@@ -49,4 +49,19 @@ class User extends Authenticatable
         return $this->belongsTo(UserRole::class);
     }
 
+    public function services()
+    {
+        return $this->belongsToMany(Tariff::class)->withTimestamps();
+    }
+
+    public function getMoneyAttribute()
+    {
+        return $this->attributes['money'] / 10;
+    }
+
+    public function setMoneyAttribute($value)
+    {
+        $this->attributes['money'] = $value * 10;
+    }
+
 }

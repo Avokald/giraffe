@@ -21,6 +21,7 @@ class DemoUnitsSeeder extends Seeder
     {
         $this->call(InitUnitsSeeder::class);
 
+        $this->call(UsersTableSeeder::class);
 
         factory(\App\Category::class)->state('test')->create();
 
@@ -39,6 +40,8 @@ class DemoUnitsSeeder extends Seeder
         }
 
         factory(\App\Tariff::class, 3)->state('test')->create(['service_id' => $firstService->id]);
+
+        $this->call(TariffUserTableSeeder::class);
 
         factory(\App\Review::class, 3)->state('test')->create();
 

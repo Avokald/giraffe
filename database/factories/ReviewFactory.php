@@ -16,6 +16,7 @@ $factory->define(App\Review::class, function (Faker $faker) {
         'rating'          => $faker->numberBetween(1, 10),
         'reviewable_type' => $reviewableType,
         'reviewable_id'   => $reviewableObjectId,
+        'user_id'         => \App\User::all()->random(),
     ];
 });
 
@@ -26,5 +27,6 @@ $factory->state(App\Review::class, 'test', function(Faker $faker) {
         'rating'          => 5,
         'reviewable_type' => \App\Service::class,
         'reviewable_id'   => 1,
+        'user_id'         => 1,
     ];
 });

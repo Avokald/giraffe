@@ -29,6 +29,6 @@ class InitUnitsSeeder extends Seeder
 
         $this->call(UserRolesTableSeeder::class);
 
-        $this->call(UsersTableSeeder::class);
+        $this->call(AdminUsersTableSeeder::class);
     }
 }

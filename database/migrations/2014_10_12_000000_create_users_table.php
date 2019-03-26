@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('site_url')->nullable();
             $table->string('password');
             $table->unsignedInteger('user_role_id')->default(1);
+            $table->bigInteger('money')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
