@@ -23,7 +23,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'birthday' => $faker->date('Y-m-d'),
         'has_site' => $faker->boolean,
-        'site_url' => $faker->url,
+        'site_url' => parse_url($faker->url)["host"],
         'password' => \Illuminate\Support\Facades\Hash::make($faker->password),
         'user_role_id' => 1,
         'remember_token' => str_random(10),

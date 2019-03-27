@@ -28,6 +28,7 @@ class User extends Authenticatable
         'password',
         'user_role_id',
     ];
+
     // TODO Status field, twitter, linkedin, facebook, googleplus, photo
 
     protected $hidden = [
