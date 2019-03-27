@@ -46,7 +46,7 @@ class PhrasesTableSeeder extends Seeder
 
         $joinUsButtonText= Phrase::create([
             'slug' => 'join-us-button-text',
-            'value' => 'Присоединяйтесь К Нам Сегодня',
+            'value' => 'Присоединяйтесь к нам сегодня',
         ]);
 
 
