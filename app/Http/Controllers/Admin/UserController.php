@@ -79,7 +79,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::with([''])findOrFail($id);
+        $user = User::findOrFail($id);
         return view('admin.pages.edit', [
             'value' => $user,
             'fields' => parent::getFields(),
