@@ -9,7 +9,7 @@
                 <div class="filter-bar barx">
                     <div class="filter__option filter--dropdown">
                         <a href="#" id="drop1" class="dropdown-trigger dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Категория
+                           aria-haspopup="true" aria-expanded="false">{{ request()->category_id ? $allCategories->find(request()->category_id)->name : 'Категория' }}
                             <span class="icon-arrow-down"></span>
                         </a>
                         <ul class="custom_dropdown custom_drop2 dropdown-menu" aria-labelledby="drop1">
@@ -28,7 +28,14 @@
 
                     <div class="filter__option filter--dropdown">
                         <a href="#" id="drop2" class="dropdown-trigger dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">По популярности
+                           aria-haspopup="true" aria-expanded="false">
+                            @if (request()->field_name == 'view_count')
+                                По популярности
+                            @elseif (request()->field_name == 'created_at')
+                                Новые
+                            @else
+                                Старые
+                            @endif
                             <span class="icon-arrow-down"></span>
                         </a>
                         <ul class="custom_dropdown dropdown-menu" aria-labelledby="drop2">
@@ -41,6 +48,11 @@
                                 <a href="#" class="filter-services-element"
                                    data-filter-name="sorting"
                                    data-filter-value="created_at">Новые</a>
+                            </li>
+                            <li>
+                                <a href="#" class="filter-services-element"
+                                   data-filter-name="sorting"
+                                   data-filter-value="">Старые</a>
                             </li>
                             {{--<li>--}}
                                 {{--<a href="#" class="filter-services-element"--}}
@@ -58,15 +70,18 @@
 
                     <div class="filter__option filter--dropdown filter--range">
                         <a href="#" id="drop3" class="dropdown-trigger dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Сначала дорогие
+                           aria-haspopup="true" aria-expanded="false">
+                            {{ (request()->price_min && request()->price_max)
+                                ? 'от '.request()->price_min . ' до ' . request()->price_max
+                                : 'Все' }}
                             <span class="icon-arrow-down"></span>
                         </a>
                         <div class="custom_dropdown dropdown-menu" aria-labelledby="drop3">
                             <div class="range-slider price-range" data-min="1" data-max="100000" data-valmin="1" data-valmax="100000" data-currency="руб"></div>
 
-                            <div class="price-ranges">
+                            <div class="price-ranges">от
                                 <span class="from rounded filter-services-element"
-                                      data-filter-name="min" data-filter-value="1">1</span>
+                                      data-filter-name="min" data-filter-value="1">1</span>до
                                 <span class="to rounded filter-services-element"
                                       data-filter-name="max" data-filter-value="100000">100000</span>
                             </div>

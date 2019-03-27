@@ -46,7 +46,7 @@
                         @endforeach
                     </div>
                     <!-- Start Pagination -->
-                    {{ $compilations->links('web.partials.pagination') }}
+                    {{ $compilations->appends(request()->except('page'))->links('web.partials.pagination') }}
                     <!-- Ends: /pagination-default -->
                 </div>
                 <!-- Ends: .product-list -->

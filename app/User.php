@@ -28,13 +28,9 @@ class User extends Authenticatable
         'password',
         'user_role_id',
     ];
+
     // TODO Status field, twitter, linkedin, facebook, googleplus, photo
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -46,6 +42,32 @@ class User extends Authenticatable
 
     public function isAdmin() : bool
     {
-        return (bool) $this->admindata;
+        return $this->userRole->slug === 'admin';
     }
+
+    public function userRole()
+    {
+        return $this->belongsTo(UserRole::class);
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(Tariff::class)->withTimestamps();
+    }
+
+    public function blogposts()
+    {
+        return $this->hasMany(Blogpost::class);
+    }
+
+    public function getMoneyAttribute()
+    {
+        return $this->attributes['money'] / 100;
+    }
+
+    public function setMoneyAttribute($value)
+    {
+        $this->attributes['money'] = $value * 100;
+    }
+
 }

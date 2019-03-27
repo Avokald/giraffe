@@ -35,6 +35,8 @@ Route::group([
     'middleware' => 'admin',
     'as' => 'admin.',
 ], function() {
+    Route::resource('users', 'UserController');
+
     Route::resource('services', 'ServiceController');
     Route::resource('tariffs', 'TariffController');
 

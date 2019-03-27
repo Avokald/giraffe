@@ -38,20 +38,14 @@
             <div class="row">
                 <div class="col-lg-8 col-md-12">
                     @if (isset($service->screenshots))
-                        @section('item-preview')
-                            @include('web.service.partials.item_preview')
-                        @show
+                        @include('web.service.partials.item_preview')
                     @endif
 
                     <div class="item-info">
-                        @section('item-navigation')
-                            @include('web.service.partials.item_navigation')
-                        @show
+                        @include('web.service.partials.item_navigation')
 
                         <div class="tab-content">
-                            @section('product-details')
-                                @include('web.service.partials.product_details')
-                            @show
+                            @include('web.service.partials.product_details')
                         </div>
 
                         <div class="dzdzx">
@@ -99,9 +93,7 @@
                                 @endforeach
                             @endif
 
-                            @section('tariffs')
-                                @include('web.service.partials.tariffs')
-                            @show
+                            @include('web.service.partials.tariffs')
 
                             {{-- TODO Review display part 2 --}}
                             {{--<div class="dzdzx__title" id="tazz4">--}}

@@ -22,13 +22,14 @@ class ServiceController extends Controller
                 $direction = 'asc';
             }
 
-            $services = Service::equal('category_id', request()->category_id)
-                ->priceBetween('price_month', request()->price_min, request()->price_max)
+            $services = Service::with(['tariffs', 'logo', 'category'])
+                ->equal('category_id', request()->category_id)
+                ->priceBetween('price_month', request()->price_min * 100, request()->price_max * 100)
+                ->search('services.name', request()->q)
                 ->sortBy(request()->field_name, $direction ?? 'desc')
-                ->search('name', request()->q)
                 ->paginate(6);
         } else {
-            $services = Service::with(['tariffs', 'logo'])->paginate(6);
+            $services = Service::with(['tariffs', 'logo', 'category'])->paginate(6);
         }
         $allCategories = Category::all();
         return view('web.service.layout_archive', [

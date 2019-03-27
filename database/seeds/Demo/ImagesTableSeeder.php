@@ -15,6 +15,8 @@ class ImagesTableSeeder extends Seeder
         factory(\App\Image::class, 1)->state('service-banner')->create(['imageable_id' => 1]);
         factory(\App\Image::class, 10)->state('service-screenshot')->create(['imageable_id' => 1]);
 
+        factory(\App\Image::class, 1)->state('test-category-logo')->create();
 
+        factory(\App\Image::class, 5)->state('test-compilation-logo')->create();
     }
 }

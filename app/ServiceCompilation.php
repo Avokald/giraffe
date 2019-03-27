@@ -85,6 +85,26 @@ class ServiceCompilation extends Model
         $this->save();
     }
 
+    public function getPriceMonthAttribute()
+    {
+        return $this->attributes['price_month'] / 100;
+    }
+
+    public function setPriceMonthAttribute($value)
+    {
+        $this->attributes['price_month'] = $value * 100;
+    }
+
+    public function getPriceYearAttribute()
+    {
+        return $this->attributes['price_year'] / 100;
+    }
+
+    public function setPriceYearAttribute($value)
+    {
+        $this->attributes['price_year'] = $value * 100;
+    }
+
     public function sluggable(): array
     {
         return [
