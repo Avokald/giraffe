@@ -49,5 +49,5 @@
     </div>
 
 
-    {{ $tariffs->links('admin.partials.pagination') }}
+    {{ $tariffs->appends(request()->except('page'))->links('admin.partials.pagination') }}
 @endsection

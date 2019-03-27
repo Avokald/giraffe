@@ -23,25 +23,25 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'birthday' => $faker->date('Y-m-d'),
         'has_site' => $faker->boolean,
-        'site_url' => $faker->url,
+        'site_url' => parse_url($faker->url)["host"],
         'password' => \Illuminate\Support\Facades\Hash::make($faker->password),
         'user_role_id' => 1,
         'remember_token' => str_random(10),
     ];
 });
 
-$factory->state(App\User::class, 'test', function(Faker $faker) {
+$factory->state(App\User::class, 'user', function(Faker $faker) {
     return [
         'name' => 'Test user',
         'password' => \Illuminate\Support\Facades\Hash::make('1234'),
     ];
 });
 
-$factory->state(App\User::class, 'test-admin', function(Faker $faker) {
+$factory->state(App\User::class, 'admin', function(Faker $faker) {
     return [
-        'name' => 'Test user admin',
-        'email' => 'test_admin@example.com',
-        'password' => \Illuminate\Support\Facades\Hash::make('111'),
+        'name' => 'Administrator',
+        'email' => 'a@a.a',
+        'password' => \Illuminate\Support\Facades\Hash::make('1'),
         'user_role_id' => 2,
     ];
 });

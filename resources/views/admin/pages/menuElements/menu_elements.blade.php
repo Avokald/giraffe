@@ -46,5 +46,5 @@
         </table>
     </div>
 
-    {{ $menuElements->links('admin.partials.pagination') }}
+    {{ $menuElements->appends(request()->except('page'))->links('admin.partials.pagination') }}
 @endsection

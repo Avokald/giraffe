@@ -2,8 +2,8 @@
     <div class="author">
         <span class="icon-user"></span>
         {{-- TODO User profile image --}}
-        <p><a href="{{ route('home', $blogpost->author->metadata->id) }}">{{
-            $blogpost->author->metadata->name
+        <p><a href="{{ route('home', $blogpost->author->id) }}">{{
+            $blogpost->author->name
         }}</a></p>
     </div>
     <div class="date_time">

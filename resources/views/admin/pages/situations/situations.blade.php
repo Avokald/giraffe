@@ -40,5 +40,5 @@
         </table>
     </div>
 
-    {{ $situations->links('admin.partials.pagination') }}
+    {{ $situations->appends(request()->except('page'))->links('admin.partials.pagination') }}
 @endsection

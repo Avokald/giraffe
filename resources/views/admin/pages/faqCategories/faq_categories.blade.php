@@ -43,5 +43,5 @@
     </div>
 
 
-    {{ $faqCategories->links('admin.partials.pagination') }}
+    {{ $faqCategories->appends(request()->except('page'))->links('admin.partials.pagination') }}
 @endsection

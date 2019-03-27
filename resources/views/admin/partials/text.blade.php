@@ -3,9 +3,10 @@
         <input class="form-control"
                type="text"
                name="{{ $name }}"
-               value="{{ $value }}"{{
-               isset($required) ? ' required ' : ''
-               }}>
+               value="{{ $value }}"
+                {{ (isset($required) && $required) ? ' required ' : '' }}
+                {{ (isset($editable) && !$editable) ? ' readonly ' : '' }}
+        >
         @if (isset($label))
             <label>{{ $label }}</label>
         @endif
