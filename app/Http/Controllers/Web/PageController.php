@@ -14,9 +14,10 @@ class PageController extends Controller
     {
         $page = Page::where('slug', 'frontpage')->firstOrFail();
 
-        $best_services = \App\Service::with(['tariffs', 'logo'])->limit(12)->get();
-        $best_compilations = \App\ServiceCompilation::with(['logo'])->limit(12)->get();
+//        TODO Can be optimized
         $allCategories = \App\Category::all();
+        $best_services = \App\Service::with(['tariffs', 'logo', 'category'])->limit(12)->get();
+        $best_compilations = \App\ServiceCompilation::with(['logo', 'category'])->limit(12)->get();
         return view($page->template, [
             'page' => $page,
             'best_services' => $best_services,
