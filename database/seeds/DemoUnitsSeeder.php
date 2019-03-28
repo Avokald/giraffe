@@ -24,8 +24,10 @@ class DemoUnitsSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
 
         factory(\App\Category::class)->state('test')->create();
+        factory(\App\Image::class)->state('category-logo')->create(['imageable_id' => 1]);
 
         factory(\App\ServiceCompilation::class)->state('test')->create();
+        factory(\App\Image::class)->state('compilation-logo')->create(['imageable_id' => 1]);
 
         // Test service and recommended together service
         $firstService = factory(\App\Service::class)->state('test')->create();

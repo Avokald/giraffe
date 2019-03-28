@@ -12,10 +12,14 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
+        $logo_image = factory(\App\Image::class)->create([
+            'url' => asset('images/logo.png'),
+        ]);
+
         $logo = Setting::create([
             'name' => 'Логотип',
             'slug' => 'company-logo',
-            'value' => "1",
+            'value' => $logo_image->id,
             'page_element_type_id' => 6,
         ]);
 

@@ -87,8 +87,11 @@ class ServiceCompilation extends Model
 
     public function getPriceMonthAttribute()
     {
-        return $this->attributes['price_month'] / 100;
+        if (isset($this->attributes['price_month']) && ($this->attributes['price_month'] != null)) {
+            return $this->attributes['price_month'] / 100;
+        }
     }
+
 
     public function setPriceMonthAttribute($value)
     {
@@ -97,7 +100,9 @@ class ServiceCompilation extends Model
 
     public function getPriceYearAttribute()
     {
-        return $this->attributes['price_year'] / 100;
+        if (isset($this->attributes['price_year']) && ($this->attributes['price_year'] != null)) {
+            return $this->attributes['price_year'] / 100;
+        }
     }
 
     public function setPriceYearAttribute($value)
