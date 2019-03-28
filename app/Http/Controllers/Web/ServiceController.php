@@ -19,14 +19,14 @@ class ServiceController extends Controller
             || (request()->price_min && request()->price_max)) {
 
             if (request()->field_name == 'created_at') {
-                $direction = 'asc';
+                $direction = 'desc';
             }
 
             $services = Service::with(['tariffs', 'logo', 'category'])
                 ->equal('category_id', request()->category_id)
                 ->priceBetween('price_month', request()->price_min * 100, request()->price_max * 100)
                 ->search('services.name', request()->q)
-                ->sortBy(request()->field_name, $direction ?? 'desc')
+                ->sortBy(request()->field_name, $direction ?? 'asc')
                 ->paginate(6);
         } else {
             $services = Service::with(['tariffs', 'logo', 'category'])->paginate(6);

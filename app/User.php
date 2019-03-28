@@ -27,6 +27,7 @@ class User extends Authenticatable
         'site_url',
         'password',
         'user_role_id',
+        'money',
     ];
 
     // TODO Status field, twitter, linkedin, facebook, googleplus, photo
@@ -62,7 +63,9 @@ class User extends Authenticatable
 
     public function getMoneyAttribute()
     {
-        return $this->attributes['money'] / 100;
+        if (isset($this->attributes['money']) && $this->attributes['money'] != null) {
+            return $this->attributes['money'] / 100;
+        }
     }
 
     public function setMoneyAttribute($value)

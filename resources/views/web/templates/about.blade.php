@@ -14,11 +14,7 @@
                 <div class="col-md-12">
                     <div class="about_hero_contents">
                         {{ Breadcrumbs::render('about') }}
-                        <h1>Добро пожаловать в
-                            <span>SoftBox</span> {{-- $page->content --}}
-                        </h1>
-                        <p>Мы помогаем маркетологам создавать продукты
-                        </p>
+                        {!! $page->content !!}
 
                         <div class="about_hero_btns">
                             <a href="#" class="play_btn btn btn--lg btn-primary" data-toggle="modal" data-target="#myModal"

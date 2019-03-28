@@ -38,7 +38,7 @@ class Service extends Model
 
     public function getPriceMonthAttribute()
     {
-        return $this->tariffs()->first()->price_month ?? "???";
+        return $this->tariffs()->min('price_month') / 100 ?? "";
     }
 
     public function relationshipsSave(array $request)

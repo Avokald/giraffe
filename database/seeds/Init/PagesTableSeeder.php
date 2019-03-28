@@ -35,7 +35,13 @@ class PagesTableSeeder extends Seeder
         $aboutPage = Page::create([
             'name' => 'About',
             'slug' => 'about',
-            'content' => 'You will pay for this',
+            'content' => '
+                <h1>Добро пожаловать в
+                    <span>SoftBox</span>
+                </h1>
+                <p>
+                    Мы помогаем маркетологам создавать продукты
+                </p>',
             'template' => 'web.templates.about',
         ]);
 

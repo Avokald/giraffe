@@ -11,14 +11,15 @@ class UserController extends Controller
     {
         parent::__construct(
             [
-                parent::makeTableField('id',           'id',            true, 'text', false),
-                parent::makeTableField('Имя',          'name',          true, 'text', true),
-                parent::makeTableField('Фамилия',      'surname',       true, 'text', true),
-                parent::makeTableField('Телефон',      'phone_number',  true, 'text', true),
-                parent::makeTableField('Почта',        'email',         true, 'text', true),
-                parent::makeTableField('Сайт',         'site_url',      true, 'text', true),
-                parent::makeTableField('Баланс',       'money',         true, 'text', true),
-                parent::makeTableField('Дата создания','created_at',    true, 'text', false),
+                parent::makeTableField('id',           'id',            true,  'text', false),
+                parent::makeTableField('Имя',          'name',          true,  'text', true),
+                parent::makeTableField('Фамилия',      'surname',       true,  'text', true),
+                parent::makeTableField('Телефон',      'phone_number',  true,  'text', true),
+                parent::makeTableField('Почта',        'email',         true,  'text', true),
+                parent::makeTableField('Пароль',       'password',      false, 'password', true),
+                parent::makeTableField('Сайт',         'site_url',      true,  'text', true),
+                parent::makeTableField('Баланс',       'money',         true,  'text', true),
+                parent::makeTableField('Дата создания','created_at',    true,  'text', false),
             ],
             'users'
         );
@@ -32,7 +33,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(15);
-        return view('admin.pages.table', [
+        return view('admin.pages.index', [
             'values' => $users,
             'fields' => parent::getFields(),
             'routeName' => parent::getRouteName(),
@@ -46,7 +47,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $user = new User();
+        return view('admin.pages.edit', [
+            'value' => $user,
+            'fields' => parent::getFields(),
+            'routeName' => parent::getRouteName(),
+        ]);
     }
 
     /**
@@ -57,18 +63,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $user = User::create($request->toArray());
+        return redirect()->route('admin.users.edit', $user->id);
     }
 
     /**
@@ -96,7 +92,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrfail($id);
+        $user->update($request->toArray());
+        $user->save();
+        return redirect()->route('admin.users.edit', $user->id);
     }
 
     /**
@@ -107,6 +106,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('admin.users.index');
     }
 }
