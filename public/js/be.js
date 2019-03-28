@@ -1,4 +1,5 @@
 jQuery(function() {
+    console.log(filter_parameters);
     $(".filter-services-element").bind("click", function (e) {
         e.preventDefault();
         filter_parameters[$(this).attr('data-filter-name')] = $(this).attr('data-filter-value');

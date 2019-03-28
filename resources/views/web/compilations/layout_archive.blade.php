@@ -25,7 +25,7 @@
 
     {{--@include('web.partials.filter')--}}
     <div class="filter-area product-filter-area">
-        <script> var filter_parameters = {}; </script>
+        {{--<script> var filter_parameters = {}; </script>--}}
         <div class="container">
             <div class="row">
             <!-- end /.col-md-12 -->
