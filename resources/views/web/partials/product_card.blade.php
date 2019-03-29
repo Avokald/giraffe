@@ -8,7 +8,7 @@
                 }
                 @endphp
             @if (isset($sale_value) && $sale_value > 0)
-                <div class="s-promotion">{{ number_format($sale_value, 0) }}%</div>
+                <div class="s-promotion">-{{ number_format($sale_value, 0) }}%</div>
             @endif
             <figure>
                 <img src="{{ $product->logo->url ?? '' }}" alt="{{ $product->logo->alt ?? '' }}" class="img-fluid">
@@ -39,7 +39,7 @@
                 @endif
             </ul>
             <div class="texz">
-                <p>{{ $product->description ?? $product->description_short }}</p>
+                {!! $product->description ?? $product->description_short !!}
             </div>
             <ul class="product-facts clearfix">
                 <li class="price">

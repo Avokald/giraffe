@@ -18,7 +18,7 @@
                         @endif
                         <div class="borzx__content">
                             <div class="borzx__name">{{ $service->name }}</div>
-                            <div class="borzx__text">{{ $service->description_short }}</div>
+                            <div class="borzx__text">{!!  $service->description_short !!}</div>
                             <a href="" class="borzx__btn btn btn-lg btn-primary">{{ $phrases->where('slug', 'hook-up')->first()->value ?? '' }}</a>
                         </div>
                     </div>
