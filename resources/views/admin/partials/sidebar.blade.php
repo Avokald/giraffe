@@ -5,6 +5,13 @@
         <div class="side-content">
             <ul class="nav-main">
                 <li>
+                    <a class="nav-submenu" data-toggle="nav-submenu">Пользователи</a>
+                    <ul>
+                        <li><a href="{{ route('admin.users.index') }}">Список</a></li>
+                        <li><a href="{{ route('admin.users.create') }}">Добавить</a></li>
+                    </ul>
+                </li>
+                <li>
                     <a class="nav-submenu" data-toggle="nav-submenu">Сервисы</a>
                     <ul>
                         <li><a href="{{ route('admin.services.index') }}">Список</a></li>

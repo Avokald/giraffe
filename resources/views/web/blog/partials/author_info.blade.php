@@ -1,7 +1,9 @@
 {{-- TODO Update User's data --}}
 <div class="author_info">
     <div class="author__img">
-        <img src="{{ $blogpost->author->photo }}" alt="Author Image">
+        <img src="/public/images/authi.jpg"
+        {{--{{ $blogpost->author->photo }}--}}
+        alt="Author Image">
     </div>
 
     <div class="author__info">

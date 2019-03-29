@@ -142,6 +142,8 @@
 
     <div id="map" data-lat="{{ $page->getElementByName("lat")->values ?? '25' }}" data-lng="{{ $page->getElementByName("lng")->values ?? '25' }}"></div>
     <!-- end /.map -->
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDxflHHc5FlDVI-J71pO7hM1QJNW1dRp4U"></script>
 @endsection
 
+@push('scripts')
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxflHHc5FlDVI-J71pO7hM1QJNW1dRp4U"></script>
+@endpush

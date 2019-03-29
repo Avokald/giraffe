@@ -232,7 +232,7 @@
                         <div class="card-content">
                             <div class="form-group">
                                 <div class="col-xs-12">
-                                    <textarea name="description_short" style="min-width: 100%;" >{{
+                                    <textarea name="description_short" style="min-width: 100%;"  id="description_short_editor">{{
                                         $service->description_short
                                     }}</textarea>
                                 </div>
@@ -315,6 +315,13 @@
 @push('script')
     ClassicEditor
         .create(document.querySelector("#description_long_editor"), {
+            extraPlugins: [ MyCustomUploadAdapterPlugin ],
+        })
+        .catch( error => {
+            console.error( error );
+        });
+    ClassicEditor
+        .create(document.querySelector("#description_short_editor"), {
             extraPlugins: [ MyCustomUploadAdapterPlugin ],
         })
         .catch( error => {

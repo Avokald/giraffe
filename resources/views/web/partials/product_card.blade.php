@@ -3,12 +3,12 @@
     <div class="product-single latest-single">
         <div class="product-thumb">
                 @php
-                    if ($product->price_month && $product->price_year) {
+                    if ($product->services && $product->price_month && $product->price_year) {
                     $sale_value = ($product->price_month * 12  - $product->price_year) / ($product->price_month * 12) * 100;
                 }
                 @endphp
             @if (isset($sale_value) && $sale_value > 0)
-                <div class="s-promotion">{{ number_format($sale_value, 0) }}%</div>
+                <div class="s-promotion">-{{ number_format($sale_value, 0) }}%</div>
             @endif
             <figure>
                 <img src="{{ $product->logo->url ?? '' }}" alt="{{ $product->logo->alt ?? '' }}" class="img-fluid">
@@ -39,7 +39,7 @@
                 @endif
             </ul>
             <div class="texz">
-                <p>{{ $product->description ?? $product->description_short }}</p>
+                {!! $product->description ?? $product->description_short !!}
             </div>
             <ul class="product-facts clearfix">
                 <li class="price">

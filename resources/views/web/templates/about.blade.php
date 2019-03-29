@@ -103,22 +103,22 @@
                         <div class="counter warning">
                             <span class="icon-briefcase"></span>
                             <span class="count_up">{{ $page->getElementByName("products_for_sale_count")->values ?? '' }}</span>
-                            <p>Вещи на продажу</p>
+                            <p>{{ $phrases->where('slug', 'items-for-sale')->first()->value ?? '' }}</p>
                         </div>
                         <div class="counter info">
                             <span class="icon-basket"></span>
                             <span class="count_up">{{ $page->getElementByName("products_bought_count")->values ?? '' }}</span>
-                            <p>Тотальная распродажа</p>
+                            <p>{{ $phrases->where('slug', 'total-sale')->first()->value ?? '' }}</p>
                         </div>
                         <div class="counter secondary">
                             <span class="icon-emotsmile"></span>
                             <span class="count_up">{{ $page->getElementByName("happy_customer_count")->values ?? '' }}</span>
-                            <p>Счастливые клиенты</p>
+                            <p>{{ $phrases->where('slug', 'happy-customers')->first()->value ?? '' }}</p>
                         </div>
                         <div class="counter danger">
                             <span class="icon-people"></span>
                             <span class="count_up">{{ $page->getElementByName("customer_count")->values ?? '' }}</span>
-                            <p>Члены</p>
+                            <p>{{ $phrases->where('slug', 'company-customers')->first()->value ?? '' }}</p>
                         </div>
                     </div>
                 </div><!-- end /.col-md-12 -->

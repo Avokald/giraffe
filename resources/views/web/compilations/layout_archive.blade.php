@@ -65,5 +65,5 @@
         START Product Grid
     =================================-->
 
-    @include('web.partials.promotion')
+    {{--@include('web.partials.promotion')--}}
 @endsection

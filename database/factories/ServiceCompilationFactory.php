@@ -18,7 +18,14 @@ $factory->define(App\ServiceCompilation::class, function (Faker $faker) {
 $factory->state(App\ServiceCompilation::class, 'test', function(Faker $faker) {
     return [
         'name' => 'Compilation name',
-        'description' => 'Compilation description',
+        'description' => '<p>Идейные соображения высшего порядка, а также новая модель организационной деятельности позволяет выполнять важные задания по разработке систем массовогоучастия. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности в значительной степени обуславливает создание существенных
+<ol>
+    <li>Six different themes for product slider</li>
+    <li>Featured products slider form selected categories.</li>
+    <li>Product slider form specific categories of products. Include or exclude categories.</li>
+    <li>Product slider form specific tags of products. Include or exclude tags. New</li>
+</ol>
+При использовании данной подборки вы экономите 20% от стоимости данных продуктов по одиночке.',
         'price_month' => 10000,
         'price_year'  => 100000,
         'category_id' => 1,

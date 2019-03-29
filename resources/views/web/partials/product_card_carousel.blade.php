@@ -31,7 +31,7 @@
             @endif
         </ul>
         <div class="texz">
-            <p>{{ $product->description ?? $product->description_short }}</p>
+            <p>{!! $product->description ?? $product->description_short !!}</p>
         </div>
         <ul class="product-facts clearfix">
             <li class="price">{{ $product->price_month }}</li>
