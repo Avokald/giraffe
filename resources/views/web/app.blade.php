@@ -29,20 +29,18 @@
     <link rel="stylesheet" href="/public/css/venobox.css">
     <link rel="stylesheet" href="/public/style.css">
     <link rel="stylesheet" href="/public/css/new.css">
+    @stack('styles')
     <!-- endinject -->
 </head>
 
 <body class="home1 mutlti-vendor">
 
-{{-- TODO Insert data --}}
 @section('header')
     @include('web.partials.header')
 @show
 
 @yield('content')
 
-
-{{-- TODO Insert data --}}
 @section('footer')
     @include('web.partials.footer')
 @show
@@ -69,6 +67,8 @@
 <script src="/public/js/vendor/venobox.min.js"></script>
 <script src="/public/js/vendor/waypoints.min.js"></script>
 <script src="/public/js/dashboard.js"></script>
+
+@stack('scripts')
 <script src="/public/js/main.js"></script>
 <script src="/public/js/map.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js"></script>
@@ -82,6 +82,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    @stack('script')
 </script>
 </body>
 </html>
