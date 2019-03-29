@@ -3,7 +3,7 @@
     <div class="product-single latest-single">
         <div class="product-thumb">
                 @php
-                    if ($product->price_month && $product->price_year) {
+                    if ($product->services && $product->price_month && $product->price_year) {
                     $sale_value = ($product->price_month * 12  - $product->price_year) / ($product->price_month * 12) * 100;
                 }
                 @endphp

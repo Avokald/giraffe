@@ -28,7 +28,8 @@ class PagesTableSeeder extends Seeder
         $contactsPage = Page::create([
             'name' => 'Contacts',
             'slug' => 'contacts',
-            'content' => 'For the glory',
+            'content' => '<h1>How can we help?</h1>
+                          <p>Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats. Lid est laborum dolo rumes fugats untras.</p>',
             'template' => 'web.templates.contacts',
         ]);
 

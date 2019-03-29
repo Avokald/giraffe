@@ -39,18 +39,17 @@ class PhrasesTableSeeder extends Seeder
         ]);
 
         // About
-        $watchVideoButtonText = Phrase::create([
+        Phrase::create([
             'slug' => 'watch-video-button-text',
             'value' => 'Смотреть видео',
         ]);
 
-        $joinUsButtonText= Phrase::create([
+        Phrase::create([
             'slug' => 'join-us-button-text',
-            'value' => 'Присоединяйтесь к нам сегодня fff ббб фф ууыы зуйцу ! ывф ыфв аааАааАааА',
+            'value' => 'Присоединяйтесь к нам сегодня',
         ]);
 
-
-        $namePlaceholder= Phrase::create([
+        Phrase::create([
             'slug' => 'name-placeholder',
             'value' => 'Ваше имя',
         ]);
@@ -60,10 +59,33 @@ class PhrasesTableSeeder extends Seeder
 //            'value' => 'Ваша почта',
 //        ]);
 
-        $textareaPlaceholder= Phrase::create([
+        Phrase::create([
             'slug' => 'textarea-placeholder',
             'value' => 'Ваше сообщение',
         ]);
+
+
+        Phrase::create([
+            'slug' => 'items-for-sale',
+            'value' => 'Вещи на продажу',
+        ]);
+
+        Phrase::create([
+            'slug' => 'total-sale',
+            'value' => 'Тотальная распродажа',
+        ]);
+
+        Phrase::create([
+            'slug' => 'happy-customers',
+            'value' => 'Счастливые клиенты',
+        ]);
+
+        Phrase::create([
+            'slug' => 'company-customers',
+            'value' => 'Члены',
+        ]);
+
+
 
 
         // Compilations
