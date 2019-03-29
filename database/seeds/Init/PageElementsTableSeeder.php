@@ -20,9 +20,13 @@ class PageElementsTableSeeder extends Seeder
             'page_element_type_id' => 2,
         ]);
 
+        $banner_image = factory(\App\Image::class)->create([
+            'url' => asset('images/hero-image01.png'),
+        ]);
+
         $banner = PageElement::create([
             'name' => 'banner',
-            'values' => '1',
+            'values' => $banner_image->id,
             'page_id' => 1,
             'page_element_type_id' => 6,
         ]);
@@ -164,9 +168,13 @@ class PageElementsTableSeeder extends Seeder
 
 
         // About
+        $aboutBannerImage = factory(\App\Image::class)->create([
+            'url' => asset('images/about_hero.jpg'),
+        ]);
+
         $banner = PageElement::create([
             'name' => 'banner',
-            'values' => '1',
+            'values' => $aboutBannerImage->id,
             'page_id' => 3,
             'page_element_type_id' => 6,
         ]);
@@ -180,11 +188,8 @@ class PageElementsTableSeeder extends Seeder
 
         $partnersDescription = App\PageElement::create([
             'name' => 'partners_description',
-            'values' => '<h1>Мы представлены на</h1><p>Laborum dolo rumes fugats untras. </p>',
-            /*
-                'Etharums ser quidem rerum facilis dolores nemis omnis fugats. ' .
-                'Lid est laborum dolo rumes fugats untras.1</p>'
-            */
+            'values' => '<h1>Мы представлены на</h1>
+                         <p>Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats. Lid est laborum dolo rumes fugats untras.</p>',
             'page_id' => 3,
             'page_element_type_id' => 2,
         ]);
@@ -205,21 +210,28 @@ class PageElementsTableSeeder extends Seeder
 
         $membersDescription = App\PageElement::create([
             'name' => 'members_description',
-            'values' => '<h1>Команда SoftBox1</h1><p>Laborum dolo rumes fugats untras. </p>',
+            'values' => '<h1>Команда SoftBox1</h1>
+                         <p>Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats. Lid est laborum dolo rumes fugats untras.</p>',
             'page_id' => 3,
             'page_element_type_id' => 2,
         ]);
 
+        $rightImageObject = factory(\App\Image::class)->create([
+            'url' => asset('images/ab1.jpg'),
+        ]);
         $rightImage = PageElement::create([
             'name' => 'right_image_block',
-            'values' => '1',
+            'values' => $rightImageObject->id,
             'page_id' => 3,
             'page_element_type_id' => 6
         ]);
 
+        $leftImageObject = factory(\App\Image::class)->create([
+            'url' => asset('images/ab2.jpg'),
+        ]);
         $leftImage = PageElement::create([
             'name' => 'left_image_block',
-            'values' => '1',
+            'values' => $leftImageObject->id,
             'page_id' => 3,
             'page_element_type_id' => 6
         ]);
@@ -227,7 +239,9 @@ class PageElementsTableSeeder extends Seeder
         $rightText = PageElement::create([
             'name' => 'right_text_block',
             'values' => '<h1>О <span>SoftBox</span></h1>' .
-                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler ',
+                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler isque the mattis, leo quam aliquet congue this there placerat mi id nisi they interdum mollis. Praesent pharetra justo ut sceleris que the mattis. </p> 
+                 <p></p>
+                 <p>Leo quam aliquet. Nunc placer atmi id nisi interdum mollis quam. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt sanctus est Lorem ipsum dolor sit amet consetetur sadipscing.</p>',
             'page_id' => 3,
             'page_element_type_id' => 2,
         ]);
@@ -235,7 +249,9 @@ class PageElementsTableSeeder extends Seeder
         $leftText = PageElement::create([
             'name' => 'left_text_block',
             'values' => '<h1><span>Миссия</span> SoftBox</h1>' .
-                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler</p>',
+                '<p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra justo ut sceler isque the mattis, leo quam aliquet congue this there placerat mi id nisi they interdum mollis. Praesent pharetra justo ut sceleris que thes. </p>
+                 <p></p>
+                 <p>Mattis leo quam aliquet. Nunc placer atmi id nisi interdum mollis quam. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt sanctus est Lorem ipsum dolor sit amet consetetur sadipscing.</p>',
             'page_id' => 3,
             'page_element_type_id' => 2,
         ]);
@@ -269,30 +285,100 @@ class PageElementsTableSeeder extends Seeder
         ]);
 
 
+        $partner_image = factory(\App\Image::class)->create([
+            'url' => asset('images/cl02.png'),
+        ]);
         $partners = PageElement::create([
             'name' => 'partners',
             'values' => [
-                ['partner' => 1],
-                ['partner' => 1],
-                ['partner' => 1],
+                ['partner' => $partner_image->id],
+                ['partner' => $partner_image->id],
+                ['partner' => $partner_image->id],
+                ['partner' => $partner_image->id],
+                ['partner' => $partner_image->id],
             ],
             'page_id' => 3,
-            'page_element_type_id' => 3
+            'page_element_type_id' => 3,
         ]);
 
+        $memeber_image = factory(\App\Image::class)->create([
+            "url" => asset('images/team1.jpg'),
+        ]);
         $members = PageElement::create([
             'name' => 'members',
             'values' => [
-                ["member" => ["name"=> "Aibek", "profile_picture" => '1', "position" => "php",  "email" => "a@b.c",
-                    "twitter" => "#", "facebook" => "#", "basket" => "#",]],
-                ["member" => ["name" => "aa",   "profile_picture" => '1', "position" => "bb",   "email" => "cc",
-                    "twitter" => "#", "facebook" => "#", "basket" => "#",]],
-                ["member" => ["name" => "11",   "profile_picture" => '1', "position" => "22",   "email" => "33",
-                    "twitter" => "#", "facebook" => "#", "basket" => "#",]],
-                ["member" => ["name" => "999",  "profile_picture" => '1', "position" => "888",  "email" => "777",
-                    "twitter" => "#", "facebook" => "#", "basket" => "#",]],
-                ["member" => ["name" => "new",  "profile_picture" => '1', "position"=> "sdsd", "email"=> "asdasd",
-                    "twitter" => "#", "facebook" => "#", "basket" => "#",]]
+                ["member" => [
+                    "name"=> "Дуглус Хунду",
+                    "profile_picture" => $memeber_image->id,
+                    "position" => "Генеральный директор и основатель",
+                    "email" => "a@b.c",
+                    "twitter" => "#",
+                    "facebook" => "#",
+                    "basket" => "#",
+                ]],
+                ["member" => [
+                    "name" => "Мет киммел",
+                    "profile_picture" => $memeber_image->id,
+                    "position" => "Менеджер проектов",
+                    "email" => "cc",
+                    "twitter" => "#",
+                    "facebook" => "#",
+                    "basket" => "#",
+                ]],
+                ["member" => [
+                    "name" => "Джейсон Боун",
+                    "profile_picture" => $memeber_image->id,
+                    "position" => "Веб-разработчик",
+                    "email" => "33",
+                    "twitter" => "#",
+                    "facebook" => "#",
+                    "basket" => "#",
+                ]],
+                ["member" => [
+                    "name" => "Бин Дайзел",
+                    "profile_picture" => $memeber_image->id,
+                    "position" => "UI / UX Developer",
+                    "email" => "777",
+                    "twitter" => "#",
+                    "facebook" => "#",
+                    "basket" => "#",
+                ]],
+                ["member" => [
+                    "name" => "Бон Доу",
+                    "profile_picture" => $memeber_image->id,
+                    "position"=> "Веб-разработчик",
+                    "email"=> "asdasd",
+                    "twitter" => "#",
+                    "facebook" => "#",
+                    "basket" => "#",
+                ]],
+                ["member" => [
+                    "name" => "Джон Смит",
+                    "profile_picture" => $memeber_image->id,
+                    "position"=> "Front-end Developer",
+                    "email"=> "asdasd",
+                    "twitter" => "#",
+                    "facebook" => "#",
+                    "basket" => "#",
+                ]],
+                ["member" => [
+                    "name" => "Кевин Пери",
+                    "profile_picture" => $memeber_image->id,
+                    "position"=> "PHP разработчик",
+                    "email"=> "asdasd",
+                    "twitter" => "#",
+                    "facebook" => "#",
+                    "basket" => "#",
+                ]],
+                ["member" => [
+                    "name" => "Кевин Морган",
+                    "profile_picture" => $memeber_image->id,
+                    "position"=> "Младший дизайнер",
+                    "email"=> "asdasd",
+                    "twitter" => "#",
+                    "facebook" => "#",
+                    "basket" => "#",
+                ]],
             ],
             'page_id' => 3,
             'page_element_type_id' => 3,
